@@ -71,12 +71,12 @@ export default function RouteOverview() {
                   <p className="text-gray-700 mb-2 text-sm font-medium">{route.name?.en}</p>
                   <p className="text-sm text-gray-600 mb-4">{route.description?.en}</p>
                   <div className="text-sm bg-gray-50 rounded-lg p-3">
-                    <div className="flex justify-between mb-2">
-                      <span className="font-medium text-gray-700">First Bus:</span>
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="font-medium text-gray-700 whitespace-nowrap">First Bus:</span>
                       <span className="text-gray-900 font-semibold">{firstTime}</span>
                     </div>
-                    <div className="flex justify-between">
-                      <span className="font-medium text-gray-700">Last Bus:</span>
+                    <div className="flex justify-between items-center">
+                      <span className="font-medium text-gray-700 whitespace-nowrap">Last Bus:</span>
                       <span className="text-gray-900 font-semibold">{lastTime}</span>
                     </div>
                   </div>
