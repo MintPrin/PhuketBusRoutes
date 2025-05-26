@@ -69,7 +69,7 @@ export default function RouteOverview() {
                     <h3 className="text-lg font-bold text-gray-900 leading-tight">Route {route.routeId}</h3>
                   </div>
                   <p className="text-gray-700 mb-3 text-sm font-medium leading-tight">{route.name?.en}</p>
-                  <p className="text-sm text-gray-600 mb-4 leading-relaxed flex-grow">{route.description?.en}</p>
+                  <p className="text-sm text-gray-600 mb-4 leading-relaxed flex-grow min-h-[3rem] flex items-start">{route.description?.en}</p>
                   <div className="text-sm bg-gray-50 rounded-lg p-3 mt-auto">
                     <div className="flex justify-between items-center mb-2">
                       <span className="font-medium text-gray-700 whitespace-nowrap">First Bus:</span>
