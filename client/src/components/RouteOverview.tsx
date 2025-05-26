@@ -62,15 +62,15 @@ export default function RouteOverview() {
             
             return (
               <Card key={route.routeId} className={`shadow-lg border-l-4 ${getRouteColorClass(route.routeId)} hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1`}>
-                <CardContent className="p-4 relative overflow-hidden">
+                <CardContent className="p-4 relative overflow-hidden flex flex-col h-full">
                   <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-transparent to-blue-50 rounded-bl-full"></div>
                   <div className="flex items-center mb-3">
-                    <div className={`w-5 h-5 ${getRouteIndicatorClass(route.routeId)} rounded-full mr-3 shadow-md`}></div>
-                    <h3 className="text-lg font-bold text-gray-900">Route {route.routeId}</h3>
+                    <div className={`w-5 h-5 ${getRouteIndicatorClass(route.routeId)} rounded-full mr-3 shadow-md flex-shrink-0`}></div>
+                    <h3 className="text-lg font-bold text-gray-900 leading-tight">Route {route.routeId}</h3>
                   </div>
-                  <p className="text-gray-700 mb-2 text-sm font-medium">{route.name?.en}</p>
-                  <p className="text-sm text-gray-600 mb-4">{route.description?.en}</p>
-                  <div className="text-sm bg-gray-50 rounded-lg p-3">
+                  <p className="text-gray-700 mb-3 text-sm font-medium leading-tight">{route.name?.en}</p>
+                  <p className="text-sm text-gray-600 mb-4 leading-relaxed flex-grow">{route.description?.en}</p>
+                  <div className="text-sm bg-gray-50 rounded-lg p-3 mt-auto">
                     <div className="flex justify-between items-center mb-2">
                       <span className="font-medium text-gray-700 whitespace-nowrap">First Bus:</span>
                       <span className="text-gray-900 font-semibold">{firstTime}</span>
