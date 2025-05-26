@@ -66,7 +66,9 @@ export default function RouteOverview() {
                   <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-transparent to-blue-50 rounded-bl-full"></div>
                   <div className="flex items-center mb-3">
                     <div className={`w-5 h-5 ${getRouteIndicatorClass(route.routeId)} rounded-full mr-3 shadow-md flex-shrink-0`}></div>
-                    <h3 className="text-lg font-bold text-gray-900 leading-tight">Route {route.routeId}</h3>
+                    <h3 className="text-lg font-bold text-gray-900 leading-tight">
+                      Route {route.routeId}{route.routeId === 'P1' ? ' / Route 8357' : ''}
+                    </h3>
                   </div>
                   <p className="text-gray-700 mb-3 text-sm font-medium leading-tight">{route.name?.en}</p>
                   <p className="text-sm text-gray-600 mb-4 leading-relaxed flex-grow min-h-[3rem] flex items-start">{route.description?.en}</p>
