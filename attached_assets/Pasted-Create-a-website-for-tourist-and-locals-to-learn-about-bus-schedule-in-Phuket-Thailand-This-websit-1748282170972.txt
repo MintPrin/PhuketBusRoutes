@@ -1,0 +1,109 @@
+Create a website for tourist and locals to learn about bus schedule in Phuket, Thailand. This website will be in English at first but set it up so that it is easy to add a second or third language later. The design should be cool, dynamic but also still formal - think tropical island but professional.
+
+There are three main bus route from the airport to various areas in Phuket. The details of the name, the time table (from Phuket Airport), and the route are as follows:
+
+## Route P1 / Route 8357 / Smart Bus (Light Blue)
+Route:
+สนามบินภูเก็ต | Phuket International Airport
+สำนักงานสาธารณสุขถลาง | Thalang Public Health Office
+โรงเรียนเชิงทะเลวัทยาคมฯ | Cherng Thalay Wittayakom School
+เทสโก้โลตัสเชิงทะเล | Tesco Lotus Cherngtalay
+หาดสุรินทร์ | Surin Beach
+ภูเก็ตแฟนตาซี | Phuket Fantasea
+บิ๊กซีกมลา | Big C Kamala
+การไฟฟ้าป่าตอง | Patong Provincial Electricity Authority
+วงเวียนกะรน | Karon Circle
+กะตะไนท์พลาซ่า | Kata Night Plaza
+หาดราไวย์ | Rawai Beach
+
+Time Table (Leaving the airport):
+08:15
+09:00
+10:00
+11:00
+12:00
+13:00
+14:00
+14:30
+15:00
+16:00
+16:30
+17:00
+18:00
+19:00
+20:00
+21:00
+22:00
+22:40
+23:30
+
+
+## Route P2 / Route 8411 / Airport Bus to Town (Orange)
+Route:
+สนามบินภูเก็ต | Phuket International Airport
+หาดในยาง | Naiyang Beach
+อำเภอถลาง | Thalang
+อนุเสาวรีย์ | Monument
+โบ๊ทลากูน | Boat Lagoon
+บายพาส | Bypass
+เซ็นทรัล-บิ๊กซี-โลตั๊ส | Central-Big C-Lotus
+สนามสุระกุล | Surakul Stadium
+เขารัง | Rung Hill
+เมืองภูเก็ต | Phuket Town
+บขส.1 | Phuket Bus Terminal 1
+
+Time Table (Leaving the airport):
+06:30
+08:30
+09:30
+10:30
+11:30
+12:30
+13:30
+14:30
+15:30
+16:00
+17:00
+18:00
+19:00
+19:45
+20:30
+21:15
+22:00
+22:30
+
+
+## Route P3 / Airport Bus Express (Dark Blue)
+Route:
+สนามบินภูเก็ต | Phuket International Airport
+เมืองใหม่ | Muang Mai
+บ้านเคียน | Baan Kean
+บ้านพอน | Baan Pon
+อนุเสาวรีย์ | Monument
+โบ๊ทลากูน | Boat Lagoon
+โลตัส | Lotus
+กะทู้ | Kathu
+ป่าตอง | Patong
+กะรน | Karon
+กะตะ | Kata
+
+Time Table (Leaving the airport):
+08:45
+09:45
+10:45
+11:45
+12:45
+13:45
+14:45
+15:45
+16:45
+17:45
+18:45
+19:45
+20:45
+
+It would be good to include a visualization of where things are on the map - better have it pinned on Google map.
+
+Also have a tool that the user input a location and it output the best bus route to take and where to get off at.
+
+Ask me any clarifying questions to create the best website for the purpose of helping people who is coming to Phuket, who is doing research of commuting via bus be informed.
