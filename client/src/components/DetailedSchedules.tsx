@@ -73,7 +73,7 @@ export default function DetailedSchedules() {
     <section className="py-8 bg-gray-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-center mb-6">Complete Bus Schedules</h2>
-        
+
         <div className="space-y-6">
           {routes.map((route: BusRoute) => (
             <Card key={route.routeId} className="shadow-lg overflow-hidden">
@@ -90,16 +90,16 @@ export default function DetailedSchedules() {
                   </div>
                 </div>
               </div>
-              
+
               <CardContent className="p-4">
-                <div className="grid lg:grid-cols-2 gap-6">
+                <div className="grid lg:grid-cols-2 gap-6 lg:min-h-[300px]">
                   {/* Route Stops */}
-                  <div>
+                  <div className="flex flex-col">
                     <h4 className="text-base font-semibold mb-3 flex items-center text-gray-900">
                       <Route className="w-4 h-4 mr-2 text-ocean" />
                       Route Stops
                     </h4>
-                    <div className="space-y-2">
+                    <div className="flex-1 space-y-2">
                       {(route.stops as BusStop[])?.map((stop, index) => (
                         <div key={index} className="flex items-center p-2 bg-gray-50 rounded-lg">
                           <div className={`w-2 h-2 ${getRouteStopClass(route.routeId)} rounded-full mr-3 flex-shrink-0`}></div>
@@ -111,18 +111,18 @@ export default function DetailedSchedules() {
                       ))}
                     </div>
                   </div>
-                  
+
                   {/* Departure Times */}
-                  <div>
+                  <div className="flex flex-col">
                     <h4 className="text-base font-semibold mb-3 flex items-center text-gray-900">
                       <Clock className="w-4 h-4 mr-2 text-ocean" />
                       Departure Times (from Airport)
                     </h4>
-                    <div className="grid grid-cols-4 gap-2">
+                    <div className="flex-1 grid grid-cols-2 gap-2 content-start">
                       {route.times?.map((time, index) => (
                         <div 
                           key={index} 
-                          className={`${getRouteTimeClass(route.routeId)} px-2 py-1 rounded text-center font-medium text-xs`}
+                          className={`${getRouteTimeClass(route.routeId)} px-3 py-2 rounded text-center font-medium text-sm h-fit`}
                         >
                           {time}
                         </div>
@@ -130,7 +130,7 @@ export default function DetailedSchedules() {
                     </div>
                   </div>
                 </div>
-              </CardContent>
+</CardContent>
             </Card>
           ))}
         </div>
