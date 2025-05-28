@@ -1,14 +1,22 @@
 import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Route, Clock } from "lucide-react";
+import { Route, Clock, AlertTriangle } from "lucide-react";
 import { getAllRoutes } from "@/lib/routePlanning";
+import DirectionSelector from "@/components/DirectionSelector";
 import type { BusRoute, BusStop } from "@/data/routes";
 
 export default function DetailedSchedules() {
+  const [selectedDirections, setSelectedDirections] = useState<Record<string, 'outbound' | 'inbound'>>({});
+  
   const { data: routes = [], isLoading } = useQuery({
     queryKey: ["/api/routes"],
     queryFn: () => getAllRoutes(),
   });
+
+  const handleDirectionChange = (routeId: string, direction: 'outbound' | 'inbound') => {
+    setSelectedDirections(prev => ({ ...prev, [routeId]: direction }));
+  };
 
   if (isLoading) {
     return (
@@ -92,6 +100,15 @@ export default function DetailedSchedules() {
               </div>
 
               <CardContent className="p-4">
+                {/* Direction Selector */}
+                {route.schedules && (
+                  <DirectionSelector
+                    route={route}
+                    selectedDirection={selectedDirections[route.routeId] || 'outbound'}
+                    onDirectionChange={(direction) => handleDirectionChange(route.routeId, direction)}
+                  />
+                )}
+
                 <div className="grid lg:grid-cols-2 gap-6 lg:min-h-[300px]">
                   {/* Route Stops */}
                   <div className="flex flex-col">
@@ -114,20 +131,66 @@ export default function DetailedSchedules() {
 
                   {/* Departure Times */}
                   <div className="flex flex-col">
-                    <h4 className="text-base font-semibold mb-3 flex items-center text-gray-900">
-                      <Clock className="w-4 h-4 mr-2 text-ocean" />
-                      Departure Times (from Airport)
-                    </h4>
-                    <div className="flex-1 grid grid-cols-2 gap-2 content-start">
-                      {route.times?.map((time, index) => (
-                        <div 
-                          key={index} 
-                          className={`${getRouteTimeClass(route.routeId)} px-3 py-2 rounded text-center font-medium text-sm h-fit`}
-                        >
-                          {time}
-                        </div>
-                      ))}
-                    </div>
+                    {(() => {
+                      // Handle both old and new data structures
+                      if (route.schedules) {
+                        const selectedDirection = selectedDirections[route.routeId] || 'outbound';
+                        const schedule = route.schedules[selectedDirection];
+                        
+                        return (
+                          <>
+                            <h4 className="text-base font-semibold mb-3 flex items-center text-gray-900">
+                              <Clock className="w-4 h-4 mr-2 text-ocean" />
+                              Departure Times
+                            </h4>
+                            
+                            {schedule?.available ? (
+                              <div className="flex-1 grid grid-cols-2 gap-2 content-start">
+                                {schedule.times.map((time: string, index: number) => (
+                                  <div 
+                                    key={index} 
+                                    className={`${getRouteTimeClass(route.routeId)} px-3 py-2 rounded text-center font-medium text-sm h-fit`}
+                                  >
+                                    {time}
+                                  </div>
+                                ))}
+                              </div>
+                            ) : (
+                              <div className="flex-1 flex items-center justify-center">
+                                <div className="text-center p-6 bg-gray-50 rounded-lg border border-gray-200">
+                                  <AlertTriangle className="w-8 h-8 text-amber-500 mx-auto mb-2" />
+                                  <p className="text-gray-600 font-medium">Schedule Not Available Yet</p>
+                                  <p className="text-sm text-gray-500 mt-1">
+                                    We're working to get the departure times for this direction. Check back soon!
+                                  </p>
+                                </div>
+                              </div>
+                            )}
+                          </>
+                        );
+                      } else {
+                        // Fallback for old data structure
+                        const times = (route as any).times || [];
+                        return (
+                          <>
+                            <h4 className="text-base font-semibold mb-3 flex items-center text-gray-900">
+                              <Clock className="w-4 h-4 mr-2 text-ocean" />
+                              Departure Times (from Airport)
+                            </h4>
+                            <div className="flex-1 grid grid-cols-2 gap-2 content-start">
+                              {times.map((time: string, index: number) => (
+                                <div 
+                                  key={index} 
+                                  className={`${getRouteTimeClass(route.routeId)} px-3 py-2 rounded text-center font-medium text-sm h-fit`}
+                                >
+                                  {time}
+                                </div>
+                              ))}
+                            </div>
+                          </>
+                        );
+                      }
+                    })()}
                   </div>
                 </div>
 </CardContent>

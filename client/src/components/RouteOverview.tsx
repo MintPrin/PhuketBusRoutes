@@ -57,8 +57,9 @@ export default function RouteOverview() {
         </div>
         <div className="grid md:grid-cols-3 gap-4">
           {routes.map((route: BusRoute) => {
-            const firstTime = route.times?.[0] || '--';
-            const lastTime = route.times?.[route.times.length - 1] || '--';
+            const outboundSchedule = route.schedules?.outbound;
+            const firstTime = outboundSchedule?.times?.[0] || '--';
+            const lastTime = outboundSchedule?.times?.[outboundSchedule.times.length - 1] || '--';
             
             return (
               <Card key={route.routeId} className={`shadow-lg border-l-4 ${getRouteColorClass(route.routeId)} hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1`}>
