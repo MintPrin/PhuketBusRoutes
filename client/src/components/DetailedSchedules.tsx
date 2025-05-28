@@ -9,6 +9,30 @@ import type { BusRoute, BusStop } from "@/data/routes";
 export default function DetailedSchedules() {
   const [selectedDirections, setSelectedDirections] = useState<Record<string, 'outbound' | 'inbound'>>({});
   
+  // Function to get Google Maps search term for a stop
+  const getGoogleMapsSearchTerm = (stopName: string): string => {
+    // Special mapping for stops that need different search terms
+    const searchMappings: Record<string, string> = {
+      'Central-Big C-Lotus': 'Central Festival Phuket',
+      'Tesco Lotus Cherngtalay': 'Tesco Lotus Cherng Talay Phuket',
+      'Big C Kamala': 'Big C Kamala Phuket',
+      'Karon Circle': 'Karon Circle Phuket',
+      'Kata Night Plaza': 'Kata Night Plaza Phuket',
+      'Surakul Stadium': 'Surakul Stadium Phuket Town',
+      'Rung Hill': 'Khao Rang Hill Phuket',
+      'Patong Provincial Electricity Authority': 'Patong Provincial Electricity Authority Phuket'
+    };
+    
+    return searchMappings[stopName] || `${stopName} Phuket`;
+  };
+
+  // Function to open Google Maps
+  const openGoogleMaps = (stopName: string) => {
+    const searchTerm = getGoogleMapsSearchTerm(stopName);
+    const url = `https://maps.google.com/search/${encodeURIComponent(searchTerm)}`;
+    window.open(url, '_blank');
+  };
+  
   const { data: routes = [], isLoading } = useQuery({
     queryKey: ["/api/routes"],
     queryFn: () => getAllRoutes(),
@@ -141,10 +165,15 @@ export default function DetailedSchedules() {
                           : stops;
                         
                         return displayStops?.map((stop, index) => (
-                          <div key={`${selectedDirection}-${index}`} className="relative flex items-center p-2 bg-gray-50 rounded-lg">
+                          <div 
+                            key={`${selectedDirection}-${index}`} 
+                            className="relative flex items-center p-2 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors duration-200 group"
+                            onClick={() => openGoogleMaps(stop.en)}
+                            title={`View ${stop.en} on Google Maps`}
+                          >
                             {/* Route progression indicator */}
                             <div className="flex flex-col items-center mr-3 flex-shrink-0">
-                              <div className={`w-3 h-3 ${getRouteStopClass(route.routeId)} rounded-full border-2 border-white shadow-sm z-10`}></div>
+                              <div className={`w-3 h-3 ${getRouteStopClass(route.routeId)} rounded-full border-2 border-white shadow-sm z-10 group-hover:scale-110 transition-transform duration-200`}></div>
                               {index < displayStops.length - 1 && (
                                 <div className={`w-0.5 h-4 ${getRouteStopClass(route.routeId)} mt-1`}></div>
                               )}
@@ -152,7 +181,8 @@ export default function DetailedSchedules() {
                             <div className="flex-grow">
                               <div className="flex items-center">
                                 <span className="text-xs font-bold text-gray-500 mr-2">#{index + 1}</span>
-                                <p className="font-medium text-gray-900 text-sm">{stop.en}</p>
+                                <p className="font-medium text-gray-900 text-sm group-hover:text-blue-600 transition-colors duration-200">{stop.en}</p>
+                                <ExternalLink className="w-3 h-3 ml-2 text-gray-400 group-hover:text-blue-500 opacity-0 group-hover:opacity-100 transition-all duration-200" />
                               </div>
                               <p className="text-xs text-gray-600 ml-6">{stop.th}</p>
                             </div>
