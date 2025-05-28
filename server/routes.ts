@@ -93,10 +93,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
         exitStop
       });
 
+      // Get next departure time from current schedule
+      const nextDeparture = getNextDeparture(bestRoute.schedules?.outbound?.times || bestRoute.times || []);
+      
       const recommendation = {
         route: bestRoute,
         boardingStop,
         exitStop,
+        nextDeparture,
         estimatedFare,
         confidence
       };
