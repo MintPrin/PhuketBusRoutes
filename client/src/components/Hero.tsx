@@ -1,33 +1,4 @@
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Search } from "lucide-react";
-import { useQuery } from "@tanstack/react-query";
-import { getAllStops } from "@/lib/routePlanning";
-
 export default function Hero() {
-  const [origin, setOrigin] = useState("Phuket Airport");
-  const [destination, setDestination] = useState("");
-
-  const { data: stops = [] } = useQuery({
-    queryKey: ["/api/stops"],
-    queryFn: () => getAllStops(),
-  });
-
-  const handleSearch = () => {
-    if (destination.trim()) {
-      const element = document.getElementById('route-planner');
-      element?.scrollIntoView({ behavior: 'smooth' });
-      
-      // Trigger route planning with the selected values
-      const event = new CustomEvent('heroSearch', { 
-        detail: { origin, destination } 
-      });
-      window.dispatchEvent(event);
-    }
-  };
 
   return (
     <section className="relative py-12 overflow-hidden">
@@ -57,52 +28,7 @@ export default function Hero() {
             Complete bus schedule and route information from Phuket Airport to all major destinations
           </p>
           
-          {/* Quick Search */}
-          <div className="bg-gradient-to-br from-white via-blue-50 to-blue-100 rounded-xl p-6 max-w-3xl mx-auto shadow-2xl border border-white/20">
-            <h2 className="text-gray-900 text-lg font-semibold mb-4 flex items-center justify-center">
-              <Search className="w-5 h-5 mr-2 text-ocean" />
-              Find Your Route
-            </h2>
-            <div className="grid md:grid-cols-3 gap-4">
-              <div>
-                <Label className="block text-sm font-medium text-gray-700 mb-2">From</Label>
-                <Select value={origin} onValueChange={setOrigin}>
-                  <SelectTrigger className="w-full border-2 border-gray-200 focus:border-ocean">
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="Phuket Airport">Phuket International Airport</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-              <div>
-                <Label className="block text-sm font-medium text-gray-700 mb-2">To</Label>
-                <Input 
-                  type="text" 
-                  placeholder="Enter destination..." 
-                  value={destination}
-                  onChange={(e) => setDestination(e.target.value)}
-                  className="w-full border-2 border-gray-200 focus:border-ocean"
-                  list="destinations"
-                />
-                <datalist id="destinations">
-                  {stops.map((stop, index) => (
-                    <option key={index} value={stop} />
-                  ))}
-                </datalist>
-              </div>
-              <div className="flex items-end">
-                <Button 
-                  onClick={handleSearch}
-                  className="w-full bg-ocean hover:bg-blue-700 text-white font-semibold py-3 shadow-lg transform hover:scale-105 transition-all duration-200"
-                  disabled={!destination.trim()}
-                >
-                  <Search className="w-4 h-4 mr-2" />
-                  Search Routes
-                </Button>
-              </div>
-            </div>
-          </div>
+
         </div>
       </div>
     </section>
