@@ -55,9 +55,30 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
   body {
     @apply font-sans antialiased bg-background text-foreground;
     font-family: 'Inter', sans-serif;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: none;
+    touch-action: manipulation;
+  }
+
+  /* Better mobile scrolling */
+  .scroll-container {
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+  }
+
+  /* Prevent zoom on double tap */
+  input, select, textarea, button {
+    touch-action: manipulation;
   }
 }
 
