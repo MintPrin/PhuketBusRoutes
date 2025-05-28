@@ -50,7 +50,20 @@ export class MemStorage implements IStorage {
           { en: "Kata Night Plaza", th: "กะตะไนท์พลาซ่า" },
           { en: "Rawai Beach", th: "หาดราไวย์" }
         ],
-        times: ["08:15", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "14:30", "15:00", "16:00", "16:30", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "22:40", "23:30"]
+        schedules: {
+          outbound: {
+            times: ["08:15", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "14:30", "15:00", "16:00", "16:30", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "22:40", "23:30"],
+            origin: "Phuket International Airport",
+            destination: "Beach Areas (Surin, Patong, Karon, Kata, Rawai)",
+            available: true
+          },
+          inbound: {
+            times: [],
+            origin: "Beach Areas",
+            destination: "Phuket International Airport",
+            available: false
+          }
+        }
       },
       {
         routeId: "P2",
@@ -76,7 +89,20 @@ export class MemStorage implements IStorage {
           { en: "Phuket Town", th: "เมืองภูเก็ต" },
           { en: "Phuket Bus Terminal 1", th: "บขส.1" }
         ],
-        times: ["06:30", "08:30", "09:30", "10:30", "11:30", "12:30", "13:30", "14:30", "15:30", "16:00", "17:00", "18:00", "19:00", "19:45", "20:30", "21:15", "22:00", "22:30"]
+        schedules: {
+          outbound: {
+            times: ["06:30", "08:30", "09:30", "10:30", "11:30", "12:30", "13:30", "14:30", "15:30", "16:00", "17:00", "18:00", "19:00", "19:45", "20:30", "21:15", "22:00", "22:30"],
+            origin: "Phuket International Airport",
+            destination: "Phuket Town via Central areas",
+            available: true
+          },
+          inbound: {
+            times: ["05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "15:45", "16:15", "17:00", "17:45", "18:30", "19:15", "20:00"],
+            origin: "Phuket Bus Terminal 1",
+            destination: "Phuket International Airport",
+            available: true
+          }
+        }
       },
       {
         routeId: "P3",
@@ -102,7 +128,20 @@ export class MemStorage implements IStorage {
           { en: "Karon", th: "กะรน" },
           { en: "Kata", th: "กะตะ" }
         ],
-        times: ["08:45", "09:45", "10:45", "11:45", "12:45", "13:45", "14:45", "15:45", "16:45", "17:45", "18:45", "19:45", "20:45"]
+        schedules: {
+          outbound: {
+            times: ["08:45", "09:45", "10:45", "11:45", "12:45", "13:45", "14:45", "15:45", "16:45", "17:45", "18:45", "19:45", "20:45"],
+            origin: "Phuket International Airport",
+            destination: "Patong, Karon, Kata (Express)",
+            available: true
+          },
+          inbound: {
+            times: [],
+            origin: "Kata/Karon/Patong",
+            destination: "Phuket International Airport",
+            available: false
+          }
+        }
       }
     ];
 

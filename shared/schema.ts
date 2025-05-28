@@ -8,7 +8,7 @@ export const busRoutes = pgTable("bus_routes", {
   name: jsonb("name").notNull(), // {en: string, th: string}
   color: text("color").notNull(),
   stops: jsonb("stops").notNull(), // Array of {en: string, th: string}
-  times: jsonb("times").notNull(), // Array of string times
+  schedules: jsonb("schedules").notNull(), // {outbound: {times: string[], origin: string, destination: string}, inbound?: {times: string[], origin: string, destination: string}}
   description: jsonb("description").notNull(), // {en: string, th: string}
 });
 

@@ -3,6 +3,13 @@ export interface BusStop {
   th: string;
 }
 
+export interface BusSchedule {
+  times: string[];
+  origin: string;
+  destination: string;
+  available: boolean;
+}
+
 export interface BusRoute {
   id: string;
   routeId: string;
@@ -16,7 +23,10 @@ export interface BusRoute {
     th: string;
   };
   stops: BusStop[];
-  times: string[];
+  schedules: {
+    outbound: BusSchedule;
+    inbound?: BusSchedule;
+  };
 }
 
 export interface RouteRecommendation {
