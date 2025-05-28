@@ -64,50 +64,39 @@
   body {
     @apply font-sans antialiased bg-background text-foreground;
     font-family: 'Inter', sans-serif;
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior-y: auto;
     overflow-x: hidden;
-  }
-
-  /* Enhanced momentum scrolling */
-  @supports (-webkit-overflow-scrolling: touch) {
-    body, #root {
-      -webkit-overflow-scrolling: touch;
-    }
-  }
-
-  /* Better momentum for mobile scrolling */
-  body {
-    scroll-behavior: auto;
   }
 
   /* Better mobile scrolling without breaking navigation */
   #root {
     min-height: 100vh;
     overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
   }
 
-  /* Enhanced momentum scrolling for better feel */
-  @media (max-width: 768px) {
-    html, body {
-      overscroll-behavior: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-    
-    * {
-      -webkit-transform: translate3d(0,0,0);
-      transform: translate3d(0,0,0);
-    }
-  }
-
-  /* More natural scrolling */
+  /* Natural momentum scrolling like native apps */
   html {
-    scroll-behavior: smooth;
     scroll-padding-top: 5rem;
   }
 
+  /* Smooth but not jarring navigation */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    html:focus-within {
+      scroll-behavior: smooth;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  /* Better mobile momentum - remove all interference */
+  @media (max-width: 768px) {
     html {
       scroll-behavior: auto;
     }
