@@ -2,10 +2,7 @@ import { Globe, Route } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Navigation() {
-  const scrollToRoutePlanner = () => {
-    const element = document.getElementById('route-planner');
-    element?.scrollIntoView({ behavior: 'smooth' });
-  };
+
 
   return (
     <nav className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
@@ -24,14 +21,7 @@ export default function Navigation() {
               <Globe className="w-4 h-4 mr-1" />
               EN
             </Button>
-            <Button 
-              onClick={scrollToRoutePlanner}
-              className="bg-ocean text-white hover:bg-teal transition-colors flex items-center"
-              size="sm"
-            >
-              <Route className="w-4 h-4 mr-2" />
-              Plan Route
-            </Button>
+
           </div>
         </div>
       </div>
