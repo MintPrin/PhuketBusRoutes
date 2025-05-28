@@ -49,72 +49,45 @@ export async function registerRoutes(app: Express): Promise<Server> {
       for (const route of allRoutes) {
         const stops = route.stops as Array<{en: string, th: string}>;
         
-        // Find origin stop with robust matching
-        const originMatch = stops.find(stop => {
-          const stopName = stop.en.toLowerCase();
-          const originLower = origin.toLowerCase();
+        // Helper function to match stops with multiple variations
+        function matchStop(input: string, stopName: string): boolean {
+          const inputLower = input.toLowerCase().trim();
+          const stopLower = stopName.toLowerCase().trim();
           
-          // Normalize airport variations
-          const normalizedOrigin = originLower
-            .replace('phuket international airport', 'airport')
-            .replace('phuket airport', 'airport')
-            .replace('international airport', 'airport');
+          // Exact match
+          if (inputLower === stopLower) return true;
           
-          const normalizedStop = stopName
-            .replace('phuket international airport', 'airport')
-            .replace('international airport', 'airport');
+          // Airport variations
+          const airportVariations = ['airport', 'phuket airport', 'phuket international airport', 'international airport'];
+          const isInputAirport = airportVariations.some(variation => 
+            inputLower.includes(variation) || inputLower === variation
+          );
+          const isStopAirport = stopLower.includes('airport');
+          if (isInputAirport && isStopAirport) return true;
           
-          // Check if normalized versions match
-          if (normalizedStop.includes(normalizedOrigin) || normalizedOrigin.includes(normalizedStop)) {
-            return true;
+          // Terminal variations  
+          const terminalVariations = ['terminal', 'bus terminal', 'phuket bus terminal', 'terminal 1', 'bus terminal 1', 'phuket bus terminal 1'];
+          const isInputTerminal = terminalVariations.some(variation => 
+            inputLower.includes(variation) || inputLower === variation
+          );
+          const isStopTerminal = stopLower.includes('terminal');
+          if (isInputTerminal && isStopTerminal) return true;
+          
+          // Beach and location matching
+          const locations = ['patong', 'karon', 'kata', 'town', 'surin', 'kamala', 'rawai'];
+          for (const location of locations) {
+            if (inputLower.includes(location) && stopLower.includes(location)) return true;
           }
           
-          // Direct airport matching
-          if ((originLower.includes('airport') || originLower === 'airport') && 
-              stopName.includes('airport')) {
-            return true;
-          }
+          // Partial matching for other cases
+          if (stopLower.includes(inputLower) || inputLower.includes(stopLower)) return true;
           
           return false;
-        });
-
-        // Find destination stop with robust matching
-        const destinationMatch = stops.find(stop => {
-          const stopName = stop.en.toLowerCase();
-          const destLower = destination.toLowerCase();
-          
-          // Normalize terminal variations
-          const normalizedDest = destLower
-            .replace('phuket bus terminal 1', 'terminal')
-            .replace('bus terminal 1', 'terminal')
-            .replace('bus terminal', 'terminal');
-          
-          const normalizedStop = stopName
-            .replace('phuket bus terminal 1', 'terminal')
-            .replace('bus terminal 1', 'terminal')
-            .replace('bus terminal', 'terminal');
-          
-          // Check if normalized versions match
-          if (normalizedStop.includes(normalizedDest) || normalizedDest.includes(normalizedStop)) {
-            return true;
-          }
-          
-          // Direct terminal matching
-          if ((destLower.includes('terminal') || destLower === 'terminal') && 
-              stopName.includes('terminal')) {
-            return true;
-          }
-          
-          // Beach and town matching
-          if ((destLower.includes('patong') && stopName.includes('patong')) ||
-              (destLower.includes('karon') && stopName.includes('karon')) ||
-              (destLower.includes('kata') && stopName.includes('kata')) ||
-              (destLower.includes('town') && stopName.includes('town'))) {
-            return true;
-          }
-          
-          return false;
-        });
+        }
+        
+        // Find matching stops
+        const originMatch = stops.find(stop => matchStop(origin, stop.en));
+        const destinationMatch = stops.find(stop => matchStop(destination, stop.en));
 
         // Both origin and destination must be on the route
         if (originMatch && destinationMatch) {
