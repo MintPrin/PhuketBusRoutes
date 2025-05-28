@@ -1,23 +1,42 @@
 
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect width="512" height="512" rx="90" fill="#0066CC"/>
+  <defs>
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4A90E2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E6BB8;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background with rounded corners -->
+  <rect width="512" height="512" rx="90" fill="url(#blueGradient)"/>
+  
+  <!-- Bus icon -->
   <g fill="white">
-    <!-- Bus icon -->
-    <rect x="128" y="128" width="256" height="160" rx="24" stroke="white" stroke-width="8" fill="none"/>
-    <rect x="144" y="144" width="224" height="32" rx="8" fill="white"/>
-    <rect x="144" y="192" width="224" height="80" rx="8" fill="white"/>
+    <!-- Main bus body -->
+    <rect x="140" y="100" width="232" height="140" rx="20" fill="white"/>
+    
+    <!-- Bus top window -->
+    <rect x="160" y="120" width="192" height="24" rx="8" fill="#1E6BB8"/>
+    
+    <!-- Bus main window -->
+    <rect x="160" y="156" width="192" height="60" rx="8" fill="#1E6BB8"/>
+    
+    <!-- Bus front grille -->
+    <rect x="160" y="225" width="48" height="8" rx="4" fill="#1E6BB8"/>
+    <rect x="304" y="225" width="48" height="8" rx="4" fill="#1E6BB8"/>
     
     <!-- Bus wheels -->
-    <circle cx="176" cy="320" r="24" fill="#0066CC"/>
-    <circle cx="336" cy="320" r="24" fill="#0066CC"/>
+    <circle cx="180" cy="280" r="20" fill="white" stroke="#1E6BB8" stroke-width="6"/>
+    <circle cx="332" cy="280" r="20" fill="white" stroke="#1E6BB8" stroke-width="6"/>
+    <circle cx="180" cy="280" r="8" fill="#1E6BB8"/>
+    <circle cx="332" cy="280" r="8" fill="#1E6BB8"/>
     
-    <!-- Bus details -->
-    <rect x="160" y="208" width="32" height="16" rx="4" fill="#0066CC"/>
-    <rect x="320" y="208" width="32" height="16" rx="4" fill="#0066CC"/>
-    <rect x="200" y="240" width="112" height="8" rx="4" fill="#0066CC"/>
+    <!-- Bus doors -->
+    <rect x="218" y="156" width="2" height="60" fill="white"/>
+    <rect x="292" y="156" width="2" height="60" fill="white"/>
     
     <!-- Text -->
-    <text x="256" y="400" text-anchor="middle" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="white">PHUKET</text>
-    <text x="256" y="450" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white">BUS ROUTE</text>
+    <text x="256" y="360" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="white">PHUKET</text>
+    <text x="256" y="410" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="600" fill="white">BUS ROUTE</text>
   </g>
 </svg>
