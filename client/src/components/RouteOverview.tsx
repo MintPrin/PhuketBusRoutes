@@ -5,22 +5,17 @@ import type { BusRoute } from "@/data/routes";
 
 // Function to scroll to detailed schedules section
 const scrollToDetailedSchedules = (routeId: string) => {
-  // First scroll to the detailed schedules section
-  const detailedSection = document.querySelector('[data-section="detailed-schedules"]');
-  if (detailedSection) {
-    detailedSection.scrollIntoView({ behavior: 'smooth' });
+  // Find the specific route card and scroll to its top
+  const routeCard = document.querySelector(`[data-route-id="${routeId}"]`);
+  if (routeCard) {
+    routeCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
     
-    // Then highlight the specific route after a short delay
+    // Add a subtle highlight effect after scrolling
     setTimeout(() => {
-      const routeCard = document.querySelector(`[data-route-id="${routeId}"]`);
-      if (routeCard) {
-        routeCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        // Add a subtle highlight effect
-        routeCard.classList.add('ring-2', 'ring-blue-400', 'ring-opacity-75');
-        setTimeout(() => {
-          routeCard.classList.remove('ring-2', 'ring-blue-400', 'ring-opacity-75');
-        }, 3000);
-      }
+      routeCard.classList.add('ring-2', 'ring-blue-400', 'ring-opacity-75');
+      setTimeout(() => {
+        routeCard.classList.remove('ring-2', 'ring-blue-400', 'ring-opacity-75');
+      }, 3000);
     }, 500);
   }
 };
