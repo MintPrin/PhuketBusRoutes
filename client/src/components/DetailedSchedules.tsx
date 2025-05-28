@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Route, Clock, AlertTriangle } from "lucide-react";
+import { Route, Clock, AlertTriangle, ExternalLink } from "lucide-react";
 import { getAllRoutes } from "@/lib/routePlanning";
 import DirectionSelector from "@/components/DirectionSelector";
 import type { BusRoute, BusStop } from "@/data/routes";
@@ -86,16 +86,40 @@ export default function DetailedSchedules() {
           {routes.map((route: BusRoute) => (
             <Card key={route.routeId} className="shadow-lg overflow-hidden transition-all duration-300" data-route-id={route.routeId}>
               <div className={`${getRouteHeaderClass(route.routeId)} text-white p-4`}>
-                <div className="flex items-center">
-                  <div className="w-5 h-5 bg-white rounded-full mr-3"></div>
-                  <div>
-                    <h3 className="text-xl font-bold">
-                      Route {route.routeId} / {route.name?.en}
-                    </h3>
-                    <p className="text-white/90 text-sm">
-                      {route.description?.en}
-                    </p>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center">
+                    <div className="w-5 h-5 bg-white rounded-full mr-3"></div>
+                    <div>
+                      <h3 className="text-xl font-bold">
+                        Route {route.routeId} / {route.name?.en}
+                      </h3>
+                      <p className="text-white/90 text-sm">
+                        {route.description?.en}
+                      </p>
+                    </div>
                   </div>
+                  
+                  {/* Social Media Link */}
+                  {(() => {
+                    let facebookUrl = '';
+                    if (route.routeId === 'P1') facebookUrl = 'https://www.facebook.com/PhuketSmartBus';
+                    if (route.routeId === 'P2') facebookUrl = 'https://www.facebook.com/airportbusphuket/';
+                    
+                    return facebookUrl ? (
+                      <a
+                        href={facebookUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center text-white/80 hover:text-white text-xs bg-white/10 hover:bg-white/20 px-2 py-1 rounded-full transition-all duration-200"
+                        title="Follow for updates"
+                      >
+                        <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                        <ExternalLink className="w-2 h-2" />
+                      </a>
+                    ) : null;
+                  })()}
                 </div>
               </div>
 
