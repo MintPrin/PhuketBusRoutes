@@ -40,7 +40,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Get all routes for analysis
       const allRoutes = await storage.getAllBusRoutes();
       
-      // Simple route planning algorithm
+      // Enhanced route planning algorithm
       let bestRoute = null;
       let boardingStop = "";
       let exitStop = "";
@@ -49,28 +49,49 @@ export async function registerRoutes(app: Express): Promise<Server> {
       for (const route of allRoutes) {
         const stops = route.stops as Array<{en: string, th: string}>;
         
-        // Check if destination matches any stop
-        const destinationMatch = stops.find(stop => 
-          stop.en.toLowerCase().includes(destination.toLowerCase()) ||
-          destination.toLowerCase().includes(stop.en.toLowerCase().split(' ')[0].toLowerCase()) ||
-          stop.th.includes(destination)
-        );
+        // Find origin stop with flexible matching
+        const originMatch = stops.find(stop => {
+          const stopName = stop.en.toLowerCase();
+          const originLower = origin.toLowerCase();
+          
+          return stopName.includes(originLower) ||
+                 originLower.includes(stopName) ||
+                 stopName === originLower ||
+                 (originLower.includes('airport') && stopName.includes('airport')) ||
+                 (originLower.includes('international') && stopName.includes('international'));
+        });
 
-        if (destinationMatch) {
-          const currentConfidence = calculateConfidence(destination, destinationMatch);
-          if (currentConfidence > confidence) {
-            confidence = currentConfidence;
-            bestRoute = route;
-            exitStop = destinationMatch.en;
+        // Find destination stop with flexible matching
+        const destinationMatch = stops.find(stop => {
+          const stopName = stop.en.toLowerCase();
+          const destLower = destination.toLowerCase();
+          
+          return stopName.includes(destLower) ||
+                 destLower.includes(stopName) ||
+                 stopName === destLower ||
+                 (destLower.includes('terminal') && stopName.includes('terminal')) ||
+                 (destLower.includes('bus terminal') && stopName.includes('bus terminal')) ||
+                 (destLower.includes('patong') && stopName.includes('patong')) ||
+                 (destLower.includes('karon') && stopName.includes('karon')) ||
+                 (destLower.includes('kata') && stopName.includes('kata'));
+        });
+
+        // Both origin and destination must be on the route
+        if (originMatch && destinationMatch) {
+          const originIndex = stops.findIndex(stop => stop.en === originMatch.en);
+          const destIndex = stops.findIndex(stop => stop.en === destinationMatch.en);
+          
+          // Check if it's a valid journey (origin comes before destination)
+          if (originIndex < destIndex) {
+            const currentConfidence = calculateConfidence(destination, destinationMatch) + 
+                                    calculateConfidence(origin, originMatch);
             
-            // Find best boarding stop - must be an actual bus stop
-            const originMatch = stops.find(stop => 
-              stop.en.toLowerCase().includes(origin.toLowerCase()) ||
-              origin.toLowerCase().includes(stop.en.toLowerCase().split(' ')[0].toLowerCase()) ||
-              stop.th.includes(origin)
-            );
-            
-            boardingStop = originMatch ? originMatch.en : stops[0].en; // Default to airport if no match
+            if (currentConfidence > confidence) {
+              confidence = currentConfidence;
+              bestRoute = route;
+              boardingStop = originMatch.en;
+              exitStop = destinationMatch.en;
+            }
           }
         }
       }
