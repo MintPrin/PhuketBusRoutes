@@ -1,11 +1,4 @@
-import { Bus } from "lucide-react";
-import { Button } from "@/components/ui/button";
-
 export default function Footer() {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    element?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
     <footer className="bg-gray-900 text-white py-8">
@@ -24,37 +17,7 @@ export default function Footer() {
             </p>
           </div>
           
-          <div>
-            <h4 className="text-base font-semibold mb-3">Quick Links</h4>
-            <ul className="space-y-2">
-              <li>
-                <Button 
-                  variant="link" 
-                  className="text-gray-300 hover:text-white p-0 h-auto text-sm"
-                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                >
-                  Route Schedules
-                </Button>
-              </li>
-              <li>
-                <Button 
-                  variant="link" 
-                  className="text-gray-300 hover:text-white p-0 h-auto text-sm"
-                  onClick={() => scrollToSection('route-planner')}
-                >
-                  Route Planner
-                </Button>
-              </li>
-              <li>
-                <Button 
-                  variant="link" 
-                  className="text-gray-300 hover:text-white p-0 h-auto text-sm"
-                >
-                  Fare Information
-                </Button>
-              </li>
-            </ul>
-          </div>
+
         </div>
         
         <div className="border-t border-gray-700 mt-6 pt-4 text-center">
