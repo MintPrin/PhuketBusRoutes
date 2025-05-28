@@ -66,14 +66,37 @@ export async function registerRoutes(app: Express): Promise<Server> {
           const stopName = stop.en.toLowerCase();
           const destLower = destination.toLowerCase();
           
-          return stopName.includes(destLower) ||
-                 destLower.includes(stopName) ||
-                 stopName === destLower ||
-                 (destLower.includes('terminal') && stopName.includes('terminal')) ||
-                 (destLower.includes('bus terminal') && stopName.includes('bus terminal')) ||
-                 (destLower.includes('patong') && stopName.includes('patong')) ||
-                 (destLower.includes('karon') && stopName.includes('karon')) ||
-                 (destLower.includes('kata') && stopName.includes('kata'));
+          // Direct matches
+          if (stopName.includes(destLower) || destLower.includes(stopName) || stopName === destLower) {
+            return true;
+          }
+          
+          // Terminal matching
+          if ((destLower.includes('terminal') || destLower.includes('bus terminal')) && 
+              (stopName.includes('terminal') || stopName.includes('bus terminal'))) {
+            return true;
+          }
+          
+          // Beach destinations
+          if ((destLower.includes('patong') && stopName.includes('patong')) ||
+              (destLower.includes('karon') && stopName.includes('karon')) ||
+              (destLower.includes('kata') && stopName.includes('kata'))) {
+            return true;
+          }
+          
+          // Check individual words for better matching
+          const destWords = destLower.split(' ');
+          const stopWords = stopName.split(' ');
+          
+          for (const destWord of destWords) {
+            for (const stopWord of stopWords) {
+              if (destWord.length > 3 && stopWord.includes(destWord)) {
+                return true;
+              }
+            }
+          }
+          
+          return false;
         });
 
         // Both origin and destination must be on the route
