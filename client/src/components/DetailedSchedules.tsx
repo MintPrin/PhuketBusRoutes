@@ -78,13 +78,13 @@ export default function DetailedSchedules() {
   };
 
   return (
-    <section className="py-8 bg-gray-50">
+    <section className="py-8 bg-gray-50" data-section="detailed-schedules">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-center mb-6">Complete Bus Schedules</h2>
 
         <div className="space-y-6">
           {routes.map((route: BusRoute) => (
-            <Card key={route.routeId} className="shadow-lg overflow-hidden">
+            <Card key={route.routeId} className="shadow-lg overflow-hidden transition-all duration-300" data-route-id={route.routeId}>
               <div className={`${getRouteHeaderClass(route.routeId)} text-white p-4`}>
                 <div className="flex items-center">
                   <div className="w-5 h-5 bg-white rounded-full mr-3"></div>

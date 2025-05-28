@@ -3,6 +3,28 @@ import { Card, CardContent } from "@/components/ui/card";
 import { getAllRoutes } from "@/lib/routePlanning";
 import type { BusRoute } from "@/data/routes";
 
+// Function to scroll to detailed schedules section
+const scrollToDetailedSchedules = (routeId: string) => {
+  // First scroll to the detailed schedules section
+  const detailedSection = document.querySelector('[data-section="detailed-schedules"]');
+  if (detailedSection) {
+    detailedSection.scrollIntoView({ behavior: 'smooth' });
+    
+    // Then highlight the specific route after a short delay
+    setTimeout(() => {
+      const routeCard = document.querySelector(`[data-route-id="${routeId}"]`);
+      if (routeCard) {
+        routeCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // Add a subtle highlight effect
+        routeCard.classList.add('ring-2', 'ring-blue-400', 'ring-opacity-75');
+        setTimeout(() => {
+          routeCard.classList.remove('ring-2', 'ring-blue-400', 'ring-opacity-75');
+        }, 3000);
+      }
+    }, 500);
+  }
+};
+
 export default function RouteOverview() {
   const { data: routes = [], isLoading } = useQuery({
     queryKey: ["/api/routes"],
@@ -62,7 +84,11 @@ export default function RouteOverview() {
             const lastTime = outboundSchedule?.times?.[outboundSchedule.times.length - 1] || '--';
             
             return (
-              <Card key={route.routeId} className={`shadow-lg border-l-4 ${getRouteColorClass(route.routeId)} hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1`}>
+              <Card 
+                key={route.routeId} 
+                className={`shadow-lg border-l-4 ${getRouteColorClass(route.routeId)} hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer`}
+                onClick={() => scrollToDetailedSchedules(route.routeId)}
+              >
                 <CardContent className="p-4 relative overflow-hidden flex flex-col h-full">
                   <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-transparent to-blue-50 rounded-bl-full"></div>
                   <div className="flex items-center mb-3">

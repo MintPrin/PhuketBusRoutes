@@ -55,20 +55,20 @@ export default function DirectionSelector({ route, selectedDirection, onDirectio
           {selectedDirection === 'outbound' ? (
             <>
               <ArrowRight className="h-4 w-4 flex-shrink-0" />
-              <span className="text-center">
+              <span className="text-center flex items-center gap-1">
                 <span className="hidden sm:inline">Showing departures from </span>
                 <span className="font-semibold">{outbound.origin}</span>
-                <span className="mx-1">→</span>
+                <span className="flex items-center justify-center">→</span>
                 <span className="font-semibold">{outbound.destination}</span>
               </span>
             </>
           ) : (
             <>
               <ArrowLeft className="h-4 w-4 flex-shrink-0" />
-              <span className="text-center">
+              <span className="text-center flex items-center gap-1">
                 <span className="hidden sm:inline">Showing departures from </span>
                 <span className="font-semibold">{inbound?.origin}</span>
-                <span className="mx-1">←</span>
+                <span className="flex items-center justify-center">←</span>
                 <span className="font-semibold">{inbound?.destination}</span>
               </span>
             </>
