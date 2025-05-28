@@ -124,15 +124,6 @@ export default function DetailedSchedules() {
               </div>
 
               <CardContent className="p-4">
-                {/* Direction Selector */}
-                {route.schedules && (
-                  <DirectionSelector
-                    route={route}
-                    selectedDirection={selectedDirections[route.routeId] || 'outbound'}
-                    onDirectionChange={(direction) => handleDirectionChange(route.routeId, direction)}
-                  />
-                )}
-
                 <div className="grid lg:grid-cols-2 gap-6 lg:min-h-[300px]">
                   {/* Route Stops */}
                   <div className="flex flex-col">
@@ -172,10 +163,38 @@ export default function DetailedSchedules() {
                         
                         return (
                           <>
-                            <h4 className="text-base font-semibold mb-3 flex items-center text-gray-900">
-                              <Clock className="w-4 h-4 mr-2 text-ocean" />
-                              Departure Times
-                            </h4>
+                            <div className="flex items-center justify-between mb-3">
+                              <h4 className="text-base font-semibold flex items-center text-gray-900">
+                                <Clock className="w-4 h-4 mr-2 text-ocean" />
+                                Departure Times
+                              </h4>
+                              
+                              {/* Integrated Direction Toggle */}
+                              {route.schedules && route.schedules.inbound && (
+                                <div className="flex bg-gray-100 rounded-lg p-1">
+                                  <button
+                                    onClick={() => handleDirectionChange(route.routeId, 'outbound')}
+                                    className={`px-3 py-1 text-xs font-medium rounded transition-all duration-200 ${
+                                      (selectedDirections[route.routeId] || 'outbound') === 'outbound'
+                                        ? `${getRouteTimeClass(route.routeId)} shadow-sm`
+                                        : 'text-gray-600 hover:text-gray-800'
+                                    }`}
+                                  >
+                                    From Airport
+                                  </button>
+                                  <button
+                                    onClick={() => handleDirectionChange(route.routeId, 'inbound')}
+                                    className={`px-3 py-1 text-xs font-medium rounded transition-all duration-200 ${
+                                      selectedDirections[route.routeId] === 'inbound'
+                                        ? `${getRouteTimeClass(route.routeId)} shadow-sm`
+                                        : 'text-gray-600 hover:text-gray-800'
+                                    }`}
+                                  >
+                                    To Airport
+                                  </button>
+                                </div>
+                              )}
+                            </div>
                             
                             {schedule?.available ? (
                               <div className="flex-1 grid grid-cols-2 gap-2 content-start">
