@@ -65,15 +65,20 @@
     @apply font-sans antialiased bg-background text-foreground;
     font-family: 'Inter', sans-serif;
     -webkit-overflow-scrolling: touch;
-    overscroll-behavior-y: contain;
+    overscroll-behavior-y: auto;
     overflow-x: hidden;
   }
 
-  /* Mobile-specific scrolling improvements */
+  /* Enhanced momentum scrolling */
   @supports (-webkit-overflow-scrolling: touch) {
-    body {
+    body, #root {
       -webkit-overflow-scrolling: touch;
     }
+  }
+
+  /* Better momentum for mobile scrolling */
+  body {
+    scroll-behavior: auto;
   }
 
   /* Better mobile scrolling without breaking navigation */
@@ -81,6 +86,19 @@
     min-height: 100vh;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
+  }
+
+  /* Enhanced momentum scrolling for better feel */
+  @media (max-width: 768px) {
+    html, body {
+      overscroll-behavior: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    * {
+      -webkit-transform: translate3d(0,0,0);
+      transform: translate3d(0,0,0);
+    }
   }
 
   /* More natural scrolling */
