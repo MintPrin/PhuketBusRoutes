@@ -117,15 +117,24 @@ export default function DetailedSchedules() {
                       Route Stops
                     </h4>
                     <div className="flex-1 space-y-2">
-                      {(route.stops as BusStop[])?.map((stop, index) => (
-                        <div key={index} className="flex items-center p-2 bg-gray-50 rounded-lg">
-                          <div className={`w-2 h-2 ${getRouteStopClass(route.routeId)} rounded-full mr-3 flex-shrink-0`}></div>
-                          <div className="flex-grow">
-                            <p className="font-medium text-gray-900 text-sm">{stop.en}</p>
-                            <p className="text-xs text-gray-600">{stop.th}</p>
+                      {(() => {
+                        const selectedDirection = selectedDirections[route.routeId] || 'outbound';
+                        const stops = route.stops as BusStop[];
+                        // Reverse stops order for inbound direction
+                        const displayStops = route.schedules && selectedDirection === 'inbound' && route.schedules.inbound?.available 
+                          ? [...stops].reverse() 
+                          : stops;
+                        
+                        return displayStops?.map((stop, index) => (
+                          <div key={`${selectedDirection}-${index}`} className="flex items-center p-2 bg-gray-50 rounded-lg">
+                            <div className={`w-2 h-2 ${getRouteStopClass(route.routeId)} rounded-full mr-3 flex-shrink-0`}></div>
+                            <div className="flex-grow">
+                              <p className="font-medium text-gray-900 text-sm">{stop.en}</p>
+                              <p className="text-xs text-gray-600">{stop.th}</p>
+                            </div>
                           </div>
-                        </div>
-                      ))}
+                        ));
+                      })()}
                     </div>
                   </div>
 

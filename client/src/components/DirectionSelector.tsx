@@ -18,25 +18,29 @@ export default function DirectionSelector({ route, selectedDirection, onDirectio
         <SelectTrigger className="w-full max-w-md mx-auto">
           <SelectValue />
         </SelectTrigger>
-        <SelectContent>
+        <SelectContent className="w-[400px]">
           <SelectItem value="outbound">
-            <div className="flex items-center gap-2">
-              <ArrowRight className="h-4 w-4 text-blue-600" />
-              <span className="font-medium">{outbound.origin}</span>
-              <span className="text-gray-500">→</span>
-              <span className="font-medium">{outbound.destination}</span>
+            <div className="flex items-center gap-2 min-w-0">
+              <ArrowRight className="h-4 w-4 text-blue-600 flex-shrink-0" />
+              <div className="flex items-center gap-2 min-w-0">
+                <span className="font-medium truncate">{outbound.origin}</span>
+                <span className="text-gray-500 flex-shrink-0">→</span>
+                <span className="font-medium truncate">{outbound.destination}</span>
+              </div>
             </div>
           </SelectItem>
           {inbound && (
             <SelectItem value="inbound" disabled={!inbound.available}>
-              <div className="flex items-center gap-2">
-                <ArrowLeft className="h-4 w-4 text-orange-600" />
-                <span className="font-medium">{inbound.origin}</span>
-                <span className="text-gray-500">→</span>
-                <span className="font-medium">{inbound.destination}</span>
+              <div className="flex items-center gap-2 min-w-0">
+                <ArrowLeft className="h-4 w-4 text-orange-600 flex-shrink-0" />
+                <div className="flex items-center gap-2 min-w-0">
+                  <span className="font-medium truncate">{inbound.origin}</span>
+                  <span className="text-gray-500 flex-shrink-0">→</span>
+                  <span className="font-medium truncate">{inbound.destination}</span>
+                </div>
                 {!inbound.available && (
-                  <span className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full ml-2">
-                    Schedule Coming Soon
+                  <span className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full ml-2 flex-shrink-0">
+                    Coming Soon
                   </span>
                 )}
               </div>
