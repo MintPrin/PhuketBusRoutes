@@ -49,51 +49,68 @@ export async function registerRoutes(app: Express): Promise<Server> {
       for (const route of allRoutes) {
         const stops = route.stops as Array<{en: string, th: string}>;
         
-        // Find origin stop with flexible matching
+        // Find origin stop with robust matching
         const originMatch = stops.find(stop => {
           const stopName = stop.en.toLowerCase();
           const originLower = origin.toLowerCase();
           
-          return stopName.includes(originLower) ||
-                 originLower.includes(stopName) ||
-                 stopName === originLower ||
-                 (originLower.includes('airport') && stopName.includes('airport')) ||
-                 (originLower.includes('international') && stopName.includes('international'));
+          // Normalize airport variations
+          const normalizedOrigin = originLower
+            .replace('phuket international airport', 'airport')
+            .replace('phuket airport', 'airport')
+            .replace('international airport', 'airport');
+          
+          const normalizedStop = stopName
+            .replace('phuket international airport', 'airport')
+            .replace('international airport', 'airport');
+          
+          // Check if normalized versions match
+          if (normalizedStop.includes(normalizedOrigin) || normalizedOrigin.includes(normalizedStop)) {
+            return true;
+          }
+          
+          // Direct airport matching
+          if ((originLower.includes('airport') || originLower === 'airport') && 
+              stopName.includes('airport')) {
+            return true;
+          }
+          
+          return false;
         });
 
-        // Find destination stop with flexible matching
+        // Find destination stop with robust matching
         const destinationMatch = stops.find(stop => {
           const stopName = stop.en.toLowerCase();
           const destLower = destination.toLowerCase();
           
-          // Direct matches
-          if (stopName.includes(destLower) || destLower.includes(stopName) || stopName === destLower) {
+          // Normalize terminal variations
+          const normalizedDest = destLower
+            .replace('phuket bus terminal 1', 'terminal')
+            .replace('bus terminal 1', 'terminal')
+            .replace('bus terminal', 'terminal');
+          
+          const normalizedStop = stopName
+            .replace('phuket bus terminal 1', 'terminal')
+            .replace('bus terminal 1', 'terminal')
+            .replace('bus terminal', 'terminal');
+          
+          // Check if normalized versions match
+          if (normalizedStop.includes(normalizedDest) || normalizedDest.includes(normalizedStop)) {
             return true;
           }
           
-          // Terminal matching
-          if ((destLower.includes('terminal') || destLower.includes('bus terminal')) && 
-              (stopName.includes('terminal') || stopName.includes('bus terminal'))) {
+          // Direct terminal matching
+          if ((destLower.includes('terminal') || destLower === 'terminal') && 
+              stopName.includes('terminal')) {
             return true;
           }
           
-          // Beach destinations
+          // Beach and town matching
           if ((destLower.includes('patong') && stopName.includes('patong')) ||
               (destLower.includes('karon') && stopName.includes('karon')) ||
-              (destLower.includes('kata') && stopName.includes('kata'))) {
+              (destLower.includes('kata') && stopName.includes('kata')) ||
+              (destLower.includes('town') && stopName.includes('town'))) {
             return true;
-          }
-          
-          // Check individual words for better matching
-          const destWords = destLower.split(' ');
-          const stopWords = stopName.split(' ');
-          
-          for (const destWord of destWords) {
-            for (const stopWord of stopWords) {
-              if (destWord.length > 3 && stopWord.includes(destWord)) {
-                return true;
-              }
-            }
           }
           
           return false;
