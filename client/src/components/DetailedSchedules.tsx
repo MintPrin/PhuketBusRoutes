@@ -141,11 +141,20 @@ export default function DetailedSchedules() {
                           : stops;
                         
                         return displayStops?.map((stop, index) => (
-                          <div key={`${selectedDirection}-${index}`} className="flex items-center p-2 bg-gray-50 rounded-lg">
-                            <div className={`w-2 h-2 ${getRouteStopClass(route.routeId)} rounded-full mr-3 flex-shrink-0`}></div>
+                          <div key={`${selectedDirection}-${index}`} className="relative flex items-center p-2 bg-gray-50 rounded-lg">
+                            {/* Route progression indicator */}
+                            <div className="flex flex-col items-center mr-3 flex-shrink-0">
+                              <div className={`w-3 h-3 ${getRouteStopClass(route.routeId)} rounded-full border-2 border-white shadow-sm z-10`}></div>
+                              {index < displayStops.length - 1 && (
+                                <div className={`w-0.5 h-4 ${getRouteStopClass(route.routeId)} mt-1`}></div>
+                              )}
+                            </div>
                             <div className="flex-grow">
-                              <p className="font-medium text-gray-900 text-sm">{stop.en}</p>
-                              <p className="text-xs text-gray-600">{stop.th}</p>
+                              <div className="flex items-center">
+                                <span className="text-xs font-bold text-gray-500 mr-2">#{index + 1}</span>
+                                <p className="font-medium text-gray-900 text-sm">{stop.en}</p>
+                              </div>
+                              <p className="text-xs text-gray-600 ml-6">{stop.th}</p>
                             </div>
                           </div>
                         ));
