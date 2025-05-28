@@ -29,7 +29,7 @@ export default function DetailedSchedules() {
   // Function to open Google Maps
   const openGoogleMaps = (stopName: string) => {
     const searchTerm = getGoogleMapsSearchTerm(stopName);
-    const url = `https://maps.google.com/search/${encodeURIComponent(searchTerm)}`;
+    const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(searchTerm)}`;
     window.open(url, '_blank');
   };
   
