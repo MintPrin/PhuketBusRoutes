@@ -5,10 +5,17 @@ import type { BusRoute } from "@/data/routes";
 
 // Function to scroll to detailed schedules section
 const scrollToDetailedSchedules = (routeId: string) => {
-  // Find the specific route card and scroll to its top
+  // Find the specific route card and scroll to its top with navigation offset
   const routeCard = document.querySelector(`[data-route-id="${routeId}"]`);
   if (routeCard) {
-    routeCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const navHeight = 80; // Approximate height of navigation bar
+    const elementPosition = routeCard.getBoundingClientRect().top + window.pageYOffset;
+    const offsetPosition = elementPosition - navHeight;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
     
     // Add a subtle highlight effect after scrolling
     setTimeout(() => {
