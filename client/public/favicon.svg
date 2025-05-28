@@ -1,5 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <rect width="32" height="32" rx="6" fill="#0066CC"/>
-  <path d="M8 12h16v2H8v-2zm0 4h16v2H8v-2zm0 4h12v2H8v-2z" fill="white"/>
-  <circle cx="24" cy="20" r="3" fill="#FFA500"/>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="90" fill="#0066CC"/>
+  <g fill="white">
+    <!-- Bus icon -->
+    <rect x="128" y="128" width="256" height="160" rx="24" stroke="white" stroke-width="8" fill="none"/>
+    <rect x="144" y="144" width="224" height="32" rx="8" fill="white"/>
+    <rect x="144" y="192" width="224" height="80" rx="8" fill="white"/>
+    
+    <!-- Bus wheels -->
+    <circle cx="176" cy="320" r="24" fill="#0066CC"/>
+    <circle cx="336" cy="320" r="24" fill="#0066CC"/>
+    
+    <!-- Bus details -->
+    <rect x="160" y="208" width="32" height="16" rx="4" fill="#0066CC"/>
+    <rect x="320" y="208" width="32" height="16" rx="4" fill="#0066CC"/>
+    <rect x="200" y="240" width="112" height="8" rx="4" fill="#0066CC"/>
+    
+    <!-- Text -->
+    <text x="256" y="400" text-anchor="middle" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="white">PHUKET</text>
+    <text x="256" y="450" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="white">BUS ROUTE</text>
+  </g>
 </svg>
