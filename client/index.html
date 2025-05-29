@@ -24,7 +24,110 @@
     <meta name="twitter:description" content="Complete Phuket bus schedules from airport to Patong, Karon, Kata beaches and Phuket Town. Route P1, P2, P3 timetables, fares. Smart route planner for tourists and locals.">
 
     <!-- Schema.org structured data -->
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Phuket Bus Routes","description":"Complete Phuket bus schedules from airport to Patong, Karon, Kata beaches and Phuket Town. Route P1, P2, P3 timetables, fares. Smart route planner for tourists and locals.","url":"https://phuketbusroutes.com","potentialAction":{"@type":"SearchAction","target":"https://phuketbusroutes.com/?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Phuket Bus Routes",
+      "alternateName": "เส้นทางรถเมล์ภูเก็ต",
+      "description": "Complete Phuket bus schedules from airport to Patong, Karon, Kata beaches and Phuket Town. Route P1, P2, P3 timetables, fares. Smart route planner for tourists and locals.",
+      "url": "https://phuketbusroutes.com",
+      "inLanguage": ["en", "th"],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://phuketbusroutes.com/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
+      "about": {
+        "@type": "TransportationCompany",
+        "name": "Phuket Airport Bus Service",
+        "description": "Public transportation service connecting Phuket International Airport to major destinations",
+        "areaServed": {
+          "@type": "Place",
+          "name": "Phuket, Thailand",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 7.8804,
+            "longitude": 98.3923
+          }
+        },
+        "serviceType": "Bus Transportation",
+        "offers": {
+          "@type": "Offer",
+          "name": "Airport Bus Service",
+          "description": "Distance-based pricing with maximum fare of 100 THB",
+          "priceRange": "15-100 THB",
+          "priceCurrency": "THB"
+        }
+      },
+      "mainEntity": [
+        {
+          "@type": "BusRoute",
+          "name": "Route P1 - Smart Bus (Light Blue)",
+          "description": "Airport to Patong Beach via major stops",
+          "provider": {
+            "@type": "TransportationCompany",
+            "name": "Phuket Airport Bus"
+          },
+          "routeNumber": "P1",
+          "startLocation": {
+            "@type": "BusStation",
+            "name": "Phuket International Airport",
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 8.1132,
+              "longitude": 98.3169
+            }
+          },
+          "endLocation": {
+            "@type": "BusStation",
+            "name": "Patong Beach",
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 7.8967,
+              "longitude": 98.2964
+            }
+          }
+        },
+        {
+          "@type": "BusRoute",
+          "name": "Route P2 - Smart Bus (Orange)",
+          "description": "Airport to Karon and Kata beaches",
+          "provider": {
+            "@type": "TransportationCompany",
+            "name": "Phuket Airport Bus"
+          },
+          "routeNumber": "P2",
+          "startLocation": {
+            "@type": "BusStation",
+            "name": "Phuket International Airport"
+          },
+          "endLocation": {
+            "@type": "BusStation",
+            "name": "Kata Beach"
+          }
+        },
+        {
+          "@type": "BusRoute",
+          "name": "Route P3 - Smart Bus (Dark Blue)",
+          "description": "Airport to Phuket Town and Bus Terminal",
+          "provider": {
+            "@type": "TransportationCompany",
+            "name": "Phuket Airport Bus"
+          },
+          "routeNumber": "P3",
+          "startLocation": {
+            "@type": "BusStation",
+            "name": "Phuket International Airport"
+          },
+          "endLocation": {
+            "@type": "BusStation",
+            "name": "Phuket Bus Terminal"
+          }
+        }
+      ]
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Bai+Jamjuree:wght@300;400;500;600;700&display=swap" rel="stylesheet">

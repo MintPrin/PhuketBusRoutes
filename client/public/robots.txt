@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://phuketbusroutes.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Disallow admin or private areas if any exist in the future
+# Disallow: /admin/
+# Disallow: /api/
+
+# Allow all public routes including language variants
+Allow: /th/
+Allow: /api/routes

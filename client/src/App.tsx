@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { initSmoothScrolling } from "@/lib/smoothScroll";
 import { useEffect } from "react";
 import { getLanguageFromPath } from "@/i18n";
+import { useSEO } from "@/hooks/useSEO";
 import Home from "@/pages/home";
 import NotFound from "@/pages/not-found";
 
@@ -28,6 +29,9 @@ function Router() {
 function App() {
   const [location] = useLocation();
   const currentLanguage = getLanguageFromPath(location);
+  
+  // Initialize SEO optimization
+  useSEO();
 
   useEffect(() => {
     initSmoothScrolling();
