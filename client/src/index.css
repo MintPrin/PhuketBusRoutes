@@ -5,6 +5,10 @@
 :root {
   --background: 0 0% 100%; /* #FFFFFF */
   --foreground: 215 28% 17%; /* #1E293B */
+  
+  /* Font families */
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-thai: "Bai Jamjuree", "Inter", system-ui, -apple-system, sans-serif;
   --muted: 210 11% 96%; /* #F1F5F9 */
   --muted-foreground: 215 16% 47%; /* #64748B */
   --popover: 0 0% 100%; /* #FFFFFF */
@@ -105,6 +109,16 @@
   /* Better mobile touch handling */
   * {
     -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Thai font styling */
+  .font-thai {
+    font-family: var(--font-thai);
+  }
+
+  /* Apply Thai font when language is Thai */
+  [data-lang="th"] {
+    font-family: var(--font-thai);
   }
 
   /* Prevent zoom on form inputs */

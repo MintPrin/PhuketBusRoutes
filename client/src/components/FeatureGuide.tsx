@@ -1,19 +1,22 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { HelpCircle, MapPin, Clock, Route, Smartphone, Navigation, CreditCard } from "lucide-react";
+import { useTranslation } from "@/hooks/useTranslation";
 
 export default function HelpModal() {
+  const { t } = useTranslation();
+  
   return (
     <Dialog>
       <DialogTrigger asChild>
         <Button variant="ghost" size="sm" className="gap-2">
           <HelpCircle className="w-4 h-4" />
-          Help
+          {t('nav.help')}
         </Button>
       </DialogTrigger>
       <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-xl font-bold">How to Use Phuket Bus Routes</DialogTitle>
+          <DialogTitle className="text-xl font-bold">{t('help.title')}</DialogTitle>
         </DialogHeader>
         
         <div className="space-y-6">

@@ -42,7 +42,9 @@ export default function Navigation() {
 
   const handleLanguageSwitch = (newLanguage: 'en' | 'th') => {
     const currentPath = removeLanguagePrefix(location);
+    console.log('Current path after removing prefix:', currentPath);
     const newPath = getLocalizedPath(currentPath, newLanguage);
+    console.log('New path:', newPath);
     setLocation(newPath);
   };
 
