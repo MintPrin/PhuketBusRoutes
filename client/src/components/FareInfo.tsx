@@ -17,8 +17,8 @@ export default function FareInfo() {
                 <Coins className="text-white text-lg" />
               </div>
               <h3 className="text-lg font-semibold mb-2 text-gray-900">Distance-Based Pricing</h3>
-              <p className="text-gray-600 mb-3 text-sm">Fares calculated based on travel distance</p>
-              <div className="text-xl font-bold text-ocean">20-100 THB</div>
+              <p className="text-gray-600 mb-3 text-sm">Fare varies by distance traveled</p>
+              <div className="text-xl font-bold text-ocean">Max 100 THB</div>
             </CardContent>
           </Card>
           
