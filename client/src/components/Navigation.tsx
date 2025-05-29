@@ -1,11 +1,16 @@
 import { useState, useEffect } from "react";
 import { Globe, Route } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLocation } from "wouter";
+import { useTranslation } from "@/hooks/useTranslation";
+import { getLocalizedPath, removeLanguagePrefix } from "@/i18n";
 import HelpModal from "@/components/FeatureGuide";
 
 export default function Navigation() {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [location, setLocation] = useLocation();
+  const { t, language } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,6 +39,13 @@ export default function Navigation() {
     };
   }, [lastScrollY, isVisible]);
 
+  const handleLanguageSwitch = () => {
+    const currentPath = removeLanguagePrefix(location);
+    const newLanguage = language === 'en' ? 'th' : 'en';
+    const newPath = getLocalizedPath(currentPath, newLanguage);
+    setLocation(newPath);
+  };
+
   return (
     <nav className={`bg-white shadow-sm border-b border-gray-200 fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-in-out ${
       isVisible ? 'translate-y-0' : '-translate-y-full'
@@ -50,9 +62,14 @@ export default function Navigation() {
           </div>
           <div className="flex items-center space-x-4">
             <HelpModal />
-            <Button variant="ghost" size="sm" className="text-gray-700 hover:text-ocean">
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              className="text-gray-700 hover:text-ocean"
+              onClick={handleLanguageSwitch}
+            >
               <Globe className="w-4 h-4 mr-1" />
-              EN
+              {t('nav.language')}
             </Button>
           </div>
         </div>

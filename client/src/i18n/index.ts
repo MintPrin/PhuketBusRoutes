@@ -17,7 +17,7 @@ const checkMissingTranslations = (lang: Language): string[] => {
 };
 
 // Get translation with fallback to English
-export const getTranslation = (lang: Language, key: TranslationKeys): string | readonly string[] => {
+export const getTranslation = (lang: Language, key: TranslationKeys): string | string[] => {
   const translation = translations[lang]?.[key] ?? translations.en[key];
   
   // In development, warn about missing translations
@@ -25,7 +25,7 @@ export const getTranslation = (lang: Language, key: TranslationKeys): string | r
     console.warn(`Missing translation for "${key}" in language "${lang}"`);
   }
   
-  return translation;
+  return Array.isArray(translation) ? [...translation] : translation;
 };
 
 // Development helper to log all missing translations

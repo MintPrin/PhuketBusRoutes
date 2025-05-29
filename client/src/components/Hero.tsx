@@ -1,4 +1,7 @@
+import { useTranslation } from "@/hooks/useTranslation";
+
 export default function Hero() {
+  const { t } = useTranslation();
 
   return (
     <section className="relative py-12 overflow-hidden">

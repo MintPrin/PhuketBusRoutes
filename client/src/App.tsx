@@ -11,7 +11,14 @@ import NotFound from "@/pages/not-found";
 function Router() {
   return (
     <Switch>
+      {/* Default English routes */}
       <Route path="/" component={Home} />
+      
+      {/* Thai language routes */}
+      <Route path="/th" component={Home} />
+      <Route path="/th/" component={Home} />
+      
+      {/* 404 fallback */}
       <Route component={NotFound} />
     </Switch>
   );

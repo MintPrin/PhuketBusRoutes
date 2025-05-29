@@ -5,7 +5,7 @@ export const useTranslation = () => {
   const [location] = useLocation();
   const currentLanguage: Language = getLanguageFromPath(location);
 
-  const t = (key: TranslationKeys): string | readonly string[] => {
+  const t = (key: TranslationKeys): string | string[] => {
     return getTranslation(currentLanguage, key);
   };
 
