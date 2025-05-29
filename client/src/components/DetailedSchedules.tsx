@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Route, Clock, AlertTriangle, ExternalLink } from "lucide-react";
 import { getAllRoutes } from "@/lib/routePlanning";
+import { openGoogleMapsDirections } from "@/lib/googleMapsUtils";
 import DirectionSelector from "@/components/DirectionSelector";
 import type { BusRoute, BusStop } from "@/data/routes";
 
@@ -239,12 +240,15 @@ export default function DetailedSchedules() {
                             {schedule?.available ? (
                               <div className="flex-1 grid grid-cols-2 gap-2 content-start">
                                 {schedule.times.map((time: string, index: number) => (
-                                  <div 
+                                  <button 
                                     key={index} 
-                                    className={`${getRouteTimeClass(route.routeId)} px-3 py-2 rounded text-center font-medium text-sm h-fit`}
+                                    onClick={() => openGoogleMapsDirections(route.routeId, selectedDirection, time)}
+                                    className={`${getRouteTimeClass(route.routeId)} px-3 py-2 rounded text-center font-medium text-sm h-fit hover:opacity-90 transition-opacity cursor-pointer group`}
+                                    title={`Open directions in Google Maps for ${time} departure`}
                                   >
-                                    {time}
-                                  </div>
+                                    <span className="group-hover:underline">{time}</span>
+                                    <ExternalLink className="w-3 h-3 ml-1 inline opacity-0 group-hover:opacity-100 transition-opacity" />
+                                  </button>
                                 ))}
                               </div>
                             ) : (
@@ -271,12 +275,15 @@ export default function DetailedSchedules() {
                             </h4>
                             <div className="flex-1 grid grid-cols-2 gap-2 content-start">
                               {times.map((time: string, index: number) => (
-                                <div 
+                                <button 
                                   key={index} 
-                                  className={`${getRouteTimeClass(route.routeId)} px-3 py-2 rounded text-center font-medium text-sm h-fit`}
+                                  onClick={() => openGoogleMapsDirections(route.routeId, 'outbound', time)}
+                                  className={`${getRouteTimeClass(route.routeId)} px-3 py-2 rounded text-center font-medium text-sm h-fit hover:opacity-90 transition-opacity cursor-pointer group`}
+                                  title={`Open directions in Google Maps for ${time} departure`}
                                 >
-                                  {time}
-                                </div>
+                                  <span className="group-hover:underline">{time}</span>
+                                  <ExternalLink className="w-3 h-3 ml-1 inline opacity-0 group-hover:opacity-100 transition-opacity" />
+                                </button>
                               ))}
                             </div>
                           </>
