@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import { Card, CardContent } from "@/components/ui/card";
-import { getAllRoutes } from "@/lib/routePlanning";
 import type { BusRoute } from "@/data/routes";
 
 // Function to scroll to detailed schedules section

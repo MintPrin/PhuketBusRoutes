@@ -2,7 +2,6 @@ import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Route, Clock, AlertTriangle, ExternalLink } from "lucide-react";
-import { getAllRoutes } from "@/lib/routePlanning";
 import { openGoogleMapsDirections } from "@/lib/googleMapsUtils";
 import DirectionSelector from "@/components/DirectionSelector";
 import type { BusRoute, BusStop } from "@/data/routes";
@@ -36,7 +35,6 @@ export default function DetailedSchedules() {
   
   const { data: routes = [], isLoading } = useQuery({
     queryKey: ["/api/routes"],
-    queryFn: () => getAllRoutes(),
   });
 
   const handleDirectionChange = (routeId: string, direction: 'outbound' | 'inbound') => {
