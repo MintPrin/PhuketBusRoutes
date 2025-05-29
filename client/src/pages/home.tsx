@@ -10,11 +10,13 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
-      <Hero />
-      <RouteOverview />
-      <DetailedSchedules />
-      <FareInfo />
-      <Footer />
+      <div className="pt-16">
+        <Hero />
+        <RouteOverview />
+        <DetailedSchedules />
+        <FareInfo />
+        <Footer />
+      </div>
     </div>
   );
 }
