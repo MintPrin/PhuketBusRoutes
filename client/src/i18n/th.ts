@@ -16,7 +16,7 @@ export const th = {
   "routes.direction.from": "จากสนามบิน",
 
   // Detailed Schedules
-  "schedules.title": "ตารางเวลารถเมล์ครบถ้วน",
+  "schedules.title": "รายละเอียดตารางเวลารถบัส",
   "schedules.subtitle": "คลิกที่เวลาเพื่อดูเส้นทาง คลิกที่ป้ายรถบัสเพื่อดูตำแหน่ง",
 
   // Fare Information
