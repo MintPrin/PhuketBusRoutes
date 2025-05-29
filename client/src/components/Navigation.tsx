@@ -10,19 +10,16 @@ export default function Navigation() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      console.log('Scroll Y:', currentScrollY, 'Last:', lastScrollY, 'Visible:', isVisible);
       
       // Show navbar when scrolling up or at the top
       if (currentScrollY < lastScrollY || currentScrollY < 50) {
         if (!isVisible) {
-          console.log('Showing navbar');
           setIsVisible(true);
         }
       } 
       // Hide navbar when scrolling down and past threshold
       else if (currentScrollY > lastScrollY && currentScrollY > 100) {
         if (isVisible) {
-          console.log('Hiding navbar');
           setIsVisible(false);
         }
       }
