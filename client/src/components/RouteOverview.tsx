@@ -29,7 +29,6 @@ const scrollToDetailedSchedules = (routeId: string) => {
 export default function RouteOverview() {
   const { data: routes = [], isLoading } = useQuery({
     queryKey: ["/api/routes"],
-    queryFn: () => getAllRoutes(),
   });
 
   if (isLoading) {

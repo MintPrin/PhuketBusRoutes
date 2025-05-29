@@ -1,24 +1,18 @@
-import { busRoutes, routeRecommendations, type BusRoute, type InsertBusRoute, type RouteRecommendation, type InsertRouteRecommendation } from "@shared/schema";
+import { type BusRoute, type InsertBusRoute } from "@shared/schema";
 
 export interface IStorage {
   getAllBusRoutes(): Promise<BusRoute[]>;
   getBusRouteByRouteId(routeId: string): Promise<BusRoute | undefined>;
   createBusRoute(route: InsertBusRoute): Promise<BusRoute>;
-  createRouteRecommendation(recommendation: InsertRouteRecommendation): Promise<RouteRecommendation>;
-  getRecommendationHistory(): Promise<RouteRecommendation[]>;
 }
 
 export class MemStorage implements IStorage {
   private busRoutes: Map<number, BusRoute>;
-  private routeRecommendations: Map<number, RouteRecommendation>;
   private currentBusRouteId: number;
-  private currentRecommendationId: number;
 
   constructor() {
     this.busRoutes = new Map();
-    this.routeRecommendations = new Map();
     this.currentBusRouteId = 1;
-    this.currentRecommendationId = 1;
     
     // Initialize with the three main Phuket bus routes
     this.initializeRoutes();
@@ -163,21 +157,6 @@ export class MemStorage implements IStorage {
     const route: BusRoute = { ...insertRoute, id };
     this.busRoutes.set(id, route);
     return route;
-  }
-
-  async createRouteRecommendation(insertRecommendation: InsertRouteRecommendation): Promise<RouteRecommendation> {
-    const id = this.currentRecommendationId++;
-    const recommendation: RouteRecommendation = { 
-      ...insertRecommendation, 
-      id,
-      createdAt: new Date()
-    };
-    this.routeRecommendations.set(id, recommendation);
-    return recommendation;
-  }
-
-  async getRecommendationHistory(): Promise<RouteRecommendation[]> {
-    return Array.from(this.routeRecommendations.values());
   }
 }
 
