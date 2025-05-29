@@ -5,11 +5,13 @@ import DetailedSchedules from "@/components/DetailedSchedules";
 import FeatureGuide from "@/components/FeatureGuide";
 import FareInfo from "@/components/FareInfo";
 import Footer from "@/components/Footer";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
+      <Breadcrumbs />
       <div className="pt-16">
         <Hero />
         <RouteOverview />

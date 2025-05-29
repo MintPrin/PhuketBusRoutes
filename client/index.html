@@ -3,6 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    
+    <!-- Performance and SEO meta tags -->
+    <meta name="theme-color" content="#0ea5e9">
+    <meta name="msapplication-TileColor" content="#0ea5e9">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="format-detection" content="telephone=no">
     <title>Phuket Bus Routes & Schedules - Airport Transportation Guide</title>
     <meta name="description" content="Complete Phuket bus schedules from airport to Patong, Karon, Kata beaches and Phuket Town. Route P1, P2, P3 timetables, fares. Smart route planner for tourists and locals.">
     <meta name="keywords" content="Phuket bus, airport bus, Phuket transportation, bus schedule, Patong bus, Karon bus, Kata bus, Thailand bus, public transport">
@@ -128,9 +136,107 @@
       ]
     }
     </script>
+    
+    <!-- Local Business Schema for transportation service -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Phuket Airport Bus Service",
+      "alternateName": "บริการรถเมล์สนามบินภูเก็ต",
+      "description": "Official airport bus service connecting Phuket International Airport to major destinations including Patong, Karon, Kata beaches and Phuket Town",
+      "url": "https://phuketbusroutes.com",
+      "telephone": "+66-76-327-230",
+      "email": "info@phuketairport.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "327 Mai Khao, Thalang District",
+        "addressLocality": "Phuket",
+        "addressRegion": "Phuket",
+        "postalCode": "83110",
+        "addressCountry": "TH"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 8.1132,
+        "longitude": 98.3169
+      },
+      "openingHours": "Mo-Su 06:00-22:30",
+      "priceRange": "15-100 THB",
+      "currenciesAccepted": "THB",
+      "paymentAccepted": "Cash",
+      "areaServed": [
+        {
+          "@type": "Place",
+          "name": "Phuket International Airport"
+        },
+        {
+          "@type": "Place", 
+          "name": "Patong Beach"
+        },
+        {
+          "@type": "Place",
+          "name": "Karon Beach"
+        },
+        {
+          "@type": "Place",
+          "name": "Kata Beach"
+        },
+        {
+          "@type": "Place",
+          "name": "Phuket Town"
+        }
+      ],
+      "serviceType": "Public Transportation",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Bus Route Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Route P1 - Airport to Patong",
+              "description": "Smart Bus service from airport to Patong Beach"
+            },
+            "price": "100",
+            "priceCurrency": "THB"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Route P2 - Airport to Karon/Kata",
+              "description": "Smart Bus service from airport to Karon and Kata beaches"
+            },
+            "price": "100",
+            "priceCurrency": "THB"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Route P3 - Airport to Phuket Town",
+              "description": "Smart Bus service from airport to Phuket Town and Bus Terminal"
+            },
+            "price": "50",
+            "priceCurrency": "THB"
+          }
+        ]
+      }
+    }
+    </script>
+    <!-- DNS prefetch and preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://maps.googleapis.com">
+    
+    <!-- Critical font loading with display=swap for CLS optimization -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Bai+Jamjuree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/src/main.tsx" as="script">
+    <link rel="preload" href="/src/index.css" as="style">
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/favicon.png?v=4">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=4">
