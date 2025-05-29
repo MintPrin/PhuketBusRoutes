@@ -8,6 +8,7 @@ import { useTranslation } from "@/hooks/useTranslation";
 import type { BusRoute, BusStop } from "@/data/routes";
 
 export default function DetailedSchedules() {
+  const { t } = useTranslation();
   const [selectedDirections, setSelectedDirections] = useState<Record<string, 'outbound' | 'inbound'>>({});
   
   // Function to get Google Maps search term for a stop
@@ -34,7 +35,7 @@ export default function DetailedSchedules() {
     window.open(url, '_blank');
   };
   
-  const { data: routes = [], isLoading } = useQuery({
+  const { data: routes = [], isLoading } = useQuery<BusRoute[]>({
     queryKey: ["/api/routes"],
   });
 
@@ -104,7 +105,7 @@ export default function DetailedSchedules() {
   return (
     <section className="py-8 bg-gray-50" data-section="detailed-schedules">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-2xl font-bold text-center mb-6">Complete Bus Schedules</h2>
+        <h2 className="text-2xl font-bold text-center mb-6">{t('schedules.title')}</h2>
 
         <div className="space-y-6">
           {routes.map((route: BusRoute) => (

@@ -1,13 +1,16 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Coins, CreditCard, Luggage } from "lucide-react";
+import { useTranslation } from "@/hooks/useTranslation";
 
 export default function FareInfo() {
+  const { t } = useTranslation();
+  
   return (
     <section className="py-8">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-6">
-          <h2 className="text-2xl font-bold mb-2">Fare Information</h2>
-          <p className="text-gray-600">Transparent pricing for all routes</p>
+          <h2 className="text-2xl font-bold mb-2">{t('fare.title')}</h2>
+          <p className="text-gray-600">{t('fare.subtitle')}</p>
         </div>
         
         <div className="grid md:grid-cols-3 gap-4">

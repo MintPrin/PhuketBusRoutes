@@ -1,4 +1,7 @@
+import { useTranslation } from "@/hooks/useTranslation";
+
 export default function Footer() {
+  const { t } = useTranslation();
 
   return (
     <footer className="bg-gray-900 text-white py-8">
@@ -12,8 +15,7 @@ export default function Footer() {
               <h3 className="text-lg font-bold">Phuket Bus Routes</h3>
             </div>
             <p className="text-gray-300 text-sm">
-              Your comprehensive guide to public transportation in Phuket. 
-              Helping tourists and locals navigate the island efficiently and affordably.
+              {t('footer.description')}
             </p>
           </div>
           
