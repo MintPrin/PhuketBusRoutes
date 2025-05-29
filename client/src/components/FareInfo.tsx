@@ -19,9 +19,9 @@ export default function FareInfo() {
               <div className="w-12 h-12 bg-ocean rounded-full flex items-center justify-center mx-auto mb-3">
                 <Coins className="text-white text-lg" />
               </div>
-              <h3 className="text-lg font-semibold mb-2 text-gray-900">Distance-Based Pricing</h3>
-              <p className="text-gray-600 mb-3 text-sm">Fare varies by distance traveled</p>
-              <div className="text-xl font-bold text-ocean">Max 100 THB</div>
+              <h3 className="text-lg font-semibold mb-2 text-gray-900">{t('fare.pricing.title')}</h3>
+              <p className="text-gray-600 mb-3 text-sm">{t('fare.pricing.description')}</p>
+              <div className="text-xl font-bold text-ocean">{t('fare.pricing.amount')}</div>
             </CardContent>
           </Card>
           
@@ -30,9 +30,9 @@ export default function FareInfo() {
               <div className="w-12 h-12 bg-tropical rounded-full flex items-center justify-center mx-auto mb-3">
                 <CreditCard className="text-white text-lg" />
               </div>
-              <h3 className="text-lg font-semibold mb-2 text-gray-900">Payment Methods</h3>
-              <p className="text-gray-600 mb-3 text-sm">Cash payment directly to driver</p>
-              <div className="text-base font-medium text-gray-700">Cash Only</div>
+              <h3 className="text-lg font-semibold mb-2 text-gray-900">{t('fare.payment.title')}</h3>
+              <p className="text-gray-600 mb-3 text-sm">{t('fare.payment.description')}</p>
+              <div className="text-base font-medium text-gray-700">{t('fare.payment.method')}</div>
             </CardContent>
           </Card>
           
@@ -41,9 +41,9 @@ export default function FareInfo() {
               <div className="w-12 h-12 bg-teal rounded-full flex items-center justify-center mx-auto mb-3">
                 <Luggage className="text-white text-lg" />
               </div>
-              <h3 className="text-lg font-semibold mb-2 text-gray-900">Luggage Policy</h3>
-              <p className="text-gray-600 mb-3 text-sm">Standard luggage allowed free of charge</p>
-              <div className="text-base font-medium text-gray-700">Free</div>
+              <h3 className="text-lg font-semibold mb-2 text-gray-900">{t('fare.luggage.title')}</h3>
+              <p className="text-gray-600 mb-3 text-sm">{t('fare.luggage.description')}</p>
+              <div className="text-base font-medium text-gray-700">{t('fare.luggage.cost')}</div>
             </CardContent>
           </Card>
         </div>
