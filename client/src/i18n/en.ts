@@ -41,7 +41,7 @@ export const en = {
     "Turn-by-turn directions from your current location",
     "Street view and nearby landmarks",
     "Walking time estimates to the stop"
-  ],
+  ] as string[],
   "help.times.title": "Click on Departure Times",
   "help.times.description": "Tap any time to get intelligent route planning:",
   "help.times.features": [
@@ -49,7 +49,7 @@ export const en = {
     "Real-time traffic and travel duration",
     "Automatically schedules for today or tomorrow",
     "Alternative transportation options"
-  ],
+  ] as string[],
   "help.directions.title": "Switch Route Directions",
   "help.directions.description": "Toggle between directions to see schedules:",
   "help.directions.features": [
@@ -57,7 +57,7 @@ export const en = {
     "\"From Airport\" - From Phuket Airport to destinations",
     "Different schedules and timing for each direction",
     "Plan your complete round-trip journey"
-  ],
+  ] as string[],
   "help.mobile.title": "Mobile Navigation Features",
   "help.mobile.description": "Optimized for mobile devices with:",
   "help.mobile.features": [
@@ -65,7 +65,7 @@ export const en = {
     "Touch-friendly buttons and interactive elements",
     "Links open directly in your phone's map app",
     "Works offline once page is loaded"
-  ],
+  ] as string[],
   "help.payment.title": "Payment & Boarding Tips",
   "help.payment.description": "Important information for travelers:",
   "help.payment.features": [
@@ -73,7 +73,7 @@ export const en = {
     "Fare varies by distance, maximum 100 THB",
     "Standard luggage allowed free of charge",
     "Arrive 5-10 minutes before departure time"
-  ],
+  ] as string[],
   "help.tip.title": "Pro Tip:",
   "help.tip.description": "All map links automatically open in your preferred navigation app (Google Maps, Apple Maps, etc.) for seamless journey planning.",
 
