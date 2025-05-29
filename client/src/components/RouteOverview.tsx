@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { Card, CardContent } from "@/components/ui/card";
+import { useTranslation } from "@/hooks/useTranslation";
 import type { BusRoute } from "@/data/routes";
 
 // Function to scroll to detailed schedules section
@@ -27,6 +28,7 @@ const scrollToDetailedSchedules = (routeId: string) => {
 };
 
 export default function RouteOverview() {
+  const { t } = useTranslation();
   const { data: routes = [], isLoading } = useQuery({
     queryKey: ["/api/routes"],
   });

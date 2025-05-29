@@ -77,9 +77,28 @@ export const en = {
   "help.tip.title": "Pro Tip:",
   "help.tip.description": "All map links automatically open in your preferred navigation app (Google Maps, Apple Maps, etc.) for seamless journey planning.",
 
+  // Route colors
+  "route.color.lightblue": "Light Blue",
+  "route.color.orange": "Orange", 
+  "route.color.darkblue": "Dark Blue",
+
+  // Route destinations
+  "route.destination.airport": "Airport",
+  "route.destination.beach": "Beach Area",
+  "route.destination.town": "Town",
+  "route.destination.terminal": "Bus Terminal",
+
+  // Schedule labels
+  "schedule.first": "First Bus",
+  "schedule.last": "Last Bus", 
+  "schedule.departures": "Departure Times",
+  "schedule.available": "Available",
+  "schedule.unavailable": "Not Available",
+
   // Footer
+  "footer.description": "Your comprehensive guide to navigating Phuket's public transportation system with real-time schedules and route information.",
   "footer.routes": "Routes",
-  "footer.schedules": "Schedules",
+  "footer.schedules": "Schedules", 
   "footer.fares": "Fares",
   "footer.help": "Help",
   "footer.about": "About",

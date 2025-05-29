@@ -77,7 +77,26 @@ export const th = {
   "help.tip.title": "เคล็ดลับ:",
   "help.tip.description": "ลิงก์แผนที่ทั้งหมดเปิดในแอปนำทางที่คุณต้องการ (Google Maps, Apple Maps ฯลฯ) โดยอัตโนมัติ เพื่อการวางแผนการเดินทางที่ราบรื่น",
 
+  // Route colors
+  "route.color.lightblue": "สีฟ้าอ่อน",
+  "route.color.orange": "สีส้ม",
+  "route.color.darkblue": "สีน้ำเงินเข้ม",
+
+  // Route destinations
+  "route.destination.airport": "สนามบิน",
+  "route.destination.beach": "พื้นที่ชายหาด",
+  "route.destination.town": "ตัวเมือง",
+  "route.destination.terminal": "สถานีขนส่ง",
+
+  // Schedule labels
+  "schedule.first": "รถคันแรก",
+  "schedule.last": "รถคันสุดท้าย",
+  "schedule.departures": "เวลาออกเดินทาง",
+  "schedule.available": "มีบริการ",
+  "schedule.unavailable": "ไม่มีบริการ",
+
   // Footer
+  "footer.description": "คู่มือครอบคลุมสำหรับการใช้ระบบขนส่งสาธารณะของภูเก็ต พร้อมตารางเวลาและข้อมูลเส้นทางแบบเรียลไทม์",
   "footer.routes": "เส้นทาง",
   "footer.schedules": "ตารางเวลา",
   "footer.fares": "ค่าโดยสาร",

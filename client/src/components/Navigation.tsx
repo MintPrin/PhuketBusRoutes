@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { Globe, Route } from "lucide-react";
+import { Globe, Route, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { useLocation } from "wouter";
 import { useTranslation } from "@/hooks/useTranslation";
 import { getLocalizedPath, removeLanguagePrefix } from "@/i18n";
@@ -39,9 +40,8 @@ export default function Navigation() {
     };
   }, [lastScrollY, isVisible]);
 
-  const handleLanguageSwitch = () => {
+  const handleLanguageSwitch = (newLanguage: 'en' | 'th') => {
     const currentPath = removeLanguagePrefix(location);
-    const newLanguage = language === 'en' ? 'th' : 'en';
     const newPath = getLocalizedPath(currentPath, newLanguage);
     setLocation(newPath);
   };
@@ -62,15 +62,29 @@ export default function Navigation() {
           </div>
           <div className="flex items-center space-x-4">
             <HelpModal />
-            <Button 
-              variant="ghost" 
-              size="sm" 
-              className="text-gray-700 hover:text-ocean"
-              onClick={handleLanguageSwitch}
-            >
-              <Globe className="w-4 h-4 mr-1" />
-              {t('nav.language')}
-            </Button>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="sm" className="text-gray-700 hover:text-ocean">
+                  <Globe className="w-4 h-4 mr-1" />
+                  {t('nav.language')}
+                  <ChevronDown className="w-4 h-4 ml-1" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem 
+                  onSelect={() => handleLanguageSwitch('en')}
+                  className={language === 'en' ? 'bg-gray-100' : ''}
+                >
+                  🇺🇸 English
+                </DropdownMenuItem>
+                <DropdownMenuItem 
+                  onSelect={() => handleLanguageSwitch('th')}
+                  className={language === 'th' ? 'bg-gray-100' : ''}
+                >
+                  🇹🇭 ไทย
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
         </div>
       </div>
