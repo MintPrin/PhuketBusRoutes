@@ -1,5 +1,6 @@
 import { Globe, Route } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import HelpModal from "@/components/FeatureGuide";
 
 export default function Navigation() {
 
@@ -17,11 +18,11 @@ export default function Navigation() {
             <h1 className="text-base font-bold text-gray-900 sm:hidden">Phuket Bus Routes</h1>
           </div>
           <div className="flex items-center space-x-4">
+            <HelpModal />
             <Button variant="ghost" size="sm" className="text-gray-700 hover:text-ocean">
               <Globe className="w-4 h-4 mr-1" />
               EN
             </Button>
-
           </div>
         </div>
       </div>

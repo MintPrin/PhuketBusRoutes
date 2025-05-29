@@ -13,7 +13,6 @@ export default function Home() {
       <Hero />
       <RouteOverview />
       <DetailedSchedules />
-      <FeatureGuide />
       <FareInfo />
       <Footer />
     </div>
