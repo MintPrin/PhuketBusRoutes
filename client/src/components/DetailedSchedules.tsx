@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Route, Clock, AlertTriangle, ExternalLink } from "lucide-react";
 import { openGoogleMapsDirections } from "@/lib/googleMapsUtils";
 import DirectionSelector from "@/components/DirectionSelector";
+import { useTranslation } from "@/hooks/useTranslation";
 import type { BusRoute, BusStop } from "@/data/routes";
 
 export default function DetailedSchedules() {

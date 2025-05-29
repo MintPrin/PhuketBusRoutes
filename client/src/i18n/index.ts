@@ -48,10 +48,13 @@ export const getLanguageFromPath = (pathname: string): Language => {
 
 // Helper to add language prefix to paths
 export const getLocalizedPath = (path: string, lang: Language): string => {
+  // Ensure path starts with /
+  const cleanPath = path.startsWith('/') ? path : `/${path}`;
+  
   if (lang === 'en') {
-    return path; // English is default, no prefix
+    return cleanPath; // English is default, no prefix
   }
-  return `/${lang}${path === '/' ? '' : path}`;
+  return `/${lang}${cleanPath === '/' ? '' : cleanPath}`;
 };
 
 // Helper to remove language prefix from paths

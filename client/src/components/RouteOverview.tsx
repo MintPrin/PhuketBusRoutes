@@ -29,7 +29,7 @@ const scrollToDetailedSchedules = (routeId: string) => {
 
 export default function RouteOverview() {
   const { t } = useTranslation();
-  const { data: routes = [], isLoading } = useQuery({
+  const { data: routes = [], isLoading } = useQuery<BusRoute[]>({
     queryKey: ["/api/routes"],
   });
 
@@ -76,7 +76,7 @@ export default function RouteOverview() {
     <section className="py-8 bg-gradient-to-b from-blue-50 to-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">Bus Routes Overview</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">{t('routes.title')}</h2>
           <div className="w-20 h-1 bg-gradient-to-r from-ocean to-teal mx-auto rounded-full"></div>
         </div>
         <div className="grid md:grid-cols-3 gap-4">
@@ -103,11 +103,11 @@ export default function RouteOverview() {
                   <p className="text-sm text-gray-600 mb-4 leading-relaxed flex-grow min-h-[3rem] flex items-start">{route.description?.en}</p>
                   <div className="text-sm bg-gray-50 rounded-lg p-3 mt-auto">
                     <div className="flex justify-between items-center mb-2">
-                      <span className="font-medium text-gray-700 whitespace-nowrap">First Bus:</span>
+                      <span className="font-medium text-gray-700 whitespace-nowrap">{t('schedule.first')}:</span>
                       <span className="text-gray-900 font-semibold">{firstTime}</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="font-medium text-gray-700 whitespace-nowrap">Last Bus:</span>
+                      <span className="font-medium text-gray-700 whitespace-nowrap">{t('schedule.last')}:</span>
                       <span className="text-gray-900 font-semibold">{lastTime}</span>
                     </div>
                   </div>
