@@ -10,33 +10,32 @@ export default function Navigation() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+      console.log('Scroll Y:', currentScrollY, 'Last:', lastScrollY, 'Visible:', isVisible);
       
       // Show navbar when scrolling up or at the top
-      if (currentScrollY < lastScrollY || currentScrollY < 10) {
-        setIsVisible(true);
+      if (currentScrollY < lastScrollY || currentScrollY < 50) {
+        if (!isVisible) {
+          console.log('Showing navbar');
+          setIsVisible(true);
+        }
       } 
-      // Hide navbar when scrolling down and past the top
-      else if (currentScrollY > lastScrollY && currentScrollY > 80) {
-        setIsVisible(false);
+      // Hide navbar when scrolling down and past threshold
+      else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        if (isVisible) {
+          console.log('Hiding navbar');
+          setIsVisible(false);
+        }
       }
       
       setLastScrollY(currentScrollY);
     };
 
-    // Add throttling to improve performance
-    let timeoutId: NodeJS.Timeout;
-    const throttledHandleScroll = () => {
-      clearTimeout(timeoutId);
-      timeoutId = setTimeout(handleScroll, 10);
-    };
-
-    window.addEventListener('scroll', throttledHandleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
-      window.removeEventListener('scroll', throttledHandleScroll);
-      clearTimeout(timeoutId);
+      window.removeEventListener('scroll', handleScroll);
     };
-  }, [lastScrollY]);
+  }, [lastScrollY, isVisible]);
 
   return (
     <nav className={`bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50 transition-transform duration-300 ease-in-out ${
