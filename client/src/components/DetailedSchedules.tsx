@@ -128,6 +128,7 @@ export default function DetailedSchedules() {
                     let facebookUrl = '';
                     if (route.routeId === 'P1') facebookUrl = 'https://www.facebook.com/PhuketSmartBus';
                     if (route.routeId === 'P2') facebookUrl = 'https://www.facebook.com/airportbusphuket/';
+                    if (route.routeId === 'P3') facebookUrl = 'https://www.facebook.com/Phuketbusexpress';
                     
                     return facebookUrl ? (
                       <a
