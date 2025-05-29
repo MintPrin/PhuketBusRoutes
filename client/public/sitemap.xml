@@ -3,10 +3,10 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <!-- English homepage -->
   <url>
-    <loc>https://phuketbusroutes.com/</loc>
-    <xhtml:link rel="alternate" hreflang="th" href="https://phuketbusroutes.com/th/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://phuketbusroutes.com/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://phuketbusroutes.com/" />
+    <loc>https://phuketbusroutes.mintprin.com/</loc>
+    <xhtml:link rel="alternate" hreflang="th" href="https://phuketbusroutes.mintprin.com/th/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://phuketbusroutes.mintprin.com/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://phuketbusroutes.mintprin.com/" />
     <lastmod>2025-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -14,10 +14,10 @@
   
   <!-- Thai homepage -->
   <url>
-    <loc>https://phuketbusroutes.com/th/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://phuketbusroutes.com/" />
-    <xhtml:link rel="alternate" hreflang="th" href="https://phuketbusroutes.com/th/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://phuketbusroutes.com/" />
+    <loc>https://phuketbusroutes.mintprin.com/th/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://phuketbusroutes.mintprin.com/" />
+    <xhtml:link rel="alternate" hreflang="th" href="https://phuketbusroutes.mintprin.com/th/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://phuketbusroutes.mintprin.com/" />
     <lastmod>2025-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>

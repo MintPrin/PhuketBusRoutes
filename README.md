@@ -1,162 +1,76 @@
 # Phuket Bus Routes & Schedules
 
-A comprehensive, mobile-first website providing detailed bus schedules and route information for tourists and locals traveling in Phuket, Thailand. Features complete transportation solutions from Phuket International Airport to major destinations including Patong, Karon, Kata beaches and Phuket Town.
+A simple, easy-to-use website that helps tourists and locals find bus schedules in Phuket, Thailand. Get information about buses from Phuket Airport to popular destinations like Patong Beach, Karon Beach, Kata Beach, and Phuket Town.
 
-## 🚌 Features
+## What This Website Does
 
-- **Complete Route Information**: Detailed schedules for routes P1, P2, and P3
-- **Bilingual Support**: Full English and Thai language support with URL-based routing
-- **Mobile-First Design**: Optimized for smartphones and tablets
-- **Smart Route Planning**: Intelligent navigation with Google Maps integration
-- **Real-time Information**: Current bus schedules and fare information
-- **SEO Optimized**: International SEO with hreflang tags and structured data
+- Shows bus schedules for all three airport routes (P1, P2, P3)
+- Works in both English and Thai languages
+- Easy to use on phones and tablets
+- Shows bus fares and departure times
+- Connects to Google Maps for directions
 
-## 🌐 Live Demo
+## 🌐 Visit the Website
 
-Visit the live website: [Phuket Bus Routes](https://phuketbusroutes.com)
+[https://phuketbusroutes.mintprin.com](https://phuketbusroutes.mintprin.com)
 
-## 🛠 Tech Stack
+## Bus Routes Available
 
-- **Frontend**: React 18 with TypeScript
-- **Styling**: Tailwind CSS with custom design system
-- **Build Tool**: Vite
-- **Backend**: Express.js with TypeScript
-- **UI Components**: Radix UI primitives with shadcn/ui
-- **Icons**: Lucide React
-- **Fonts**: Inter (English) and Bai Jamjuree (Thai)
+### P1 - Light Blue Bus
+- From: Phuket Airport
+- To: Patong Beach
+- Price: 15-100 THB (depends on distance)
+- Runs: Every day, multiple times
 
-## 🚀 Getting Started
+### P2 - Orange Bus
+- From: Phuket Airport  
+- To: Karon Beach and Kata Beach
+- Price: 15-100 THB (depends on distance)
+- Runs: Every day, multiple times
 
-### Prerequisites
+### P3 - Dark Blue Bus
+- From: Phuket Airport
+- To: Phuket Town and Bus Terminal
+- Price: 15-50 THB (depends on distance)
+- Runs: Every day, multiple times
 
-- Node.js 18 or higher
-- npm or yarn
+## Languages
 
-### Installation
+The website works in two languages:
+- English (main website)
+- Thai (add /th/ to the web address)
 
-1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/phuket-bus-routes.git
-cd phuket-bus-routes
-```
+## How to Use This Code
 
-2. Install dependencies:
-```bash
-npm install
-```
+If you want to run this website on your computer:
 
-3. Start the development server:
-```bash
-npm run dev
-```
+1. Download the code
+2. Install Node.js on your computer
+3. Open a terminal and type: `npm install`
+4. Then type: `npm run dev`
+5. Open your web browser and go to: `http://localhost:5000`
 
-4. Open your browser and visit `http://localhost:5000`
+## About This Project
 
-## 📁 Project Structure
+This website was created to help people find bus information in Phuket easily. All bus route information comes from official Phuket Airport sources.
 
-```
-├── client/                 # Frontend React application
-│   ├── src/
-│   │   ├── components/     # Reusable UI components
-│   │   ├── pages/          # Page components
-│   │   ├── hooks/          # Custom React hooks
-│   │   ├── i18n/           # Internationalization files
-│   │   ├── lib/            # Utility functions
-│   │   └── data/           # Static data and types
-│   └── public/             # Static assets
-├── server/                 # Backend Express server
-├── shared/                 # Shared types and schemas
-└── docs/                   # Documentation
-```
+## Want to Help Improve This Website?
 
-## 🌍 Internationalization
+If you want to help make this website better:
 
-The website supports two languages:
+1. Report any wrong information
+2. Suggest new features that would be helpful
+3. Help translate to other languages
+4. Share the website with travelers
 
-- **English**: Default language (`/`)
-- **Thai**: Accessible via `/th/` prefix
+## Need Help?
 
-### Adding New Languages
+If you have questions about the website or find any problems, you can create an issue on GitHub.
 
-1. Create a new translation file in `client/src/i18n/`
-2. Add the language to the `Language` type
-3. Update the routing configuration
-4. Add hreflang meta tags
+## License
 
-## 🚌 Route Information
-
-### P1 - Smart Bus (Light Blue)
-- **Route**: Airport → Patong Beach
-- **Fare**: Distance-based (15-100 THB)
-- **Schedule**: Regular departures throughout the day
-
-### P2 - Smart Bus (Orange)  
-- **Route**: Airport → Karon → Kata Beach
-- **Fare**: Distance-based (15-100 THB)
-- **Schedule**: Regular departures throughout the day
-
-### P3 - Smart Bus (Dark Blue)
-- **Route**: Airport → Phuket Town → Bus Terminal
-- **Fare**: Distance-based (15-50 THB)
-- **Schedule**: Regular departures throughout the day
-
-## 🎨 Design System
-
-The website uses a custom design system with:
-
-- **Colors**: Ocean blue primary (#0ea5e9) with complementary palette
-- **Typography**: Inter for English, Bai Jamjuree for Thai
-- **Components**: Consistent spacing, borders, and interactive states
-- **Responsive**: Mobile-first approach with tablet and desktop breakpoints
-
-## 📱 Mobile Optimization
-
-- Progressive Web App (PWA) capabilities
-- Touch-friendly interface design
-- Optimized font loading for Thai and English
-- Efficient data loading and caching
-
-## 🔍 SEO Features
-
-- **International SEO**: Hreflang tags for multilingual content
-- **Structured Data**: Schema.org markup for transportation services
-- **Performance**: Optimized Core Web Vitals
-- **Meta Tags**: Comprehensive Open Graph and Twitter Card support
-- **Sitemap**: Automatic XML sitemap generation
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-### Development Guidelines
-
-1. Follow TypeScript best practices
-2. Use the existing component patterns
-3. Maintain accessibility standards
-4. Test on mobile devices
-5. Ensure bilingual support for new features
-
-### Code Style
-
-- Use TypeScript for all new code
-- Follow the existing naming conventions
-- Add proper type definitions
-- Include appropriate ARIA labels for accessibility
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- Phuket Airport Bus Service for route information
-- Thai tourism authorities for destination data
-- Community contributors and translators
-
-## 📞 Support
-
-For questions or support, please open an issue on GitHub or contact the maintainers.
+This project is free to use and modify (MIT License).
 
 ---
 
-**Built with ❤️ for travelers exploring beautiful Phuket, Thailand**
+**Made to help travelers have a better experience in Phuket, Thailand**

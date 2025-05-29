@@ -18,7 +18,7 @@ export const useSEO = () => {
   const currentLanguage: Language = getLanguageFromPath(location);
   
   const getSEOData = (): SEOData => {
-    const baseUrl = window.location.origin;
+    const baseUrl = 'https://phuketbusroutes.mintprin.com';
     const currentPath = location === '/th' ? '/' : location.replace('/th', '');
     
     const seoData: SEOData = {
