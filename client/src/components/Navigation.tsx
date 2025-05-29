@@ -44,9 +44,8 @@ export default function Navigation() {
     const currentPath = removeLanguagePrefix(location);
     const newPath = getLocalizedPath(currentPath, newLanguage);
     
-    // Force navigation to the new path
-    window.history.pushState({}, '', newPath);
-    setLocation(newPath);
+    // Use window.location.href for reliable navigation
+    window.location.href = newPath;
   };
 
   return (

@@ -62,5 +62,8 @@ export const removeLanguagePrefix = (pathname: string): string => {
   if (pathname.startsWith('/th/')) {
     return pathname.substring(3) || '/';
   }
+  if (pathname === '/th') {
+    return '/';
+  }
   return pathname;
 };
