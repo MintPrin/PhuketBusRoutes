@@ -22,7 +22,7 @@ export default function Breadcrumbs() {
       "@type": "ListItem",
       "position": index + 1,
       "name": item.name,
-      "item": `https://phuketbusroutes.mintprin.com${item.href}`
+      "item": `https://phuketbusroutes.com${item.href}`
     }))
   };
 

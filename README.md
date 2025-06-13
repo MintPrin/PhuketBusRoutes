@@ -51,4 +51,4 @@ Airport → Phuket Town → Bus Terminal (15-50 THB)
 
 ---
 
-**Live Site**: [phuketbusroutes.mintprin.com](https://phuketbusroutes.mintprin.com)
+**Live Site**: [phuketbusroutes.com](https://phuketbusroutes.com)
