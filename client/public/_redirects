@@ -1,0 +1,10 @@
+# 301 redirects from mintprin.com to main domain
+https://phuketbusroutes.mintprin.com/*  https://phuketbusroutes.com/:splat  301!
+http://phuketbusroutes.mintprin.com/*   https://phuketbusroutes.com/:splat  301!
+
+# WWW redirects to non-www (canonical)
+https://www.phuketbusroutes.com/*       https://phuketbusroutes.com/:splat  301!
+http://www.phuketbusroutes.com/*        https://phuketbusroutes.com/:splat  301!
+
+# Force HTTPS
+http://phuketbusroutes.com/*            https://phuketbusroutes.com/:splat  301!

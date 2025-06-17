@@ -14,3 +14,6 @@ Crawl-delay: 1
 # Allow all public routes including language variants
 Allow: /th/
 Allow: /api/routes
+
+# Preferred domain directive
+Host: phuketbusroutes.com

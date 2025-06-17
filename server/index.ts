@@ -5,6 +5,32 @@ import { setupVite, serveStatic, log } from "./vite";
 
 const app = express();
 
+// Domain redirect middleware - must be first
+app.use((req: Request, res: Response, next: NextFunction) => {
+  const host = req.get('host');
+  const protocol = req.get('x-forwarded-proto') || req.protocol;
+  
+  // Check if request is from old domain
+  if (host && host.includes('mintprin.com')) {
+    const newUrl = `https://phuketbusroutes.com${req.originalUrl}`;
+    return res.redirect(301, newUrl);
+  }
+  
+  // Force HTTPS in production
+  if (protocol === 'http' && host === 'phuketbusroutes.com') {
+    const secureUrl = `https://${host}${req.originalUrl}`;
+    return res.redirect(301, secureUrl);
+  }
+  
+  // Redirect www to non-www
+  if (host === 'www.phuketbusroutes.com') {
+    const nonWwwUrl = `https://phuketbusroutes.com${req.originalUrl}`;
+    return res.redirect(301, nonWwwUrl);
+  }
+  
+  next();
+});
+
 // Enable compression for all responses
 app.use(compression({
   level: 6,
