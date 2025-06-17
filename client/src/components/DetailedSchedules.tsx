@@ -32,7 +32,11 @@ export default function DetailedSchedules() {
   const openGoogleMaps = (stopName: string) => {
     const searchTerm = getGoogleMapsSearchTerm(stopName);
     const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(searchTerm)}`;
-    window.open(url, '_blank');
+    const link = document.createElement('a');
+    link.href = url;
+    link.target = '_blank';
+    link.rel = 'nofollow noopener noreferrer';
+    link.click();
   };
   
   const { data: routes = [], isLoading } = useQuery<BusRoute[]>({
