@@ -139,7 +139,7 @@ export default function DetailedSchedules() {
                       <a
                         href={facebookUrl}
                         target="_blank"
-                        rel="noopener noreferrer"
+                        rel="nofollow noopener noreferrer"
                         className="flex items-center text-white/80 hover:text-white text-xs bg-white/10 hover:bg-white/20 px-2 py-1 rounded-full transition-all duration-200"
                         title="Follow for updates"
                       >
