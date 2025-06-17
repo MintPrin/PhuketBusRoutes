@@ -1,4 +1,4 @@
-# 301 redirects from mintprin.com to main domain
+# 301 redirects from specific subdomain only
 https://phuketbusroutes.mintprin.com/*  https://phuketbusroutes.com/:splat  301!
 http://phuketbusroutes.mintprin.com/*   https://phuketbusroutes.com/:splat  301!
 

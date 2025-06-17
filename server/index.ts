@@ -10,8 +10,8 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   const host = req.get('host');
   const protocol = req.get('x-forwarded-proto') || req.protocol;
   
-  // Check if request is from old domain
-  if (host && host.includes('mintprin.com')) {
+  // Check if request is from old domain (specific subdomain only)
+  if (host === 'phuketbusroutes.mintprin.com') {
     const newUrl = `https://phuketbusroutes.com${req.originalUrl}`;
     return res.redirect(301, newUrl);
   }
