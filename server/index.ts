@@ -43,6 +43,23 @@ app.use(compression({
   }
 }));
 
+// Add cache-control headers
+app.use((req, res, next) => {
+  // Cache static assets for 1 year
+  if (req.path.match(/\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$/)) {
+    res.set('Cache-Control', 'public, max-age=31536000, immutable');
+  }
+  // Cache API responses for 5 minutes
+  else if (req.path.startsWith('/api/')) {
+    res.set('Cache-Control', 'public, max-age=300');
+  }
+  // Cache HTML pages for 1 hour
+  else {
+    res.set('Cache-Control', 'public, max-age=3600');
+  }
+  next();
+});
+
 // URL canonicalization - redirect www to non-www
 app.use((req, res, next) => {
   if (req.header('host')?.startsWith('www.')) {
