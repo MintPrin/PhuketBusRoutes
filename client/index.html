@@ -231,12 +231,88 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://maps.googleapis.com">
     
-    <!-- Critical font loading with display=swap for CLS optimization -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Bai+Jamjuree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Inline critical CSS to prevent render blocking -->
+    <style>
+      /* Critical above-the-fold styles */
+      body {
+        margin: 0;
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background-color: #ffffff;
+        color: #1e293b;
+      }
+      
+      #root {
+        min-height: 100vh;
+      }
+      
+      /* Hero section critical styles */
+      .hero-section {
+        position: relative;
+        padding: 3rem 0;
+        background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+        overflow: hidden;
+      }
+      
+      .hero-content {
+        max-width: 72rem;
+        margin: 0 auto;
+        padding: 0 1rem;
+        position: relative;
+        z-index: 10;
+        text-align: center;
+      }
+      
+      .hero-title {
+        font-size: 1.875rem;
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+        color: white;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.125rem;
+        margin-bottom: 2rem;
+        max-width: 32rem;
+        margin-left: auto;
+        margin-right: auto;
+        color: rgba(255, 255, 255, 0.95);
+      }
+      
+      @media (min-width: 768px) {
+        .hero-title {
+          font-size: 2.25rem;
+        }
+      }
+      
+      /* Navigation critical styles */
+      nav {
+        background-color: white;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+      }
+      
+      /* Loading skeleton */
+      .loading-skeleton {
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        animation: loading 1.5s infinite;
+      }
+      
+      @keyframes loading {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+      }
+    </style>
+    
+    <!-- Defer font loading to prevent render blocking -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Bai+Jamjuree:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Bai+Jamjuree:wght@300;400;500;600;700&display=swap"></noscript>
     
     <!-- Preload critical resources -->
     <link rel="preload" href="/src/main.tsx" as="script">
-    <link rel="preload" href="/src/index.css" as="style">
+    <link rel="preload" href="/src/index.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/src/index.css"></noscript>
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/favicon.png?v=4">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=4">
@@ -258,7 +334,17 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
-    <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js"></script>
+    <!-- Defer Replit dev banner to prevent render blocking -->
+    <script>
+      // Load Replit dev banner after page load
+      window.addEventListener('load', function() {
+        if (typeof window !== 'undefined' && window.location.hostname.includes('replit')) {
+          const script = document.createElement('script');
+          script.src = 'https://replit.com/public/js/replit-dev-banner.js';
+          script.async = true;
+          document.head.appendChild(script);
+        }
+      });
+    </script>
   </body>
 </html>

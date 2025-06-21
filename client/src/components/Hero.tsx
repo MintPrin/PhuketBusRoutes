@@ -4,7 +4,7 @@ export default function Hero() {
   const { t } = useTranslation();
 
   return (
-    <section className="relative py-12 bg-gradient-to-br from-blue-500 to-cyan-500">
+    <section className="hero-section relative py-12 bg-gradient-to-br from-blue-500 to-cyan-500">
       {/* Simplified background with minimal animations */}
       <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/10 to-orange-300/10"></div>
       
@@ -14,12 +14,12 @@ export default function Hero() {
         <div className="absolute bottom-20 right-16 w-32 h-32 bg-orange-300/15 rounded-full blur-2xl"></div>
       </div>
       
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="hero-content max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center">
-          <h1 className="text-3xl md:text-4xl font-bold mb-3 text-white">
+          <h1 className="hero-title text-3xl md:text-4xl font-bold mb-3 text-white">
             {t('hero.title')}
           </h1>
-          <p className="text-lg mb-8 max-w-2xl mx-auto text-white/95">
+          <p className="hero-subtitle text-lg mb-8 max-w-2xl mx-auto text-white/95">
             {t('hero.subtitle')}
           </p>
         </div>
