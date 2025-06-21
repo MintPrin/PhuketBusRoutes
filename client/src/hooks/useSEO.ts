@@ -29,8 +29,8 @@ export const useSEO = () => {
         ? 'ตารางเวลารถเมล์ภูเก็ตครบถ้วนจากสนามบินไปยังปาตอง กะรน กะตะ และเมืองภูเก็ต เส้นทาง P1, P2, P3 ตารางเวลา ค่าโดยสาร วางแผนเส้นทางอัจฉริยะ'
         : 'Complete Phuket bus schedules from airport to Patong, Karon, Kata beaches and Phuket Town. Route P1, P2, P3 timetables, fares. Smart route planner for tourists and locals.',
       keywords: currentLanguage === 'th'
-        ? 'รถเมล์ภูเก็ต, รถเมล์สนามบิน, ขนส่งภูเก็ต, ตารางเวลารถเมล์, รถเมล์ปาตอง, รถเมล์กะรน, รถเมล์กะตะ, รถเมล์ไทย, ขนส่งสาธารณะ'
-        : 'Phuket bus, airport bus, Phuket transportation, bus schedule, Patong bus, Karon bus, Kata bus, Thailand bus, public transport',
+        ? 'รถเมล์ภูเก็ต, เส้นทางรถเมล์ภูเก็ต, รถเมล์สนามบิน, ตารางเวลารถเมล์สนามบินภูเก็ต, แผนที่รถเมล์ภูเก็ต, รถเมล์ในภูเก็ต, รถเมล์ปาตอง, รถเมล์กะรน, รถเมล์กะตะ, ขนส่งสาธารณะภูเก็ต'
+        : 'Phuket bus, phuket bus routes, phuket buses, buses in phuket, phuket airport bus timetable, phuket airport bus schedule, phuket bus map, bus phuket, airport bus phuket timetable, airport bus phuket schedule',
       canonical: currentLanguage === 'th' ? `${baseUrl}/th${currentPath}` : `${baseUrl}${currentPath}`,
       hreflang: [
         { lang: 'en', href: `${baseUrl}${currentPath}` },
