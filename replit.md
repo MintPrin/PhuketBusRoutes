@@ -98,8 +98,21 @@ The application follows a modern full-stack architecture with clear separation b
 - **Image optimization** and lazy loading ready
 - **SEO meta tags** with structured data for search engines
 
+## Recent Changes
+
+### Security & SEO Updates (June 21, 2025)
+- **Vite Security Patch**: Updated from 5.4.14 to 5.4.15 to patch CVE-2025-30208 vulnerability
+- **SEO Link Protection**: Added `nofollow` attributes to all external links (Google Maps, Facebook) to prevent SEO link juice leakage
+- **External Link Security**: Enhanced external link handling with proper `noopener noreferrer` attributes
+
+### Link Handling Implementation
+- Google Maps direction links now use programmatic link creation with full security attributes
+- Google Maps location search links properly configured with nofollow
+- Social media links (Facebook) include nofollow to maintain domain authority
+
 ## Changelog
 - June 17, 2025. Initial setup
+- June 21, 2025. Security patches and SEO optimization
 
 ## User Preferences
 
