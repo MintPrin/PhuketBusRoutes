@@ -14,19 +14,33 @@ export default function Navigation() {
   const { t, language } = useTranslation();
 
   useEffect(() => {
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
+    
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       
-      // Show navbar when scrolling up or at the top
-      if (currentScrollY < lastScrollY || currentScrollY < 50) {
-        if (!isVisible) {
-          setIsVisible(true);
+      // On mobile, use simpler logic to reduce scroll jank
+      if (isMobile) {
+        // Only hide when scrolling down past a larger threshold
+        if (currentScrollY > lastScrollY && currentScrollY > 150) {
+          if (isVisible) {
+            setIsVisible(false);
+          }
+        } else if (currentScrollY < lastScrollY || currentScrollY < 50) {
+          if (!isVisible) {
+            setIsVisible(true);
+          }
         }
-      } 
-      // Hide navbar when scrolling down and past threshold
-      else if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        if (isVisible) {
-          setIsVisible(false);
+      } else {
+        // Desktop: original behavior
+        if (currentScrollY < lastScrollY || currentScrollY < 50) {
+          if (!isVisible) {
+            setIsVisible(true);
+          }
+        } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+          if (isVisible) {
+            setIsVisible(false);
+          }
         }
       }
       
@@ -49,9 +63,9 @@ export default function Navigation() {
   };
 
   return (
-    <nav className={`bg-white shadow-sm border-b border-gray-200 fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-in-out ${
+    <nav className={`bg-white shadow-sm border-b border-gray-200 fixed top-0 left-0 right-0 z-50 will-change-transform transition-transform duration-300 ease-in-out ${
       isVisible ? 'translate-y-0' : '-translate-y-full'
-    }`}>
+    }`} style={{ backfaceVisibility: 'hidden', perspective: '1000px' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-3">

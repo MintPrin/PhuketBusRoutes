@@ -1,8 +1,25 @@
-// Custom smooth scrolling for better UX
+// Detect if device is mobile
+function isMobileDevice(): boolean {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) 
+    || window.innerWidth < 768;
+}
+
+// Custom smooth scrolling for better UX (desktop only)
 export function smoothScrollTo(targetId: string, offset: number = 80) {
   const target = document.getElementById(targetId);
   if (!target) return;
 
+  // On mobile, use native scrolling for better performance
+  if (isMobileDevice()) {
+    const targetPosition = target.offsetTop - offset;
+    window.scrollTo({
+      top: targetPosition,
+      behavior: 'smooth'
+    });
+    return;
+  }
+
+  // Desktop: use custom smooth scrolling
   const targetPosition = target.offsetTop - offset;
   const startPosition = window.pageYOffset;
   const distance = targetPosition - startPosition;

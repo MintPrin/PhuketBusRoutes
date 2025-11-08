@@ -100,21 +100,24 @@
     @apply font-sans antialiased bg-background text-foreground;
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
   }
 
   /* Better mobile scrolling without breaking navigation */
   #root {
     min-height: 100vh;
     overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
   }
 
   /* Natural momentum scrolling like native apps */
   html {
     scroll-padding-top: 5rem;
+    -webkit-overflow-scrolling: touch;
   }
 
-  /* Smooth but not jarring navigation */
-  @media (prefers-reduced-motion: no-preference) {
+  /* Smooth scrolling only on desktop */
+  @media (min-width: 769px) and (prefers-reduced-motion: no-preference) {
     html {
       scroll-behavior: smooth;
     }
@@ -124,14 +127,15 @@
     }
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
+  /* Always use auto scroll on mobile for native momentum */
+  @media (max-width: 768px) {
+    html, body {
+      scroll-behavior: auto !important;
+      overscroll-behavior-y: auto;
     }
   }
 
-  /* Better mobile momentum - remove all interference */
-  @media (max-width: 768px) {
+  @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
     }
