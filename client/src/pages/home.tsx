@@ -4,6 +4,7 @@ import RouteOverview from "@/components/RouteOverview";
 import DetailedSchedules from "@/components/DetailedSchedules";
 import FeatureGuide from "@/components/FeatureGuide";
 import FareInfo from "@/components/FareInfo";
+import About from "@/components/About";
 import Footer from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
@@ -17,6 +18,7 @@ export default function Home() {
         <RouteOverview />
         <DetailedSchedules />
         <FareInfo />
+        <About />
         <Footer />
       </div>
     </div>
