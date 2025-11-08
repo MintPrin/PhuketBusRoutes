@@ -308,7 +308,7 @@ export default function DetailedSchedules() {
                         return displayStops?.map((stop, index) => (
                           <div 
                             key={`${selectedDirection}-${index}`} 
-                            className="relative flex items-center p-2 bg-white border border-gray-200 rounded-lg cursor-pointer hover:bg-blue-50 hover:border-blue-300 hover:shadow-md transition-all duration-200 group"
+                            className="relative flex items-center p-3 bg-gradient-to-r from-white to-gray-50 border-2 border-gray-300 rounded-lg cursor-pointer hover:from-blue-50 hover:to-blue-100 hover:border-blue-500 hover:shadow-lg hover:scale-[1.02] transition-all duration-200 group"
                             onClick={() => openGoogleMaps(stop.en)}
                             title={`Click to view ${stop.en} on Google Maps`}
                             role="button"
@@ -321,7 +321,7 @@ export default function DetailedSchedules() {
                           >
                             {/* Route progression indicator */}
                             <div className="flex flex-col items-center mr-3 flex-shrink-0">
-                              <div className={`w-3 h-3 ${getRouteStopClass(route.routeId)} rounded-full border-2 border-white shadow-sm z-10 group-hover:scale-125 transition-transform duration-200`}></div>
+                              <div className={`w-4 h-4 ${getRouteStopClass(route.routeId)} rounded-full border-2 border-white shadow-md z-10 group-hover:scale-125 transition-transform duration-200`}></div>
                               {index < displayStops.length - 1 && (
                                 <div className={`w-0.5 h-4 ${getRouteStopClass(route.routeId)} mt-1`}></div>
                               )}
@@ -329,10 +329,17 @@ export default function DetailedSchedules() {
                             <div className="flex-grow">
                               <div className="flex items-center">
                                 <span className="text-xs font-bold text-gray-500 mr-2">#{index + 1}</span>
-                                <p className="font-medium text-gray-900 text-sm group-hover:text-blue-600 group-hover:underline transition-all duration-200">{stop.en}</p>
-                                <ExternalLink className="w-3 h-3 ml-2 text-gray-400 group-hover:text-blue-600 opacity-60 group-hover:opacity-100 transition-all duration-200" />
+                                <p className="font-semibold text-gray-900 text-sm group-hover:text-blue-700 group-hover:underline transition-all duration-200">{stop.en}</p>
+                                <svg className="w-4 h-4 ml-2 text-blue-500 group-hover:text-blue-700 transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
                               </div>
                               <p className="text-xs text-gray-600 ml-6 group-hover:text-blue-700 transition-colors duration-200">{stop.th}</p>
+                            </div>
+                            <div className="flex items-center ml-2 text-gray-400 group-hover:text-blue-600 transition-colors duration-200">
+                              <span className="text-xs font-medium mr-1 hidden group-hover:inline">View map</span>
+                              <ExternalLink className="w-4 h-4" />
                             </div>
                           </div>
                         ));
