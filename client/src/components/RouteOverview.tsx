@@ -12,18 +12,28 @@ const scrollToDetailedSchedules = (routeId: string) => {
     const elementPosition = routeCard.getBoundingClientRect().top + window.pageYOffset;
     const offsetPosition = elementPosition - navHeight;
 
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth'
-    });
+    // Check if mobile device
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) 
+      || window.innerWidth < 768;
+
+    // Mobile: instant scroll, Desktop: smooth scroll
+    if (isMobile) {
+      window.scrollTo(0, offsetPosition);
+    } else {
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
     
     // Add a subtle highlight effect after scrolling
+    const highlightDelay = isMobile ? 100 : 500;
     setTimeout(() => {
       routeCard.classList.add('ring-2', 'ring-blue-400', 'ring-opacity-75');
       setTimeout(() => {
         routeCard.classList.remove('ring-2', 'ring-blue-400', 'ring-opacity-75');
       }, 3000);
-    }, 500);
+    }, highlightDelay);
   }
 };
 

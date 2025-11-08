@@ -9,18 +9,15 @@ export function smoothScrollTo(targetId: string, offset: number = 80) {
   const target = document.getElementById(targetId);
   if (!target) return;
 
-  // On mobile, use native scrolling for better performance
+  const targetPosition = target.offsetTop - offset;
+
+  // On mobile, use instant native scrolling - no smooth behavior
   if (isMobileDevice()) {
-    const targetPosition = target.offsetTop - offset;
-    window.scrollTo({
-      top: targetPosition,
-      behavior: 'smooth'
-    });
+    window.scrollTo(0, targetPosition);
     return;
   }
 
   // Desktop: use custom smooth scrolling
-  const targetPosition = target.offsetTop - offset;
   const startPosition = window.pageYOffset;
   const distance = targetPosition - startPosition;
   const duration = Math.min(Math.abs(distance) * 0.5, 1200); // Max 1.2 seconds
@@ -47,8 +44,13 @@ export function smoothScrollTo(targetId: string, offset: number = 80) {
   requestAnimationFrame(animation);
 }
 
-// Initialize smooth scrolling for anchor links
+// Initialize smooth scrolling for anchor links (desktop only)
 export function initSmoothScrolling() {
+  // Don't intercept anchor links on mobile - let browser handle naturally
+  if (isMobileDevice()) {
+    return;
+  }
+
   document.addEventListener('click', (e) => {
     const target = e.target as HTMLElement;
     const link = target.closest('a[href^="#"]') as HTMLAnchorElement;
