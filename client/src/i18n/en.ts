@@ -69,7 +69,7 @@ export const en = {
   "help.payment.title": "Payment & Boarding Tips",
   "help.payment.description": "Important information for travelers:",
   "help.payment.features": [
-    "Pay cash directly to the driver (no cards accepted)",
+    "Pay cash directly to the staff in uniform (no cards accepted)",
     "Fare varies by distance, maximum 100 THB",
     "Standard luggage allowed free of charge",
     "Arrive 5-10 minutes before departure time"
