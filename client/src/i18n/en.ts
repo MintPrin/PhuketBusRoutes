@@ -98,7 +98,7 @@ export const en = {
   // About Section
   "about.title": "About",
   "about.description": "Created to provide accurate bus schedules by gathering info from terminal posters, social media, and official sources.",
-  "about.sources": "Terminal posters • Facebook pages • Official websites",
+  "about.sources": "Terminal posters • Facebook pages • The rarely updated official website (which still exists)",
   "about.feedback.title": "Send Feedback",
   "about.feedback.description": "Feedback form coming soon",
 
