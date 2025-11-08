@@ -11,6 +11,7 @@ interface SEOData {
   ogTitle: string;
   ogDescription: string;
   ogUrl: string;
+  structuredData: Array<Record<string, any>>;
 }
 
 export const useSEO = () => {
@@ -20,6 +21,83 @@ export const useSEO = () => {
   const getSEOData = (): SEOData => {
     const baseUrl = 'https://phuketbusroutes.com';
     const currentPath = location === '/th' ? '/' : location.replace('/th', '');
+    
+    const structuredData: Array<Record<string, any>> = [
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": `${baseUrl}/#organization`,
+        "name": currentLanguage === 'th' ? 'Phuket Bus Routes' : 'Phuket Bus Routes',
+        "url": baseUrl,
+        "logo": {
+          "@type": "ImageObject",
+          "url": `${baseUrl}/logo.png`,
+          "width": 512,
+          "height": 512
+        },
+        "description": currentLanguage === 'th'
+          ? 'คู่มือเส้นทางรถเมล์ภูเก็ตอิสระ - ข้อมูลตารางเวลาและเส้นทางรถเมล์สนามบินภูเก็ตที่ครบถ้วน'
+          : 'Independent Phuket bus route guide - comprehensive schedules and route information for Phuket airport buses',
+        "sameAs": []
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": `${baseUrl}/#website`,
+        "url": baseUrl,
+        "name": currentLanguage === 'th' ? 'Phuket Bus Routes' : 'Phuket Bus Routes',
+        "description": currentLanguage === 'th'
+          ? 'คู่มือเส้นทางรถเมล์ภูเก็ต - ตารางเวลา ค่าโดยสาร และข้อมูลเส้นทาง'
+          : 'Phuket Bus Routes Guide - schedules, fares, and route information',
+        "publisher": {
+          "@id": `${baseUrl}/#organization`
+        },
+        "inLanguage": [
+          {
+            "@type": "Language",
+            "name": "English",
+            "alternateName": "en"
+          },
+          {
+            "@type": "Language", 
+            "name": "Thai",
+            "alternateName": "th"
+          }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": currentLanguage === 'th' ? `${baseUrl}/th${currentPath}#webpage` : `${baseUrl}${currentPath}#webpage`,
+        "url": currentLanguage === 'th' ? `${baseUrl}/th${currentPath}` : `${baseUrl}${currentPath}`,
+        "name": currentLanguage === 'th' 
+          ? 'เส้นทางรถเมล์ภูเก็ต และตารางเวลา - คู่มือขนส่งสนามบิน'
+          : 'Phuket Bus Routes & Schedules - Airport Transportation Guide',
+        "isPartOf": {
+          "@id": `${baseUrl}/#website`
+        },
+        "about": {
+          "@type": "Service",
+          "serviceType": currentLanguage === 'th' ? 'ข้อมูลรถเมล์สาธารณะ' : 'Public Bus Information',
+          "provider": {
+            "@id": `${baseUrl}/#organization`
+          },
+          "areaServed": {
+            "@type": "City",
+            "name": currentLanguage === 'th' ? 'ภูเก็ต' : 'Phuket',
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "TH",
+              "addressRegion": currentLanguage === 'th' ? 'ภูเก็ต' : 'Phuket'
+            }
+          }
+        },
+        "description": currentLanguage === 'th'
+          ? 'ตารางเวลารถเมล์ภูเก็ตครบถ้วนจากสนามบินไปยังปาตอง กะรน กะตะ และเมืองภูเก็ต'
+          : 'Complete Phuket bus schedules from airport to Patong, Karon, Kata beaches and Phuket Town.',
+        "inLanguage": currentLanguage === 'th' ? 'th-TH' : 'en-US'
+      }
+    ];
     
     const seoData: SEOData = {
       title: currentLanguage === 'th' 
@@ -42,8 +120,9 @@ export const useSEO = () => {
         : 'Phuket Bus Routes & Schedules - Airport Transportation Guide',
       ogDescription: currentLanguage === 'th'
         ? 'ตารางเวลารถเมล์ภูเก็ตครบถ้วนจากสนามบินไปยังปาตอง กะรน กะตะ และเมืองภูเก็ต'
-        : 'Complete Phuket bus schedules from airport to Patong, Karon, Kata beaches and Phuket Town.',
-      ogUrl: currentLanguage === 'th' ? `${baseUrl}/th${currentPath}` : `${baseUrl}${currentPath}`
+        : 'Complete Phuket bus schedules from airport to Patong, Koran, Kata beaches and Phuket Town.',
+      ogUrl: currentLanguage === 'th' ? `${baseUrl}/th${currentPath}` : `${baseUrl}${currentPath}`,
+      structuredData
     };
 
     return seoData;
@@ -74,8 +153,10 @@ export const useSEO = () => {
     updateMetaTag('og:description', seoData.ogDescription, true);
     updateMetaTag('og:url', seoData.ogUrl, true);
     updateMetaTag('og:locale', currentLanguage === 'th' ? 'th_TH' : 'en_US', true);
+    updateMetaTag('og:type', 'website', true);
 
     // Twitter Card tags
+    updateMetaTag('twitter:card', 'summary_large_image');
     updateMetaTag('twitter:title', seoData.ogTitle);
     updateMetaTag('twitter:description', seoData.ogDescription);
 
@@ -96,6 +177,18 @@ export const useSEO = () => {
       hreflang.hreflang = lang;
       hreflang.href = href;
       document.head.appendChild(hreflang);
+    });
+
+    // Remove existing structured data scripts
+    document.querySelectorAll('script[type="application/ld+json"][data-seo-hook="true"]').forEach(script => script.remove());
+
+    // Add structured data scripts
+    seoData.structuredData.forEach((data) => {
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.setAttribute('data-seo-hook', 'true');
+      script.textContent = JSON.stringify(data);
+      document.head.appendChild(script);
     });
   };
 

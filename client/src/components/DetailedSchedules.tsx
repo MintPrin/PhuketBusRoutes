@@ -8,7 +8,7 @@ import { useTranslation } from "@/hooks/useTranslation";
 import type { BusRoute, BusStop } from "@/data/routes";
 
 export default function DetailedSchedules() {
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
   const [selectedDirections, setSelectedDirections] = useState<Record<string, 'outbound' | 'inbound'>>({});
   
   // Function to get Google Maps search term for a stop
@@ -106,8 +106,143 @@ export default function DetailedSchedules() {
     }
   };
 
+  const generateTransitSchemas = (route: BusRoute, language: 'en' | 'th') => {
+    const baseUrl = 'https://phuketbusroutes.com';
+    const schemas: Array<Record<string, any>> = [];
+    
+    const createStopItinerary = (stops: BusStop[], isReversed: boolean = false) => {
+      const orderedStops = isReversed ? [...stops].reverse() : stops;
+      return orderedStops.map((stop, index) => ({
+        "@type": "BusStop",
+        "name": language === 'th' ? stop.th : stop.en,
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Phuket",
+          "addressRegion": language === 'th' ? 'ภูเก็ต' : 'Phuket',
+          "addressCountry": "TH"
+        }
+      }));
+    };
+    
+    if (route.schedules?.outbound?.available) {
+      schemas.push({
+        "@context": "https://schema.org",
+        "@type": "BusTrip",
+        "@id": `${baseUrl}/#route-${route.routeId}-outbound`,
+        "name": language === 'th' 
+          ? `เส้นทาง ${route.routeId} (จากสนามบิน)` 
+          : `Route ${route.routeId} (From Airport)`,
+        "description": language === 'th' ? route.description?.th : route.description?.en,
+        "provider": {
+          "@type": "Organization",
+          "name": language === 'th' ? route.name?.th : route.name?.en
+        },
+        "busNumber": route.routeId,
+        "itinerary": {
+          "@type": "ItemList",
+          "itemListElement": createStopItinerary(route.stops, false)
+        },
+        "departureBusStop": {
+          "@type": "BusStop",
+          "name": language === 'th' ? route.stops[0]?.th : route.stops[0]?.en,
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Phuket",
+            "addressCountry": "TH"
+          }
+        },
+        "arrivalBusStop": {
+          "@type": "BusStop",
+          "name": language === 'th' 
+            ? route.stops[route.stops.length - 1]?.th 
+            : route.stops[route.stops.length - 1]?.en,
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Phuket",
+            "addressCountry": "TH"
+          }
+        },
+        "departureTime": route.schedules.outbound.times,
+        "offers": {
+          "@type": "Offer",
+          "price": "100",
+          "priceCurrency": "THB",
+          "availability": "https://schema.org/InStock",
+          "description": language === 'th' 
+            ? "ค่าโดยสารเหมาจ่าย สำหรับทุกเส้นทาง"
+            : "Flat fare for all routes"
+        }
+      });
+    }
+    
+    if (route.schedules?.inbound?.available) {
+      schemas.push({
+        "@context": "https://schema.org",
+        "@type": "BusTrip",
+        "@id": `${baseUrl}/#route-${route.routeId}-inbound`,
+        "name": language === 'th' 
+          ? `เส้นทาง ${route.routeId} (ไปสนามบิน)` 
+          : `Route ${route.routeId} (To Airport)`,
+        "description": language === 'th' ? route.description?.th : route.description?.en,
+        "provider": {
+          "@type": "Organization",
+          "name": language === 'th' ? route.name?.th : route.name?.en
+        },
+        "busNumber": route.routeId,
+        "itinerary": {
+          "@type": "ItemList",
+          "itemListElement": createStopItinerary(route.stops, true)
+        },
+        "departureBusStop": {
+          "@type": "BusStop",
+          "name": language === 'th' 
+            ? route.stops[route.stops.length - 1]?.th 
+            : route.stops[route.stops.length - 1]?.en,
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Phuket",
+            "addressCountry": "TH"
+          }
+        },
+        "arrivalBusStop": {
+          "@type": "BusStop",
+          "name": language === 'th' ? route.stops[0]?.th : route.stops[0]?.en,
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Phuket",
+            "addressCountry": "TH"
+          }
+        },
+        "departureTime": route.schedules.inbound.times,
+        "offers": {
+          "@type": "Offer",
+          "price": "100",
+          "priceCurrency": "THB",
+          "availability": "https://schema.org/InStock",
+          "description": language === 'th' 
+            ? "ค่าโดยสารเหมาจ่าย สำหรับทุกเส้นทาง"
+            : "Flat fare for all routes"
+        }
+      });
+    }
+    
+    return schemas;
+  };
+
   return (
     <section className="py-8 bg-gray-50" data-section="detailed-schedules">
+      {routes.flatMap((route: BusRoute) => 
+        generateTransitSchemas(route, language).map((schema, index) => (
+          <script 
+            key={`schema-${route.routeId}-${index}-${language}`}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ 
+              __html: JSON.stringify(schema) 
+            }}
+          />
+        ))
+      )}
+      
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-bold text-center mb-6">{t('schedules.title')}</h2>
 
