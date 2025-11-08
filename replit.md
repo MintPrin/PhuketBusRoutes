@@ -100,6 +100,14 @@ The application follows a modern full-stack architecture with clear separation b
 
 ## Recent Changes
 
+### SEO Structured Data Implementation (November 8, 2025)
+- **Comprehensive Schema.org markup** added for enhanced Google discovery
+- **Organization & WebSite schemas** in useSEO hook positioning site as independent community guide
+- **BusTrip schemas** for all routes (P1, P2, P3) with dual-direction support (outbound/inbound)
+- **Complete transit data**: All stops in itinerary, all departure times, fare information (100 THB)
+- **Bilingual support**: All schemas available in both English and Thai
+- **LocalBusiness schema removed**: Eliminated made-up contact information to maintain authenticity
+
 ### Security & SEO Updates (June 21, 2025)
 - **Vite Security Patch**: Updated from 5.4.14 to 5.4.15 to patch CVE-2025-30208 vulnerability
 - **SEO Link Protection**: Added `nofollow` attributes to all external links (Google Maps, Facebook) to prevent SEO link juice leakage
@@ -113,6 +121,7 @@ The application follows a modern full-stack architecture with clear separation b
 ## Changelog
 - June 17, 2025. Initial setup
 - June 21, 2025. Security patches and SEO optimization
+- November 8, 2025. Structured data implementation for enhanced SEO
 
 ## User Preferences
 
