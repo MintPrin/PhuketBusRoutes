@@ -96,18 +96,11 @@ export const en = {
   "schedule.unavailable": "Not Available",
 
   // About Section
-  "about.title": "About This Guide",
-  "about.story.title": "Why I Created This",
-  "about.story.description": "I noticed an outdated website still getting tens of thousands of visits each month with incorrect bus information. The most reliable sources were actually posters at the bus terminal and social media pages, with rarely updated official websites. I decided to help get accurate information to travelers who need it.",
-  "about.sources.title": "Information Sources",
-  "about.sources.description": "All schedules are gathered from:",
-  "about.sources.list": [
-    "Official posters at Phuket bus terminals",
-    "Bus operator social media pages (Facebook)",
-    "Rarely updated official websites"
-  ] as string[],
-  "about.updates.title": "Keeping It Current",
-  "about.updates.description": "If you notice any outdated or incorrect information, please let me know. I'm committed to keeping this guide accurate and helpful for everyone traveling in Phuket.",
+  "about.title": "About",
+  "about.description": "Created to provide accurate bus schedules by gathering info from terminal posters, social media, and official sources.",
+  "about.sources": "Terminal posters • Facebook pages • Official websites",
+  "about.feedback.title": "Send Feedback",
+  "about.feedback.description": "Feedback form coming soon",
 
   // Footer
   "footer.description": "Your comprehensive guide to navigating Phuket's public transportation system with real-time schedules and route information.",
