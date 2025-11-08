@@ -308,13 +308,20 @@ export default function DetailedSchedules() {
                         return displayStops?.map((stop, index) => (
                           <div 
                             key={`${selectedDirection}-${index}`} 
-                            className="relative flex items-center p-2 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors duration-200 group"
+                            className="relative flex items-center p-2 bg-white border border-gray-200 rounded-lg cursor-pointer hover:bg-blue-50 hover:border-blue-300 hover:shadow-md transition-all duration-200 group"
                             onClick={() => openGoogleMaps(stop.en)}
-                            title={`View ${stop.en} on Google Maps`}
+                            title={`Click to view ${stop.en} on Google Maps`}
+                            role="button"
+                            tabIndex={0}
+                            onKeyPress={(e) => {
+                              if (e.key === 'Enter' || e.key === ' ') {
+                                openGoogleMaps(stop.en);
+                              }
+                            }}
                           >
                             {/* Route progression indicator */}
                             <div className="flex flex-col items-center mr-3 flex-shrink-0">
-                              <div className={`w-3 h-3 ${getRouteStopClass(route.routeId)} rounded-full border-2 border-white shadow-sm z-10 group-hover:scale-110 transition-transform duration-200`}></div>
+                              <div className={`w-3 h-3 ${getRouteStopClass(route.routeId)} rounded-full border-2 border-white shadow-sm z-10 group-hover:scale-125 transition-transform duration-200`}></div>
                               {index < displayStops.length - 1 && (
                                 <div className={`w-0.5 h-4 ${getRouteStopClass(route.routeId)} mt-1`}></div>
                               )}
@@ -322,10 +329,10 @@ export default function DetailedSchedules() {
                             <div className="flex-grow">
                               <div className="flex items-center">
                                 <span className="text-xs font-bold text-gray-500 mr-2">#{index + 1}</span>
-                                <p className="font-medium text-gray-900 text-sm group-hover:text-blue-600 transition-colors duration-200">{stop.en}</p>
-                                <ExternalLink className="w-3 h-3 ml-2 text-gray-400 group-hover:text-blue-500 opacity-0 group-hover:opacity-100 transition-all duration-200" />
+                                <p className="font-medium text-gray-900 text-sm group-hover:text-blue-600 group-hover:underline transition-all duration-200">{stop.en}</p>
+                                <ExternalLink className="w-3 h-3 ml-2 text-gray-400 group-hover:text-blue-600 opacity-60 group-hover:opacity-100 transition-all duration-200" />
                               </div>
-                              <p className="text-xs text-gray-600 ml-6">{stop.th}</p>
+                              <p className="text-xs text-gray-600 ml-6 group-hover:text-blue-700 transition-colors duration-200">{stop.th}</p>
                             </div>
                           </div>
                         ));
