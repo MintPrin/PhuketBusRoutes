@@ -40,7 +40,7 @@ const scrollToDetailedSchedules = (routeId: string) => {
 export default function RouteOverview() {
   const { t } = useTranslation();
   const { data: routes = [], isLoading } = useQuery<BusRoute[]>({
-    queryKey: ["/api/routes"],
+    queryKey: ["/data/routes.json"],
   });
 
   if (isLoading) {

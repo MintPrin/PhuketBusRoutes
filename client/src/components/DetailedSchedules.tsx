@@ -40,7 +40,7 @@ export default function DetailedSchedules() {
   };
   
   const { data: routes = [], isLoading } = useQuery<BusRoute[]>({
-    queryKey: ["/api/routes"],
+    queryKey: ["/data/routes.json"],
   });
 
   const handleDirectionChange = (routeId: string, direction: 'outbound' | 'inbound') => {
