@@ -2,193 +2,207 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Critical CSS for above-the-fold content */
-@layer base {
-  /* Prevent layout shift by reserving space for fonts */
-  body {
-    font-display: swap;
-  }
-  
-  /* Optimize rendering performance */
-  * {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  
-  /* Improve perceived performance with skeleton loading */
-  .loading-skeleton {
-    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-    background-size: 200% 100%;
-    animation: loading 1.5s infinite;
-  }
-  
-  @keyframes loading {
-    0% {
-      background-position: 200% 0;
-    }
-    100% {
-      background-position: -200% 0;
-    }
-  }
-}
-
+/* ---------- Editorial palette (HSL bridge for shadcn primitives) ---------- */
 :root {
-  --background: 0 0% 100%; /* #FFFFFF */
-  --foreground: 215 28% 17%; /* #1E293B */
-  
-  /* Font families */
-  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
-  --font-thai: "Bai Jamjuree", "Inter", system-ui, -apple-system, sans-serif;
-  --muted: 210 11% 96%; /* #F1F5F9 */
-  --muted-foreground: 215 16% 47%; /* #64748B */
-  --popover: 0 0% 100%; /* #FFFFFF */
-  --popover-foreground: 215 28% 17%; /* #1E293B */
-  --card: 0 0% 100%; /* #FFFFFF */
-  --card-foreground: 215 28% 17%; /* #1E293B */
-  --border: 215 12% 89%; /* #E2E8F0 */
-  --input: 215 12% 89%; /* #E2E8F0 */
-  --primary: 195 100% 30%; /* #006580 - Darker Ocean */
-  --primary-foreground: 0 0% 100%; /* #FFFFFF */
-  --secondary: 210 11% 96%; /* #F1F5F9 */
-  --secondary-foreground: 215 28% 17%; /* #1E293B */
-  --accent: 210 11% 96%; /* #F1F5F9 */
-  --accent-foreground: 215 28% 17%; /* #1E293B */
-  --destructive: 0 84% 60%; /* #EF4444 */
-  --destructive-foreground: 0 0% 98%; /* #FEFEFE */
-  --ring: 195 100% 30%; /* #006580 */
-  --radius: 0.5rem;
-  --ocean: 195 100% 30%; /* #006580 - Better contrast */
-  --teal: 175 77% 20%; /* #0D5E56 - Darker for better contrast */
-  --tropical: 43 96% 40%; /* #D97706 - Darker for better contrast */
+  /* Editorial values */
+  --paper: 38 47% 91%;          /* #F3EDDF */
+  --paper-deep: 36 41% 84%;     /* #E9DEC6 */
+  --paper-tint: 41 60% 95%;
+  --ink: 0 0% 5%;               /* #0E0E0E */
+  --ink-soft: 25 8% 15%;        /* #2A2724 */
+  --ink-mute: 30 12% 33%;
+  --vermillion: 9 78% 47%;      /* #D5391C */
+  --signal: 43 89% 63%;         /* #F5C24D */
+  --teal-deep: 177 71% 21%;     /* #0F5E5A */
+  --sand: 32 32% 57%;
+
+  /* shadcn defaults — remapped to editorial palette */
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --muted: var(--paper-deep);
+  --muted-foreground: var(--ink-mute);
+  --popover: 41 60% 95%;
+  --popover-foreground: var(--ink);
+  --card: var(--paper-tint);
+  --card-foreground: var(--ink);
+  --border: 25 18% 24%;
+  --input: 30 18% 80%;
+  --primary: var(--ink);
+  --primary-foreground: var(--paper);
+  --secondary: var(--paper-deep);
+  --secondary-foreground: var(--ink);
+  --accent: var(--vermillion);
+  --accent-foreground: var(--paper);
+  --destructive: 0 78% 47%;
+  --destructive-foreground: var(--paper);
+  --ring: var(--ink);
+  --radius: 0.25rem;
+
+  /* legacy aliases used in old code */
+  --ocean: var(--teal-deep);
+  --teal: var(--teal-deep);
+  --tropical: var(--vermillion);
+
+  --font-sans: "DM Sans", system-ui, -apple-system, sans-serif;
+  --font-display: "Instrument Serif", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-thai: "IBM Plex Sans Thai", "Bai Jamjuree", system-ui, sans-serif;
 }
 
 .dark {
-  --background: 215 28% 17%; /* #1E293B */
-  --foreground: 210 11% 96%; /* #F1F5F9 */
-  --muted: 215 25% 16%; /* #1E293B */
-  --muted-foreground: 215 16% 65%; /* #94A3B8 */
-  --popover: 215 28% 17%; /* #1E293B */
-  --popover-foreground: 210 11% 96%; /* #F1F5F9 */
-  --card: 215 28% 17%; /* #1E293B */
-  --card-foreground: 210 11% 96%; /* #F1F5F9 */
-  --border: 215 25% 27%; /* #334155 */
-  --input: 215 25% 27%; /* #334155 */
-  --primary: 195 100% 39%; /* #0891B2 */
-  --primary-foreground: 210 40% 98%; /* #F0F9FF */
-  --secondary: 215 25% 27%; /* #334155 */
-  --secondary-foreground: 210 11% 96%; /* #F1F5F9 */
-  --accent: 215 25% 27%; /* #334155 */
-  --accent-foreground: 210 11% 96%; /* #F1F5F9 */
-  --destructive: 0 62% 30%; /* #991B1B */
-  --destructive-foreground: 0 0% 98%; /* #FEFEFE */
-  --ring: 195 100% 39%; /* #0891B2 */
+  --background: 25 8% 8%;
+  --foreground: var(--paper);
+  --muted: 25 8% 14%;
+  --muted-foreground: 30 12% 65%;
+  --popover: 25 8% 8%;
+  --popover-foreground: var(--paper);
+  --card: 25 8% 11%;
+  --card-foreground: var(--paper);
+  --border: 25 8% 22%;
+  --input: 25 8% 22%;
+  --primary: var(--paper);
+  --primary-foreground: var(--ink);
 }
 
+/* ---------- Base ---------- */
 @layer base {
-  * {
-    @apply border-border;
-  }
+  * { @apply border-border; }
 
   html {
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    scroll-padding-top: 6rem;
+    background-color: hsl(var(--paper));
   }
 
   body {
-    @apply font-sans antialiased bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
+    @apply font-sans antialiased;
+    background-color: hsl(var(--paper));
+    color: hsl(var(--ink));
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
   }
 
-  /* Better mobile scrolling without breaking navigation */
   #root {
     min-height: 100vh;
     overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
+    position: relative;
   }
 
-  /* Natural momentum scrolling like native apps */
-  html {
-    scroll-padding-top: 5rem;
-    -webkit-overflow-scrolling: touch;
+  /* Subtle paper grain over entire page */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 220px 220px;
+    opacity: 0.45;
+    mix-blend-mode: multiply;
+    z-index: 9999;
   }
 
-  /* Smooth scrolling only on desktop */
   @media (min-width: 769px) and (prefers-reduced-motion: no-preference) {
-    html {
-      scroll-behavior: smooth;
-    }
-    
-    html:focus-within {
-      scroll-behavior: smooth;
-    }
-  }
-
-  /* Always use auto scroll on mobile for native momentum */
-  @media (max-width: 768px) {
-    html, body {
-      scroll-behavior: auto !important;
-      overscroll-behavior-y: auto;
-    }
+    html { scroll-behavior: smooth; }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
-    }
+    html { scroll-behavior: auto; }
   }
 
-  /* Better mobile touch handling */
-  * {
-    -webkit-tap-highlight-color: transparent;
-  }
+  * { -webkit-tap-highlight-color: transparent; }
 
-  /* Thai font styling */
-  .font-thai {
-    font-family: var(--font-thai);
-  }
+  input, select, textarea { font-size: 16px; touch-action: manipulation; }
+  button { touch-action: manipulation; }
 
-  /* Apply Thai font when language is Thai */
   [data-lang="th"] {
     font-family: var(--font-thai);
   }
 
-  /* Prevent zoom on form inputs */
-  input, select, textarea {
-    font-size: 16px;
-    touch-action: manipulation;
-  }
-
-  button {
-    touch-action: manipulation;
+  /* Selection */
+  ::selection {
+    background: hsl(var(--vermillion));
+    color: hsl(var(--paper));
   }
 }
 
+/* ---------- Utilities ---------- */
 @layer utilities {
-  .ocean {
-    color: hsl(var(--ocean));
+  .font-display { font-family: var(--font-display); }
+  .font-mono-numerals { font-family: var(--font-mono); font-feature-settings: "tnum"; }
+  .font-thai { font-family: var(--font-thai); }
+
+  .text-ink { color: hsl(var(--ink)); }
+  .text-ink-soft { color: hsl(var(--ink-soft)); }
+  .text-ink-mute { color: hsl(var(--ink-mute)); }
+  .text-paper { color: hsl(var(--paper)); }
+  .text-vermillion { color: hsl(var(--vermillion)); }
+  .text-teal-deep { color: hsl(var(--teal-deep)); }
+  .text-signal { color: hsl(var(--signal)); }
+
+  .bg-paper { background-color: hsl(var(--paper)); }
+  .bg-paper-deep { background-color: hsl(var(--paper-deep)); }
+  .bg-paper-tint { background-color: hsl(var(--paper-tint)); }
+  .bg-ink { background-color: hsl(var(--ink)); }
+  .bg-ink-soft { background-color: hsl(var(--ink-soft)); }
+  .bg-vermillion { background-color: hsl(var(--vermillion)); }
+  .bg-teal-deep { background-color: hsl(var(--teal-deep)); }
+  .bg-signal { background-color: hsl(var(--signal)); }
+
+  .border-ink { border-color: hsl(var(--ink)); }
+  .border-ink-soft { border-color: hsl(var(--ink-soft)); }
+  .border-vermillion { border-color: hsl(var(--vermillion)); }
+  .border-teal-deep { border-color: hsl(var(--teal-deep)); }
+
+  /* legacy aliases used by old code */
+  .ocean { color: hsl(var(--teal-deep)); }
+  .bg-ocean { background-color: hsl(var(--teal-deep)); }
+  .teal { color: hsl(var(--teal-deep)); }
+  .bg-teal { background-color: hsl(var(--teal-deep)); }
+  .tropical { color: hsl(var(--vermillion)); }
+  .bg-tropical { background-color: hsl(var(--vermillion)); }
+
+  .text-balance { text-wrap: balance; }
+
+  /* Decorative dotted route line */
+  .route-dot-line {
+    background-image: radial-gradient(circle, hsl(var(--ink)) 1.2px, transparent 1.4px);
+    background-size: 4px 12px;
+    background-repeat: repeat-y;
+    background-position: center top;
   }
-  
-  .bg-ocean {
-    background-color: hsl(var(--ocean));
+
+  /* Ticket perforation */
+  .perforated-top {
+    background-image: radial-gradient(circle at 6px 0, transparent 4px, hsl(var(--ink)) 4px, hsl(var(--ink)) 5px, transparent 5px);
+    background-size: 14px 5px;
+    background-repeat: repeat-x;
+    background-position: top;
   }
-  
-  .teal {
-    color: hsl(var(--teal));
+
+  /* Marquee inner double for seamless loop */
+  .marquee-track {
+    display: inline-flex;
+    will-change: transform;
   }
-  
-  .bg-teal {
-    background-color: hsl(var(--teal));
+}
+
+/* ---------- Components ---------- */
+@layer components {
+  .editorial-rule {
+    @apply h-px w-full bg-ink/80;
   }
-  
-  .tropical {
-    color: hsl(var(--tropical));
+
+  /* Departure-board cell */
+  .dep-cell {
+    @apply relative font-mono-numerals text-center tracking-tight transition-colors;
   }
-  
-  .bg-tropical {
-    background-color: hsl(var(--tropical));
+  .dep-cell::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 1px solid hsl(var(--ink) / 0.85);
   }
 }

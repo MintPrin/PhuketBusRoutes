@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
     
     <!-- Performance and SEO meta tags -->
-    <meta name="theme-color" content="#0ea5e9">
-    <meta name="msapplication-TileColor" content="#0ea5e9">
+    <meta name="theme-color" content="#0E0E0E">
+    <meta name="msapplication-TileColor" content="#0E0E0E">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -71,11 +71,11 @@
       "mainEntity": [
         {
           "@type": "BusRoute",
-          "name": "Route P1 - Smart Bus (Light Blue)",
-          "description": "Airport to Patong Beach via major stops",
+          "name": "Route P1 - Phuket Smart Bus (Light Blue)",
+          "description": "Phuket International Airport to Rawai Beach via Surin, Kamala, Patong, Karon, Kata",
           "provider": {
             "@type": "TransportationCompany",
-            "name": "Phuket Airport Bus"
+            "name": "Phuket Smart Bus Co., Ltd."
           },
           "routeNumber": "P1",
           "startLocation": {
@@ -89,48 +89,68 @@
           },
           "endLocation": {
             "@type": "BusStation",
-            "name": "Patong Beach",
+            "name": "Rawai Beach",
             "geo": {
               "@type": "GeoCoordinates",
-              "latitude": 7.8967,
-              "longitude": 98.2964
+              "latitude": 7.7733,
+              "longitude": 98.3242
             }
           }
         },
         {
           "@type": "BusRoute",
-          "name": "Route P2 - Smart Bus (Orange)",
-          "description": "Airport to Karon and Kata beaches",
+          "name": "Route P2 - Airport Bus 8411 (Orange)",
+          "description": "Phuket International Airport to Phuket Bus Terminal 1 via Central Phuket and Phuket Town",
           "provider": {
             "@type": "TransportationCompany",
-            "name": "Phuket Airport Bus"
+            "name": "Phuket Mahanakorn Co., Ltd. (Airport Bus Phuket 8411)"
           },
-          "routeNumber": "P2",
+          "routeNumber": "P2 / 8411",
           "startLocation": {
             "@type": "BusStation",
-            "name": "Phuket International Airport"
+            "name": "Phuket International Airport",
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 8.1132,
+              "longitude": 98.3169
+            }
           },
           "endLocation": {
             "@type": "BusStation",
-            "name": "Kata Beach"
+            "name": "Phuket Bus Terminal 1",
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 7.8870,
+              "longitude": 98.3877
+            }
           }
         },
         {
           "@type": "BusRoute",
-          "name": "Route P3 - Smart Bus (Dark Blue)",
-          "description": "Airport to Phuket Town and Bus Terminal",
+          "name": "Route P3 - Airport Bus Express (Dark Blue)",
+          "description": "Phuket International Airport express service to Patong, Karon and Kata beaches",
           "provider": {
             "@type": "TransportationCompany",
-            "name": "Phuket Airport Bus"
+            "name": "Phuket Airport Bus Express"
           },
           "routeNumber": "P3",
           "startLocation": {
             "@type": "BusStation",
-            "name": "Phuket International Airport"
+            "name": "Phuket International Airport",
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 8.1132,
+              "longitude": 98.3169
+            }
           },
           "endLocation": {
             "@type": "BusStation",
-            "name": "Phuket Bus Terminal"
+            "name": "Kata Beach",
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 7.8190,
+              "longitude": 98.2982
+            }
           }
         }
       ]
@@ -143,81 +163,28 @@
     
     <!-- Inline critical CSS to prevent render blocking -->
     <style>
-      /* Critical above-the-fold styles */
+      :root {
+        --paper: #F3EDDF;
+        --paper-deep: #E9DEC6;
+        --ink: #0E0E0E;
+        --ink-soft: #2A2724;
+        --vermillion: #D5391C;
+        --teal-deep: #0F5E5A;
+      }
       body {
         margin: 0;
-        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        background-color: #ffffff;
-        color: #1e293b;
+        background-color: #F3EDDF;
+        color: #0E0E0E;
       }
-      
-      #root {
-        min-height: 100vh;
-      }
-      
-      /* Hero section critical styles */
-      .hero-section {
-        position: relative;
-        padding: 3rem 0;
-        background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
-        overflow: hidden;
-      }
-      
-      .hero-content {
-        max-width: 72rem;
-        margin: 0 auto;
-        padding: 0 1rem;
-        position: relative;
-        z-index: 10;
-        text-align: center;
-      }
-      
-      .hero-title {
-        font-size: 1.875rem;
-        font-weight: 700;
-        margin-bottom: 0.75rem;
-        color: white;
-      }
-      
-      .hero-subtitle {
-        font-size: 1.125rem;
-        margin-bottom: 2rem;
-        max-width: 32rem;
-        margin-left: auto;
-        margin-right: auto;
-        color: rgba(255, 255, 255, 0.95);
-      }
-      
-      @media (min-width: 768px) {
-        .hero-title {
-          font-size: 2.25rem;
-        }
-      }
-      
-      /* Navigation critical styles */
-      nav {
-        background-color: white;
-        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-      }
-      
-      /* Loading skeleton */
-      .loading-skeleton {
-        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-        background-size: 200% 100%;
-        animation: loading 1.5s infinite;
-      }
-      
-      @keyframes loading {
-        0% { background-position: 200% 0; }
-        100% { background-position: -200% 0; }
-      }
+      #root { min-height: 100vh; }
     </style>
-    
+
     <!-- Defer font loading to prevent render blocking -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Bai+Jamjuree:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Bai+Jamjuree:wght@300;400;500;600;700&display=swap"></noscript>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Bai+Jamjuree:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Bai+Jamjuree:wght@300;400;500;600;700&display=swap"></noscript>
     
     <!-- Preload critical resources -->
     <link rel="preload" href="/src/main.tsx" as="script">
@@ -229,7 +196,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=4">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=4">
     <link rel="manifest" href="/site.webmanifest?v=4">
-    <meta name="theme-color" content="#0066CC">
+    <meta name="theme-color" content="#0E0E0E">
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZFXLE1TQXE"></script>

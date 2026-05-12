@@ -10,6 +10,14 @@ export interface BusSchedule {
   available: boolean;
 }
 
+export interface RouteMeta {
+  routeNumber?: string;
+  operator?: string;
+  payment?: string[];
+  lastVerified?: string;
+  sources?: string[];
+}
+
 export interface BusRoute {
   id: string;
   routeId: string;
@@ -23,10 +31,12 @@ export interface BusRoute {
     th: string;
   };
   stops: BusStop[];
+  stopsInbound?: BusStop[];
   schedules: {
     outbound: BusSchedule;
     inbound?: BusSchedule;
   };
+  meta?: RouteMeta;
 }
 
 export interface RouteRecommendation {

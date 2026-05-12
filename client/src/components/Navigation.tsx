@@ -1,109 +1,100 @@
 import { useState, useEffect } from "react";
-import { Globe, Route, ChevronDown } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { useLocation } from "wouter";
 import { useTranslation } from "@/hooks/useTranslation";
 import { getLocalizedPath, removeLanguagePrefix } from "@/i18n";
 import HelpModal from "@/components/FeatureGuide";
 
 export default function Navigation() {
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const [location, setLocation] = useLocation();
-  const { t, language } = useTranslation();
+  const [scrolled, setScrolled] = useState(false);
+  const [location] = useLocation();
+  const { language } = useTranslation();
+  const [now, setNow] = useState(() => new Date());
 
   useEffect(() => {
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
-    
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      
-      // On mobile, use simpler logic to reduce scroll jank
-      if (isMobile) {
-        // Only hide when scrolling down past a larger threshold
-        if (currentScrollY > lastScrollY && currentScrollY > 150) {
-          if (isVisible) {
-            setIsVisible(false);
-          }
-        } else if (currentScrollY < lastScrollY || currentScrollY < 50) {
-          if (!isVisible) {
-            setIsVisible(true);
-          }
-        }
-      } else {
-        // Desktop: original behavior
-        if (currentScrollY < lastScrollY || currentScrollY < 50) {
-          if (!isVisible) {
-            setIsVisible(true);
-          }
-        } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
-          if (isVisible) {
-            setIsVisible(false);
-          }
-        }
-      }
-      
-      setLastScrollY(currentScrollY);
-    };
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+  useEffect(() => {
+    const id = window.setInterval(() => setNow(new Date()), 1000);
+    return () => window.clearInterval(id);
+  }, []);
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [lastScrollY, isVisible]);
-
-  const handleLanguageSwitch = (newLanguage: 'en' | 'th') => {
+  const switchLanguage = (next: "en" | "th") => {
     const currentPath = removeLanguagePrefix(location);
-    const newPath = getLocalizedPath(currentPath, newLanguage);
-    
-    // Use window.location.href for reliable navigation
-    window.location.href = newPath;
+    window.location.href = getLocalizedPath(currentPath, next);
   };
 
+  const timeStr = now.toLocaleTimeString("en-GB", {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
   return (
-    <nav className={`bg-white shadow-sm border-b border-gray-200 fixed top-0 left-0 right-0 z-50 will-change-transform transition-transform duration-300 ease-in-out ${
-      isVisible ? 'translate-y-0' : '-translate-y-full'
-    }`} style={{ backfaceVisibility: 'hidden', perspective: '1000px' }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <div className="flex items-center space-x-3">
-            <svg className="w-8 h-8 text-ocean" viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="Phuket Bus Routes Logo">
-              <path d="M4 16c0 .88.39 1.67 1 2.22V20a1 1 0 001 1h1a1 1 0 001-1v-1h8v1a1 1 0 001 1h1a1 1 0 001-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6H6V6h12v5z"/>
-            </svg>
-            <h1 className="text-xl font-bold text-gray-900 hidden md:block">Phuket Bus Routes</h1>
-            <h1 className="text-lg font-bold text-gray-900 hidden sm:block md:hidden">Phuket Bus Routes</h1>
-            <h1 className="text-base font-bold text-gray-900 sm:hidden">Phuket Bus Routes</h1>
+    <header
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? "bg-paper/95 backdrop-blur-md border-b border-ink/15 py-2"
+          : "bg-paper py-3"
+      }`}
+    >
+      <div className="max-w-[1400px] mx-auto px-5 md:px-8 flex items-center justify-between gap-4">
+        {/* Wordmark — stacked editorial */}
+        <a href={language === "th" ? "/th/" : "/"} className="group flex items-center gap-3">
+          <div className="relative w-9 h-9 grid place-items-center bg-ink text-paper rounded-sm">
+            <span className="font-display italic text-xl leading-none">P</span>
+            <span className="absolute -bottom-1 -right-1 w-2 h-2 bg-vermillion rounded-full" />
           </div>
-          <div className="flex items-center space-x-4">
-            <HelpModal />
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm" className="text-gray-700 hover:text-ocean">
-                  <Globe className="w-4 h-4 mr-1" />
-                  {t('nav.language')}
-                  <ChevronDown className="w-4 h-4 ml-1" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuItem 
-                  onSelect={() => handleLanguageSwitch('en')}
-                  className={language === 'en' ? 'bg-gray-100' : ''}
-                >
-                  🇺🇸 English
-                </DropdownMenuItem>
-                <DropdownMenuItem 
-                  onSelect={() => handleLanguageSwitch('th')}
-                  className={language === 'th' ? 'bg-gray-100' : ''}
-                >
-                  🇹🇭 ไทย
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+          <div className="leading-[0.95]">
+            <div className="font-display italic text-[1.35rem] text-ink tracking-tight">
+              Phuket<span className="text-vermillion">.</span>
+            </div>
+            <div className="font-mono-numerals text-[0.62rem] uppercase tracking-[0.28em] text-ink-mute">
+              Bus / Routes / Index
+            </div>
+          </div>
+        </a>
+
+        {/* Right meta cluster */}
+        <div className="flex items-center gap-3 md:gap-5">
+          <div className="hidden md:flex items-center gap-2 font-mono-numerals text-xs uppercase tracking-[0.18em] text-ink-soft">
+            <span className="w-1.5 h-1.5 rounded-full bg-vermillion animate-ticker" />
+            <span>LIVE {timeStr} ICT</span>
+          </div>
+
+          <div className="hidden sm:block w-px h-6 bg-ink/20" />
+
+          <HelpModal />
+
+          {/* EN / TH switch as a hard toggle */}
+          <div className="flex items-center font-mono-numerals text-[0.7rem] uppercase tracking-[0.22em] border border-ink rounded-sm overflow-hidden">
+            <button
+              onClick={() => switchLanguage("en")}
+              className={`px-2.5 py-1.5 transition-colors ${
+                language === "en"
+                  ? "bg-ink text-paper"
+                  : "bg-transparent text-ink hover:bg-ink/10"
+              }`}
+              aria-pressed={language === "en"}
+            >
+              EN
+            </button>
+            <button
+              onClick={() => switchLanguage("th")}
+              className={`px-2.5 py-1.5 transition-colors ${
+                language === "th"
+                  ? "bg-ink text-paper"
+                  : "bg-transparent text-ink hover:bg-ink/10"
+              }`}
+              aria-pressed={language === "th"}
+            >
+              TH
+            </button>
           </div>
         </div>
       </div>
-    </nav>
+    </header>
   );
 }

@@ -1,130 +1,174 @@
 import { useQuery } from "@tanstack/react-query";
-import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
 import { useTranslation } from "@/hooks/useTranslation";
 import type { BusRoute } from "@/data/routes";
 
-// Function to scroll to detailed schedules section
-const scrollToDetailedSchedules = (routeId: string) => {
-  // Find the specific route card and scroll to its top with navigation offset
-  const routeCard = document.querySelector(`[data-route-id="${routeId}"]`);
-  if (routeCard) {
-    const navHeight = 80; // Approximate height of navigation bar
-    const elementPosition = routeCard.getBoundingClientRect().top + window.pageYOffset;
-    const offsetPosition = elementPosition - navHeight;
+const ease = [0.2, 0.7, 0.2, 1] as const;
 
-    // Check if mobile device
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) 
-      || window.innerWidth < 768;
+const ROUTE_META: Record<
+  string,
+  { stripe: string; accentBg: string; accentText: string; nickname: string }
+> = {
+  P1: {
+    stripe: "#3A86FF",
+    accentBg: "bg-[#3A86FF]",
+    accentText: "text-[#3A86FF]",
+    nickname: "the beach line",
+  },
+  P2: {
+    stripe: "#D5391C",
+    accentBg: "bg-vermillion",
+    accentText: "text-vermillion",
+    nickname: "the town line",
+  },
+  P3: {
+    stripe: "#1B2A5B",
+    accentBg: "bg-[#1B2A5B]",
+    accentText: "text-[#1B2A5B]",
+    nickname: "the express",
+  },
+};
 
-    // Mobile: instant scroll, Desktop: smooth scroll
-    if (isMobile) {
-      window.scrollTo(0, offsetPosition);
-    } else {
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
-    
-    // Add a subtle highlight effect after scrolling
-    const highlightDelay = isMobile ? 100 : 500;
-    setTimeout(() => {
-      routeCard.classList.add('ring-2', 'ring-blue-400', 'ring-opacity-75');
-      setTimeout(() => {
-        routeCard.classList.remove('ring-2', 'ring-blue-400', 'ring-opacity-75');
-      }, 3000);
-    }, highlightDelay);
-  }
+const scrollToRoute = (routeId: string) => {
+  const target = document.querySelector(`[data-route-id="${routeId}"]`);
+  if (!target) return;
+  const top = target.getBoundingClientRect().top + window.pageYOffset - 100;
+  window.scrollTo({ top, behavior: "smooth" });
+  setTimeout(() => {
+    target.classList.add("ring-4", "ring-vermillion/60");
+    setTimeout(() => target.classList.remove("ring-4", "ring-vermillion/60"), 2200);
+  }, 400);
 };
 
 export default function RouteOverview() {
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
   const { data: routes = [], isLoading } = useQuery<BusRoute[]>({
     queryKey: ["/data/routes.json"],
   });
 
-  if (isLoading) {
-    return (
-      <section className="py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-8">{t('routes.title')}</h2>
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
-            {[1, 2, 3].map((i) => (
-              <Card key={i} className="animate-pulse">
-                <CardContent className="p-6">
-                  <div className="h-6 bg-gray-200 rounded mb-4"></div>
-                  <div className="h-4 bg-gray-200 rounded mb-2"></div>
-                  <div className="h-4 bg-gray-200 rounded"></div>
-                </CardContent>
-              </Card>
-            ))}
+  return (
+    <section id="routes" className="relative bg-paper py-16 md:py-24">
+      <div className="max-w-[1400px] mx-auto px-5 md:px-8">
+        <div className="grid grid-cols-12 items-end mb-10 md:mb-14 gap-y-4">
+          <div className="col-span-12 md:col-span-7">
+            <div className="font-mono-numerals text-[0.7rem] uppercase tracking-[0.32em] text-vermillion mb-3">
+              § 01 · The roster
+            </div>
+            <h2 className="font-display text-ink text-[clamp(2.2rem,5.5vw,4.5rem)] leading-[0.95] tracking-tight">
+              Three buses,{" "}
+              <span className="italic">one island.</span>
+            </h2>
+          </div>
+          <div className="col-span-12 md:col-span-5 md:text-right">
+            <p className="text-ink-soft text-base md:text-lg max-w-md md:ml-auto leading-snug text-balance">
+              {language === "th"
+                ? "เลือกหมายเลขเส้นทางเพื่อดูป้ายและตารางเดินรถทั้งหมด"
+                : t("routes.subtitle") || "Pick a number. Pull a card. See where it stops."}
+            </p>
           </div>
         </div>
-      </section>
-    );
-  }
 
-  const getRouteColorClass = (routeId: string) => {
-    switch (routeId) {
-      case 'P1': return 'border-blue-400';
-      case 'P2': return 'border-orange-400';
-      case 'P3': return 'border-blue-800';
-      default: return 'border-gray-400';
-    }
-  };
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+          {isLoading
+            ? [0, 1, 2].map((i) => (
+                <div
+                  key={i}
+                  className="h-[420px] border border-ink/30 bg-paper-tint animate-pulse"
+                />
+              ))
+            : routes.map((route, idx) => {
+                const meta = ROUTE_META[route.routeId] ?? ROUTE_META.P1;
+                const outbound = route.schedules?.outbound;
+                const firstTime = outbound?.times?.[0] ?? "--:--";
+                const lastTime =
+                  outbound?.times?.[outbound.times.length - 1] ?? "--:--";
+                const stopCount = route.stops?.length ?? 0;
 
-  const getRouteIndicatorClass = (routeId: string) => {
-    switch (routeId) {
-      case 'P1': return 'bg-blue-400';
-      case 'P2': return 'bg-orange-400';
-      case 'P3': return 'bg-blue-800';
-      default: return 'bg-gray-400';
-    }
-  };
+                return (
+                  <motion.button
+                    key={route.routeId}
+                    type="button"
+                    onClick={() => scrollToRoute(route.routeId)}
+                    initial={{ opacity: 0, y: 36 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-80px" }}
+                    transition={{ duration: 0.9, ease, delay: idx * 0.12 }}
+                    whileHover={{ y: -6, rotate: idx === 1 ? 0 : idx === 0 ? -0.6 : 0.6 }}
+                    className="group relative text-left bg-paper-tint border border-ink/85 shadow-paper p-6 md:p-7 flex flex-col gap-5 overflow-hidden"
+                    style={{
+                      transform: `rotate(${idx === 1 ? "0deg" : idx === 0 ? "-1.2deg" : "1deg"})`,
+                    }}
+                  >
+                    {/* Stripe */}
+                    <div
+                      className="absolute top-0 left-0 right-0 h-3"
+                      style={{ background: meta.stripe }}
+                    />
 
-  return (
-    <section className="py-8 bg-gradient-to-b from-blue-50 to-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">{t('routes.title')}</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-ocean to-teal mx-auto rounded-full"></div>
-        </div>
-        <div className="grid md:grid-cols-3 gap-4">
-          {routes.map((route: BusRoute) => {
-            const outboundSchedule = route.schedules?.outbound;
-            const firstTime = outboundSchedule?.times?.[0] || '--';
-            const lastTime = outboundSchedule?.times?.[outboundSchedule.times.length - 1] || '--';
-            
-            return (
-              <Card 
-                key={route.routeId} 
-                className={`shadow-lg border-l-4 ${getRouteColorClass(route.routeId)} hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer`}
-                onClick={() => scrollToDetailedSchedules(route.routeId)}
-              >
-                <CardContent className="p-4 relative overflow-hidden flex flex-col h-full">
-                  <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-transparent to-blue-50 rounded-bl-full"></div>
-                  <div className="flex items-center mb-3">
-                    <div className={`w-5 h-5 ${getRouteIndicatorClass(route.routeId)} rounded-full mr-3 shadow-md flex-shrink-0`}></div>
-                    <h3 className="text-lg font-bold text-gray-900 leading-tight">
-                      Route {route.routeId}{route.routeId === 'P1' ? ' / Route 8357' : route.routeId === 'P2' ? ' / Route 8411' : ''}
-                    </h3>
-                  </div>
-                  <p className="text-gray-700 mb-3 text-sm font-medium leading-tight">{route.name?.en}</p>
-                  <p className="text-sm text-gray-600 mb-4 leading-relaxed flex-grow min-h-[3rem] flex items-start">{route.description?.en}</p>
-                  <div className="text-sm bg-gray-50 rounded-lg p-3 mt-auto">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="font-medium text-gray-700 whitespace-nowrap">{t('schedule.first')}:</span>
-                      <span className="text-gray-900 font-semibold">{firstTime}</span>
+                    {/* Ticket pin */}
+                    <div className="absolute top-5 right-5 w-3 h-3 rounded-full border border-ink bg-paper" />
+
+                    <div className="flex items-start justify-between pt-3">
+                      <div>
+                        <div className="font-mono-numerals text-[0.62rem] uppercase tracking-[0.28em] text-ink-mute">
+                          Route
+                        </div>
+                        <div className="font-display text-[6.5rem] md:text-[7.5rem] leading-[0.78] text-ink tracking-tight">
+                          {route.routeId}
+                        </div>
+                      </div>
+                      <div className="text-right pt-2">
+                        <div className="font-mono-numerals text-[0.6rem] uppercase tracking-[0.28em] text-ink-mute">
+                          Stops
+                        </div>
+                        <div className="font-display text-4xl text-ink leading-none">
+                          {stopCount}
+                        </div>
+                      </div>
                     </div>
-                    <div className="flex justify-between items-center">
-                      <span className="font-medium text-gray-700 whitespace-nowrap">{t('schedule.last')}:</span>
-                      <span className="text-gray-900 font-semibold">{lastTime}</span>
+
+                    <div className="border-t border-ink/20 pt-4">
+                      <div className={`font-display italic text-xl ${meta.accentText}`}>
+                        {meta.nickname}
+                      </div>
+                      <div className="mt-1 text-ink text-base font-medium leading-snug">
+                        {language === "th"
+                          ? route.name?.th
+                          : route.name?.en}
+                      </div>
+                      <div className="mt-2 text-ink-mute text-sm leading-snug">
+                        {language === "th"
+                          ? route.description?.th
+                          : route.description?.en}
+                      </div>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
-            );
-          })}
+
+                    <div className="mt-auto grid grid-cols-2 gap-3 pt-4 border-t border-dashed border-ink/40">
+                      <div>
+                        <div className="font-mono-numerals text-[0.58rem] uppercase tracking-[0.28em] text-ink-mute">
+                          {t("schedule.first") || "First"}
+                        </div>
+                        <div className="font-mono-numerals text-2xl text-ink tabular-nums mt-1">
+                          {firstTime}
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <div className="font-mono-numerals text-[0.58rem] uppercase tracking-[0.28em] text-ink-mute">
+                          {t("schedule.last") || "Last"}
+                        </div>
+                        <div className="font-mono-numerals text-2xl text-ink tabular-nums mt-1">
+                          {lastTime}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="pt-2 inline-flex items-center gap-2 font-mono-numerals text-[0.68rem] uppercase tracking-[0.28em] text-ink group-hover:text-vermillion transition-colors">
+                      Open timetable
+                      <span aria-hidden className="transition-transform group-hover:translate-x-1">⟶</span>
+                    </div>
+                  </motion.button>
+                );
+              })}
         </div>
       </div>
     </section>

@@ -15,7 +15,7 @@
       { "en": "Phuket International Airport", "th": "สนามบินภูเก็ต" },
       { "en": "Thalang Public Health Office", "th": "สำนักงานสาธารณสุขถลาง" },
       { "en": "Cherng Thalay Wittayakom School", "th": "โรงเรียนเชิงทะเลวัทยาคมฯ" },
-      { "en": "Tesco Lotus Cherngtalay", "th": "เทสโก้โลตัสเชิงทะเล" },
+      { "en": "Lotus's Cherng Talay", "th": "โลตัสส์ เชิงทะเล" },
       { "en": "Surin Beach", "th": "หาดสุรินทร์" },
       { "en": "Phuket Fantasea", "th": "ภูเก็ตแฟนตาซี" },
       { "en": "Big C Kamala", "th": "บิ๊กซีกมลา" },
@@ -37,6 +37,17 @@
         "destination": "Phuket International Airport",
         "available": true
       }
+    },
+    "meta": {
+      "routeNumber": "Route 1 / Phuket Smart Bus",
+      "operator": "Phuket Smart Bus Co., Ltd.",
+      "payment": ["Cash", "QR / PromptPay", "Tap & Go (Mastercard / Visa)", "Phuket Rabbit Card"],
+      "lastVerified": "2026-05-12",
+      "sources": [
+        "https://phuketsmartbus.com/timetable/",
+        "https://www.phuket101.net/how-to-ride-phuket-bus/",
+        "https://www.facebook.com/PhuketSmartBus"
+      ]
     }
   },
   {
@@ -53,16 +64,28 @@
     },
     "stops": [
       { "en": "Phuket International Airport", "th": "สนามบินภูเก็ต" },
-      { "en": "Naiyang Beach", "th": "หาดในยาง" },
       { "en": "Thalang", "th": "อำเภอถลาง" },
-      { "en": "Monument", "th": "อนุเสาวรีย์" },
+      { "en": "Heroines Monument", "th": "อนุสาวรีย์วีรชน" },
       { "en": "Boat Lagoon", "th": "โบ๊ทลากูน" },
       { "en": "Bypass", "th": "บายพาส" },
-      { "en": "Central-Big C-Lotus", "th": "เซ็นทรัล-บิ๊กซี-โลตั๊ส" },
+      { "en": "Central Phuket", "th": "เซ็นทรัลภูเก็ต" },
       { "en": "Surakul Stadium", "th": "สนามสุระกุล" },
-      { "en": "Rung Hill", "th": "เขารัง" },
+      { "en": "Rang Hill", "th": "เขารัง" },
       { "en": "Phuket Town", "th": "เมืองภูเก็ต" },
       { "en": "Phuket Bus Terminal 1", "th": "บขส.1" }
+    ],
+    "stopsInbound": [
+      { "en": "Phuket Bus Terminal 1", "th": "บขส.1" },
+      { "en": "Phuket Merlin Hotel", "th": "โรงแรมภูเก็ตเมอร์ลิน" },
+      { "en": "Rang Hill", "th": "เขารัง" },
+      { "en": "Surakul Stadium", "th": "สนามสุระกุล" },
+      { "en": "Central Phuket", "th": "เซ็นทรัลภูเก็ต" },
+      { "en": "Bypass", "th": "บายพาส" },
+      { "en": "Koh Kaew", "th": "เกาะแก้ว" },
+      { "en": "Robinson Thalang", "th": "โรบินสัน ถลาง" },
+      { "en": "Thalang", "th": "อำเภอถลาง" },
+      { "en": "Naiyang", "th": "ในยาง" },
+      { "en": "Phuket International Airport", "th": "สนามบินภูเก็ต" }
     ],
     "schedules": {
       "outbound": {
@@ -77,6 +100,17 @@
         "destination": "Phuket International Airport",
         "available": true
       }
+    },
+    "meta": {
+      "routeNumber": "Route 8411",
+      "operator": "Phuket Mahanakorn Co., Ltd. (Airport Bus Phuket 8411)",
+      "payment": ["Cash", "QR / PromptPay"],
+      "lastVerified": "2026-05-12",
+      "sources": [
+        "https://www.airportbusphuket.com/time-table/",
+        "https://phuket.airportthai.co.th/service/transportation/detail/1176",
+        "https://www.facebook.com/airportbusphuket/"
+      ]
     }
   },
   {
@@ -96,9 +130,9 @@
       { "en": "Muang Mai", "th": "เมืองใหม่" },
       { "en": "Baan Kean", "th": "บ้านเคียน" },
       { "en": "Baan Pon", "th": "บ้านพอน" },
-      { "en": "Monument", "th": "อนุเสาวรีย์" },
+      { "en": "Heroines Monument", "th": "อนุสาวรีย์วีรชน" },
       { "en": "Boat Lagoon", "th": "โบ๊ทลากูน" },
-      { "en": "Lotus", "th": "โลตัส" },
+      { "en": "Lotus's", "th": "โลตัสส์" },
       { "en": "Kathu", "th": "กะทู้" },
       { "en": "Patong", "th": "ป่าตอง" },
       { "en": "Karon", "th": "กะรน" },
@@ -106,7 +140,7 @@
     ],
     "schedules": {
       "outbound": {
-        "times": ["08:45", "09:45", "10:45", "11:45", "12:45", "13:45", "14:45", "15:45", "16:45", "17:45", "18:45", "19:45", "20:45"],
+        "times": ["08:45", "09:45", "10:45", "11:45", "12:45", "13:45", "14:45", "15:45", "16:45", "17:45", "18:45", "19:45", "20:45", "21:45"],
         "origin": "Phuket International Airport",
         "destination": "Patong, Karon, Kata (Express)",
         "available": true
@@ -117,6 +151,16 @@
         "destination": "Phuket International Airport",
         "available": true
       }
+    },
+    "meta": {
+      "routeNumber": "Route P3 / Airport Bus Express",
+      "operator": "Phuket Airport Bus Express",
+      "payment": ["Cash", "QR / PromptPay"],
+      "lastVerified": "2026-05-12",
+      "sources": [
+        "https://phuket.airportthai.co.th/service/transportation/detail/150",
+        "https://www.facebook.com/Phuketbusexpress/"
+      ]
     }
   }
 ]
