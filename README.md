@@ -26,7 +26,7 @@ A bilingual website providing bus schedules and route information for Phuket Air
 
 - **Bilingual Support**: English and Thai with URL-based routing (`/th/`)
 - **Mobile-First Design**: Optimized for smartphones and tablets
-- **Route Information**: Complete schedules for P1, P2, P3 airport buses
+- **Route Information**: Schedules for P1, P2, P3 airport buses plus P4 Town–Patong and the free P5 Dragon Line loop
 - **Google Maps Integration**: Direct links to route directions
 - **SEO Optimized**: International SEO with structured data
 
@@ -39,7 +39,13 @@ Airport → Patong Beach (15-100 THB)
 Airport → Karon → Kata Beach (15-100 THB)
 
 ### P3 - Dark Blue Bus
-Airport → Phuket Town → Bus Terminal (15-50 THB)
+Airport → Patong → Karon → Kata Express (100 THB)
+
+### P4 - Yellow Smart Bus
+Phuket Town (Bus Terminal 1) → Kathu → Patong (50 THB flat)
+
+### P5 - Dragon Line
+Free EV loop around Phuket Old Town, 07:00–19:00
 
 ## Tech Stack
 

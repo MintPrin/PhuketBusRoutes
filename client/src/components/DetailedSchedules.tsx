@@ -12,12 +12,16 @@ const ROUTE_COLOR: Record<string, string> = {
   P1: "#3A86FF",
   P2: "#D5391C",
   P3: "#1B2A5B",
+  P4: "#F5B300",
+  P5: "#D5391C",
 };
 
 const ROUTE_FB: Record<string, string> = {
   P1: "https://www.facebook.com/PhuketSmartBus",
   P2: "https://www.facebook.com/airportbusphuket/",
   P3: "https://www.facebook.com/Phuketbusexpress",
+  P4: "https://www.facebook.com/PhuketSmartBus",
+  P5: "https://www.facebook.com/PhuketSmartBus",
 };
 
 const SEARCH_MAP: Record<string, string> = {
@@ -34,6 +38,14 @@ const SEARCH_MAP: Record<string, string> = {
   "Phuket Merlin Hotel": "Phuket Merlin Hotel",
   "Koh Kaew": "Koh Kaew Phuket",
   "Patong Provincial Electricity Authority": "Patong Provincial Electricity Authority Phuket",
+  "Bangla Police Box Patong": "Bangla Road Police Box Patong",
+  "Kata Palm": "Kata Palm Resort Phuket",
+  "Sai Yuan": "Sai Yuan Rawai Phuket",
+  "Kubor Kamala": "Kamala Muslim Cemetery Phuket",
+  "Phuket Bus Terminal 1": "Phuket Bus Terminal 1",
+  "Patong Beach Bus Stop": "Patong Beach Bus Station Phuket",
+  "PKCD Parking": "Phuket City Development PKCD Parking Old Town",
+  "Old Town Intersection": "Phuket Old Town",
 };
 
 const openMaps = (stop: string) => {
@@ -89,8 +101,8 @@ export default function DetailedSchedules() {
         "@id": `${baseUrl}/#route-${route.routeId}-${d}`,
         name:
           language === "th"
-            ? `เส้นทาง ${route.routeId} (${reverse ? "ไปสนามบิน" : "จากสนามบิน"})`
-            : `Route ${route.routeId} (${reverse ? "To Airport" : "From Airport"})`,
+            ? `เส้นทาง ${route.routeId} (${sched.origin} → ${sched.destination})`
+            : `Route ${route.routeId} (${sched.origin} → ${sched.destination})`,
         description:
           language === "th" ? route.description?.th : route.description?.en,
         provider: {
@@ -195,6 +207,10 @@ export default function DetailedSchedules() {
                 ? route.stopsInbound ?? [...baseStops].reverse()
                 : baseStops;
             const fb = ROUTE_FB[route.routeId];
+            // ponytail: P4/P5 never touch the airport, so label the toggle by destination instead
+            const viaAirport = /airport/i.test(route.schedules?.outbound?.origin ?? "");
+            const outLabel = viaAirport ? "From Airport" : `To ${route.schedules?.outbound?.destination}`;
+            const inLabel = viaAirport ? "To Airport" : `To ${route.schedules?.inbound?.destination}`;
             const meta = route.meta;
 
             return (
@@ -257,7 +273,7 @@ export default function DetailedSchedules() {
                         ⟁ Stops · {stops.length}
                       </h3>
                       <div className="font-mono-numerals text-[0.66rem] uppercase tracking-[0.28em] text-ink-mute">
-                        {dir === "outbound" ? "Airport ⟶ Town" : "Town ⟶ Airport"}
+                        {`${sched?.origin ?? ""} ⟶ ${sched?.destination ?? ""}`}
                       </div>
                     </div>
                     <ol className="relative">
@@ -322,7 +338,7 @@ export default function DetailedSchedules() {
                                 : "text-ink hover:bg-ink/10"
                             }`}
                           >
-                            From Airport
+                            {outLabel}
                           </button>
                           <button
                             type="button"
@@ -333,7 +349,7 @@ export default function DetailedSchedules() {
                                 : "text-ink hover:bg-ink/10"
                             }`}
                           >
-                            To Airport
+                            {inLabel}
                           </button>
                         </div>
                       )}
@@ -381,6 +397,11 @@ export default function DetailedSchedules() {
                         <div className="mt-3 font-mono-numerals text-[0.6rem] uppercase tracking-[0.28em] text-ink-mute">
                           {sched.times.length} departures · tap any time to plan
                         </div>
+                        {sched.note && (
+                          <p className="mt-3 text-sm text-ink-soft leading-snug border-l-2 border-vermillion pl-3">
+                            {language === "th" ? sched.note.th : sched.note.en}
+                          </p>
+                        )}
                       </>
                     ) : (
                       <div className="border border-dashed border-ink/40 bg-paper-tint p-6 text-center">

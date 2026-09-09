@@ -27,6 +27,18 @@ const ROUTE_META: Record<
     accentText: "text-[#1B2A5B]",
     nickname: "the express",
   },
+  P4: {
+    stripe: "#F5B300",
+    accentBg: "bg-[#F5B300]",
+    accentText: "text-[#B07F00]",
+    nickname: "the town–patong shuttle",
+  },
+  P5: {
+    stripe: "#D5391C",
+    accentBg: "bg-vermillion",
+    accentText: "text-vermillion",
+    nickname: "the old town loop",
+  },
 };
 
 const scrollToRoute = (routeId: string) => {
@@ -55,7 +67,7 @@ export default function RouteOverview() {
               § 01 · The roster
             </div>
             <h2 className="font-display text-ink text-[clamp(2.2rem,5.5vw,4.5rem)] leading-[0.95] tracking-tight">
-              Three buses,{" "}
+              Five buses,{" "}
               <span className="italic">one island.</span>
             </h2>
           </div>

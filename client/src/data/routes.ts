@@ -8,6 +8,7 @@ export interface BusSchedule {
   origin: string;
   destination: string;
   available: boolean;
+  note?: { en: string; th: string };
 }
 
 export interface RouteMeta {

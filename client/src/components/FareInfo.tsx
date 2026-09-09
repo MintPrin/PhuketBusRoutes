@@ -24,7 +24,7 @@ export default function FareInfo() {
       label: txt("fare.payment.title", "Payment"),
       value: "Cash + QR",
       caption:
-        "Pay the uniformed staff. PromptPay/QR works on all three routes. Smart Bus (P1) also accepts Mastercard / Visa contactless + Rabbit Card.",
+        "Pay the uniformed staff. PromptPay/QR works on every paid route. Smart Bus (P1) also takes Mastercard / Visa contactless + Rabbit Card. Dragon Line (P5) is free.",
       stamp: "BAHT",
     },
     {

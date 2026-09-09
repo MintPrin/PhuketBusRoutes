@@ -61,6 +61,26 @@ export function getRouteEndpoints(routeId: string, direction: 'outbound' | 'inbo
         origin: 'Kata Beach, Phuket, Thailand',
         destination: 'Phuket International Airport, Thailand'
       }
+    },
+    P4: {
+      outbound: {
+        origin: 'Phuket Bus Terminal 1, Thailand',
+        destination: 'Patong Beach, Phuket, Thailand'
+      },
+      inbound: {
+        origin: 'Patong Beach, Phuket, Thailand',
+        destination: 'Phuket Bus Terminal 1, Thailand'
+      }
+    },
+    P5: {
+      outbound: {
+        origin: 'Phuket Old Town, Thailand',
+        destination: 'Phuket Old Town, Thailand'
+      },
+      inbound: {
+        origin: 'Phuket Old Town, Thailand',
+        destination: 'Phuket Old Town, Thailand'
+      }
     }
   };
 

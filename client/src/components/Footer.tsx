@@ -29,6 +29,8 @@ export default function Footer() {
                 <li>P1 · The beach line</li>
                 <li>P2 · The town line</li>
                 <li>P3 · The express</li>
+                <li>P4 · Town–Patong shuttle</li>
+                <li>P5 · Old Town loop (free)</li>
               </ul>
             </div>
             <div>

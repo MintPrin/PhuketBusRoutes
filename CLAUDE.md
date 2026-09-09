@@ -1,7 +1,7 @@
 # PhuketBusRoutes — Claude Project Guide
 
 ## Project
-Bilingual TH/EN single-page app at `phuketbusroutes.com`. Static reference for 3 Phuket airport bus routes (P1/P2/P3): stops, schedules, fares. Hosted on **Vercel** (migrated from Replit 2026-05-11, full-stack → static).
+Bilingual TH/EN single-page app at `phuketbusroutes.com`. Static reference for Phuket public bus routes (P1–P3 airport buses, P4 Town–Patong, P5 free Old Town loop): stops, schedules, fares. Hosted on **Vercel** (migrated from Replit 2026-05-11, full-stack → static).
 
 ## Stack
 - **Framework**: React 18 + TypeScript + Vite 5 (SPA)

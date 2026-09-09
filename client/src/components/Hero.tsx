@@ -24,11 +24,11 @@ export default function Hero() {
     routes.forEach((r) => {
       const times = r.schedules?.outbound?.times ?? [];
       times.slice(0, 4).forEach((t) => {
-        lines.push(`${r.routeId} · ${t} · AIRPORT → ${(r.schedules?.outbound?.destination ?? "").toUpperCase()}`);
+        lines.push(`${r.routeId} · ${t} · ${(r.schedules?.outbound?.origin ?? "").toUpperCase()} → ${(r.schedules?.outbound?.destination ?? "").toUpperCase()}`);
       });
     });
     if (lines.length === 0) {
-      lines.push("PHUKET INTERNATIONAL AIRPORT · 100 ฿ MAX FARE · 3 ROUTES");
+      lines.push("PHUKET INTERNATIONAL AIRPORT · 100 ฿ MAX FARE · 5 ROUTES");
     }
     return lines;
   }, [routes]);
@@ -129,8 +129,8 @@ export default function Hero() {
               className="mt-7 max-w-xl text-ink-soft text-lg leading-snug text-balance"
             >
               {language === "th"
-                ? "ตารางและสายรถสนามบินภูเก็ตทั้ง 3 เส้นทาง รวมป้ายหยุดและค่าโดยสาร — เก็บไว้ในกระเป๋าก่อนออกเดินทาง"
-                : "Three airport routes, every stop, every departure. A small almanac for the long way home — clipped, current, and never a surprise fare."}
+                ? "ตารางรถเมล์ภูเก็ตทั้ง 5 เส้นทาง รวมป้ายหยุดและค่าโดยสาร — เก็บไว้ในกระเป๋าก่อนออกเดินทาง"
+                : "Five routes, every stop, every departure. A small almanac for the long way home — clipped, current, and never a surprise fare."}
             </motion.p>
 
             <motion.div
@@ -167,7 +167,7 @@ export default function Hero() {
             ⟁ Today on the island
           </div>
           <dl className="grid grid-cols-3 lg:grid-cols-1 gap-4">
-            <Stat label="Routes" value={routes.length || 3} />
+            <Stat label="Routes" value={routes.length || 5} />
             <Stat label="Stops" value={totalStops || 33} />
             <Stat label="Max fare" value="100฿" />
           </dl>
