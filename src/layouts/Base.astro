@@ -2,7 +2,8 @@
 import "../styles/global.css";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
-import { LANGS, langMeta, urlFor, dict, type Lang } from "../lib/i18n";
+import { LANGS, SITE, langMeta, urlFor, dict, type Lang } from "../lib/i18n";
+import { PAGES } from "../lib/pages";
 
 interface Props {
   lang: Lang;
@@ -17,6 +18,8 @@ const { lang, slug, title, description, jsonld = [], noindex = false } = Astro.p
 const meta = langMeta(lang);
 const canonical = urlFor(lang, slug);
 const d = dict(lang);
+// Share card per page (public/og/<key>.png, drawn by scripts/share-cards.py); 404 falls back to the home card.
+const ogImage = `${SITE}/og/${PAGES.find((p) => p.slug === slug)?.key ?? "home"}.png`;
 const fonts =
   "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" +
   (lang === "th" ? "&family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap" : "");
@@ -37,7 +40,12 @@ const fonts =
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content={meta.og} />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={title} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={ogImage} />
     <meta name="theme-color" content="#0E0E0E" />
     <link rel="icon" type="image/png" href="/favicon.png?v=4" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=4" />
@@ -64,5 +72,16 @@ const fonts =
       <slot />
     </main>
     <Footer lang={lang} slug={slug} />
+    <script is:inline define:vars={{ lang }}>
+      // Offline support: the service worker saves every page of this language for travellers without data.
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("/sw.js").then(() => navigator.serviceWorker.ready).then((reg) => {
+            const assets = [...document.querySelectorAll('link[rel="stylesheet"][href^="/_astro/"]')].map((l) => l.getAttribute("href"));
+            reg.active && reg.active.postMessage({ type: "precache", lang, assets });
+          }).catch(() => {});
+        });
+      }
+    </script>
   </body>
 </html>

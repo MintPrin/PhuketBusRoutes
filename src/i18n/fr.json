@@ -56,7 +56,12 @@
     "notPosted": "Horaires pas encore publiés dans ce sens.",
     "childFree": "Gratuit pour les enfants de moins de {age} ans.",
     "disclaimer": "Guide indépendant, qui n'est géré par aucune compagnie de bus. Les horaires changent : vérifiez la page de l'exploitant avant de partir.",
-    "skip": "Aller au contenu"
+    "skip": "Aller au contenu",
+    "offlineTitle": "Vous êtes hors ligne",
+    "offlineSaved": "Copie hors ligne enregistrée le {date}. Les horaires ont pu changer depuis ; vérifiez à nouveau une fois en ligne.",
+    "offlineTooOld": "Vous êtes hors ligne et la copie enregistrée de cette page a plus de {days} jours : nous n'affichons donc pas d'horaires peut-être dépassés. Connectez-vous pour voir les horaires à jour.",
+    "offlineNone": "Vous êtes hors ligne et cette page n'a pas encore été enregistrée. Ouvrez le site une fois en ligne : ensuite, toutes les pages dans votre langue fonctionnent hors ligne pendant {days} jours.",
+    "offlineTip": "Fonctionne hors ligne : ouvrez le site une fois avant votre vol."
   },
   "payment": {
     "cash": "Espèces",

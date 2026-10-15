@@ -56,7 +56,12 @@
     "notPosted": "Times not posted for this direction yet.",
     "childFree": "Children under {age} ride free.",
     "disclaimer": "Independent guide, not run by any bus company. Times change; check the operator's page before you travel.",
-    "skip": "Skip to content"
+    "skip": "Skip to content",
+    "offlineTitle": "You're offline",
+    "offlineSaved": "Offline copy saved {date}. Times may have changed since; check again when you're back online.",
+    "offlineTooOld": "You're offline, and the saved copy of this page is more than {days} days old, so we won't show times that may be out of date. Connect to see the current timetable.",
+    "offlineNone": "You're offline and this page wasn't saved yet. Open the site once while online; after that, every page in your language works offline for {days} days.",
+    "offlineTip": "Works offline: open the site once before you fly."
   },
   "payment": {
     "cash": "Cash",

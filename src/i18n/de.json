@@ -56,7 +56,12 @@
     "notPosted": "Für diese Richtung sind noch keine Zeiten veröffentlicht.",
     "childFree": "Kinder unter {age} fahren gratis.",
     "disclaimer": "Unabhängiger Ratgeber, kein Angebot eines Busunternehmens. Fahrzeiten ändern sich; prüfe vor der Fahrt die Seite des Betreibers.",
-    "skip": "Zum Inhalt springen"
+    "skip": "Zum Inhalt springen",
+    "offlineTitle": "Du bist offline",
+    "offlineSaved": "Offline-Kopie vom {date}. Die Zeiten können sich inzwischen geändert haben; prüf sie noch einmal, wenn du wieder online bist.",
+    "offlineTooOld": "Du bist offline, und die gespeicherte Kopie dieser Seite ist älter als {days} Tage. Deshalb zeigen wir keine möglicherweise veralteten Zeiten. Geh online, um den aktuellen Fahrplan zu sehen.",
+    "offlineNone": "Du bist offline, und diese Seite wurde noch nicht gespeichert. Öffne die Seite einmal mit Internet; danach funktionieren alle Seiten in deiner Sprache {days} Tage lang offline.",
+    "offlineTip": "Funktioniert offline: Öffne die Seite einmal vor dem Abflug."
   },
   "payment": {
     "cash": "Bargeld",

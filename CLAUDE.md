@@ -8,7 +8,7 @@ Every route and trip has its own indexable URL. Before October 2026 the site was
 ## Stack
 - **Astro 5** static build (`output: static`, `build.format: file`), no integrations
 - **Tailwind CSS v3** via PostCSS (`tailwind.config.mjs`, `postcss.config.js`)
-- No React, no client framework. Two tiny inline scripts: nav clock and the timetable direction toggle.
+- No React, no client framework. Small inline scripts only: nav clock, timetable direction toggle, service worker registration.
 - Output: `dist/` (gitignored)
 
 ## Layout
@@ -29,9 +29,11 @@ src/
     ├── [...path].astro     # Generates every language × page (13 pages × 8 = 104)
     ├── 404.astro
     ├── sitemap.xml.ts      # Sitemap with hreflang alternates
-    └── llms.txt.ts         # /llms.txt for AI assistants, built from routes.json + en.json
+    ├── llms.txt.ts         # /llms.txt for AI assistants, built from routes.json + en.json
+    └── sw.js.ts            # Offline service worker, generated per build (see "Offline" below)
 scripts/check-i18n.mjs      # Runs before every build; fails on key/placeholder/number drift
 scripts/indexnow.mjs        # After a deploy: pings Bing/Yandex/Naver with every sitemap URL (key file in public/)
+scripts/share-cards.py      # Draws public/og/<page-key>.png link-preview cards (Pillow + macOS fonts); run after a route name changes
 public/                     # favicons, robots.txt, site.webmanifest
 vercel.json                 # framework astro, cleanUrls, host redirects
 ```
@@ -45,6 +47,16 @@ Pages: home, 5 route pages, airport hub (`/phuket-airport-bus`), trip pages (`/p
 - Never invent a time, fare or stop. If a fact is unverified, flag it (see P3 `fareUnconfirmed`, P2 `lastBusConflict`) instead of guessing.
 - Operator Facebook pages are the real source; official sites lag (P3's site now redirects to ads). The P1 `stopTimes` matrix is transcribed from the operator's "Start 16 January 2026" timetable images.
 - After a data check, update `lastVerified` on the route.
+
+## Offline (service worker)
+Travellers often land without data, so `/sw.js` saves every page of the visitor's language on their first online visit. Guards against showing an old timetable:
+1. Network first: online visitors always get the live page.
+2. `VERSION` is the build time, so every deploy deletes all older saved pages on the next online visit.
+3. Saved pages older than 14 days (`MAX_AGE_DAYS`) are never shown offline; the visitor gets a "connect to check" page.
+4. Any saved page shown offline gets a banner with the date it was saved (`ui.offline*` strings).
+
+## Share cards
+`public/og/<key>.png` (1200×630) carry names and places only, never times or fares, so they can't go stale. Regenerate with `python3 scripts/share-cards.py` if a route name or summary changes.
 
 ## Copy rules
 - `en.json` is the source. Edit it first, then mirror the change in every other language file.
