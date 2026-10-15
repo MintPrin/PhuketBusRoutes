@@ -1,72 +1,77 @@
 # PhuketBusRoutes — Claude Project Guide
 
 ## Project
-Bilingual TH/EN single-page app at `phuketbusroutes.com`. Static reference for Phuket public bus routes (P1–P3 airport buses, P4 Town–Patong, P5 free Old Town loop): stops, schedules, fares. Hosted on **Vercel** (migrated from Replit 2026-05-11, full-stack → static).
+Static guide to Phuket public buses at `phuketbusroutes.com`, in 8 languages (en, th, ru, zh, ko, ja, de, fr). Five routes: P1 Smart Bus (airport–Rawai), P2 airport bus 8411 (airport–Town), P3 Airport Bus Express (airport–Kata), P4 Smart Bus Route 2 (Town–Patong), P5 free Dragon Line (Old Town loop). Hosted on **Vercel**.
+
+Every route and trip has its own indexable URL. Before October 2026 the site was a React SPA where everything lived on `/`; it was rebuilt in Astro so search engines and AI crawlers get real HTML.
 
 ## Stack
-- **Framework**: React 18 + TypeScript + Vite 5 (SPA)
-- **Routing**: Wouter (client-side)
-- **Data fetching**: TanStack Query (against static `/data/routes.json`)
-- **UI**: shadcn/ui + Radix primitives + Tailwind CSS v3 + framer-motion
-- **i18n**: `react-i18next` (assumed via `useTranslation` calls)
-- **Output**: `dist/` (gitignored) — static assets only
+- **Astro 5** static build (`output: static`, `build.format: file`), no integrations
+- **Tailwind CSS v3** via PostCSS (`tailwind.config.mjs`, `postcss.config.js`)
+- No React, no client framework. Two tiny inline scripts: nav clock and the timetable direction toggle.
+- Output: `dist/` (gitignored)
 
 ## Layout
 ```
-client/
-├── index.html              # Vite entry
-├── public/                 # Static assets served as-is
-│   ├── data/routes.json    # Bus route data (formerly /api/routes)
-│   ├── _redirects          # Static-host redirect rules (legacy)
-│   ├── sitemap.xml, robots.txt, favicons
-│   └── ...
-└── src/
-    ├── components/         # Including RouteOverview, DetailedSchedules, FareInfo
-    ├── data/routes.ts      # TypeScript types (BusRoute, BusStop, BusSchedule)
-    ├── lib/queryClient.ts  # TanStack Query default fetch by queryKey[0]
-    └── ...
-attached_assets/            # Image assets, importable via @assets alias
-postcss.config.js           # Tailwind v3 + autoprefixer
-tailwind.config.ts          # Tailwind config
-vite.config.ts              # outDir = ./dist, root = ./client
-vercel.json                 # SPA rewrites + 301 redirects
+src/
+├── data/routes.json        # Single source of truth for facts: stops, times, fares, passes, boarding flags
+├── i18n/<lang>.json        # All copy. en.json is the source; others must match its keys/placeholders/numbers
+├── lib/
+│   ├── i18n.ts             # LANGS, dict(), fill(), pathFor()/urlFor()
+│   ├── routes.ts           # Route type + helpers (fareText, duration, typicalRide, legRows)
+│   ├── content.ts          # pageVars(): every number a page's copy mentions, computed from routes.json
+│   ├── pages.ts            # Page list + slugs
+│   └── seo.ts              # JSON-LD builders (WebPage, BreadcrumbList, FAQPage, BusTrip)
+├── components/             # Nav, Footer, Timetable, StopTimes, Faq, BusMap, Related, PageHead
+│   └── pages/              # Home, RoutePage, PatongPage, MapPage
+├── layouts/Base.astro      # <head>: title, description, canonical, hreflang x8 + x-default, GA4
+└── pages/
+    ├── [...path].astro     # Generates every language × page (64 pages)
+    ├── 404.astro
+    └── sitemap.xml.ts      # Sitemap with hreflang alternates
+scripts/check-i18n.mjs      # Runs before every build; fails on key/placeholder/number drift
+public/                     # favicons, robots.txt, site.webmanifest
+vercel.json                 # framework astro, cleanUrls, host redirects
 ```
+
+URLs: English at `/`, `/phuket-smart-bus`; other languages prefixed: `/th`, `/th/phuket-smart-bus`.
+
+## Data rules (accuracy is the product)
+- Facts live only in `src/data/routes.json`. Copy pulls numbers in through `{placeholders}` filled by `lib/content.ts`, so a timetable change updates all 8 languages at once.
+- Never invent a time, fare or stop. If a fact is unverified, flag it (see P3 `fareUnconfirmed`, P2 `lastBusConflict`) instead of guessing.
+- Operator Facebook pages are the real source; official sites lag (P3's site now redirects to ads). The P1 `stopTimes` matrix is transcribed from the operator's "Start 16 January 2026" timetable images.
+- After a data check, update `lastVerified` on the route.
+
+## Copy rules
+- `en.json` is the source. Edit it first, then mirror the change in every other language file.
+- `npm run check:i18n` must pass: same keys, same placeholders, same digits as English. Write numbers in other languages as digits only where English has them.
+- Thai is held to the same bar as English; never translate Thai literally from English.
 
 ## Hard restrictions
 - **NEVER** edit `dist/**` — generated output
-- **NEVER** reintroduce server (`server/`, `shared/`, Express, Drizzle, Neon) — site is static-only on Vercel
-- **NEVER** invoke Replit-specific commands or flows — Vercel is canonical
-- **NEVER** add real API endpoints — if dynamic data needed, switch to Vercel Functions deliberately
-
-## Data flow
-- App startup → TanStack Query fetches `/data/routes.json` via default queryFn
-- `routes.json` is the single source of truth for route content
-- To change schedules/stops/fares: edit `client/public/data/routes.json` directly
+- **NEVER** reintroduce a server or real API endpoints — static-only on Vercel
+- **NEVER** invoke Replit-specific commands or flows
 
 ## Dev commands
 ```bash
 npm install
-npm run dev       # Vite dev server (default port 5173)
-npm run build     # Vite production build → dist/
-npm run preview   # Serve dist/ locally
-npm run check     # tsc type check
+npm run dev          # Astro dev server
+npm run build        # i18n check + astro build → dist/
+npm run preview      # Serve dist/ locally
+npm run check:i18n   # Translation drift check only
 ```
 
 ## Deployment
-- **Prod**: Vercel auto-deploys on push to `main`
-- **Build**: `npm run build` (Vite default detection)
-- **Output dir**: `dist`
-- **Domain**: `phuketbusroutes.com` (NameCheap DNS → Vercel)
-- **Old domain**: `phuketbusroutes.mintprin.com` → 301 to root domain via `vercel.json` redirects
+- **Prod**: Vercel auto-deploys on push to `main`. Live-site changes go on a branch first; check the Vercel preview, then merge.
+- **Domain**: `phuketbusroutes.com` (Namecheap DNS → Vercel); `www` and `phuketbusroutes.mintprin.com` 301 to the apex via `vercel.json`
+- **Analytics**: GA4 `G-ZFXLE1TQXE` (property 490613933); Search Console domain property `sc-domain:phuketbusroutes.com`
 
-## Migration notes
-- Original Replit app was Express + Vite + MemStorage with `/api/routes` endpoints
-- Storage was always in-memory (Drizzle/Neon listed but unused) → trivially portable to static JSON
-- Express domain redirects (subdomain → root, www → non-www, http → https) replaced by Vercel platform behavior + `vercel.json` redirects
-- `replit.md` retained as historical backstory; this file is canonical Claude guidance
+## History
+- 2025: Replit Express + Vite app; `replit.md` kept as backstory
+- 2026-05-11: moved to Vercel as a static React SPA
+- 2026-10-15: `/th` had returned 404 since the Vercel move (rewrite never matched under `cleanUrls`); fixed, then rebuilt in Astro with per-route pages and 8 languages
 
 ## Workflow preferences (from owner)
 - Simple, direct language
-- Bilingual TH/EN content always supported
-- Iterative; ask before adding new external deps or reintroducing backend
+- Ask before adding new external deps or reintroducing a backend
 - Mobile-first design preserved

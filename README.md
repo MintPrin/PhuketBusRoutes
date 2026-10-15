@@ -1,60 +1,32 @@
-# Phuket Bus Routes & Schedules
+# Phuket Bus Routes
 
-A bilingual website providing bus schedules and route information for Phuket Airport transportation to popular destinations.
+Independent guide to Phuket's public buses: timetables, stops, fares and where to board, in 8 languages.
 
-## Quick Start
+**Live:** [phuketbusroutes.com](https://phuketbusroutes.com)
 
-1. Clone the repository
-2. Install dependencies: `npm install`
-3. Start development server: `npm run dev`
-4. Open browser to `http://localhost:5000`
+## Routes
 
-## Project Structure
+| | Route | Fare |
+|---|---|---|
+| P1 | Phuket Smart Bus: Airport → Surin → Kamala → Patong → Karon → Kata → Rawai | 100฿ flat |
+| P2 | Airport Bus 8411: Airport → Central Phuket → Phuket Town → Bus Terminal 1 | 30–100฿ by distance |
+| P3 | Airport Bus Express: Airport → Kathu → Patong → Karon → Kata | Unconfirmed |
+| P4 | Smart Bus Route 2: Bus Terminal 1 → Kathu → Patong | 50฿ flat |
+| P5 | Dragon Line: free loop around Phuket Old Town | Free |
 
+## Quick start
+
+```bash
+npm install
+npm run dev
 ```
-├── client/           # React frontend with TypeScript
-│   ├── src/
-│   │   ├── components/   # UI components
-│   │   ├── pages/        # Page components  
-│   │   ├── i18n/         # English & Thai translations
-│   │   └── hooks/        # Custom hooks & utilities
-├── server/           # Express backend
-└── shared/           # Shared types & schemas
-```
 
-## Key Features
+`npm run build` checks the translations against English, then builds the static site into `dist/`.
 
-- **Bilingual Support**: English and Thai with URL-based routing (`/th/`)
-- **Mobile-First Design**: Optimized for smartphones and tablets
-- **Route Information**: Schedules for P1, P2, P3 airport buses plus P4 Town–Patong and the free P5 Dragon Line loop
-- **Google Maps Integration**: Direct links to route directions
-- **SEO Optimized**: International SEO with structured data
+## How it's built
 
-## Bus Routes
+- [Astro](https://astro.build) static site, Tailwind CSS, no client framework
+- Facts in `src/data/routes.json`, copy in `src/i18n/<lang>.json`
+- Languages: English, Thai, Russian, Simplified Chinese, Korean, Japanese, German, French
 
-### P1 - Light Blue Bus
-Airport → Patong Beach (15-100 THB)
-
-### P2 - Orange Bus  
-Airport → Karon → Kata Beach (15-100 THB)
-
-### P3 - Dark Blue Bus
-Airport → Patong → Karon → Kata Express (100 THB)
-
-### P4 - Yellow Smart Bus
-Phuket Town (Bus Terminal 1) → Kathu → Patong (50 THB flat)
-
-### P5 - Dragon Line
-Free EV loop around Phuket Old Town, 07:00–19:00
-
-## Tech Stack
-
-- React 18 + TypeScript
-- Tailwind CSS + shadcn/ui components  
-- Express.js backend
-- Wouter for routing
-- TanStack Query for data fetching
-
----
-
-**Live Site**: [phuketbusroutes.com](https://phuketbusroutes.com)
+See `CLAUDE.md` for the full layout and data rules.

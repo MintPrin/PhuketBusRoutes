@@ -47,9 +47,7 @@
   .wrap { @apply max-w-[1400px] mx-auto px-5 md:px-8; }
   .prose-bus p { @apply text-ink-soft text-lg leading-relaxed; }
   .prose-bus a, a.u { @apply underline decoration-vermillion/60 underline-offset-4 hover:text-vermillion; }
-  :lang(th) .kicker, :lang(th) .label, :lang(ja) .kicker, :lang(ja) .label, :lang(zh-Hans) .kicker, :lang(zh-Hans) .label, :lang(ko) .kicker, :lang(ko) .label {
-    letter-spacing: 0.08em;
-  }
+
 }
 
 .marquee-track { width: max-content; }
@@ -59,3 +57,15 @@
 
 /* Utility display classes would otherwise beat the hidden attribute. */
 [hidden] { display: none !important; }
+
+/* Wide tracking breaks Thai and CJK words apart; keep mono for digits, native face for script. */
+:lang(th) .font-mono, :lang(th) .kicker, :lang(th) .label { font-family: "JetBrains Mono", "IBM Plex Sans Thai", monospace; letter-spacing: 0 !important; }
+:lang(ja) .font-mono, :lang(ja) .kicker, :lang(ja) .label,
+:lang(zh-Hans) .font-mono, :lang(zh-Hans) .kicker, :lang(zh-Hans) .label,
+:lang(ko) .font-mono, :lang(ko) .kicker, :lang(ko) .label { letter-spacing: 0.02em !important; }
+/* Thai tone marks and CJK glyphs need room; no fake italics for scripts without italic faces. */
+:lang(th) h1, :lang(th) h2, :lang(th) .font-display { line-height: 1.25 !important; }
+:lang(th) h1 > span, :lang(ja) h1 > span, :lang(zh-Hans) h1 > span, :lang(ko) h1 > span { margin-top: 0 !important; }
+:lang(ja) h1, :lang(zh-Hans) h1, :lang(ko) h1 { line-height: 1.15 !important; }
+:lang(th) .italic, :lang(ja) .italic, :lang(zh-Hans) .italic, :lang(ko) .italic { font-style: normal; }
+h1 { text-wrap: balance; }
