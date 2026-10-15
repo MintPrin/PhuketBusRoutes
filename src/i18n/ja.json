@@ -1,375 +1,375 @@
 {
   "lang": {
-    "name": "English",
-    "short": "EN"
+    "name": "日本語",
+    "short": "JA"
   },
   "site": {
     "name": "Phuket Bus Routes",
-    "tagline": "Bus / Routes / Index"
+    "tagline": "バス / 路線 / 索引"
   },
   "nav": {
-    "routes": "Routes",
-    "map": "Bus map",
-    "patong": "Patong",
-    "language": "Language",
-    "home": "Home"
+    "routes": "路線",
+    "map": "路線図",
+    "patong": "パトン",
+    "language": "言語",
+    "home": "ホーム"
   },
   "ui": {
-    "route": "Route",
-    "stops": "Stops",
-    "first": "First",
-    "last": "Last",
-    "departures": "Departures",
-    "departuresCount": "{n} departures",
-    "fromAirport": "From airport",
-    "toAirport": "To airport",
-    "toPlace": "To {place}",
-    "fare": "Fare",
-    "payment": "Payment",
-    "operator": "Operator",
-    "checked": "Checked",
-    "sources": "Sources",
-    "operatorPage": "Operator's page",
-    "boarding": "Where to board",
-    "travelTime": "Travel time",
-    "minutes": "{n} min",
-    "hoursMinutes": "{h} h {m} min",
-    "hoursOnly": "{h} h",
-    "openTimetable": "Open timetable",
-    "lastChecked": "Last checked {date}",
-    "unconfirmed": "Unconfirmed",
-    "free": "Free",
-    "flatFare": "{amount}฿ flat",
-    "distanceFare": "{min}–{max}฿ by distance",
-    "fareUnknown": "Ask the staff",
-    "dayPasses": "Day passes",
-    "dayPass": "{days}-day {price}฿",
-    "every": "Every {n} min",
+    "route": "路線",
+    "stops": "停留所",
+    "first": "始発",
+    "last": "最終",
+    "departures": "発車時刻",
+    "departuresCount": "{n}便",
+    "fromAirport": "空港発",
+    "toAirport": "空港行き",
+    "toPlace": "{place}行き",
+    "fare": "運賃",
+    "payment": "支払い",
+    "operator": "運行会社",
+    "checked": "確認日",
+    "sources": "出典",
+    "operatorPage": "運行会社のページ",
+    "boarding": "乗り場",
+    "travelTime": "所要時間",
+    "minutes": "{n}分",
+    "hoursMinutes": "{h}時間{m}分",
+    "hoursOnly": "{h}時間",
+    "openTimetable": "時刻表を開く",
+    "lastChecked": "最終確認{date}",
+    "unconfirmed": "未確認",
+    "free": "無料",
+    "flatFare": "一律{amount}฿",
+    "distanceFare": "距離制{min}–{max}฿",
+    "fareUnknown": "スタッフに確認",
+    "dayPasses": "乗り放題パス",
+    "dayPass": "{days}日券{price}฿",
+    "every": "{n}分間隔",
     "hours": "{start}–{end}",
-    "stopTimes": "Times at main stops",
-    "stopTimesNote": "From the operator's timetable. Traffic can add time.",
-    "questions": "Questions",
-    "related": "Related pages",
-    "allRoutes": "All routes",
-    "tapStop": "Tap a stop to open it in Google Maps.",
-    "notPosted": "Times not posted for this direction yet.",
-    "childFree": "Children under {age} ride free.",
-    "disclaimer": "Independent guide, not run by any bus company. Times change; check the operator's page before you travel.",
-    "skip": "Skip to content"
+    "stopTimes": "主な停留所の時刻",
+    "stopTimesNote": "運行会社の時刻表より。渋滞で遅れることがあります。",
+    "questions": "よくある質問",
+    "related": "関連ページ",
+    "allRoutes": "全路線",
+    "tapStop": "停留所をタップするとGoogleマップで開きます。",
+    "notPosted": "この方向の時刻はまだ掲載されていません。",
+    "childFree": "{age}歳未満の子どもは無料。",
+    "disclaimer": "バス会社とは関係のない独立したガイドです。時刻は変わることがあるので、出発前に運行会社のページを確認してください。",
+    "skip": "本文へスキップ"
   },
   "payment": {
-    "cash": "Cash",
+    "cash": "現金",
     "qr": "QR / PromptPay",
-    "card": "Contactless Visa / Mastercard",
+    "card": "タッチ決済 Visa / Mastercard",
     "rabbit": "Rabbit Card",
-    "free": "Free"
+    "free": "無料"
   },
   "routes": {
     "P1": {
-      "name": "Phuket Smart Bus",
-      "nickname": "the beach line",
-      "summary": "Airport → Surin → Kamala → Patong → Karon → Kata → Rawai",
-      "boarding": "Domestic terminal, exit 3. Turn left and look for the blue bus sign opposite Café Amazon.",
-      "noteOut": "Every 30 minutes for most of the day. The 14:00, 15:00 and 16:00 buses continue past Rawai to Phromthep Cape.",
-      "noteIn": "Five early runs start at Kata Palm instead of Rawai: 05:20, 06:20, 07:45, 08:45 and 09:45."
+      "name": "プーケット・スマートバス",
+      "nickname": "ビーチ線",
+      "summary": "空港 → スリン → カマラ → パトン → カロン → カタ → ラワイ",
+      "boarding": "国内線ターミナルの3番出口。出て左に進み、カフェ・アマゾン (Café Amazon) の向かいにある青いバス停の看板を探してください。",
+      "noteOut": "日中はほぼ30分間隔。14:00、15:00、16:00の便はラワイからさらにプロムテープ岬 (Phromthep Cape) まで行きます。",
+      "noteIn": "早朝の五便はラワイではなくカタパーム (Kata Palm) が始発です：05:20、06:20、07:45、08:45、09:45。"
     },
     "P2": {
-      "name": "Airport Bus 8411",
-      "nickname": "the town line",
-      "summary": "Airport → Heroines Monument → Central Phuket → Phuket Town → Bus Terminal 1",
-      "boarding": "Outside the domestic terminal exit, on the left. From international arrivals, walk over to the domestic side.",
-      "noteOut": "This bus does not go to Patong, Karon or Kata.",
-      "lastBusConflict": "The operator's timetable shows a 22:30 bus from the airport, but its own FAQ says the last one leaves at 21:30. If you land late, don't count on the 22:30."
+      "name": "空港バス8411",
+      "nickname": "タウン線",
+      "summary": "空港 → ヒロインズ・モニュメント → セントラル・プーケット → プーケットタウン → バスターミナル1",
+      "boarding": "国内線ターミナルの出口を出て左側。国際線に到着した場合は、国内線側まで歩いてください。",
+      "noteOut": "このバスはパトン、カロン、カタには行きません。",
+      "lastBusConflict": "運行会社の時刻表には空港発22:30の便がありますが、同社のFAQでは最終便は21:30発となっています。遅い時間に着く場合、22:30の便はあてにしないでください。"
     },
     "P3": {
-      "name": "Airport Bus Express",
-      "nickname": "the express",
-      "summary": "Airport → Kathu → Patong → Karon → Kata",
-      "boarding": "Airport bus parking near exit 3. Turn left; the bus waits beside the ramp.",
-      "fareUnconfirmed": "We could not confirm the current fare. Sources from 2025 give anything from 100฿ to 220฿. Ask the staff before you board, or message the operator on WhatsApp ({whatsapp}).",
-      "websiteDown": "The operator's old website now sends visitors to an ad page. Its Facebook page is still active (last post October 2026)."
+      "name": "空港バスエクスプレス",
+      "nickname": "エクスプレス",
+      "summary": "空港 → カトゥ → パトン → カロン → カタ",
+      "boarding": "3番出口近くの空港バス駐車場。出て左に進むと、スロープの横でバスが待っています。",
+      "fareUnconfirmed": "現在の運賃は確認できませんでした。2025年の情報では100฿から220฿までまちまちです。乗る前にスタッフに聞くか、WhatsApp ({whatsapp}) で運行会社に問い合わせてください。",
+      "websiteDown": "運行会社の旧ウェブサイトは、今は広告ページに飛ばされます。Facebookページはまだ動いています (最終投稿は2026年十月)。"
     },
     "P4": {
-      "name": "Smart Bus Route 2",
-      "nickname": "the Town–Patong shuttle",
-      "summary": "Bus Terminal 1 → Bangkok Hospital → Kathu → Patong",
-      "boarding": "Phuket Bus Terminal 1, platform 11. In Patong, the Patong Beach bus stop.",
-      "noteOut": "About 60 minutes to Patong.",
-      "noteIn": "About 70 minutes back to Bus Terminal 1. A separate hourly shuttle links Bus Terminal 1 and Bus Terminal 2 (05:00–19:30)."
+      "name": "スマートバス2号線",
+      "nickname": "タウン–パトン シャトル",
+      "summary": "バスターミナル1 → バンコク病院 → カトゥ → パトン",
+      "boarding": "プーケット・バスターミナル1の11番乗り場。パトンでは、パトンビーチのバス停から乗れます。",
+      "noteOut": "パトンまで約60分。",
+      "noteIn": "バスターミナル1までの帰りは約70分。バスターミナル1とバスターミナル2の間は、別の毎時シャトルが結んでいます (05:00–19:30)。"
     },
     "P5": {
-      "name": "Dragon Line",
-      "nickname": "the Old Town loop",
-      "summary": "Free loop around Phuket Old Town from PKCD Parking",
-      "boarding": "Starts at PKCD Parking in Phuket Old Town. You can board at any marked stop on the loop.",
-      "note": "Free, every 30 minutes from 07:00 to 19:00, according to the operator's route map. Stop order is approximate."
+      "name": "ドラゴンライン",
+      "nickname": "オールドタウン周遊",
+      "summary": "PKCD駐車場発、プーケット・オールドタウンを回る無料の周遊バス",
+      "boarding": "プーケット・オールドタウンのPKCD駐車場 (PKCD Parking) が始発。ルート上の表示があるバス停なら、どこからでも乗れます。",
+      "note": "無料、07:00から19:00まで30分間隔 (運行会社のルートマップによる)。停留所の順番はおおよそです。"
     }
   },
   "home": {
-    "title": "Phuket Bus Routes & Timetables 2026: Airport Bus, Patong, Old Town",
-    "description": "All 5 Phuket bus routes: Smart Bus, airport bus 8411, Airport Express, Town–Patong and the free Dragon Line. Timetables, stops, fares and where to board.",
-    "kicker": "A field guide to riding the island",
-    "h1a": "Phuket,",
-    "h1b": "by bus.",
-    "lead": "Five routes, every stop, every departure. Checked against the operators' own timetables, so the fare is never a surprise.",
-    "ctaTimetables": "View timetables",
-    "ctaMap": "See the bus map",
-    "statRoutes": "Routes",
-    "statStops": "Stops",
-    "statFare": "Smart Bus fare",
-    "todayLabel": "Today on the island",
-    "dailyDepartures": "Daily departures",
-    "dailyLine": "little chances to catch the next bus.",
-    "rosterKicker": "§ 01 · The roster",
-    "rosterTitleA": "Five buses,",
-    "rosterTitleB": "one island.",
-    "rosterLead": "Pick a route to see every stop and every departure.",
-    "tripsTitle": "Popular trips",
-    "tripAirportPatong": "Airport → Patong",
-    "tripAirportKata": "Airport → Karon & Kata",
-    "tripAirportTown": "Airport → Phuket Town",
-    "tripTownPatong": "Phuket Town ↔ Patong",
-    "tripOldTown": "Free Old Town bus",
-    "timetableKicker": "§ 02 · The timetable",
-    "timetableTitleA": "When the buses",
-    "timetableTitleB": "actually leave.",
-    "timetableLead": "Departure times from the first stop.",
-    "fareKicker": "§ 03 · The fare",
-    "fareTitleA": "No haggling.",
-    "fareTitleB": "Just baht.",
-    "fareLead": "Pay on board. Bags ride free.",
-    "fareCardLabel": "Fares",
-    "payCardLabel": "Payment",
-    "payCardValue": "Cash + QR",
-    "payCardText": "Every paid route takes cash and QR (PromptPay). The Smart Bus also takes contactless Visa and Mastercard and the Rabbit Card.",
-    "bagCardLabel": "Luggage",
-    "bagCardText": "Normal suitcases ride free.",
-    "aboutKicker": "§ 04 · Colophon",
-    "aboutTitle": "About",
-    "aboutQuote": "An independent guide, not run by any bus company. Times and fares are checked by hand against the operators' timetables and Facebook pages.",
-    "sourcesText": "Operator timetables · Operator Facebook pages · Phuket Airport transport pages"
+    "title": "プーケット バス時刻表2026｜空港バス・パトン・旧市街",
+    "description": "プーケットの全5路線：スマートバス、空港バス8411、空港バスエクスプレス、タウン–パトン線、無料のドラゴンライン。時刻表、停留所、運賃、乗り場。",
+    "kicker": "バスで島をめぐる実用ガイド",
+    "h1a": "プーケットを、",
+    "h1b": "バスで。",
+    "lead": "五つの路線、すべての停留所、すべての便。運行会社の公式時刻表で確認しているので、運賃で驚くことはありません。",
+    "ctaTimetables": "時刻表を見る",
+    "ctaMap": "路線図を見る",
+    "statRoutes": "路線",
+    "statStops": "停留所",
+    "statFare": "スマートバス運賃",
+    "todayLabel": "今日の島のバス",
+    "dailyDepartures": "毎日の運行本数",
+    "dailyLine": "次のバスに乗れる、小さなチャンス。",
+    "rosterKicker": "§ 01 · 路線一覧",
+    "rosterTitleA": "バスは五路線、",
+    "rosterTitleB": "島はひとつ。",
+    "rosterLead": "路線を選ぶと、すべての停留所と便が見られます。",
+    "tripsTitle": "人気の区間",
+    "tripAirportPatong": "空港 → パトン",
+    "tripAirportKata": "空港 → カロン・カタ",
+    "tripAirportTown": "空港 → プーケットタウン",
+    "tripTownPatong": "プーケットタウン ↔ パトン",
+    "tripOldTown": "オールドタウンの無料バス",
+    "timetableKicker": "§ 02 · 時刻表",
+    "timetableTitleA": "バスが本当に",
+    "timetableTitleB": "出る時刻。",
+    "timetableLead": "始発停留所の発車時刻です。",
+    "fareKicker": "§ 03 · 運賃",
+    "fareTitleA": "値段交渉なし。",
+    "fareTitleB": "払うのはバーツだけ。",
+    "fareLead": "運賃は車内で。荷物は無料。",
+    "fareCardLabel": "運賃",
+    "payCardLabel": "支払い",
+    "payCardValue": "現金 + QR",
+    "payCardText": "有料路線はすべて現金とQR (PromptPay) が使えます。スマートバスはタッチ決済のVisa、Mastercard、Rabbit Cardにも対応しています。",
+    "bagCardLabel": "荷物",
+    "bagCardText": "普通のスーツケースは無料です。",
+    "aboutKicker": "§ 04 · 奥付",
+    "aboutTitle": "このサイトについて",
+    "aboutQuote": "バス会社とは関係のない独立したガイドです。時刻と運賃は、運行会社の時刻表とFacebookページを見ながら手作業で確認しています。",
+    "sourcesText": "運行会社の時刻表 · 運行会社のFacebookページ · プーケット空港の交通案内ページ"
   },
   "footer": {
-    "big1": "Catch",
-    "big2": "the bus.",
-    "description": "An independent field guide to Phuket's buses. Routes, stops and fares, checked by hand.",
-    "notes": "Notes",
-    "note1": "Cash or QR · 30–100฿ · Dragon Line free",
-    "note2": "Luggage rides free",
-    "note3": "Be at the stop 5–10 min early",
-    "pages": "Pages"
+    "big1": "バスに",
+    "big2": "乗ろう。",
+    "description": "プーケットのバスの独立系ガイド。路線、停留所、運賃を手作業で確認しています。",
+    "notes": "メモ",
+    "note1": "現金またはQR · 30–100฿ · ドラゴンラインは無料",
+    "note2": "荷物は無料",
+    "note3": "5–10分前にはバス停へ",
+    "pages": "ページ"
   },
   "areas": {
-    "line": "{area}: get off at {stop}, about {time} from the airport.",
-    "surin": "Surin Beach",
-    "kamala": "Kamala",
-    "patong": "Patong",
-    "karon": "Karon",
-    "kata": "Kata",
-    "rawai": "Rawai"
+    "line": "{area}：{stop}で下車。空港から約{time}。",
+    "surin": "スリンビーチ",
+    "kamala": "カマラ",
+    "patong": "パトン",
+    "karon": "カロン",
+    "kata": "カタ",
+    "rawai": "ラワイ"
   },
   "pages": {
     "P1": {
-      "title": "Phuket Smart Bus Timetable 2026: Airport to Patong, Kata, Rawai",
-      "description": "Phuket Smart Bus (light blue): about every 30 min from the airport, {fare} to any stop. Times at Patong, Karon, Kata and Rawai, and where to board.",
-      "h1": "Phuket Smart Bus: airport to Patong, Kata and Rawai",
-      "intro": "The Smart Bus is the light blue and white bus on the west coast. It runs from Phuket Airport through Surin, Kamala, Patong, Karon and Kata to Rawai. It costs {fare} to any stop and leaves the airport about every 30 minutes, from {first} until {last}.",
-      "areasTitle": "Where to get off",
+      "title": "プーケット スマートバス時刻表2026｜空港・パトン・カタ",
+      "description": "水色のスマートバス：空港から約30分間隔、どこまでも{fare}。パトン、カロン、カタ、ラワイの時刻と乗り場。",
+      "h1": "プーケット・スマートバス：空港からパトン、カタ、ラワイへ",
+      "intro": "スマートバス (Smart Bus) は、西海岸を走る水色と白のバスです。プーケット空港からスリン、カマラ、パトン、カロン、カタを通ってラワイまで行きます。運賃はどこまで乗っても{fare}。空港からは{first}から{last}まで、約30分間隔で出ています。",
+      "areasTitle": "降りる場所",
       "faq": [
         {
-          "q": "How much is the Smart Bus from Phuket Airport?",
-          "a": "{fare} to any stop. Children under 6 ride free. Pay on board in cash, by QR or with a contactless card."
+          "q": "プーケット空港からスマートバスはいくら？",
+          "a": "どこまで乗っても{fare}。6歳未満の子どもは無料です。支払いは車内で、現金、QR、タッチ決済カードが使えます。"
         },
         {
-          "q": "Where is the Smart Bus stop at Phuket Airport?",
+          "q": "プーケット空港のスマートバス乗り場はどこ？",
           "a": "{boarding}"
         },
         {
-          "q": "How long does it take to Patong, Kata or Rawai?",
-          "a": "By the operator's timetable, about {patong} to Patong, {kata} to Kata and {rawai} to Rawai. Allow extra time in traffic."
+          "q": "パトン、カタ、ラワイまでどのくらいかかる？",
+          "a": "運行会社の時刻表では、パトンまで約{patong}、カタまで約{kata}、ラワイまで約{rawai}。渋滞のときは余裕を見てください。"
         },
         {
-          "q": "What time are the first and last buses?",
-          "a": "From the airport: first {first}, last {last}. From Rawai to the airport: first {inFirst}, last {inLast}. Earlier runs start at Kata Palm from {kataFirst}."
+          "q": "始発と最終は何時？",
+          "a": "空港発：始発{first}、最終{last}。ラワイ発空港行き：始発{inFirst}、最終{inLast}。それより早い便は{kataFirst}からカタパーム (Kata Palm) 始発で出ています。"
         },
         {
-          "q": "Which blue bus is the Smart Bus?",
-          "a": "The Smart Bus is light blue and white. The darker blue bus is the Airport Bus Express, a different company with a different fare."
+          "q": "どの青いバスがスマートバス？",
+          "a": "スマートバスは水色と白のバスです。濃い青のバスは空港バスエクスプレス (Airport Bus Express) で、別の会社なので運賃も違います。"
         },
         {
-          "q": "Is there a day pass?",
-          "a": "Yes, sold on the bus: {passes}."
+          "q": "乗り放題パスはある？",
+          "a": "あります。車内で買えます：{passes}。"
         }
       ]
     },
     "P2": {
-      "title": "Phuket Airport Bus 8411 to Phuket Town: Timetable & Fare 2026",
-      "description": "Orange airport bus 8411 to Phuket Town: {fare}, about {duration}. Departures {first}–{last}, where to board, and how to reach Patong.",
-      "h1": "Airport Bus 8411: Phuket Airport to Phuket Town",
-      "intro": "The orange 8411 bus runs from Phuket Airport down the middle of the island to Phuket Town and Bus Terminal 1. Fares go by distance ({fare}), and the full ride takes about {duration}.",
+      "title": "空港バス8411 プーケットタウン行き 時刻表・運賃2026",
+      "description": "オレンジ色の空港バス8411でプーケットタウンへ：{fare}、約{duration}。{first}–{last}発、乗り場とパトンへの行き方。",
+      "h1": "空港バス8411：プーケット空港からプーケットタウンへ",
+      "intro": "オレンジ色の8411番バスは、プーケット空港から島の真ん中を南下して、プーケットタウンとバスターミナル1まで走ります。運賃は距離制 ({fare}) で、終点まで約{duration}です。",
       "faq": [
         {
-          "q": "How much is the airport bus to Phuket Town?",
-          "a": "{max}฿ to Phuket Town. Shorter rides cost less: {steps}."
+          "q": "空港からプーケットタウンまでのバス代は？",
+          "a": "プーケットタウンまで{max}฿。短い区間はもっと安く、{steps}です。"
         },
         {
-          "q": "Where do I catch the 8411 at Phuket Airport?",
+          "q": "プーケット空港で8411にはどこで乗る？",
           "a": "{boarding}"
         },
         {
-          "q": "Does the 8411 go to Patong?",
-          "a": "No. Change at Bus Terminal 1 to Smart Bus Route 2: {p4fare}, about {p4time} to Patong. Or take the Smart Bus from the airport, which goes straight to Patong."
+          "q": "8411はパトンに行く？",
+          "a": "行きません。バスターミナル1でスマートバス2号線に乗り換えます：{p4fare}、パトンまで約{p4time}。または、空港からパトンへ直行するスマートバスを使ってください。"
         },
         {
-          "q": "What time are the first and last buses?",
-          "a": "From the airport: first {first}, last {last}. From Bus Terminal 1: first {inFirst}, last {inLast}."
+          "q": "始発と最終は何時？",
+          "a": "空港発：始発{first}、最終{last}。バスターミナル1発：始発{inFirst}、最終{inLast}。"
         }
       ]
     },
     "P3": {
-      "title": "Phuket Airport Bus Express to Patong, Karon, Kata: Times 2026",
-      "description": "Dark blue Airport Bus Express, Phuket Airport to Patong, Karon and Kata: departures {first}–{last} and where to board. Fare unconfirmed.",
-      "h1": "Airport Bus Express: Phuket Airport to Patong, Karon and Kata",
-      "intro": "The dark blue Airport Bus Express runs from the airport through Kathu to Patong, Karon and Kata, leaving every hour from {first} to {last}.",
+      "title": "プーケット空港バスエクスプレス 時刻表2026 パトン・カタ",
+      "description": "濃い青の空港バスエクスプレス。プーケット空港からパトン、カロン、カタへ。{first}–{last}発、乗り場。運賃は未確認。",
+      "h1": "空港バスエクスプレス：プーケット空港からパトン、カロン、カタへ",
+      "intro": "濃い青の空港バスエクスプレス (Airport Bus Express) は、空港からカトゥを通ってパトン、カロン、カタへ向かいます。{first}から{last}まで、毎時出発しています。",
       "faq": [
         {
-          "q": "How much is the Airport Bus Express?",
+          "q": "空港バスエクスプレスの運賃は？",
           "a": "{fareNote}"
         },
         {
-          "q": "Where do I catch it at Phuket Airport?",
+          "q": "プーケット空港ではどこで乗る？",
           "a": "{boarding}"
         },
         {
-          "q": "What time are the first and last buses?",
-          "a": "From the airport: first {first}, last {last}. Back to the airport: first {inFirst}, last {inLast}."
+          "q": "始発と最終は何時？",
+          "a": "空港発：始発{first}、最終{last}。空港行き：始発{inFirst}、最終{inLast}。"
         },
         {
-          "q": "Is it the same as the Smart Bus?",
-          "a": "No. It is a different company with a different fare and a darker blue bus. The Smart Bus ({p1fare}) also goes to Patong, Karon and Kata, about every 30 minutes."
+          "q": "スマートバスと同じ？",
+          "a": "違います。別の会社で、運賃も違い、バスの色も濃い青です。スマートバス ({p1fare}) もパトン、カロン、カタに行き、約30分間隔で走っています。"
         }
       ]
     },
     "P4": {
-      "title": "Phuket Town to Patong Bus (Smart Bus Route 2): Timetable 2026",
-      "description": "Smart Bus Route 2 between Phuket Bus Terminal 1 and Patong: {fare}, about {duration}, platform 11. Full timetable both ways and day passes.",
-      "h1": "Phuket Town to Patong by bus",
-      "intro": "Smart Bus Route 2 links Phuket Bus Terminal 1 in town with Patong Beach through Kathu. It costs {fare} and takes about {duration} to Patong.",
+      "title": "プーケットタウン–パトン バス時刻表2026 スマートバス2号線",
+      "description": "スマートバス2号線、プーケット・バスターミナル1–パトン間：{fare}、約{duration}、11番乗り場。往復の時刻表と乗り放題パス。",
+      "h1": "プーケットタウンからパトンへバスで",
+      "intro": "スマートバス2号線は、町なかのプーケット・バスターミナル1とパトンビーチを、カトゥ経由で結んでいます。運賃は{fare}、パトンまで約{duration}です。",
       "faq": [
         {
-          "q": "How much is the bus from Phuket Town to Patong?",
-          "a": "{fare}, paid on board in cash or by QR."
+          "q": "プーケットタウンからパトンまでのバス代は？",
+          "a": "{fare}。車内で現金かQRで払います。"
         },
         {
-          "q": "Where does it leave from?",
+          "q": "どこから出る？",
           "a": "{boarding}"
         },
         {
-          "q": "What time are the first and last buses?",
-          "a": "From Bus Terminal 1: first {first}, last {last}. From Patong: first {inFirst}, last {inLast}."
+          "q": "始発と最終は何時？",
+          "a": "バスターミナル1発：始発{first}、最終{last}。パトン発：始発{inFirst}、最終{inLast}。"
         },
         {
-          "q": "Does it go to the airport?",
-          "a": "No. From the airport, take the orange 8411 bus to Bus Terminal 1 and change there, or take the Smart Bus straight to Patong."
+          "q": "空港には行く？",
+          "a": "行きません。空港からはオレンジ色の8411番バスでバスターミナル1まで行って乗り換えるか、スマートバスでパトンへ直行してください。"
         },
         {
-          "q": "Is there a day pass?",
-          "a": "Yes, sold on the bus: {passes}."
+          "q": "乗り放題パスはある？",
+          "a": "あります。車内で買えます：{passes}。"
         }
       ]
     },
     "P5": {
-      "title": "Dragon Line: Free Phuket Old Town Bus, Route & Hours 2026",
-      "description": "The Dragon Line is a free electric bus looping Phuket Old Town every {every} min, {start}–{end}. Stops, where to start and how it links to other buses.",
-      "h1": "Dragon Line: the free Old Town bus",
-      "intro": "The Dragon Line is a free electric shuttle that loops around Phuket Old Town. Phuket Smart Bus runs it with Phuket City Development (PKCD). It leaves every {every} minutes from {start} to {end}.",
+      "title": "ドラゴンライン｜プーケット旧市街の無料バス 運行時間2026",
+      "description": "ドラゴンラインはプーケット・オールドタウンを{every}分間隔で回る無料の電気バス。{start}–{end}。停留所、乗り場、他のバスとの接続。",
+      "h1": "ドラゴンライン：オールドタウンの無料バス",
+      "intro": "ドラゴンライン (Dragon Line) は、プーケット・オールドタウン (旧市街) を回る無料の電気シャトルバスです。プーケット・スマートバスがプーケット・シティ・デベロップメント (PKCD) と一緒に運行しています。{start}から{end}まで、{every}分間隔で出ています。",
       "faq": [
         {
-          "q": "Is the Dragon Line really free?",
-          "a": "Yes. There is no fare."
+          "q": "ドラゴンラインは本当に無料？",
+          "a": "はい。運賃はかかりません。"
         },
         {
-          "q": "What are the hours?",
-          "a": "Every {every} minutes from {start} to {end}, according to the operator's route map."
+          "q": "運行時間は？",
+          "a": "{start}から{end}まで{every}分間隔です (運行会社のルートマップによる)。"
         },
         {
-          "q": "Where does it start?",
+          "q": "どこから出る？",
           "a": "{boarding}"
         },
         {
-          "q": "Does it go to the airport or the beaches?",
-          "a": "No. It only loops the Old Town. For Patong, take Smart Bus Route 2 from Bus Terminal 1."
+          "q": "空港やビーチに行く？",
+          "a": "行きません。オールドタウンを回るだけです。パトンへは、バスターミナル1からスマートバス2号線に乗ってください。"
         }
       ]
     },
     "patong": {
-      "title": "Patong Bus Guide 2026: Airport to Patong, Patong to Phuket Town",
-      "description": "Buses to and from Patong: Smart Bus from the airport ({p1fare}, about {p1time}), Airport Express, and the {p4fare} bus to Phuket Town. Times and stops.",
-      "h1": "Getting to and from Patong by bus",
-      "intro": "Patong has two direct bus links: one to the airport and one to Phuket Town. Here is every option, with times from the operators' timetables.",
-      "airportToPatong": "Airport → Patong",
-      "airportToPatongText": "The Smart Bus leaves the airport about every 30 minutes and reaches the Patong stop (Provincial Electricity Authority) about {p1time} later, for {p1fare}. The dark blue Airport Bus Express also goes to Patong, every hour.",
-      "patongToAirport": "Patong → Airport",
-      "patongToAirportText": "Catch the Smart Bus at the Bangla Police Box stop. It takes about {inTime} to reach the airport.",
-      "townPatong": "Phuket Town ↔ Patong",
-      "townPatongText": "Smart Bus Route 2 runs between Bus Terminal 1 and Patong Beach for {p4fare}, about {p4time}.",
-      "tableAirportPatong": "Smart Bus: airport → Patong",
-      "tablePatongAirport": "Smart Bus: Patong → airport",
+      "title": "パトン バス案内2026｜空港↔パトン・タウン↔パトン",
+      "description": "パトン発着のバス：空港からスマートバス ({p1fare}、約{p1time})、空港バスエクスプレス、タウン行き{p4fare}のバス。時刻と停留所。",
+      "h1": "バスでパトンへ、パトンから",
+      "intro": "パトンには直通バスが二系統あります。空港行きとプーケットタウン行きです。運行会社の時刻表をもとに、すべての行き方をまとめました。",
+      "airportToPatong": "空港 → パトン",
+      "airportToPatongText": "スマートバスは約30分間隔で空港を出て、約{p1time}でパトンのバス停 (地方電力公社 / Provincial Electricity Authority) に着きます。運賃は{p1fare}。濃い青の空港バスエクスプレスも、毎時パトンへ行きます。",
+      "patongToAirport": "パトン → 空港",
+      "patongToAirportText": "バングラ警察詰所 (Bangla Police Box) のバス停でスマートバスに乗ります。空港まで約{inTime}です。",
+      "townPatong": "プーケットタウン ↔ パトン",
+      "townPatongText": "スマートバス2号線が、バスターミナル1とパトンビーチの間を{p4fare}、約{p4time}で結んでいます。",
+      "tableAirportPatong": "スマートバス：空港 → パトン",
+      "tablePatongAirport": "スマートバス：パトン → 空港",
       "faq": [
         {
-          "q": "What is the cheapest way from Phuket Airport to Patong?",
-          "a": "The Smart Bus: {p1fare}, about {p1time}."
+          "q": "プーケット空港からパトンへ一番安く行く方法は？",
+          "a": "スマートバスです：{p1fare}、約{p1time}。"
         },
         {
-          "q": "Where do I get off in Patong?",
-          "a": "Coming from the airport, the Smart Bus stops at the Provincial Electricity Authority in Patong. Going back, catch it at the Bangla Police Box stop."
+          "q": "パトンではどこで降りる？",
+          "a": "空港から来る場合、スマートバスはパトンの地方電力公社 (Provincial Electricity Authority) 前に停まります。帰りは、バングラ警察詰所 (Bangla Police Box) のバス停から乗ってください。"
         },
         {
-          "q": "Can I take a bus to the airport for an early flight?",
-          "a": "The first Smart Bus from Patong leaves at {inFirst} and reaches the airport at {inFirstArr}."
+          "q": "早朝のフライトにバスで間に合う？",
+          "a": "パトン発のスマートバスの始発は{inFirst}で、空港には{inFirstArr}に着きます。"
         },
         {
-          "q": "How do I get from Patong to Phuket Old Town?",
-          "a": "Take Smart Bus Route 2 to Bus Terminal 1 ({p4fare}). The Old Town is a short walk from there, and the free Dragon Line loops it."
+          "q": "パトンからプーケット・オールドタウンへはどう行く？",
+          "a": "スマートバス2号線でバスターミナル1へ ({p4fare})。そこからオールドタウンは歩いてすぐで、無料のドラゴンラインも周回しています。"
         }
       ]
     },
     "map": {
-      "title": "Phuket Bus Map 2026: All 5 Routes and Airport Bus Lines",
-      "description": "A simple map of Phuket's 5 bus routes: Smart Bus, airport bus 8411, Airport Express, Town–Patong and the free Dragon Line. See which bus goes where.",
-      "h1": "Phuket bus map",
-      "intro": "A simplified map of the five routes. It shows the order of stops and where the lines meet, not the exact roads. Pick a route for the full timetable.",
-      "sea": "Andaman Sea",
-      "notToScale": "Not to scale",
-      "oldTown": "Old Town",
-      "whereTitle": "Which bus goes where",
-      "area": "Area",
-      "buses": "Buses",
-      "areaPatong": "Patong",
-      "areaKataKaron": "Karon & Kata",
-      "areaRawai": "Rawai",
-      "areaKamalaSurin": "Kamala & Surin",
-      "areaTown": "Phuket Town",
-      "areaOldTown": "Old Town",
-      "areaCentral": "Central Phuket",
+      "title": "プーケット バス路線図2026｜全5路線と空港バス",
+      "description": "プーケットの5つのバス路線を簡単な地図で：スマートバス、空港バス8411、空港エクスプレス、タウン–パトン線、無料のドラゴンライン。",
+      "h1": "プーケット バス路線図",
+      "intro": "五つの路線を簡略化した地図です。停留所の順番と路線が交わる場所を示したもので、実際の道路ではありません。路線を選ぶと、時刻表がすべて見られます。",
+      "sea": "アンダマン海",
+      "notToScale": "縮尺は正確ではありません",
+      "oldTown": "オールドタウン",
+      "whereTitle": "どのバスがどこへ行く？",
+      "area": "エリア",
+      "buses": "バス",
+      "areaPatong": "パトン",
+      "areaKataKaron": "カロン・カタ",
+      "areaRawai": "ラワイ",
+      "areaKamalaSurin": "カマラ・スリン",
+      "areaTown": "プーケットタウン",
+      "areaOldTown": "オールドタウン",
+      "areaCentral": "セントラル・プーケット",
       "faq": [
         {
-          "q": "Is there a bus between Patong and Kata?",
-          "a": "Yes. The Smart Bus continues from Patong to Karon and Kata, for the same {p1fare}."
+          "q": "パトンとカタの間にバスはある？",
+          "a": "あります。スマートバスはパトンからカロン、カタへ続き、運賃は同じ{p1fare}です。"
         },
         {
-          "q": "Is there a bus from Patong to Kamala?",
-          "a": "Yes. Take the Smart Bus heading to the airport; it stops at Kamala and Surin after Patong."
+          "q": "パトンからカマラへのバスはある？",
+          "a": "あります。空港方面行きのスマートバスに乗ってください。パトンの次にカマラ、スリンに停まります。"
         },
         {
-          "q": "Do Phuket buses run at night?",
-          "a": "The last Smart Bus leaves the airport at {p1last}. The other routes stop between 19:00 and 22:30."
+          "q": "プーケットのバスは夜も走っている？",
+          "a": "スマートバスの空港発の最終は{p1last}です。ほかの路線は19:00から22:30の間に運行を終えます。"
         }
       ]
     }
   },
   "notFound": {
-    "title": "Page not found",
-    "text": "This page doesn't exist. Try the timetables:"
+    "title": "ページが見つかりません",
+    "text": "このページは存在しません。時刻表はこちら："
   }
 }

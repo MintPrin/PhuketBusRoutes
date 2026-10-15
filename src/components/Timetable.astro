@@ -11,8 +11,8 @@ const rt = d.routes[r.id] as Record<string, string>;
 const H = level;
 const payLabel = d.payment as Record<string, string>;
 
-// Yellow header needs dark text; the others take paper text.
-const darkText = r.id === "P4";
+// Light blue and yellow headers need dark text for contrast; the others take paper text.
+const darkText = r.id === "P4" || r.id === "P1";
 const viaAirport = !!r.airport;
 const dirs = (["outbound", "inbound"] as const).filter((k) => r.schedules[k]);
 const stopsFor = (k: "outbound" | "inbound") => (k === "outbound" ? r.stops : inboundStops(r));

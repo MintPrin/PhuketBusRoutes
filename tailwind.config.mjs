@@ -11,7 +11,7 @@ export default {
       colors: {
         paper: { DEFAULT: "#F3EDDF", deep: "#E9DEC6", tint: "#FAF6EC" },
         ink: { DEFAULT: "#0E0E0E", soft: "#2A2724", mute: "#5C544A" },
-        vermillion: "#D5391C",
+        vermillion: "#B5301A",
       },
       boxShadow: {
         paper: "0 1px 0 0 rgba(14,14,14,0.08), 0 12px 30px -18px rgba(14,14,14,0.35)",

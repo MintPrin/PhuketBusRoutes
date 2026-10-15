@@ -28,7 +28,7 @@
   @media (prefers-reduced-motion: no-preference) {
     html { scroll-behavior: smooth; }
   }
-  ::selection { background: #d5391c; color: #f3eddf; }
+  ::selection { background: #b5301a; color: #f3eddf; }
 
   /* Scripts the Latin display font can't draw: fall back to a fitting local face. */
   :lang(th) body, :lang(th) .font-display { font-family: "IBM Plex Sans Thai", system-ui, sans-serif; }
@@ -69,3 +69,7 @@
 :lang(ja) h1, :lang(zh-Hans) h1, :lang(ko) h1 { line-height: 1.15 !important; }
 :lang(th) .italic, :lang(ja) .italic, :lang(zh-Hans) .italic, :lang(ko) .italic { font-style: normal; }
 h1 { text-wrap: balance; }
+/* CJK hero: smaller so whole words fit, and break at phrase boundaries. */
+:lang(ja) h1 > span, :lang(zh-Hans) h1 > span, :lang(ko) h1 > span { font-size: clamp(2.6rem, 7.5vw, 6.5rem) !important; }
+:lang(ja) h1, :lang(ja) h2 { word-break: auto-phrase; }
+:lang(ko) h1, :lang(ko) h2 { word-break: keep-all; }
