@@ -32,7 +32,7 @@ function routeBlock(r: Route): string {
 
 export function GET() {
   const verified = ROUTES.map((r) => r.lastVerified).sort().at(-1);
-  const guides = (["patong", "map"] as const).map((k) => {
+  const guides = (["airport", "patong", "kataKaron", "rawai", "kamalaSurin", "town", "map"] as const).map((k) => {
     const c = pageCopy(k, "en");
     return `- [${c.title}](${urlFor("en", slugOf(k))}): ${c.description}`;
   });

@@ -12,7 +12,8 @@
     "map": "Plan des bus",
     "patong": "Patong",
     "language": "Langue",
-    "home": "Accueil"
+    "home": "Accueil",
+    "airport": "Airport bus"
   },
   "ui": {
     "route": "Ligne",
@@ -71,7 +72,8 @@
       "summary": "Aéroport → Surin → Kamala → Patong → Karon → Kata → Rawai",
       "boarding": "Terminal domestique, sortie 3. Tournez à gauche et cherchez le panneau bleu du bus, en face du Café Amazon.",
       "noteOut": "Toutes les 30 minutes pendant la majeure partie de la journée. Les bus de 14:00, 15:00 et 16:00 continuent après Rawai jusqu'au cap de Phromthep (Phromthep Cape).",
-      "noteIn": "Cinq départs matinaux partent de Kata Palm au lieu de Rawai : 05:20, 06:20, 07:45, 08:45 et 09:45."
+      "noteIn": "Cinq départs matinaux partent de Kata Palm au lieu de Rawai : 05:20, 06:20, 07:45, 08:45 et 09:45.",
+      "liveGps": "See where the bus is right now in the ViaBus app."
     },
     "P2": {
       "name": "Bus aéroport 8411",
@@ -127,6 +129,8 @@
     "tripsTitle": "Trajets populaires",
     "tripAirportPatong": "Aéroport → Patong",
     "tripAirportKata": "Aéroport → Karon et Kata",
+    "tripAirportRawai": "Airport → Rawai",
+    "tripAirportKamala": "Airport → Kamala & Surin",
     "tripAirportTown": "Aéroport → Phuket Town",
     "tripTownPatong": "Phuket Town ↔ Patong",
     "tripOldTown": "Bus gratuit de la vieille ville",
@@ -366,10 +370,149 @@
           "a": "Le dernier Smart Bus part de l'aéroport à {p1last}. Les autres lignes s'arrêtent entre 19:00 et 22:30."
         }
       ]
+    },
+    "airport": {
+      "title": "Phuket Airport Bus 2026: Which Bus to Patong, Kata, Town",
+      "description": "All 3 buses from Phuket Airport compared: Smart Bus {p1fare}, airport bus 8411 to Phuket Town, Airport Express. Where to board, first and last buses.",
+      "h1": "Phuket Airport bus: which one to take",
+      "intro": "Three public buses leave Phuket Airport. Where you are going decides which one: the west-coast beaches, Phuket Town, or Patong, Karon and Kata on the express.",
+      "tableTitle": "The three airport buses",
+      "colBus": "Bus",
+      "colGoes": "Goes to",
+      "colFare": "Fare",
+      "colHours": "Leaves the airport",
+      "colBoard": "Where to board",
+      "lateTitle": "Landing late?",
+      "lateText": "The last Smart Bus leaves the airport at {p1last}, the last 8411 at {p2last} and the last Airport Express at {p3last}. After that there is no public bus; you will need a taxi or a ride-hailing app.",
+      "destTitle": "Where are you going?",
+      "faq": [
+        {
+          "q": "Is there a bus from Phuket Airport?",
+          "a": "Yes, three: the Smart Bus to the west-coast beaches, the orange 8411 to Phuket Town, and the Airport Bus Express to Patong, Karon and Kata."
+        },
+        {
+          "q": "Which airport bus goes to Patong?",
+          "a": "The Smart Bus ({p1fare}, about {p1time}) and the Airport Bus Express. The 8411 does not."
+        },
+        {
+          "q": "What time is the last bus from Phuket Airport?",
+          "a": "{p1last} for the Smart Bus. The 8411 and the Express stop earlier: {p2last} and {p3last}."
+        },
+        {
+          "q": "Where do the buses leave from at Phuket Airport?",
+          "a": "All three leave from the domestic terminal side. The Smart Bus and the Express board near exit 3. From international arrivals, walk over to the domestic side."
+        }
+      ]
+    },
+    "kataKaron": {
+      "title": "Phuket Airport to Kata & Karon by Bus: Times 2026",
+      "description": "Smart Bus from Phuket Airport to Karon and Kata: {p1fare}, about {karonTime} to Karon and {kataTime} to Kata. Every departure with arrival times.",
+      "h1": "Phuket Airport to Karon and Kata by bus",
+      "intro": "The Smart Bus runs from the airport to Karon Circle and Kata Night Plaza about every 30 minutes, for {p1fare}. It takes about {karonTime} to Karon and {kataTime} to Kata.",
+      "other": "The dark blue Airport Bus Express also goes to Karon and Kata, every hour. Its fare is not confirmed.",
+      "faq": [
+        {
+          "q": "How much is the bus from Phuket Airport to Kata or Karon?",
+          "a": "{p1fare} on the Smart Bus, paid on board in cash, by QR or with a contactless card."
+        },
+        {
+          "q": "How long does the bus take to Kata?",
+          "a": "About {kataTime} to Kata Night Plaza and {karonTime} to Karon Circle, by the operator's timetable. Traffic can add more."
+        },
+        {
+          "q": "What time is the last bus from the airport to Kata?",
+          "a": "The last Smart Bus leaves the airport at {p1last} and reaches Kata at about {lastArr}."
+        },
+        {
+          "q": "What is the first bus from Kata to the airport?",
+          "a": "The first Smart Bus leaves {backStop} at {backFirst} and reaches the airport at {backFirstArr}."
+        }
+      ]
+    },
+    "rawai": {
+      "title": "Phuket Airport to Rawai by Bus: Smart Bus Times 2026",
+      "description": "Smart Bus from Phuket Airport to Rawai Beach: {p1fare}, about {destTime}. Every departure with arrival times, the way back, and the Phromthep Cape runs.",
+      "h1": "Phuket Airport to Rawai by bus",
+      "intro": "Rawai is the last stop of the Smart Bus. It leaves the airport about every 30 minutes, costs {p1fare} and takes about {destTime} to Rawai Beach.",
+      "other": "The 14:00, 15:00 and 16:00 buses from the airport continue past Rawai to Phromthep Cape.",
+      "faq": [
+        {
+          "q": "How much is the bus from Phuket Airport to Rawai?",
+          "a": "{p1fare} on the Smart Bus, paid on board in cash, by QR or with a contactless card."
+        },
+        {
+          "q": "How long does it take?",
+          "a": "About {destTime} from the airport to Rawai Beach, by the operator's timetable. Traffic can add more."
+        },
+        {
+          "q": "What time is the last bus to Rawai?",
+          "a": "The last Smart Bus leaves the airport at {p1last} and reaches Rawai at about {lastArr}."
+        },
+        {
+          "q": "What is the first bus from Rawai to the airport?",
+          "a": "The first Smart Bus leaves {backStop} at {backFirst} and reaches the airport at {backFirstArr}."
+        }
+      ]
+    },
+    "kamalaSurin": {
+      "title": "Phuket Airport to Kamala & Surin by Bus: Times 2026",
+      "description": "Smart Bus from Phuket Airport to Surin Beach and Kamala: {p1fare}, about {surinTime} to Surin and {kamalaTime} to Kamala. All departures and the way back.",
+      "h1": "Phuket Airport to Surin and Kamala by bus",
+      "intro": "Surin and Kamala are the first beaches on the Smart Bus route. The bus takes about {surinTime} to Surin Beach and {kamalaTime} to Kamala, for {p1fare}.",
+      "other": "The Smart Bus carries on to Patong, Karon, Kata and Rawai, so the same bus serves the rest of the west coast.",
+      "faq": [
+        {
+          "q": "How much is the bus from Phuket Airport to Kamala?",
+          "a": "{p1fare} on the Smart Bus, paid on board in cash, by QR or with a contactless card."
+        },
+        {
+          "q": "How long does it take?",
+          "a": "About {surinTime} to Surin Beach and {kamalaTime} to Kamala, by the operator's timetable."
+        },
+        {
+          "q": "What time is the last bus to Kamala?",
+          "a": "The last Smart Bus leaves the airport at {p1last} and reaches Kamala at about {lastArr}."
+        },
+        {
+          "q": "What is the first bus from Kamala to the airport?",
+          "a": "The first Smart Bus leaves {backStop} at {backFirst} and reaches the airport at {backFirstArr}."
+        }
+      ]
+    },
+    "town": {
+      "title": "Phuket Airport to Phuket Town & Old Town by Bus 2026",
+      "description": "Phuket Airport to Phuket Town and the Old Town by bus: orange 8411 for {fare}, about {duration}, then the free Dragon Line. Times both ways.",
+      "h1": "Phuket Airport to Phuket Town and the Old Town",
+      "intro": "The orange 8411 is the only public bus from the airport to Phuket Town. It runs down the middle of the island to Bus Terminal 1 in about {duration}. From there, the free Dragon Line loops the Old Town.",
+      "other": "For Patong, change at Bus Terminal 1 to Smart Bus Route 2 ({p4fare}).",
+      "faq": [
+        {
+          "q": "How much is the bus from Phuket Airport to Phuket Town?",
+          "a": "{max}฿ to Phuket Town on the 8411. Shorter rides cost less: {steps}."
+        },
+        {
+          "q": "How do I get to the Old Town?",
+          "a": "Ride the 8411 to Bus Terminal 1. The Old Town is a short walk from there, and the free Dragon Line loops it every {every} minutes."
+        },
+        {
+          "q": "What time are the first and last buses?",
+          "a": "From the airport: first {first}, last {last}. From Bus Terminal 1: first {inFirst}, last {inLast}."
+        },
+        {
+          "q": "Is there a later bus if I land at night?",
+          "a": "No. The Smart Bus runs later ({p1last}), but it goes to the west-coast beaches, not to town."
+        }
+      ]
     }
   },
   "notFound": {
     "title": "Page introuvable",
     "text": "Cette page n'existe pas. Essayez les horaires :"
+  },
+  "trip": {
+    "outTitle": "From the airport",
+    "backTitle": "Back to the airport",
+    "otherTitle": "Other options",
+    "fromAirportCol": "Leaves airport"
   }
 }

@@ -17,8 +17,10 @@ const marquee = ROUTES.flatMap((r) =>
 );
 const trips = [
   { label: h.tripAirportPatong, href: pathFor(lang, slugOf("patong")), id: "P1" },
-  { label: h.tripAirportKata, href: `${pathFor(lang, slugOf("P1"))}#areas`, id: "P1" },
-  { label: h.tripAirportTown, href: pathFor(lang, slugOf("P2")), id: "P2" },
+  { label: h.tripAirportKata, href: pathFor(lang, slugOf("kataKaron")), id: "P1" },
+  { label: h.tripAirportRawai, href: pathFor(lang, slugOf("rawai")), id: "P1" },
+  { label: h.tripAirportKamala, href: pathFor(lang, slugOf("kamalaSurin")), id: "P1" },
+  { label: h.tripAirportTown, href: pathFor(lang, slugOf("town")), id: "P2" },
   { label: h.tripTownPatong, href: pathFor(lang, slugOf("P4")), id: "P4" },
   { label: h.tripOldTown, href: pathFor(lang, slugOf("P5")), id: "P5" },
 ] as const;
@@ -51,6 +53,7 @@ const fareLine = ROUTES.map((r) => `${d.routes[r.id].name} ${fareText(r, lang)}`
         <p class="mt-7 max-w-xl text-ink-soft text-lg leading-snug">{h.lead}</p>
         <div class="mt-8 flex flex-wrap gap-3">
           <a href="#timetables" class="inline-flex items-center gap-2 bg-ink text-paper px-5 py-3 rounded-sm font-mono text-xs uppercase tracking-[0.2em] hover:bg-vermillion">{h.ctaTimetables} <span aria-hidden="true">⟶</span></a>
+          <a href={pathFor(lang, slugOf("airport"))} class="inline-flex items-center gap-2 border border-ink px-5 py-3 rounded-sm font-mono text-xs uppercase tracking-[0.2em] hover:bg-ink hover:text-paper">{d.nav.airport}</a>
           <a href={pathFor(lang, slugOf("map"))} class="inline-flex items-center gap-2 border border-ink px-5 py-3 rounded-sm font-mono text-xs uppercase tracking-[0.2em] hover:bg-ink hover:text-paper">{h.ctaMap}</a>
         </div>
       </div>

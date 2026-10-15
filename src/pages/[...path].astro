@@ -3,8 +3,11 @@ import Home from "../components/pages/Home.astro";
 import RoutePage from "../components/pages/RoutePage.astro";
 import PatongPage from "../components/pages/PatongPage.astro";
 import MapPage from "../components/pages/MapPage.astro";
+import TripPage from "../components/pages/TripPage.astro";
+import AirportPage from "../components/pages/AirportPage.astro";
+import TownPage from "../components/pages/TownPage.astro";
 import { LANGS, type Lang } from "../lib/i18n";
-import { PAGES, isRouteKey, type PageKey } from "../lib/pages";
+import { PAGES, isRouteKey, isTripKey, type PageKey } from "../lib/pages";
 
 export function getStaticPaths() {
   return LANGS.flatMap(({ code }) =>
@@ -21,3 +24,6 @@ const { lang, key } = Astro.props as { lang: Lang; key: PageKey };
 {isRouteKey(key) && <RoutePage lang={lang} id={key} />}
 {key === "patong" && <PatongPage lang={lang} />}
 {key === "map" && <MapPage lang={lang} />}
+{key === "airport" && <AirportPage lang={lang} />}
+{key === "town" && <TownPage lang={lang} />}
+{isTripKey(key) && <TripPage lang={lang} trip={key} />}

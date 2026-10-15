@@ -8,7 +8,12 @@ const { lang, current } = Astro.props;
 const d = dict(lang);
 const items = [
   ...ROUTES.map((r) => ({ key: r.id as PageKey, href: pathFor(lang, r.slug), label: `${r.id} · ${d.routes[r.id].name}`, color: r.color })),
-  { key: "patong" as PageKey, href: pathFor(lang, slugOf("patong")), label: d.pages.patong.h1, color: "#0E0E0E" },
+  { key: "airport" as PageKey, href: pathFor(lang, slugOf("airport")), label: d.nav.airport, color: "#0E0E0E" },
+  { key: "patong" as PageKey, href: pathFor(lang, slugOf("patong")), label: d.home.tripAirportPatong, color: "#0E0E0E" },
+  { key: "kataKaron" as PageKey, href: pathFor(lang, slugOf("kataKaron")), label: d.home.tripAirportKata, color: "#0E0E0E" },
+  { key: "rawai" as PageKey, href: pathFor(lang, slugOf("rawai")), label: d.home.tripAirportRawai, color: "#0E0E0E" },
+  { key: "kamalaSurin" as PageKey, href: pathFor(lang, slugOf("kamalaSurin")), label: d.home.tripAirportKamala, color: "#0E0E0E" },
+  { key: "town" as PageKey, href: pathFor(lang, slugOf("town")), label: d.home.tripAirportTown, color: "#0E0E0E" },
   { key: "map" as PageKey, href: pathFor(lang, slugOf("map")), label: d.nav.map, color: "#0E0E0E" },
 ].filter((i) => i.key !== current);
 ---

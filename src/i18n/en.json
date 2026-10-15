@@ -383,7 +383,7 @@
       "colHours": "Leaves the airport",
       "colBoard": "Where to board",
       "lateTitle": "Landing late?",
-      "lateText": "The last Smart Bus leaves the airport at {p1last}, the last 8411 at {p2last} and the last Airport Express at {p3last}. After that there is no public bus; you will need a taxi or a ride-hailing app.",
+      "lateText": "The last Smart Bus leaves the airport at {p1last}, the last 8411 at {p2last} (its own FAQ says 21:30) and the last Airport Express at {p3last}. After that there is no public bus; you will need a taxi or a ride-hailing app.",
       "destTitle": "Where are you going?",
       "faq": [
         {

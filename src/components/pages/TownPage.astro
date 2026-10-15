@@ -1,0 +1,59 @@
+---
+import Base from "../../layouts/Base.astro";
+import PageHead from "../PageHead.astro";
+import Timetable from "../Timetable.astro";
+import Faq from "../Faq.astro";
+import Related from "../Related.astro";
+import { dict, fill, pathFor, type Lang } from "../../lib/i18n";
+import { fareText, route } from "../../lib/routes";
+import { slugOf } from "../../lib/pages";
+import { pageCopy, pageVars } from "../../lib/content";
+import { breadcrumbLd, faqLd, webPageLd } from "../../lib/seo";
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const d = dict(lang);
+const p2 = route("P2");
+const c = pageCopy("town", lang) as ReturnType<typeof pageCopy> & Record<string, string>;
+const v = pageVars("town", lang);
+const slug = slugOf("town");
+const facts = [
+  { label: d.ui.fare, value: fareText(p2, lang) },
+  { label: d.ui.boarding, value: d.routes.P2.boarding },
+  { label: d.ui.travelTime, value: String(v.duration) },
+  { label: `${d.ui.first} / ${d.ui.last}`, value: `${v.first} – ${v.last}` },
+];
+---
+<Base
+  lang={lang}
+  slug={slug}
+  title={c.title}
+  description={c.description}
+  jsonld={[webPageLd(lang, slug, c.title, c.description, p2.lastVerified), breadcrumbLd(lang, slug, c.h1), faqLd(c.faq)]}
+>
+  <PageHead lang={lang} h1={c.h1} intro={c.intro} checked={p2.lastVerified} />
+
+  <section class="wrap pb-8">
+    <dl class="grid sm:grid-cols-2 lg:grid-cols-4 border-t border-l border-ink">
+      {facts.map((f) => (
+        <div class="border-r border-b border-ink p-4 bg-paper-tint flex flex-col">
+          <dt class="label">{f.label}</dt>
+          <dd class="mt-1 text-lg leading-snug">{f.value}</dd>
+        </div>
+      ))}
+    </dl>
+  </section>
+
+  <section class="bg-paper-deep py-12">
+    <div class="wrap"><Timetable route={p2} lang={lang} level="h2" link /></div>
+  </section>
+
+  <section class="wrap pt-10 max-w-3xl">
+    <h2 class="label mb-2">⟁ {d.trip.otherTitle}</h2>
+    <p class="text-ink-soft text-lg leading-snug">{fill(c.other, v)}</p>
+    <p class="mt-3"><a class="u" href={pathFor(lang, route("P5").slug)}>P5 · {d.routes.P5.name}</a> · <a class="u" href={pathFor(lang, route("P4").slug)}>P4 · {d.routes.P4.name}</a></p>
+  </section>
+
+  <Faq lang={lang} faq={c.faq} />
+  <Related lang={lang} current="town" />
+</Base>

@@ -1,0 +1,84 @@
+---
+import Base from "../../layouts/Base.astro";
+import PageHead from "../PageHead.astro";
+import Faq from "../Faq.astro";
+import Related from "../Related.astro";
+import { dict, fill, pathFor, type Lang } from "../../lib/i18n";
+import { fareText, first, last, route } from "../../lib/routes";
+import { slugOf, type PageKey } from "../../lib/pages";
+import { pageCopy, pageVars } from "../../lib/content";
+import { breadcrumbLd, faqLd, webPageLd } from "../../lib/seo";
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const d = dict(lang);
+const h = d.home;
+const c = pageCopy("airport", lang) as ReturnType<typeof pageCopy> & Record<string, string>;
+const v = pageVars("airport", lang);
+const slug = slugOf("airport");
+const buses = (["P1", "P2", "P3"] as const).map(route);
+const modified = buses.map((r) => r.lastVerified).sort().at(-1)!;
+const dests: { label: string; key: PageKey; ids: string }[] = [
+  { label: h.tripAirportPatong, key: "patong", ids: "P1 · P3" },
+  { label: h.tripAirportKata, key: "kataKaron", ids: "P1 · P3" },
+  { label: h.tripAirportRawai, key: "rawai", ids: "P1" },
+  { label: h.tripAirportKamala, key: "kamalaSurin", ids: "P1" },
+  { label: h.tripAirportTown, key: "town", ids: "P2" },
+];
+---
+<Base
+  lang={lang}
+  slug={slug}
+  title={c.title}
+  description={c.description}
+  jsonld={[webPageLd(lang, slug, c.title, c.description, modified), breadcrumbLd(lang, slug, c.h1), faqLd(c.faq)]}
+>
+  <PageHead lang={lang} h1={c.h1} intro={c.intro} checked={modified} />
+
+  <section class="wrap pb-10">
+    <h2 class="font-display text-3xl md:text-4xl mb-4">{c.destTitle}</h2>
+    <ul class="grid sm:grid-cols-2 lg:grid-cols-5 gap-3">
+      {dests.map((x) => (
+        <li><a href={pathFor(lang, slugOf(x.key))} class="block border border-ink bg-paper-tint p-4 h-full hover:bg-ink hover:text-paper">
+          <span class="block text-lg font-medium">{x.label}</span>
+          <span class="label">{x.ids}</span>
+        </a></li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="wrap pb-10">
+    <h2 class="font-display text-3xl md:text-4xl mb-4">{c.tableTitle}</h2>
+    <div class="overflow-x-auto border border-ink bg-paper-tint">
+      <table class="w-full text-left min-w-[44rem]">
+        <thead class="bg-ink text-paper">
+          <tr>{[c.colBus, c.colGoes, c.colFare, c.colHours, c.colBoard].map((x) => <th scope="col" class="px-4 py-2 font-medium text-sm">{x}</th>)}</tr>
+        </thead>
+        <tbody>
+          {buses.map((r) => (
+            <tr class="border-t border-ink/20 align-top">
+              <th scope="row" class="px-4 py-3 font-medium">
+                <a href={pathFor(lang, r.slug)} class="inline-flex items-center gap-2 hover:text-vermillion"><span class="w-3 h-3 rounded-full shrink-0" style={`background:${r.color}`}></span>{r.id} · {d.routes[r.id].name}</a>
+              </th>
+              <td class="px-4 py-3 text-sm">{d.routes[r.id].summary}</td>
+              <td class="px-4 py-3 text-sm whitespace-nowrap">{fareText(r, lang)}</td>
+              <td class="px-4 py-3 font-mono tabular-nums text-sm whitespace-nowrap">{first(r, "outbound")}–{last(r, "outbound")}</td>
+              <td class="px-4 py-3 text-sm">{d.routes[r.id].boarding}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="mt-3 text-ink-soft">{d.routes.P1.liveGps}</p>
+  </section>
+
+  <section class="wrap pb-6">
+    <div class="border-2 border-vermillion bg-paper-tint p-5 max-w-3xl">
+      <h2 class="font-display text-2xl md:text-3xl">{c.lateTitle}</h2>
+      <p class="mt-2 text-ink-soft text-lg leading-snug">{fill(c.lateText, v)}</p>
+    </div>
+  </section>
+
+  <Faq lang={lang} faq={c.faq} />
+  <Related lang={lang} current="airport" />
+</Base>

@@ -6,7 +6,8 @@ interface Props { lang: Lang; slug: string }
 const { lang, slug } = Astro.props;
 const d = dict(lang);
 const links = [
-  { href: `${pathFor(lang, "")}#routes`.replace("//#", "/#"), label: d.nav.routes },
+  { href: `${pathFor(lang, "")}#routes`, label: d.nav.routes },
+  { href: pathFor(lang, slugOf("airport")), label: d.nav.airport },
   { href: pathFor(lang, slugOf("map")), label: d.nav.map },
   { href: pathFor(lang, slugOf("patong")), label: d.nav.patong },
 ];

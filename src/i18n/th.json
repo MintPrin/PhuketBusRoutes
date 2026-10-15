@@ -1,7 +1,20 @@
 {
-  "lang": { "name": "ไทย", "short": "TH" },
-  "site": { "name": "Phuket Bus Routes", "tagline": "รถเมล์ / เส้นทาง / ภูเก็ต" },
-  "nav": { "routes": "เส้นทาง", "map": "แผนที่รถเมล์", "patong": "ป่าตอง", "language": "ภาษา", "home": "หน้าแรก" },
+  "lang": {
+    "name": "ไทย",
+    "short": "TH"
+  },
+  "site": {
+    "name": "Phuket Bus Routes",
+    "tagline": "รถเมล์ / เส้นทาง / ภูเก็ต"
+  },
+  "nav": {
+    "routes": "เส้นทาง",
+    "map": "แผนที่รถเมล์",
+    "patong": "ป่าตอง",
+    "language": "ภาษา",
+    "home": "หน้าแรก",
+    "airport": "Airport bus"
+  },
   "ui": {
     "route": "สาย",
     "stops": "ป้าย",
@@ -59,7 +72,8 @@
       "summary": "สนามบิน → สุรินทร์ → กมลา → ป่าตอง → กะรน → กะตะ → ราไวย์",
       "boarding": "อาคารผู้โดยสารในประเทศ ทางออก 3 เลี้ยวซ้าย มองหาป้ายรถบัสสีฟ้าตรงข้ามคาเฟ่อเมซอน",
       "noteOut": "เกือบทั้งวันมีรถทุก 30 นาที รอบ 14:00, 15:00 และ 16:00 วิ่งเลยราไวย์ไปถึงแหลมพรหมเทพ",
-      "noteIn": "มีรอบเช้าห้าเที่ยวที่เริ่มจากกะตะปาล์มแทนราไวย์ เวลา 05:20, 06:20, 07:45, 08:45 และ 09:45"
+      "noteIn": "มีรอบเช้าห้าเที่ยวที่เริ่มจากกะตะปาล์มแทนราไวย์ เวลา 05:20, 06:20, 07:45, 08:45 และ 09:45",
+      "liveGps": "See where the bus is right now in the ViaBus app."
     },
     "P2": {
       "name": "รถบัสสนามบิน 8411",
@@ -115,6 +129,8 @@
     "tripsTitle": "เส้นทางยอดนิยม",
     "tripAirportPatong": "สนามบิน → ป่าตอง",
     "tripAirportKata": "สนามบิน → กะรน และกะตะ",
+    "tripAirportRawai": "Airport → Rawai",
+    "tripAirportKamala": "Airport → Kamala & Surin",
     "tripAirportTown": "สนามบิน → เมืองภูเก็ต",
     "tripTownPatong": "เมืองภูเก็ต ↔ ป่าตอง",
     "tripOldTown": "รถฟรีรอบเมืองเก่า",
@@ -164,12 +180,30 @@
       "intro": "สมาร์ทบัสคือรถบัสสีฟ้าขาวที่วิ่งฝั่งตะวันตกของเกาะ จากสนามบินภูเก็ตผ่านสุรินทร์ กมลา ป่าตอง กะรน กะตะ ไปจนถึงราไวย์ ค่าโดยสาร {fare} ไม่ว่าลงป้ายไหน ออกจากสนามบินประมาณทุก 30 นาที ตั้งแต่ {first} ถึง {last}",
       "areasTitle": "ลงป้ายไหนดี",
       "faq": [
-        { "q": "สมาร์ทบัสจากสนามบินภูเก็ตราคาเท่าไร", "a": "{fare} ไม่ว่าลงป้ายไหน เด็กอายุต่ำกว่า 6 ขวบนั่งฟรี จ่ายบนรถด้วยเงินสด สแกน QR หรือแตะบัตร" },
-        { "q": "ป้ายสมาร์ทบัสที่สนามบินภูเก็ตอยู่ตรงไหน", "a": "{boarding}" },
-        { "q": "ไปป่าตอง กะตะ หรือราไวย์ใช้เวลานานแค่ไหน", "a": "ตามตารางเวลาของผู้ให้บริการ ไปป่าตองประมาณ {patong} กะตะประมาณ {kata} และราไวย์ประมาณ {rawai} ถ้ารถติดเผื่อเวลาเพิ่มด้วย" },
-        { "q": "รถคันแรกและคันสุดท้ายกี่โมง", "a": "จากสนามบิน: คันแรก {first} คันสุดท้าย {last} จากราไวย์ไปสนามบิน: คันแรก {inFirst} คันสุดท้าย {inLast} และมีรอบเช้ากว่านั้นที่เริ่มจากกะตะปาล์ม ตั้งแต่ {kataFirst}" },
-        { "q": "รถบัสสีฟ้าคันไหนคือสมาร์ทบัส", "a": "สมาร์ทบัสเป็นรถสีฟ้าขาว ส่วนคันสีน้ำเงินเข้มคือแอร์พอร์ตบัสเอ็กซ์เพรส เป็นคนละบริษัท ค่าโดยสารก็ต่างกัน" },
-        { "q": "มีบัตรรายวันไหม", "a": "มี ซื้อได้บนรถ: {passes}" }
+        {
+          "q": "สมาร์ทบัสจากสนามบินภูเก็ตราคาเท่าไร",
+          "a": "{fare} ไม่ว่าลงป้ายไหน เด็กอายุต่ำกว่า 6 ขวบนั่งฟรี จ่ายบนรถด้วยเงินสด สแกน QR หรือแตะบัตร"
+        },
+        {
+          "q": "ป้ายสมาร์ทบัสที่สนามบินภูเก็ตอยู่ตรงไหน",
+          "a": "{boarding}"
+        },
+        {
+          "q": "ไปป่าตอง กะตะ หรือราไวย์ใช้เวลานานแค่ไหน",
+          "a": "ตามตารางเวลาของผู้ให้บริการ ไปป่าตองประมาณ {patong} กะตะประมาณ {kata} และราไวย์ประมาณ {rawai} ถ้ารถติดเผื่อเวลาเพิ่มด้วย"
+        },
+        {
+          "q": "รถคันแรกและคันสุดท้ายกี่โมง",
+          "a": "จากสนามบิน: คันแรก {first} คันสุดท้าย {last} จากราไวย์ไปสนามบิน: คันแรก {inFirst} คันสุดท้าย {inLast} และมีรอบเช้ากว่านั้นที่เริ่มจากกะตะปาล์ม ตั้งแต่ {kataFirst}"
+        },
+        {
+          "q": "รถบัสสีฟ้าคันไหนคือสมาร์ทบัส",
+          "a": "สมาร์ทบัสเป็นรถสีฟ้าขาว ส่วนคันสีน้ำเงินเข้มคือแอร์พอร์ตบัสเอ็กซ์เพรส เป็นคนละบริษัท ค่าโดยสารก็ต่างกัน"
+        },
+        {
+          "q": "มีบัตรรายวันไหม",
+          "a": "มี ซื้อได้บนรถ: {passes}"
+        }
       ]
     },
     "P2": {
@@ -178,10 +212,22 @@
       "h1": "รถบัสสนามบิน 8411: สนามบินภูเก็ตเข้าเมือง",
       "intro": "รถบัสสีส้ม 8411 วิ่งจากสนามบินภูเก็ตลงมาทางกลางเกาะ เข้าเมืองภูเก็ตและ บขส.1 ค่าโดยสารคิดตามระยะทาง ({fare}) นั่งตลอดสายใช้เวลาประมาณ {duration}",
       "faq": [
-        { "q": "รถบัสสนามบินเข้าเมืองภูเก็ตราคาเท่าไร", "a": "เข้าเมืองภูเก็ต {max} บาท ถ้าลงก่อนจะถูกกว่า: {steps}" },
-        { "q": "ขึ้นรถ 8411 ที่สนามบินภูเก็ตตรงไหน", "a": "{boarding}" },
-        { "q": "รถ 8411 ไปป่าตองไหม", "a": "ไม่ไป ให้ลงที่ บขส.1 แล้วต่อสมาร์ทบัส สาย 2: {p4fare} ประมาณ {p4time} ถึงป่าตอง หรือนั่งสมาร์ทบัสจากสนามบินซึ่งไปป่าตองได้เลย" },
-        { "q": "รถคันแรกและคันสุดท้ายกี่โมง", "a": "จากสนามบิน: คันแรก {first} คันสุดท้าย {last} จาก บขส.1: คันแรก {inFirst} คันสุดท้าย {inLast}" }
+        {
+          "q": "รถบัสสนามบินเข้าเมืองภูเก็ตราคาเท่าไร",
+          "a": "เข้าเมืองภูเก็ต {max} บาท ถ้าลงก่อนจะถูกกว่า: {steps}"
+        },
+        {
+          "q": "ขึ้นรถ 8411 ที่สนามบินภูเก็ตตรงไหน",
+          "a": "{boarding}"
+        },
+        {
+          "q": "รถ 8411 ไปป่าตองไหม",
+          "a": "ไม่ไป ให้ลงที่ บขส.1 แล้วต่อสมาร์ทบัส สาย 2: {p4fare} ประมาณ {p4time} ถึงป่าตอง หรือนั่งสมาร์ทบัสจากสนามบินซึ่งไปป่าตองได้เลย"
+        },
+        {
+          "q": "รถคันแรกและคันสุดท้ายกี่โมง",
+          "a": "จากสนามบิน: คันแรก {first} คันสุดท้าย {last} จาก บขส.1: คันแรก {inFirst} คันสุดท้าย {inLast}"
+        }
       ]
     },
     "P3": {
@@ -190,10 +236,22 @@
       "h1": "แอร์พอร์ตบัสเอ็กซ์เพรส: สนามบินภูเก็ตไปป่าตอง กะรน และกะตะ",
       "intro": "แอร์พอร์ตบัสเอ็กซ์เพรสสีน้ำเงินเข้ม วิ่งจากสนามบินผ่านกะทู้ไปป่าตอง กะรน และกะตะ ออกทุกชั่วโมง ตั้งแต่ {first} ถึง {last}",
       "faq": [
-        { "q": "แอร์พอร์ตบัสเอ็กซ์เพรสราคาเท่าไร", "a": "{fareNote}" },
-        { "q": "ขึ้นรถที่สนามบินภูเก็ตตรงไหน", "a": "{boarding}" },
-        { "q": "รถคันแรกและคันสุดท้ายกี่โมง", "a": "จากสนามบิน: คันแรก {first} คันสุดท้าย {last} ขากลับไปสนามบิน: คันแรก {inFirst} คันสุดท้าย {inLast}" },
-        { "q": "เป็นรถคันเดียวกับสมาร์ทบัสไหม", "a": "ไม่ใช่ เป็นคนละบริษัท ค่าโดยสารต่างกัน และตัวรถสีน้ำเงินเข้มกว่า สมาร์ทบัส ({p1fare}) ก็ไปป่าตอง กะรน และกะตะเหมือนกัน ประมาณทุก 30 นาที" }
+        {
+          "q": "แอร์พอร์ตบัสเอ็กซ์เพรสราคาเท่าไร",
+          "a": "{fareNote}"
+        },
+        {
+          "q": "ขึ้นรถที่สนามบินภูเก็ตตรงไหน",
+          "a": "{boarding}"
+        },
+        {
+          "q": "รถคันแรกและคันสุดท้ายกี่โมง",
+          "a": "จากสนามบิน: คันแรก {first} คันสุดท้าย {last} ขากลับไปสนามบิน: คันแรก {inFirst} คันสุดท้าย {inLast}"
+        },
+        {
+          "q": "เป็นรถคันเดียวกับสมาร์ทบัสไหม",
+          "a": "ไม่ใช่ เป็นคนละบริษัท ค่าโดยสารต่างกัน และตัวรถสีน้ำเงินเข้มกว่า สมาร์ทบัส ({p1fare}) ก็ไปป่าตอง กะรน และกะตะเหมือนกัน ประมาณทุก 30 นาที"
+        }
       ]
     },
     "P4": {
@@ -202,11 +260,26 @@
       "h1": "นั่งรถเมล์จากเมืองภูเก็ตไปป่าตอง",
       "intro": "สมาร์ทบัส สาย 2 เชื่อม บขส.1 ในตัวเมืองกับหาดป่าตอง ผ่านกะทู้ ค่าโดยสาร {fare} ใช้เวลาประมาณ {duration} ถึงป่าตอง",
       "faq": [
-        { "q": "รถเมล์จากเมืองภูเก็ตไปป่าตองราคาเท่าไร", "a": "{fare} จ่ายบนรถด้วยเงินสดหรือสแกน QR" },
-        { "q": "ขึ้นรถที่ไหน", "a": "{boarding}" },
-        { "q": "รถคันแรกและคันสุดท้ายกี่โมง", "a": "จาก บขส.1: คันแรก {first} คันสุดท้าย {last} จากป่าตอง: คันแรก {inFirst} คันสุดท้าย {inLast}" },
-        { "q": "สายนี้ไปสนามบินไหม", "a": "ไม่ไป ถ้ามาจากสนามบิน ให้นั่งรถบัสสีส้ม 8411 มาลงที่ บขส.1 แล้วต่อสายนี้ หรือนั่งสมาร์ทบัสไปป่าตองได้เลย" },
-        { "q": "มีบัตรรายวันไหม", "a": "มี ซื้อได้บนรถ: {passes}" }
+        {
+          "q": "รถเมล์จากเมืองภูเก็ตไปป่าตองราคาเท่าไร",
+          "a": "{fare} จ่ายบนรถด้วยเงินสดหรือสแกน QR"
+        },
+        {
+          "q": "ขึ้นรถที่ไหน",
+          "a": "{boarding}"
+        },
+        {
+          "q": "รถคันแรกและคันสุดท้ายกี่โมง",
+          "a": "จาก บขส.1: คันแรก {first} คันสุดท้าย {last} จากป่าตอง: คันแรก {inFirst} คันสุดท้าย {inLast}"
+        },
+        {
+          "q": "สายนี้ไปสนามบินไหม",
+          "a": "ไม่ไป ถ้ามาจากสนามบิน ให้นั่งรถบัสสีส้ม 8411 มาลงที่ บขส.1 แล้วต่อสายนี้ หรือนั่งสมาร์ทบัสไปป่าตองได้เลย"
+        },
+        {
+          "q": "มีบัตรรายวันไหม",
+          "a": "มี ซื้อได้บนรถ: {passes}"
+        }
       ]
     },
     "P5": {
@@ -215,10 +288,22 @@
       "h1": "ดราก้อนไลน์: รถฟรีรอบเมืองเก่า",
       "intro": "ดราก้อนไลน์คือรถไฟฟ้าฟรีที่วิ่งวนรอบเมืองเก่าภูเก็ต ภูเก็ตสมาร์ทบัสเดินรถร่วมกับบริษัท ภูเก็ตพัฒนาเมือง (PKCD) ออกทุก {every} นาที ตั้งแต่ {start} ถึง {end}",
       "faq": [
-        { "q": "ดราก้อนไลน์ฟรีจริงไหม", "a": "ฟรีจริง ไม่เก็บค่าโดยสาร" },
-        { "q": "วิ่งกี่โมงถึงกี่โมง", "a": "ทุก {every} นาที ตั้งแต่ {start} ถึง {end} ตามแผนที่เส้นทางของผู้ให้บริการ" },
-        { "q": "ขึ้นได้ที่ไหน", "a": "{boarding}" },
-        { "q": "ไปสนามบินหรือชายหาดไหม", "a": "ไม่ไป วิ่งแค่รอบเมืองเก่า ถ้าจะไปป่าตองให้นั่งสมาร์ทบัส สาย 2 จาก บขส.1" }
+        {
+          "q": "ดราก้อนไลน์ฟรีจริงไหม",
+          "a": "ฟรีจริง ไม่เก็บค่าโดยสาร"
+        },
+        {
+          "q": "วิ่งกี่โมงถึงกี่โมง",
+          "a": "ทุก {every} นาที ตั้งแต่ {start} ถึง {end} ตามแผนที่เส้นทางของผู้ให้บริการ"
+        },
+        {
+          "q": "ขึ้นได้ที่ไหน",
+          "a": "{boarding}"
+        },
+        {
+          "q": "ไปสนามบินหรือชายหาดไหม",
+          "a": "ไม่ไป วิ่งแค่รอบเมืองเก่า ถ้าจะไปป่าตองให้นั่งสมาร์ทบัส สาย 2 จาก บขส.1"
+        }
       ]
     },
     "patong": {
@@ -235,10 +320,22 @@
       "tableAirportPatong": "สมาร์ทบัส: สนามบิน → ป่าตอง",
       "tablePatongAirport": "สมาร์ทบัส: ป่าตอง → สนามบิน",
       "faq": [
-        { "q": "จากสนามบินภูเก็ตไปป่าตองแบบประหยัดที่สุดคืออะไร", "a": "สมาร์ทบัส: {p1fare} ประมาณ {p1time}" },
-        { "q": "ลงรถที่ป่าตองตรงไหน", "a": "ขามาจากสนามบิน สมาร์ทบัสจอดที่การไฟฟ้าป่าตอง ขากลับขึ้นที่ป้ายป้อมตำรวจบางลา" },
-        { "q": "นั่งรถเมล์ไปสนามบินทันไฟลต์เช้าไหม", "a": "สมาร์ทบัสคันแรกจากป่าตองออก {inFirst} ถึงสนามบิน {inFirstArr}" },
-        { "q": "จากป่าตองไปเมืองเก่าภูเก็ตยังไง", "a": "นั่งสมาร์ทบัส สาย 2 ไป บขส.1 ({p4fare}) จากตรงนั้นเดินไปเมืองเก่าได้ไม่ไกล และมีดราก้อนไลน์ฟรีวนรอบเมืองเก่า" }
+        {
+          "q": "จากสนามบินภูเก็ตไปป่าตองแบบประหยัดที่สุดคืออะไร",
+          "a": "สมาร์ทบัส: {p1fare} ประมาณ {p1time}"
+        },
+        {
+          "q": "ลงรถที่ป่าตองตรงไหน",
+          "a": "ขามาจากสนามบิน สมาร์ทบัสจอดที่การไฟฟ้าป่าตอง ขากลับขึ้นที่ป้ายป้อมตำรวจบางลา"
+        },
+        {
+          "q": "นั่งรถเมล์ไปสนามบินทันไฟลต์เช้าไหม",
+          "a": "สมาร์ทบัสคันแรกจากป่าตองออก {inFirst} ถึงสนามบิน {inFirstArr}"
+        },
+        {
+          "q": "จากป่าตองไปเมืองเก่าภูเก็ตยังไง",
+          "a": "นั่งสมาร์ทบัส สาย 2 ไป บขส.1 ({p4fare}) จากตรงนั้นเดินไปเมืองเก่าได้ไม่ไกล และมีดราก้อนไลน์ฟรีวนรอบเมืองเก่า"
+        }
       ]
     },
     "map": {
@@ -260,11 +357,162 @@
       "areaOldTown": "เมืองเก่า",
       "areaCentral": "เซ็นทรัลภูเก็ต",
       "faq": [
-        { "q": "มีรถเมล์ระหว่างป่าตองกับกะตะไหม", "a": "มี สมาร์ทบัสวิ่งต่อจากป่าตองไปกะรนและกะตะ ราคาเดิม {p1fare}" },
-        { "q": "มีรถเมล์จากป่าตองไปกมลาไหม", "a": "มี นั่งสมาร์ทบัสขาที่ไปสนามบิน จะผ่านกมลาและสุรินทร์หลังออกจากป่าตอง" },
-        { "q": "รถเมล์ภูเก็ตวิ่งกลางคืนไหม", "a": "สมาร์ทบัสคันสุดท้ายออกจากสนามบิน {p1last} สายอื่นหยุดวิ่งระหว่าง 19:00 ถึง 22:30" }
+        {
+          "q": "มีรถเมล์ระหว่างป่าตองกับกะตะไหม",
+          "a": "มี สมาร์ทบัสวิ่งต่อจากป่าตองไปกะรนและกะตะ ราคาเดิม {p1fare}"
+        },
+        {
+          "q": "มีรถเมล์จากป่าตองไปกมลาไหม",
+          "a": "มี นั่งสมาร์ทบัสขาที่ไปสนามบิน จะผ่านกมลาและสุรินทร์หลังออกจากป่าตอง"
+        },
+        {
+          "q": "รถเมล์ภูเก็ตวิ่งกลางคืนไหม",
+          "a": "สมาร์ทบัสคันสุดท้ายออกจากสนามบิน {p1last} สายอื่นหยุดวิ่งระหว่าง 19:00 ถึง 22:30"
+        }
+      ]
+    },
+    "airport": {
+      "title": "Phuket Airport Bus 2026: Which Bus to Patong, Kata, Town",
+      "description": "All 3 buses from Phuket Airport compared: Smart Bus {p1fare}, airport bus 8411 to Phuket Town, Airport Express. Where to board, first and last buses.",
+      "h1": "Phuket Airport bus: which one to take",
+      "intro": "Three public buses leave Phuket Airport. Where you are going decides which one: the west-coast beaches, Phuket Town, or Patong, Karon and Kata on the express.",
+      "tableTitle": "The three airport buses",
+      "colBus": "Bus",
+      "colGoes": "Goes to",
+      "colFare": "Fare",
+      "colHours": "Leaves the airport",
+      "colBoard": "Where to board",
+      "lateTitle": "Landing late?",
+      "lateText": "The last Smart Bus leaves the airport at {p1last}, the last 8411 at {p2last} and the last Airport Express at {p3last}. After that there is no public bus; you will need a taxi or a ride-hailing app.",
+      "destTitle": "Where are you going?",
+      "faq": [
+        {
+          "q": "Is there a bus from Phuket Airport?",
+          "a": "Yes, three: the Smart Bus to the west-coast beaches, the orange 8411 to Phuket Town, and the Airport Bus Express to Patong, Karon and Kata."
+        },
+        {
+          "q": "Which airport bus goes to Patong?",
+          "a": "The Smart Bus ({p1fare}, about {p1time}) and the Airport Bus Express. The 8411 does not."
+        },
+        {
+          "q": "What time is the last bus from Phuket Airport?",
+          "a": "{p1last} for the Smart Bus. The 8411 and the Express stop earlier: {p2last} and {p3last}."
+        },
+        {
+          "q": "Where do the buses leave from at Phuket Airport?",
+          "a": "All three leave from the domestic terminal side. The Smart Bus and the Express board near exit 3. From international arrivals, walk over to the domestic side."
+        }
+      ]
+    },
+    "kataKaron": {
+      "title": "Phuket Airport to Kata & Karon by Bus: Times 2026",
+      "description": "Smart Bus from Phuket Airport to Karon and Kata: {p1fare}, about {karonTime} to Karon and {kataTime} to Kata. Every departure with arrival times.",
+      "h1": "Phuket Airport to Karon and Kata by bus",
+      "intro": "The Smart Bus runs from the airport to Karon Circle and Kata Night Plaza about every 30 minutes, for {p1fare}. It takes about {karonTime} to Karon and {kataTime} to Kata.",
+      "other": "The dark blue Airport Bus Express also goes to Karon and Kata, every hour. Its fare is not confirmed.",
+      "faq": [
+        {
+          "q": "How much is the bus from Phuket Airport to Kata or Karon?",
+          "a": "{p1fare} on the Smart Bus, paid on board in cash, by QR or with a contactless card."
+        },
+        {
+          "q": "How long does the bus take to Kata?",
+          "a": "About {kataTime} to Kata Night Plaza and {karonTime} to Karon Circle, by the operator's timetable. Traffic can add more."
+        },
+        {
+          "q": "What time is the last bus from the airport to Kata?",
+          "a": "The last Smart Bus leaves the airport at {p1last} and reaches Kata at about {lastArr}."
+        },
+        {
+          "q": "What is the first bus from Kata to the airport?",
+          "a": "The first Smart Bus leaves {backStop} at {backFirst} and reaches the airport at {backFirstArr}."
+        }
+      ]
+    },
+    "rawai": {
+      "title": "Phuket Airport to Rawai by Bus: Smart Bus Times 2026",
+      "description": "Smart Bus from Phuket Airport to Rawai Beach: {p1fare}, about {destTime}. Every departure with arrival times, the way back, and the Phromthep Cape runs.",
+      "h1": "Phuket Airport to Rawai by bus",
+      "intro": "Rawai is the last stop of the Smart Bus. It leaves the airport about every 30 minutes, costs {p1fare} and takes about {destTime} to Rawai Beach.",
+      "other": "The 14:00, 15:00 and 16:00 buses from the airport continue past Rawai to Phromthep Cape.",
+      "faq": [
+        {
+          "q": "How much is the bus from Phuket Airport to Rawai?",
+          "a": "{p1fare} on the Smart Bus, paid on board in cash, by QR or with a contactless card."
+        },
+        {
+          "q": "How long does it take?",
+          "a": "About {destTime} from the airport to Rawai Beach, by the operator's timetable. Traffic can add more."
+        },
+        {
+          "q": "What time is the last bus to Rawai?",
+          "a": "The last Smart Bus leaves the airport at {p1last} and reaches Rawai at about {lastArr}."
+        },
+        {
+          "q": "What is the first bus from Rawai to the airport?",
+          "a": "The first Smart Bus leaves {backStop} at {backFirst} and reaches the airport at {backFirstArr}."
+        }
+      ]
+    },
+    "kamalaSurin": {
+      "title": "Phuket Airport to Kamala & Surin by Bus: Times 2026",
+      "description": "Smart Bus from Phuket Airport to Surin Beach and Kamala: {p1fare}, about {surinTime} to Surin and {kamalaTime} to Kamala. All departures and the way back.",
+      "h1": "Phuket Airport to Surin and Kamala by bus",
+      "intro": "Surin and Kamala are the first beaches on the Smart Bus route. The bus takes about {surinTime} to Surin Beach and {kamalaTime} to Kamala, for {p1fare}.",
+      "other": "The Smart Bus carries on to Patong, Karon, Kata and Rawai, so the same bus serves the rest of the west coast.",
+      "faq": [
+        {
+          "q": "How much is the bus from Phuket Airport to Kamala?",
+          "a": "{p1fare} on the Smart Bus, paid on board in cash, by QR or with a contactless card."
+        },
+        {
+          "q": "How long does it take?",
+          "a": "About {surinTime} to Surin Beach and {kamalaTime} to Kamala, by the operator's timetable."
+        },
+        {
+          "q": "What time is the last bus to Kamala?",
+          "a": "The last Smart Bus leaves the airport at {p1last} and reaches Kamala at about {lastArr}."
+        },
+        {
+          "q": "What is the first bus from Kamala to the airport?",
+          "a": "The first Smart Bus leaves {backStop} at {backFirst} and reaches the airport at {backFirstArr}."
+        }
+      ]
+    },
+    "town": {
+      "title": "Phuket Airport to Phuket Town & Old Town by Bus 2026",
+      "description": "Phuket Airport to Phuket Town and the Old Town by bus: orange 8411 for {fare}, about {duration}, then the free Dragon Line. Times both ways.",
+      "h1": "Phuket Airport to Phuket Town and the Old Town",
+      "intro": "The orange 8411 is the only public bus from the airport to Phuket Town. It runs down the middle of the island to Bus Terminal 1 in about {duration}. From there, the free Dragon Line loops the Old Town.",
+      "other": "For Patong, change at Bus Terminal 1 to Smart Bus Route 2 ({p4fare}).",
+      "faq": [
+        {
+          "q": "How much is the bus from Phuket Airport to Phuket Town?",
+          "a": "{max}฿ to Phuket Town on the 8411. Shorter rides cost less: {steps}."
+        },
+        {
+          "q": "How do I get to the Old Town?",
+          "a": "Ride the 8411 to Bus Terminal 1. The Old Town is a short walk from there, and the free Dragon Line loops it every {every} minutes."
+        },
+        {
+          "q": "What time are the first and last buses?",
+          "a": "From the airport: first {first}, last {last}. From Bus Terminal 1: first {inFirst}, last {inLast}."
+        },
+        {
+          "q": "Is there a later bus if I land at night?",
+          "a": "No. The Smart Bus runs later ({p1last}), but it goes to the west-coast beaches, not to town."
+        }
       ]
     }
   },
-  "notFound": { "title": "ไม่พบหน้านี้", "text": "ไม่มีหน้านี้ ลองดูตารางเวลา:" }
+  "notFound": {
+    "title": "ไม่พบหน้านี้",
+    "text": "ไม่มีหน้านี้ ลองดูตารางเวลา:"
+  },
+  "trip": {
+    "outTitle": "From the airport",
+    "backTitle": "Back to the airport",
+    "otherTitle": "Other options",
+    "fromAirportCol": "Leaves airport"
+  }
 }

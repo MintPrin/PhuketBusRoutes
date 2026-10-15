@@ -16,13 +16,13 @@ const d = dict(lang);
 const c = pageCopy("map", lang) as ReturnType<typeof pageCopy> & Record<string, string>;
 const slug = slugOf("map");
 const modified = ROUTES.map((r) => r.lastVerified).sort().at(-1)!;
-const WHERE: [string, Route["id"][]][] = [
-  [c.areaPatong, ["P1", "P3", "P4"]],
-  [c.areaKataKaron, ["P1", "P3"]],
-  [c.areaRawai, ["P1"]],
-  [c.areaKamalaSurin, ["P1"]],
-  [c.areaTown, ["P2", "P4"]],
-  [c.areaOldTown, ["P5"]],
+const WHERE: [string, Route["id"][], string?][] = [
+  [c.areaPatong, ["P1", "P3", "P4"], slugOf("patong")],
+  [c.areaKataKaron, ["P1", "P3"], slugOf("kataKaron")],
+  [c.areaRawai, ["P1"], slugOf("rawai")],
+  [c.areaKamalaSurin, ["P1"], slugOf("kamalaSurin")],
+  [c.areaTown, ["P2", "P4"], slugOf("town")],
+  [c.areaOldTown, ["P5"], slugOf("P5")],
   [c.areaCentral, ["P2"]],
 ];
 ---
@@ -43,9 +43,9 @@ const WHERE: [string, Route["id"][]][] = [
           <tr><th scope="col" class="px-4 py-2 font-medium">{c.area}</th><th scope="col" class="px-4 py-2 font-medium">{c.buses}</th></tr>
         </thead>
         <tbody>
-          {WHERE.map(([area, ids]) => (
+          {WHERE.map(([area, ids, to]) => (
             <tr class="border-t border-ink/20">
-              <th scope="row" class="px-4 py-2.5 font-medium">{area}</th>
+              <th scope="row" class="px-4 py-2.5 font-medium">{to ? <a class="u" href={pathFor(lang, to)}>{area}</a> : area}</th>
               <td class="px-4 py-2.5">
                 <ul class="flex flex-wrap gap-1.5">
                   {ids.map((id) => (

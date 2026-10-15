@@ -1,6 +1,6 @@
 import { dict, fill, type Lang } from "./i18n";
-import { duration, fareText, first, last, passesText, route, typicalRide } from "./routes";
-import type { PageKey } from "./pages";
+import { duration, fareText, findStop, first, last, passesText, route, stopName, typicalRide } from "./routes";
+import { TRIPS, isTripKey, type PageKey } from "./pages";
 import type { QA } from "./seo";
 
 type Vars = Record<string, string | number>;
@@ -25,6 +25,9 @@ export function pageVars(key: PageKey, lang: Lang): Vars {
     p1last: last(p1, "outbound"),
     p4fare: fareText(p4, lang),
     p4time: dur(p4.durations!.outbound!["Patong Beach Bus Stop"]),
+    p2last: last(p2, "outbound"),
+    p3last: last(p3, "outbound"),
+    every: p5.frequency!.every,
   };
   const times = (r: typeof p1): Vars => ({
     fare: fareText(r, lang),
@@ -45,6 +48,7 @@ export function pageVars(key: PageKey, lang: Lang): Vars {
         kataFirst: inRows.rows[0][inRows.stops.indexOf("Kata Palm")]!,
         passes: passesText(p1, lang),
       };
+    case "town":
     case "P2": {
       const f = p2.fare as { max: number; steps: number[] };
       return {
@@ -71,7 +75,8 @@ export function pageVars(key: PageKey, lang: Lang): Vars {
         inFirstArr: firstBangla[inRows.stops.indexOf(AIRPORT)]!,
       };
     default:
-      return shared;
+      if (!isTripKey(key)) return shared;
+      return { ...shared, ...tripVars(key, lang) };
   }
 }
 
@@ -93,3 +98,26 @@ export function pageCopy(key: Exclude<PageKey, "home">, lang: Lang): PageCopy & 
 export const t = (s: string, key: PageKey, lang: Lang) => fill(s, pageVars(key, lang));
 
 export { AIRPORT, P1_PATONG_IN, P1_PATONG_OUT };
+
+/** Arrival and return times for a Smart Bus trip page, read straight from the P1 stop-time matrix. */
+function tripVars(key: keyof typeof TRIPS, lang: Lang): Vars {
+  const p1 = route("P1");
+  const trip = TRIPS[key];
+  const out = p1.stopTimes!.outbound;
+  const inn = p1.stopTimes!.inbound;
+  const dest = trip.to[trip.to.length - 1];
+  const ride = (to: string) => duration(typicalRide(p1, "outbound", AIRPORT, to), lang);
+  const backCol = inn.stops.indexOf(trip.back[0]);
+  const firstBack = inn.rows.find((row) => row[backCol])!;
+  return {
+    karonTime: ride("Karon Circle"),
+    kataTime: ride("Kata Night Plaza"),
+    surinTime: ride("Surin Beach"),
+    kamalaTime: ride("Kubor Kamala"),
+    destTime: ride(dest),
+    lastArr: out.rows[out.rows.length - 1][out.stops.indexOf(dest)]!,
+    backStop: stopName(findStop(p1, trip.back[0]), lang),
+    backFirst: firstBack[backCol]!,
+    backFirstArr: firstBack[inn.stops.indexOf(AIRPORT)]!,
+  };
+}
