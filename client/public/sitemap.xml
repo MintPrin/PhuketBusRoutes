@@ -4,7 +4,7 @@
   <!-- English homepage -->
   <url>
     <loc>https://phuketbusroutes.com/</loc>
-    <xhtml:link rel="alternate" hreflang="th" href="https://phuketbusroutes.com/th/" />
+    <xhtml:link rel="alternate" hreflang="th" href="https://phuketbusroutes.com/th" />
     <xhtml:link rel="alternate" hreflang="en" href="https://phuketbusroutes.com/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://phuketbusroutes.com/" />
     <lastmod>2026-09-10</lastmod>
@@ -14,9 +14,9 @@
   
   <!-- Thai homepage -->
   <url>
-    <loc>https://phuketbusroutes.com/th/</loc>
+    <loc>https://phuketbusroutes.com/th</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://phuketbusroutes.com/" />
-    <xhtml:link rel="alternate" hreflang="th" href="https://phuketbusroutes.com/th/" />
+    <xhtml:link rel="alternate" hreflang="th" href="https://phuketbusroutes.com/th" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://phuketbusroutes.com/" />
     <lastmod>2026-09-10</lastmod>
     <changefreq>weekly</changefreq>

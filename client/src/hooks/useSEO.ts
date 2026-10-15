@@ -21,6 +21,7 @@ export const useSEO = () => {
   const getSEOData = (): SEOData => {
     const baseUrl = 'https://phuketbusroutes.com';
     const currentPath = location === '/th' ? '/' : location.replace('/th', '');
+    const thUrl = `${baseUrl}/th${currentPath === '/' ? '' : currentPath}`;
     
     const structuredData: Array<Record<string, any>> = [
       {
@@ -68,8 +69,8 @@ export const useSEO = () => {
       {
         "@context": "https://schema.org",
         "@type": "WebPage",
-        "@id": currentLanguage === 'th' ? `${baseUrl}/th${currentPath}#webpage` : `${baseUrl}${currentPath}#webpage`,
-        "url": currentLanguage === 'th' ? `${baseUrl}/th${currentPath}` : `${baseUrl}${currentPath}`,
+        "@id": currentLanguage === 'th' ? `${thUrl}#webpage` : `${baseUrl}${currentPath}#webpage`,
+        "url": currentLanguage === 'th' ? thUrl : `${baseUrl}${currentPath}`,
         "name": currentLanguage === 'th' 
           ? 'เส้นทางรถเมล์ภูเก็ต และตารางเวลา - คู่มือขนส่งสนามบิน'
           : 'Phuket Bus Routes & Schedules - Airport Transportation Guide',
@@ -109,10 +110,10 @@ export const useSEO = () => {
       keywords: currentLanguage === 'th'
         ? 'รถเมล์ภูเก็ต, เส้นทางรถเมล์ภูเก็ต, รถเมล์สนามบิน, ตารางเวลารถเมล์สนามบินภูเก็ต, แผนที่รถเมล์ภูเก็ต, รถเมล์ในภูเก็ต, รถเมล์ปาตอง, รถเมล์กะรน, รถเมล์กะตะ, ขนส่งสาธารณะภูเก็ต'
         : 'Phuket bus, phuket bus routes, phuket buses, buses in phuket, phuket airport bus timetable, phuket airport bus schedule, phuket bus map, bus phuket, airport bus phuket timetable, airport bus phuket schedule',
-      canonical: currentLanguage === 'th' ? `${baseUrl}/th${currentPath}` : `${baseUrl}${currentPath}`,
+      canonical: currentLanguage === 'th' ? thUrl : `${baseUrl}${currentPath}`,
       hreflang: [
         { lang: 'en', href: `${baseUrl}${currentPath}` },
-        { lang: 'th', href: `${baseUrl}/th${currentPath === '/' ? '' : currentPath}` },
+        { lang: 'th', href: thUrl },
         { lang: 'x-default', href: `${baseUrl}${currentPath}` }
       ],
       ogTitle: currentLanguage === 'th'
@@ -120,8 +121,8 @@ export const useSEO = () => {
         : 'Phuket Bus Routes & Schedules - Airport Transportation Guide',
       ogDescription: currentLanguage === 'th'
         ? 'ตารางเวลารถเมล์ภูเก็ตครบถ้วนจากสนามบินไปยังปาตอง กะรน กะตะ และเมืองภูเก็ต'
-        : 'Complete Phuket bus schedules from airport to Patong, Koran, Kata beaches and Phuket Town.',
-      ogUrl: currentLanguage === 'th' ? `${baseUrl}/th${currentPath}` : `${baseUrl}${currentPath}`,
+        : 'Complete Phuket bus schedules from airport to Patong, Karon, Kata beaches and Phuket Town.',
+      ogUrl: currentLanguage === 'th' ? thUrl : `${baseUrl}${currentPath}`,
       structuredData
     };
 

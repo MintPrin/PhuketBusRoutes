@@ -38,7 +38,7 @@ export default function Footer() {
                 ⟁ Notes
               </div>
               <ul className="mt-2 space-y-1 text-sm text-paper/85">
-                <li>Cash only · max 100฿</li>
+                <li>Cash or QR · 30–100฿ · P5 free</li>
                 <li>Luggage rides free</li>
                 <li>Arrive 5–10 min early</li>
               </ul>

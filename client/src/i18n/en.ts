@@ -22,12 +22,12 @@ export const en = {
   // Fare Information
   "fare.title": "Fare Information",
   "fare.subtitle": "Transparent pricing for all routes",
-  "fare.pricing.title": "Distance-Based Pricing",
-  "fare.pricing.description": "Fare varies by distance traveled",
-  "fare.pricing.amount": "Max 100 THB",
+  "fare.pricing.title": "Fares",
+  "fare.pricing.description": "Smart Bus (P1) 100฿ flat to any stop. 8411 (P2) 30–100฿ by distance. Town–Patong (P4) 50฿ flat. Dragon Line (P5) free. Airport Express (P3): confirm the fare with the staff.",
+  "fare.pricing.amount": "30–100฿",
   "fare.payment.title": "Payment Methods",
-  "fare.payment.description": "Cash payment directly to driver",
-  "fare.payment.method": "Cash Only",
+  "fare.payment.description": "Cash or QR to the staff on board",
+  "fare.payment.method": "Cash + QR",
   "fare.luggage.title": "Luggage Policy",
   "fare.luggage.description": "Standard luggage allowed free of charge",
   "fare.luggage.cost": "Free",
@@ -69,8 +69,8 @@ export const en = {
   "help.payment.title": "Payment & Boarding Tips",
   "help.payment.description": "Important information for travelers:",
   "help.payment.features": [
-    "Pay cash directly to the staff in uniform (no cards accepted)",
-    "Fare varies by distance, maximum 100 THB",
+    "Pay the staff in uniform: cash or QR. Smart Bus (P1) also takes contactless cards",
+    "Fares are 30–100 THB depending on the route. Dragon Line (P5) is free",
     "Standard luggage allowed free of charge",
     "Arrive 5-10 minutes before departure time"
   ] as string[],
