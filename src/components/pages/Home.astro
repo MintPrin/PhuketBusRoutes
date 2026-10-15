@@ -1,0 +1,192 @@
+---
+import Base from "../../layouts/Base.astro";
+import Timetable from "../Timetable.astro";
+import { dict, fill, pathFor, type Lang } from "../../lib/i18n";
+import { ROUTES, fareText, first, last, totalDepartures, totalStops } from "../../lib/routes";
+import { slugOf } from "../../lib/pages";
+import { breadcrumbLd, websiteLd, webPageLd } from "../../lib/seo";
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const d = dict(lang);
+const h = d.home;
+const modified = ROUTES.map((r) => r.lastVerified).sort().at(-1)!;
+
+const marquee = ROUTES.flatMap((r) =>
+  (r.schedules.outbound?.times ?? []).slice(0, 3).map((t) => `${r.id} · ${t} · ${d.routes[r.id].name}`),
+);
+const trips = [
+  { label: h.tripAirportPatong, href: pathFor(lang, slugOf("patong")), id: "P1" },
+  { label: h.tripAirportKata, href: `${pathFor(lang, slugOf("P1"))}#areas`, id: "P1" },
+  { label: h.tripAirportTown, href: pathFor(lang, slugOf("P2")), id: "P2" },
+  { label: h.tripTownPatong, href: pathFor(lang, slugOf("P4")), id: "P4" },
+  { label: h.tripOldTown, href: pathFor(lang, slugOf("P5")), id: "P5" },
+] as const;
+const color = (id: string) => ROUTES.find((r) => r.id === id)!.color;
+const fareLine = ROUTES.map((r) => `${d.routes[r.id].name} ${fareText(r, lang)}`).join(" · ");
+---
+<Base
+  lang={lang}
+  slug=""
+  title={h.title}
+  description={h.description}
+  jsonld={[websiteLd(lang), webPageLd(lang, "", h.title, h.description, modified), breadcrumbLd(lang, "", h.title)]}
+>
+  <!-- Hero -->
+  <section class="relative pt-32 md:pt-36 pb-12 md:pb-16 overflow-hidden">
+    <div aria-hidden="true" class="absolute inset-0 opacity-[0.07] pointer-events-none" style="background-image:linear-gradient(to right,#0E0E0E 1px,transparent 1px),linear-gradient(to bottom,#0E0E0E 1px,transparent 1px);background-size:80px 80px"></div>
+    <div class="wrap relative mb-8 md:mb-12">
+      <div class="flex flex-wrap items-end justify-between gap-y-3 border-b border-ink pb-3 font-mono text-[0.68rem] uppercase tracking-[0.3em]">
+        <span>Vol. 02 · {new Date().getFullYear()} · Phuket / Thailand</span>
+        <span class="text-ink-mute">7.8804° N · 98.3923° E</span>
+      </div>
+    </div>
+    <div class="wrap relative grid grid-cols-12 gap-x-6 gap-y-8">
+      <div class="col-span-12 lg:col-span-8">
+        <div class="kicker mb-4">⟶ {h.kicker}</div>
+        <h1 class="font-display leading-[0.86] tracking-[-0.02em]">
+          <span class="block text-[clamp(3.4rem,11vw,9.5rem)] animate-rise-in">{h.h1a}</span>
+          <span class="block italic text-[clamp(3.4rem,11vw,9.5rem)] -mt-2 md:-mt-4 animate-rise-in [animation-delay:120ms]">{h.h1b}</span>
+        </h1>
+        <p class="mt-7 max-w-xl text-ink-soft text-lg leading-snug">{h.lead}</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#timetables" class="inline-flex items-center gap-2 bg-ink text-paper px-5 py-3 rounded-sm font-mono text-xs uppercase tracking-[0.2em] hover:bg-vermillion">{h.ctaTimetables} <span aria-hidden="true">⟶</span></a>
+          <a href={pathFor(lang, slugOf("map"))} class="inline-flex items-center gap-2 border border-ink px-5 py-3 rounded-sm font-mono text-xs uppercase tracking-[0.2em] hover:bg-ink hover:text-paper">{h.ctaMap}</a>
+        </div>
+      </div>
+      <aside class="col-span-12 lg:col-span-4 lg:pl-6 lg:border-l lg:border-ink/30 self-end">
+        <div class="label mb-3">⟁ {h.todayLabel}</div>
+        <dl class="grid grid-cols-3 lg:grid-cols-1 gap-4">
+          {[[ROUTES.length, h.statRoutes], [totalStops(), h.statStops], ["100฿", h.statFare]].map(([v, l]) => (
+            <div class="border-t border-ink pt-2 flex flex-col">
+              <dt class="label mt-1 order-2">{l}</dt>
+              <dd class="font-display text-4xl md:text-5xl leading-none tabular-nums order-1" style="font-family:'Instrument Serif',Georgia,serif">{v}</dd>
+            </div>
+          ))}
+        </dl>
+        <div class="mt-6 p-4 border border-ink/80 bg-paper-tint">
+          <div class="label">{h.dailyDepartures}</div>
+          <div class="font-display text-5xl leading-none mt-2 tabular-nums" style="font-family:'Instrument Serif',Georgia,serif">{totalDepartures()}</div>
+          <div class="font-display italic text-ink-soft mt-1">{h.dailyLine}</div>
+        </div>
+      </aside>
+    </div>
+    <div class="relative mt-12 md:mt-16 border-y border-ink bg-ink overflow-hidden" aria-hidden="true">
+      <div class="flex animate-marquee marquee-track py-3 whitespace-nowrap">
+        {[...marquee, ...marquee].map((line) => (
+          <span class="font-mono text-[0.78rem] uppercase tracking-[0.3em] text-paper px-6 flex items-center"><span class="w-1.5 h-1.5 rounded-full bg-vermillion mr-6"></span>{line}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular trips -->
+  <section class="wrap pb-6">
+    <h2 class="label mb-3">⟁ {h.tripsTitle}</h2>
+    <ul class="flex flex-wrap gap-2">
+      {trips.map((t) => (
+        <li><a href={t.href} class="inline-flex items-center gap-2 border border-ink px-3 py-2 rounded-sm text-sm hover:bg-ink hover:text-paper"><span class="w-2.5 h-2.5 rounded-full" style={`background:${color(t.id)}`}></span>{t.label}</a></li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- Roster -->
+  <section id="routes" class="wrap py-16 md:py-20 scroll-mt-24">
+    <div class="grid grid-cols-12 items-end mb-10 gap-y-4">
+      <div class="col-span-12 md:col-span-7">
+        <div class="kicker mb-3">{h.rosterKicker}</div>
+        <h2 class="font-display text-[clamp(2.2rem,5.5vw,4.5rem)] leading-[0.95] tracking-tight">{h.rosterTitleA} <span class="italic">{h.rosterTitleB}</span></h2>
+      </div>
+      <p class="col-span-12 md:col-span-5 md:text-right text-ink-soft text-lg leading-snug">{h.rosterLead}</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+      {ROUTES.map((r) => (
+        <a href={pathFor(lang, r.slug)} class="group relative bg-paper-tint border border-ink/85 shadow-paper p-6 flex flex-col gap-4 overflow-hidden hover:-translate-y-1 transition-transform">
+          <span class="absolute top-0 inset-x-0 h-3" style={`background:${r.color}`}></span>
+          <div class="flex items-start justify-between pt-3">
+            <div>
+              <div class="label">{d.ui.route}</div>
+              <div class="font-display text-[5.5rem] leading-[0.8] tracking-tight" style="font-family:'Instrument Serif',Georgia,serif">{r.id}</div>
+            </div>
+            <div class="text-right">
+              <div class="label">{d.ui.fare}</div>
+              <div class="font-display text-2xl leading-tight">{fareText(r, lang)}</div>
+            </div>
+          </div>
+          <div class="border-t border-ink/20 pt-3">
+            <div class="font-display italic text-xl text-vermillion">{d.routes[r.id].nickname}</div>
+            <h3 class="mt-1 font-medium text-lg">{d.routes[r.id].name}</h3>
+            <p class="mt-1 text-ink-mute text-sm leading-snug">{d.routes[r.id].summary}</p>
+          </div>
+          <div class="mt-auto grid grid-cols-2 gap-3 pt-3 border-t border-dashed border-ink/40 font-mono">
+            {r.frequency ? (
+              <div class="col-span-2"><div class="label">{d.ui.every.replace("{n}", String(r.frequency.every))}</div><div class="text-2xl tabular-nums mt-1">{r.frequency.start}–{r.frequency.end}</div></div>
+            ) : (
+              <>
+                <div><div class="label">{d.ui.first}</div><div class="text-2xl tabular-nums mt-1">{first(r, "outbound")}</div></div>
+                <div class="text-right"><div class="label">{d.ui.last}</div><div class="text-2xl tabular-nums mt-1">{last(r, "outbound")}</div></div>
+              </>
+            )}
+          </div>
+          <span class="label group-hover:text-vermillion">{d.ui.openTimetable} ⟶</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Timetables -->
+  <section id="timetables" class="bg-paper-deep py-16 md:py-24 scroll-mt-20">
+    <div class="wrap">
+      <div class="grid grid-cols-12 items-end mb-12 gap-y-4 border-b border-ink pb-5">
+        <div class="col-span-12 md:col-span-7">
+          <div class="kicker mb-3">{h.timetableKicker}</div>
+          <h2 class="font-display text-[clamp(2rem,5vw,4rem)] leading-[0.95] tracking-tight">{h.timetableTitleA} <span class="italic">{h.timetableTitleB}</span></h2>
+        </div>
+        <p class="col-span-12 md:col-span-5 md:text-right text-ink-soft leading-snug">{h.timetableLead} {d.ui.tapStop}</p>
+      </div>
+      <div class="space-y-14">
+        {ROUTES.map((r) => <Timetable route={r} lang={lang} link />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- Fares -->
+  <section class="relative wrap py-16 md:py-24">
+    <div class="grid grid-cols-12 items-end mb-10 gap-y-4">
+      <div class="col-span-12 md:col-span-7">
+        <div class="kicker mb-3">{h.fareKicker}</div>
+        <h2 class="font-display text-[clamp(2rem,5vw,4rem)] leading-[0.95] tracking-tight">{h.fareTitleA} <span class="italic">{h.fareTitleB}</span></h2>
+      </div>
+      <p class="col-span-12 md:col-span-5 md:text-right text-ink-soft leading-snug">{h.fareLead}</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {[
+        { label: h.fareCardLabel, value: "30–100฿", text: fareLine },
+        { label: h.payCardLabel, value: h.payCardValue, text: h.payCardText },
+        { label: h.bagCardLabel, value: d.ui.free, text: h.bagCardText },
+      ].map((c, i) => (
+        <div class="relative bg-paper-tint border border-ink/85 shadow-paper p-6 md:p-7">
+          <div class="label flex justify-between"><span>No. {String(i + 1).padStart(3, "0")}</span><span>{c.label}</span></div>
+          <div class="font-display text-[clamp(2.4rem,5vw,3.6rem)] leading-[0.95] mt-2">{c.value}</div>
+          <p class="mt-3 text-ink-soft leading-snug">{c.text}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="bg-paper-deep py-16 md:py-24">
+    <div class="max-w-[1100px] mx-auto px-5 md:px-8 grid grid-cols-12 gap-8">
+      <div class="col-span-12 md:col-span-4">
+        <div class="kicker mb-3">{h.aboutKicker}</div>
+        <h2 class="font-display text-4xl leading-[0.95]">{h.aboutTitle}</h2>
+      </div>
+      <div class="col-span-12 md:col-span-8">
+        <p class="font-display text-2xl md:text-3xl leading-snug italic">“{h.aboutQuote}”</p>
+        <div class="mt-6 label">{d.ui.sources}</div>
+        <p class="mt-2 text-ink-soft">{h.sourcesText}</p>
+        <p class="mt-4 label">{fill(d.ui.lastChecked, { date: modified })}</p>
+      </div>
+    </div>
+  </section>
+</Base>

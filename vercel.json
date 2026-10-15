@@ -1,23 +1,30 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "astro",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "framework": "vite",
   "cleanUrls": true,
   "trailingSlash": false,
-  "rewrites": [
-    { "source": "/th", "destination": "/" }
-  ],
   "redirects": [
     {
       "source": "/:path*",
-      "has": [{ "type": "host", "value": "phuketbusroutes.mintprin.com" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "phuketbusroutes.mintprin.com"
+        }
+      ],
       "destination": "https://phuketbusroutes.com/:path*",
       "permanent": true
     },
     {
       "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.phuketbusroutes.com" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "www.phuketbusroutes.com"
+        }
+      ],
       "destination": "https://phuketbusroutes.com/:path*",
       "permanent": true
     }

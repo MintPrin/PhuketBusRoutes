@@ -1,0 +1,84 @@
+---
+import { dict, pathFor, type Lang } from "../lib/i18n";
+import { findStop, route, stopName, type Route } from "../lib/routes";
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const d = dict(lang);
+const m = d.pages.map;
+
+// Schematic positions, roughly projected from real lat/lon and spread out so labels fit.
+// ponytail: hand-placed points, not GIS. Re-place by hand if a route changes.
+const P = {
+  airport: [210, 110], baankhian: [250, 270], thalang: [330, 270], cherng: [190, 350], heroines: [370, 350],
+  surin: [130, 420], kamala: [140, 480], boat: [440, 440], bypass: [470, 520], central: [405, 630],
+  kathu: [300, 555], andamanda: [430, 570], patong: [190, 600], town: [500, 645], bt1: [565, 605],
+  karon: [180, 700], kata: [195, 760], rawai: [270, 860], oldtown: [560, 700],
+} as const;
+type K = keyof typeof P;
+
+const LINES: { id: Route["id"]; via: K[]; dx: number }[] = [
+  { id: "P1", via: ["airport", "baankhian", "cherng", "surin", "kamala", "patong", "karon", "kata", "rawai"], dx: -5 },
+  { id: "P3", via: ["airport", "heroines", "boat", "kathu", "patong", "karon", "kata"], dx: 5 },
+  { id: "P2", via: ["airport", "thalang", "heroines", "boat", "bypass", "central", "town", "bt1"], dx: 0 },
+  { id: "P4", via: ["bt1", "andamanda", "kathu", "patong"], dx: 0 },
+];
+const path = (via: K[], dx: number) => via.map((k, i) => `${i ? "L" : "M"}${P[k][0] + dx} ${P[k][1]}`).join(" ");
+
+const p1 = route("P1"), p2 = route("P2"), p3 = route("P3"), p4 = route("P4");
+const name = (r: Route, en: string) => stopName(findStop(r, en), lang);
+const LABELS: { k: K; text: string; side: "l" | "r"; major?: boolean }[] = [
+  { k: "airport", text: name(p1, "Phuket International Airport"), side: "r", major: true },
+  { k: "thalang", text: name(p2, "Thalang"), side: "r" },
+  { k: "cherng", text: name(p1, "Lotus's Cherng Talay"), side: "l" },
+  { k: "heroines", text: name(p2, "Heroines Monument"), side: "r" },
+  { k: "surin", text: d.areas.surin, side: "l", major: true },
+  { k: "kamala", text: d.areas.kamala, side: "l", major: true },
+  { k: "boat", text: name(p2, "Boat Lagoon"), side: "r" },
+  { k: "kathu", text: name(p3, "Kathu"), side: "r" },
+  { k: "central", text: name(p2, "Central Phuket"), side: "l" },
+  { k: "patong", text: d.areas.patong, side: "l", major: true },
+  { k: "town", text: name(p2, "Phuket Town"), side: "r", major: true },
+  { k: "bt1", text: name(p4, "Phuket Bus Terminal 1"), side: "r" },
+  { k: "karon", text: d.areas.karon, side: "l", major: true },
+  { k: "kata", text: d.areas.kata, side: "l", major: true },
+  { k: "rawai", text: d.areas.rawai, side: "r", major: true },
+];
+const color = (id: Route["id"]) => route(id).color;
+---
+<figure class="border border-ink bg-paper-tint">
+  <svg viewBox="0 0 760 940" class="w-full h-auto max-h-[85vh]" role="img" aria-labelledby="busmap-title">
+    <title id="busmap-title">{m.h1}</title>
+    <text x="34" y="800" class="fill-ink/25" font-size="22" font-style="italic" transform="rotate(-90 34 800)">{m.sea}</text>
+    {LINES.map((l) => (
+      <a href={pathFor(lang, route(l.id).slug)}>
+        <path d={path(l.via, l.dx)} fill="none" stroke={color(l.id)} stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+      </a>
+    ))}
+    <a href={pathFor(lang, route("P5").slug)}>
+      <circle cx={P.oldtown[0]} cy={P.oldtown[1]} r="22" fill="none" stroke={color("P5")} stroke-width="6" />
+      <text x={P.oldtown[0] + 32} y={P.oldtown[1] + 6} font-size="17" class="fill-ink">{m.oldTown} · P5</text>
+    </a>
+    {LABELS.map((s) => (
+      <g>
+        <circle cx={P[s.k][0]} cy={P[s.k][1]} r={s.major ? 9 : 6} fill="#FAF6EC" stroke="#0E0E0E" stroke-width="3" />
+        <text
+          x={P[s.k][0] + (s.side === "r" ? 16 : -16)}
+          y={P[s.k][1] + 6}
+          text-anchor={s.side === "r" ? "start" : "end"}
+          font-size={s.major ? 20 : 15}
+          font-weight={s.major ? 600 : 400}
+          class="fill-ink"
+        >{s.text}</text>
+      </g>
+    ))}
+    <text x="720" y="920" text-anchor="end" font-size="14" class="fill-ink/50">{m.notToScale}</text>
+  </svg>
+  <figcaption class="border-t border-ink p-4 flex flex-wrap gap-x-6 gap-y-2">
+    {(["P1", "P2", "P3", "P4", "P5"] as const).map((id) => (
+      <a href={pathFor(lang, route(id).slug)} class="inline-flex items-center gap-2 text-sm hover:text-vermillion">
+        <span class="inline-block w-6 h-1.5 rounded" style={`background:${color(id)}`}></span>{id} · {d.routes[id].name}
+      </a>
+    ))}
+  </figcaption>
+</figure>

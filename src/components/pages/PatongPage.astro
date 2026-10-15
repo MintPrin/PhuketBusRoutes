@@ -1,0 +1,81 @@
+---
+import Base from "../../layouts/Base.astro";
+import PageHead from "../PageHead.astro";
+import Faq from "../Faq.astro";
+import Related from "../Related.astro";
+import { dict, fill, pathFor, type Lang } from "../../lib/i18n";
+import { findStop, legRows, route, stopName } from "../../lib/routes";
+import { slugOf } from "../../lib/pages";
+import { pageCopy, pageVars, AIRPORT, P1_PATONG_IN, P1_PATONG_OUT } from "../../lib/content";
+import { breadcrumbLd, faqLd, webPageLd } from "../../lib/seo";
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const d = dict(lang);
+const c = pageCopy("patong", lang) as ReturnType<typeof pageCopy> & Record<string, string>;
+const v = pageVars("patong", lang);
+const p1 = route("P1");
+const slug = slugOf("patong");
+const modified = [p1.lastVerified, route("P4").lastVerified].sort().at(-1)!;
+
+const tables = [
+  { title: c.tableAirportPatong, rows: legRows(p1, "outbound", AIRPORT, P1_PATONG_OUT), from: AIRPORT, to: P1_PATONG_OUT },
+  { title: c.tablePatongAirport, rows: legRows(p1, "inbound", P1_PATONG_IN, AIRPORT), from: P1_PATONG_IN, to: AIRPORT },
+];
+const sections = [
+  { h: c.airportToPatong, p: fill(c.airportToPatongText, v), links: ["P1", "P3"] as const },
+  { h: c.patongToAirport, p: fill(c.patongToAirportText, v), links: ["P1"] as const },
+  { h: c.townPatong, p: fill(c.townPatongText, v), links: ["P4", "P5"] as const },
+];
+---
+<Base
+  lang={lang}
+  slug={slug}
+  title={c.title}
+  description={c.description}
+  jsonld={[webPageLd(lang, slug, c.title, c.description, modified), breadcrumbLd(lang, slug, c.h1), faqLd(c.faq)]}
+>
+  <PageHead lang={lang} h1={c.h1} intro={c.intro} checked={modified} />
+
+  <section class="wrap pb-6 grid md:grid-cols-3 gap-6">
+    {sections.map((s) => (
+      <div class="border border-ink bg-paper-tint p-5 flex flex-col">
+        <h2 class="font-display text-2xl md:text-3xl">{s.h}</h2>
+        <p class="mt-2 text-ink-soft leading-snug">{s.p}</p>
+        <ul class="mt-auto pt-4 flex flex-wrap gap-2">
+          {s.links.map((id) => {
+            const r = route(id);
+            return <li><a href={pathFor(lang, r.slug)} class="inline-flex items-center gap-2 border border-ink px-3 py-1.5 rounded-sm text-sm hover:bg-ink hover:text-paper"><span class="w-2.5 h-2.5 rounded-full" style={`background:${r.color}`}></span>{r.id} · {d.routes[id].name}</a></li>;
+          })}
+        </ul>
+      </div>
+    ))}
+  </section>
+
+  <section class="wrap py-10 grid lg:grid-cols-2 gap-8">
+    {tables.map((t) => (
+      <figure>
+        <figcaption class="mb-3">
+          <h2 class="font-display text-2xl md:text-3xl">{t.title}</h2>
+          <span class="label">{d.ui.stopTimesNote}</span>
+        </figcaption>
+        <div class="border border-ink bg-paper-tint max-h-[30rem] overflow-y-auto">
+          <table class="w-full font-mono tabular-nums">
+            <thead class="sticky top-0 bg-ink text-paper text-left">
+              <tr>
+                <th scope="col" class="px-4 py-2 font-sans font-medium text-sm">{stopName(findStop(p1, t.from), lang)}</th>
+                <th scope="col" class="px-4 py-2 font-sans font-medium text-sm">{stopName(findStop(p1, t.to), lang)}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {t.rows.map(([a, b]) => <tr class="border-t border-ink/15 even:bg-paper"><td class="px-4 py-1.5 font-bold">{a}</td><td class="px-4 py-1.5">{b}</td></tr>)}
+            </tbody>
+          </table>
+        </div>
+      </figure>
+    ))}
+  </section>
+
+  <Faq lang={lang} faq={c.faq} />
+  <Related lang={lang} current="patong" />
+</Base>

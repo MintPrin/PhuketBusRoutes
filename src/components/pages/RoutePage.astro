@@ -1,0 +1,115 @@
+---
+import Base from "../../layouts/Base.astro";
+import PageHead from "../PageHead.astro";
+import Timetable from "../Timetable.astro";
+import StopTimes from "../StopTimes.astro";
+import Faq from "../Faq.astro";
+import Related from "../Related.astro";
+import { dict, fill, type Lang } from "../../lib/i18n";
+import { duration, fareText, findStop, passesText, route, stopName, typicalRide, type Route } from "../../lib/routes";
+import { pageCopy, pageVars, AIRPORT } from "../../lib/content";
+import { breadcrumbLd, busTripLd, faqLd, webPageLd } from "../../lib/seo";
+
+interface Props { lang: Lang; id: Route["id"] }
+const { lang, id } = Astro.props;
+const d = dict(lang);
+const r = route(id);
+const rt = d.routes[id] as Record<string, string>;
+const c = pageCopy(id, lang);
+const v = pageVars(id, lang);
+const areasTitle = (c as Record<string, unknown>).areasTitle as string | undefined;
+
+// P1 "where to get off": area label, stop, ride time from the airport.
+const AREAS: [keyof typeof d.areas, string][] = [
+  ["surin", "Surin Beach"],
+  ["kamala", "Kubor Kamala"],
+  ["patong", "Patong Provincial Electricity Authority"],
+  ["karon", "Karon Circle"],
+  ["kata", "Kata Night Plaza"],
+  ["rawai", "Rawai Beach"],
+];
+const areaLines = id === "P1"
+  ? AREAS.map(([k, s]) => fill(d.areas.line, {
+      area: d.areas[k], stop: stopName(findStop(r, s), lang), time: duration(typicalRide(r, "outbound", AIRPORT, s), lang),
+    }))
+  : [];
+
+const lastLeg = r.durations?.outbound ? Object.entries(r.durations.outbound).at(-1) : undefined;
+const facts = [
+  { label: d.ui.fare, value: fareText(r, lang), note: r.childFree ? fill(d.ui.childFree, { age: r.childFree }) : undefined },
+  { label: d.ui.boarding, value: rt.boarding },
+  r.frequency
+    ? { label: d.ui.departures, value: `${fill(d.ui.every, { n: r.frequency.every })}, ${fill(d.ui.hours, { start: r.frequency.start, end: r.frequency.end })}` }
+    : { label: `${d.ui.first} / ${d.ui.last}`, value: `${v.first} – ${v.last}` },
+  ...(lastLeg ? [{ label: d.ui.travelTime, value: `${duration(lastLeg[1], lang)} → ${stopName(findStop(r, lastLeg[0]), lang)}` }] : []),
+];
+---
+<Base
+  lang={lang}
+  slug={r.slug}
+  title={c.title}
+  description={c.description}
+  jsonld={[
+    webPageLd(lang, r.slug, c.title, c.description, r.lastVerified),
+    breadcrumbLd(lang, r.slug, rt.name),
+    faqLd(c.faq),
+    ...busTripLd(r, lang, rt.name),
+  ]}
+>
+  <PageHead lang={lang} h1={c.h1} intro={c.intro} kicker={`${r.id} · ${rt.name}`} checked={r.lastVerified} />
+
+  {r.flags?.some((f) => f === "fareUnconfirmed" || f === "websiteDown") && (
+    <section class="wrap -mt-4 mb-8">
+      <div class="border-2 border-vermillion bg-paper-tint p-5 max-w-3xl space-y-2">
+        {r.flags.includes("fareUnconfirmed") && <p><strong class="text-vermillion">{d.ui.unconfirmed}:</strong> {v.fareNote}</p>}
+        {r.flags.includes("websiteDown") && <p class="text-ink-soft">{rt.websiteDown}</p>}
+      </div>
+    </section>
+  )}
+
+  <section class="wrap pb-10">
+    <dl class="grid sm:grid-cols-2 lg:grid-cols-4 border-t border-l border-ink">
+      {facts.map((f) => (
+        <div class="border-r border-b border-ink p-4 bg-paper-tint flex flex-col">
+          <dt class="label">{f.label}</dt>
+          <dd class="mt-1 text-lg leading-snug">{f.value}{f.note && <span class="block text-sm text-ink-mute mt-1">{f.note}</span>}</dd>
+        </div>
+      ))}
+    </dl>
+  </section>
+
+  <section class="bg-paper-deep py-12 md:py-16">
+    <div class="wrap">
+      <Timetable route={r} lang={lang} level="h2" />
+    </div>
+  </section>
+
+  {id === "P1" && (
+    <section id="areas" class="wrap py-12 md:py-16 scroll-mt-24">
+      <h2 class="font-display text-3xl md:text-4xl mb-5">{areasTitle}</h2>
+      <ul class="grid md:grid-cols-2 gap-x-8 gap-y-2 max-w-4xl">
+        {areaLines.map((l) => <li class="border-l-2 pl-3 py-1 text-lg" style={`border-color:${r.color}`}>{l}</li>)}
+      </ul>
+      <StopTimes route={r} lang={lang} dir="outbound" title={`${d.ui.stopTimes} · ${d.ui.fromAirport}`} />
+      <StopTimes route={r} lang={lang} dir="inbound" title={`${d.ui.stopTimes} · ${d.ui.toAirport}`} />
+    </section>
+  )}
+
+  {r.dayPasses && (
+    <section class="wrap pb-4">
+      <h2 class="label mb-2">⟁ {d.ui.dayPasses}</h2>
+      <p class="font-mono text-lg">{passesText(r, lang)}</p>
+    </section>
+  )}
+
+  <Faq lang={lang} faq={c.faq} />
+
+  <section class="wrap pb-16">
+    <div class="label mb-2">{d.ui.sources}</div>
+    <ul class="text-sm text-ink-soft space-y-1 break-all">
+      {r.sources.map((s) => <li><a class="u" href={s} target="_blank" rel="nofollow noopener">{s.replace(/^https?:\/\/(www\.)?/, "").slice(0, 70)}</a></li>)}
+    </ul>
+  </section>
+
+  <Related lang={lang} current={id} />
+</Base>

@@ -1,0 +1,65 @@
+---
+import Base from "../../layouts/Base.astro";
+import PageHead from "../PageHead.astro";
+import BusMap from "../BusMap.astro";
+import Faq from "../Faq.astro";
+import Related from "../Related.astro";
+import { dict, pathFor, type Lang } from "../../lib/i18n";
+import { ROUTES, route, type Route } from "../../lib/routes";
+import { slugOf } from "../../lib/pages";
+import { pageCopy } from "../../lib/content";
+import { breadcrumbLd, faqLd, webPageLd } from "../../lib/seo";
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const d = dict(lang);
+const c = pageCopy("map", lang) as ReturnType<typeof pageCopy> & Record<string, string>;
+const slug = slugOf("map");
+const modified = ROUTES.map((r) => r.lastVerified).sort().at(-1)!;
+const WHERE: [string, Route["id"][]][] = [
+  [c.areaPatong, ["P1", "P3", "P4"]],
+  [c.areaKataKaron, ["P1", "P3"]],
+  [c.areaRawai, ["P1"]],
+  [c.areaKamalaSurin, ["P1"]],
+  [c.areaTown, ["P2", "P4"]],
+  [c.areaOldTown, ["P5"]],
+  [c.areaCentral, ["P2"]],
+];
+---
+<Base
+  lang={lang}
+  slug={slug}
+  title={c.title}
+  description={c.description}
+  jsonld={[webPageLd(lang, slug, c.title, c.description, modified), breadcrumbLd(lang, slug, c.h1), faqLd(c.faq)]}
+>
+  <PageHead lang={lang} h1={c.h1} intro={c.intro} checked={modified} />
+  <section class="wrap pb-10 grid lg:grid-cols-12 gap-8">
+    <div class="lg:col-span-7"><BusMap lang={lang} /></div>
+    <div class="lg:col-span-5">
+      <h2 class="font-display text-3xl md:text-4xl mb-4">{c.whereTitle}</h2>
+      <table class="w-full border border-ink bg-paper-tint text-left">
+        <thead class="bg-ink text-paper">
+          <tr><th scope="col" class="px-4 py-2 font-medium">{c.area}</th><th scope="col" class="px-4 py-2 font-medium">{c.buses}</th></tr>
+        </thead>
+        <tbody>
+          {WHERE.map(([area, ids]) => (
+            <tr class="border-t border-ink/20">
+              <th scope="row" class="px-4 py-2.5 font-medium">{area}</th>
+              <td class="px-4 py-2.5">
+                <ul class="flex flex-wrap gap-1.5">
+                  {ids.map((id) => (
+                    <li><a href={pathFor(lang, route(id).slug)} class="inline-flex items-center gap-1.5 border border-ink/60 px-2 py-0.5 rounded-sm text-sm hover:bg-ink hover:text-paper" title={d.routes[id].name}><span class="w-2 h-2 rounded-full" style={`background:${route(id).color}`}></span>{id}</a></li>
+                  ))}
+                </ul>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p class="mt-4 text-sm text-ink-mute"><a class="u" href={pathFor(lang, slugOf("patong"))}>{d.pages.patong.h1}</a></p>
+    </div>
+  </section>
+  <Faq lang={lang} faq={c.faq} />
+  <Related lang={lang} current="map" />
+</Base>

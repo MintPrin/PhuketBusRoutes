@@ -4,5 +4,5 @@ import { defineConfig } from "astro/config";
 export default defineConfig({
   site: "https://phuketbusroutes.com",
   trailingSlash: "never",
-  build: { format: "directory" },
+  build: { format: "file" },
 });

@@ -1,0 +1,53 @@
+---
+import { LANGS, dict, pathFor, type Lang } from "../lib/i18n";
+import { ROUTES } from "../lib/routes";
+import { slugOf } from "../lib/pages";
+
+interface Props { lang: Lang; slug: string }
+const { lang, slug } = Astro.props;
+const d = dict(lang);
+---
+<footer class="relative bg-ink text-paper overflow-hidden">
+  <div class="wrap pt-16 pb-10 grid grid-cols-12 gap-y-10 gap-x-6">
+    <div class="col-span-12 md:col-span-6">
+      <div class="font-display italic text-[clamp(3.2rem,11vw,8rem)] leading-[0.86] tracking-tight">
+        {d.footer.big1}<br />{d.footer.big2}
+      </div>
+      <p class="mt-6 max-w-md text-paper/70 text-sm leading-snug">{d.footer.description}</p>
+      <p class="mt-3 max-w-md text-paper/50 text-xs leading-snug">{d.ui.disclaimer}</p>
+    </div>
+
+    <div class="col-span-12 md:col-span-6 md:pl-6 md:border-l md:border-paper/15 grid grid-cols-2 gap-y-8 gap-x-4">
+      <div>
+        <div class="font-mono text-[0.62rem] uppercase tracking-[0.3em] text-paper/50">⟁ {d.nav.routes}</div>
+        <ul class="mt-2 space-y-1.5 text-sm">
+          {ROUTES.map((r) => (
+            <li><a class="hover:text-vermillion" href={pathFor(lang, r.slug)}><span class="font-mono">{r.id}</span> · {d.routes[r.id].name}</a></li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <div class="font-mono text-[0.62rem] uppercase tracking-[0.3em] text-paper/50">⟁ {d.footer.pages}</div>
+        <ul class="mt-2 space-y-1.5 text-sm">
+          <li><a class="hover:text-vermillion" href={pathFor(lang, "")}>{d.nav.home}</a></li>
+          <li><a class="hover:text-vermillion" href={pathFor(lang, slugOf("map"))}>{d.nav.map}</a></li>
+          <li><a class="hover:text-vermillion" href={pathFor(lang, slugOf("patong"))}>{d.nav.patong}</a></li>
+        </ul>
+        <div class="mt-6 font-mono text-[0.62rem] uppercase tracking-[0.3em] text-paper/50">⟁ {d.footer.notes}</div>
+        <ul class="mt-2 space-y-1 text-sm text-paper/85">
+          <li>{d.footer.note1}</li>
+          <li>{d.footer.note2}</li>
+          <li>{d.footer.note3}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="border-t border-paper/15">
+    <div class="wrap py-5 flex flex-wrap items-center justify-between gap-3 font-mono text-[0.62rem] uppercase tracking-[0.2em] text-paper/55">
+      <span>© {new Date().getFullYear()} {d.site.name}</span>
+      <ul class="flex flex-wrap gap-x-3 gap-y-1">
+        {LANGS.map((l) => <li><a href={pathFor(l.code, slug)} hreflang={l.hreflang} class="hover:text-paper">{dict(l.code).lang.short}</a></li>)}
+      </ul>
+    </div>
+  </div>
+</footer>

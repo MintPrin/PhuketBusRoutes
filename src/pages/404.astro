@@ -1,0 +1,18 @@
+---
+import Base from "../layouts/Base.astro";
+import { LANGS, dict, pathFor } from "../lib/i18n";
+import { ROUTES } from "../lib/routes";
+const d = dict("en");
+---
+<Base lang="en" slug="404" title={`${d.notFound.title} · ${d.site.name}`} description={d.notFound.text} noindex>
+  <section class="wrap pt-36 pb-20">
+    <h1 class="font-display text-6xl">{d.notFound.title}</h1>
+    <p class="mt-4 text-lg text-ink-soft">{d.notFound.text}</p>
+    <ul class="mt-6 flex flex-wrap gap-2">
+      {ROUTES.map((r) => <li><a class="border border-ink px-3 py-2 rounded-sm hover:bg-ink hover:text-paper" href={pathFor("en", r.slug)}>{r.id} · {d.routes[r.id].name}</a></li>)}
+    </ul>
+    <ul class="mt-6 flex flex-wrap gap-3 label">
+      {LANGS.map((l) => <li><a class="hover:text-vermillion" href={pathFor(l.code, "")}>{dict(l.code).lang.name}</a></li>)}
+    </ul>
+  </section>
+</Base>

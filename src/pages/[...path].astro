@@ -1,0 +1,23 @@
+---
+import Home from "../components/pages/Home.astro";
+import RoutePage from "../components/pages/RoutePage.astro";
+import PatongPage from "../components/pages/PatongPage.astro";
+import MapPage from "../components/pages/MapPage.astro";
+import { LANGS, type Lang } from "../lib/i18n";
+import { PAGES, isRouteKey, type PageKey } from "../lib/pages";
+
+export function getStaticPaths() {
+  return LANGS.flatMap(({ code }) =>
+    PAGES.map((p) => {
+      const parts = [code === "en" ? "" : code, p.slug].filter(Boolean);
+      return { params: { path: parts.length ? parts.join("/") : undefined }, props: { lang: code, key: p.key } };
+    }),
+  );
+}
+
+const { lang, key } = Astro.props as { lang: Lang; key: PageKey };
+---
+{key === "home" && <Home lang={lang} />}
+{isRouteKey(key) && <RoutePage lang={lang} id={key} />}
+{key === "patong" && <PatongPage lang={lang} />}
+{key === "map" && <MapPage lang={lang} />}

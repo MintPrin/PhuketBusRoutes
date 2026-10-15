@@ -1,0 +1,18 @@
+---
+import { dict, fill, pathFor, type Lang } from "../lib/i18n";
+
+interface Props { lang: Lang; h1: string; intro: string; kicker?: string; checked?: string }
+const { lang, h1, intro, kicker, checked } = Astro.props;
+const d = dict(lang);
+---
+<section class="relative pt-32 md:pt-36 pb-10 md:pb-14 overflow-hidden">
+  <div aria-hidden="true" class="absolute inset-0 opacity-[0.07] pointer-events-none" style="background-image:linear-gradient(to right,#0E0E0E 1px,transparent 1px),linear-gradient(to bottom,#0E0E0E 1px,transparent 1px);background-size:80px 80px"></div>
+  <div class="wrap relative">
+    <nav aria-label="Breadcrumb" class="label mb-6">
+      <a href={pathFor(lang, "")} class="hover:text-vermillion">{d.nav.home}</a> <span aria-hidden="true">/</span> <span>{kicker ?? h1}</span>
+    </nav>
+    <h1 class="font-display text-[clamp(2.4rem,6.5vw,5.5rem)] leading-[0.95] tracking-tight max-w-5xl animate-rise-in">{h1}</h1>
+    <p class="mt-6 max-w-2xl text-lg md:text-xl text-ink-soft leading-snug">{intro}</p>
+    {checked && <p class="mt-4 label">{fill(d.ui.lastChecked, { date: checked })}</p>}
+  </div>
+</section>

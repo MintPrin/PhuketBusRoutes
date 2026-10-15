@@ -1,0 +1,70 @@
+---
+import { LANGS, dict, pathFor, type Lang } from "../lib/i18n";
+import { slugOf } from "../lib/pages";
+
+interface Props { lang: Lang; slug: string }
+const { lang, slug } = Astro.props;
+const d = dict(lang);
+const links = [
+  { href: `${pathFor(lang, "")}#routes`.replace("//#", "/#"), label: d.nav.routes },
+  { href: pathFor(lang, slugOf("map")), label: d.nav.map },
+  { href: pathFor(lang, slugOf("patong")), label: d.nav.patong },
+];
+---
+<header class="fixed top-0 inset-x-0 z-50 bg-paper/95 backdrop-blur-md border-b border-ink/15">
+  <div class="wrap py-2.5 flex items-center justify-between gap-4">
+    <a href={pathFor(lang, "")} class="flex items-center gap-3 shrink-0" aria-label={d.site.name}>
+      <span class="relative w-9 h-9 grid place-items-center bg-ink text-paper rounded-sm">
+        <span class="font-display italic text-xl leading-none" style="font-family:'Instrument Serif',Georgia,serif">P</span>
+        <span class="absolute -bottom-1 -right-1 w-2 h-2 bg-vermillion rounded-full"></span>
+      </span>
+      <span class="leading-[0.95] hidden min-[380px]:block">
+        <span class="block font-display italic text-[1.35rem] tracking-tight" style="font-family:'Instrument Serif',Georgia,serif">Phuket<span class="text-vermillion">.</span></span>
+        <span class="block font-mono text-[0.6rem] uppercase tracking-[0.28em] text-ink-mute">{d.site.tagline}</span>
+      </span>
+    </a>
+
+    <nav class="flex items-center gap-3 md:gap-5" aria-label="Main">
+      <ul class="hidden md:flex items-center gap-5 font-mono text-[0.7rem] uppercase tracking-[0.2em]">
+        {links.map((l) => <li><a href={l.href} class="hover:text-vermillion">{l.label}</a></li>)}
+      </ul>
+      <span class="hidden lg:flex items-center gap-2 font-mono text-xs uppercase tracking-[0.18em] text-ink-soft">
+        <span class="w-1.5 h-1.5 rounded-full bg-vermillion animate-ticker"></span>
+        <span data-clock>--:--</span> ICT
+      </span>
+      <details class="relative">
+        <summary class="list-none cursor-pointer select-none font-mono text-[0.7rem] uppercase tracking-[0.2em] border border-ink rounded-sm px-2.5 py-1.5 hover:bg-ink hover:text-paper" aria-label={d.nav.language}>
+          {d.lang.short} ▾
+        </summary>
+        <ul class="absolute right-0 mt-2 w-44 bg-paper-tint border border-ink shadow-paper py-1 z-50">
+          {LANGS.map((l) => (
+            <li>
+              <a
+                href={pathFor(l.code, slug)}
+                hreflang={l.hreflang}
+                lang={l.htmlLang}
+                class:list={["flex justify-between px-3 py-2 text-sm hover:bg-ink hover:text-paper", l.code === lang && "font-bold"]}
+                aria-current={l.code === lang ? "true" : undefined}
+              >
+                <span>{dict(l.code).lang.name}</span>
+                <span class="font-mono text-xs opacity-60">{dict(l.code).lang.short}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </details>
+    </nav>
+  </div>
+  <ul class="md:hidden wrap flex gap-5 pb-2 font-mono text-[0.68rem] uppercase tracking-[0.18em] overflow-x-auto">
+    {links.map((l) => <li class="shrink-0"><a href={l.href} class="hover:text-vermillion">{l.label}</a></li>)}
+  </ul>
+</header>
+<script>
+  // Live Phuket clock (ICT, UTC+7) for the nav.
+  const el = document.querySelector<HTMLElement>("[data-clock]");
+  const tick = () => {
+    if (el) el.textContent = new Date().toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", timeZone: "Asia/Bangkok" });
+  };
+  tick();
+  setInterval(tick, 15000);
+</script>

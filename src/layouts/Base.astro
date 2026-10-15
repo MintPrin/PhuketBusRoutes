@@ -1,0 +1,67 @@
+---
+import "../styles/global.css";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import { LANGS, langMeta, urlFor, dict, type Lang } from "../lib/i18n";
+
+interface Props {
+  lang: Lang;
+  slug: string;
+  title: string;
+  description: string;
+  jsonld?: Record<string, unknown>[];
+  noindex?: boolean;
+}
+
+const { lang, slug, title, description, jsonld = [], noindex = false } = Astro.props;
+const meta = langMeta(lang);
+const canonical = urlFor(lang, slug);
+const d = dict(lang);
+const fonts =
+  "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" +
+  (lang === "th" ? "&family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap" : "");
+---
+<!doctype html>
+<html lang={meta.htmlLang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex ? <meta name="robots" content="noindex" /> : null}
+    {!noindex && LANGS.map((l) => <link rel="alternate" hreflang={l.hreflang} href={urlFor(l.code, slug)} />)}
+    {!noindex && <link rel="alternate" hreflang="x-default" href={urlFor("en", slug)} />}
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={d.site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={meta.og} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="theme-color" content="#0E0E0E" />
+    <link rel="icon" type="image/png" href="/favicon.png?v=4" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=4" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=4" />
+    <link rel="manifest" href="/site.webmanifest?v=4" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href={fonts} />
+    {jsonld.map((j) => <script type="application/ld+json" set:html={JSON.stringify(j)} />)}
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZFXLE1TQXE"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZFXLE1TQXE');
+    </script>
+  </head>
+  <body>
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[10000] bg-ink text-paper px-3 py-2">{d.ui.skip}</a>
+    <Nav lang={lang} slug={slug} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer lang={lang} slug={slug} />
+  </body>
+</html>

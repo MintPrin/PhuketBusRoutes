@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scroll-padding-top: 6rem;
+    background-color: #f3eddf;
+  }
+  body {
+    @apply font-sans antialiased bg-paper text-ink;
+    overflow-x: hidden;
+  }
+  /* Subtle paper grain */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 220px 220px;
+    opacity: 0.45;
+    mix-blend-mode: multiply;
+    z-index: 9999;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+  }
+  ::selection { background: #d5391c; color: #f3eddf; }
+
+  /* Scripts the Latin display font can't draw: fall back to a fitting local face. */
+  :lang(th) body, :lang(th) .font-display { font-family: "IBM Plex Sans Thai", system-ui, sans-serif; }
+  :lang(ja) .font-display { font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif; }
+  :lang(zh-Hans) .font-display { font-family: "Songti SC", "Noto Serif SC", "SimSun", serif; }
+  :lang(ko) .font-display { font-family: "AppleMyungjo", "Noto Serif KR", "Batang", serif; }
+  :lang(th) .font-display, :lang(ja) .font-display, :lang(zh-Hans) .font-display, :lang(ko) .font-display {
+    font-style: normal;
+    letter-spacing: 0;
+  }
+}
+
+@layer components {
+  .kicker { @apply font-mono text-[0.7rem] uppercase tracking-[0.32em] text-vermillion; }
+  .label { @apply font-mono text-[0.62rem] uppercase tracking-[0.28em] text-ink-mute; }
+  .wrap { @apply max-w-[1400px] mx-auto px-5 md:px-8; }
+  .prose-bus p { @apply text-ink-soft text-lg leading-relaxed; }
+  .prose-bus a, a.u { @apply underline decoration-vermillion/60 underline-offset-4 hover:text-vermillion; }
+  :lang(th) .kicker, :lang(th) .label, :lang(ja) .kicker, :lang(ja) .label, :lang(zh-Hans) .kicker, :lang(zh-Hans) .label, :lang(ko) .kicker, :lang(ko) .label {
+    letter-spacing: 0.08em;
+  }
+}
+
+.marquee-track { width: max-content; }
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee, .animate-rise-in { animation: none !important; }
+}
+
+/* Utility display classes would otherwise beat the hidden attribute. */
+[hidden] { display: none !important; }

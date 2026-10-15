@@ -1,0 +1,24 @@
+---
+import { dict, pathFor, type Lang } from "../lib/i18n";
+import { ROUTES } from "../lib/routes";
+import { slugOf, type PageKey } from "../lib/pages";
+
+interface Props { lang: Lang; current: PageKey }
+const { lang, current } = Astro.props;
+const d = dict(lang);
+const items = [
+  ...ROUTES.map((r) => ({ key: r.id as PageKey, href: pathFor(lang, r.slug), label: `${r.id} · ${d.routes[r.id].name}`, color: r.color })),
+  { key: "patong" as PageKey, href: pathFor(lang, slugOf("patong")), label: d.pages.patong.h1, color: "#0E0E0E" },
+  { key: "map" as PageKey, href: pathFor(lang, slugOf("map")), label: d.nav.map, color: "#0E0E0E" },
+].filter((i) => i.key !== current);
+---
+<section class="border-t border-ink/20 bg-paper-tint">
+  <div class="wrap py-10">
+    <h2 class="label mb-4">⟁ {d.ui.related}</h2>
+    <ul class="flex flex-wrap gap-2">
+      {items.map((i) => (
+        <li><a href={i.href} class="inline-flex items-center gap-2 border border-ink px-3 py-2 rounded-sm text-sm hover:bg-ink hover:text-paper"><span class="w-2.5 h-2.5 rounded-full" style={`background:${i.color}`}></span>{i.label}</a></li>
+      ))}
+    </ul>
+  </div>
+</section>

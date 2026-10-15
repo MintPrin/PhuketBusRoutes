@@ -1,0 +1,44 @@
+---
+import { dict, type Lang } from "../lib/i18n";
+import { findStop, stopName, type Route } from "../lib/routes";
+
+interface Props {
+  route: Route;
+  lang: Lang;
+  dir: "outbound" | "inbound";
+  title: string;
+  /** Optional subset of columns (English stop names). Defaults to all. */
+  only?: string[];
+}
+const { route: r, lang, dir, title, only } = Astro.props;
+const d = dict(lang);
+const st = r.stopTimes![dir];
+const cols = st.stops.map((s, i) => ({ s, i })).filter(({ s }) => !only || only.includes(s));
+const rows = st.rows.filter((row) => cols.every(({ i }) => !only || row[i]));
+---
+<figure class="my-8">
+  <figcaption class="flex flex-wrap items-baseline justify-between gap-2 mb-3">
+    <h3 class="font-display text-2xl md:text-3xl">{title}</h3>
+    <span class="label">{d.ui.stopTimesNote}</span>
+  </figcaption>
+  <div class="overflow-x-auto border border-ink bg-paper-tint max-h-[34rem] overflow-y-auto">
+    <table class="w-full text-left font-mono tabular-nums text-sm md:text-base">
+      <thead class="sticky top-0 bg-ink text-paper">
+        <tr>
+          {cols.map(({ s }) => (
+            <th scope="col" class="px-3 py-2 font-sans font-medium text-xs md:text-sm align-bottom min-w-[5.5rem]">{stopName(findStop(r, s), lang)}</th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((row) => (
+          <tr class="border-t border-ink/15 even:bg-paper">
+            {cols.map(({ i }, c) => (
+              <td class:list={["px-3 py-1.5", c === 0 && "font-bold"]}>{row[i] ?? "—"}</td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</figure>
