@@ -33,7 +33,7 @@ const noteFor = (k: "outbound" | "inbound") => (k === "outbound" ? rt.noteOut : 
           <H class="font-display italic text-xl md:text-2xl leading-tight">
             {link ? <a href={pathFor(lang, r.slug)} class="hover:underline">{rt.name}</a> : rt.name}
           </H>
-          <div class="font-mono text-[0.68rem] uppercase tracking-[0.2em] opacity-85 mt-1">{rt.summary}</div>
+          <div class="font-mono text-[0.68rem] uppercase tracking-[0.2em] mt-1">{rt.summary}</div>
         </div>
       </div>
       <div class="font-mono text-[0.7rem] uppercase tracking-[0.2em] border border-current/40 px-3 py-1.5 rounded-sm">
@@ -44,7 +44,7 @@ const noteFor = (k: "outbound" | "inbound") => (k === "outbound" ? rt.noteOut : 
 
   {dirs.length > 1 && (
     <div class="px-5 md:px-8 pt-5 flex justify-end">
-      <div class="inline-flex border border-ink rounded-sm overflow-hidden font-mono text-[0.68rem] uppercase tracking-[0.18em]" role="group">
+      <div class="inline-flex border border-ink rounded-sm overflow-hidden font-mono text-[0.68rem] uppercase tracking-[0.18em]" role="group" aria-label={d.ui.departures}>
         {dirs.map((k, i) => (
           <button type="button" data-dir-btn={k} aria-pressed={i === 0 ? "true" : "false"} class="px-3 py-1.5 aria-pressed:bg-ink aria-pressed:text-paper hover:bg-ink/10">
             {dirLabel(k)}

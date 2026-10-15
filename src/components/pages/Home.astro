@@ -4,7 +4,7 @@ import Timetable from "../Timetable.astro";
 import { dict, fill, pathFor, type Lang } from "../../lib/i18n";
 import { ROUTES, fareText, first, last, totalDepartures, totalStops } from "../../lib/routes";
 import { slugOf } from "../../lib/pages";
-import { breadcrumbLd, websiteLd, webPageLd } from "../../lib/seo";
+import { websiteLd, webPageLd } from "../../lib/seo";
 
 interface Props { lang: Lang }
 const { lang } = Astro.props;
@@ -30,7 +30,7 @@ const fareLine = ROUTES.map((r) => `${d.routes[r.id].name} ${fareText(r, lang)}`
   slug=""
   title={h.title}
   description={h.description}
-  jsonld={[websiteLd(lang), webPageLd(lang, "", h.title, h.description, modified), breadcrumbLd(lang, "", h.title)]}
+  jsonld={[websiteLd(lang), webPageLd(lang, "", h.title, h.description, modified)]}
 >
   <!-- Hero -->
   <section class="relative pt-32 md:pt-36 pb-12 md:pb-16 overflow-hidden">

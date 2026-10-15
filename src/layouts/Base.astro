@@ -28,8 +28,7 @@ const fonts =
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonical} />
-    {noindex ? <meta name="robots" content="noindex" /> : null}
+    {noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonical} />}
     {!noindex && LANGS.map((l) => <link rel="alternate" hreflang={l.hreflang} href={urlFor(l.code, slug)} />)}
     {!noindex && <link rel="alternate" hreflang="x-default" href={urlFor("en", slug)} />}
     <meta property="og:type" content="website" />

@@ -6,12 +6,12 @@ interface Props { lang: Lang; faq: QA[] }
 const { lang, faq } = Astro.props;
 ---
 <section class="wrap py-14 md:py-20">
-  <div class="kicker mb-3">⟶ {dict(lang).ui.questions}</div>
+  <h2 class="kicker mb-3">⟶ {dict(lang).ui.questions}</h2>
   <div class="divide-y divide-ink/25 border-y border-ink/25 max-w-3xl">
     {faq.map((f, i) => (
       <details class="group py-4" open={i < 2}>
         <summary class="cursor-pointer list-none flex justify-between gap-4 font-medium text-lg">
-          <h3 class="inline">{f.q}</h3>
+          <span>{f.q}</span>
           <span aria-hidden="true" class="font-mono text-vermillion group-open:rotate-45 transition-transform">+</span>
         </summary>
         <p class="mt-2 text-ink-soft leading-relaxed">{f.a}</p>
