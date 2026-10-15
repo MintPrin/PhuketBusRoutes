@@ -23,19 +23,22 @@ src/
 │   ├── pages.ts            # Page list + slugs
 │   └── seo.ts              # JSON-LD builders (WebPage, BreadcrumbList, FAQPage, BusTrip)
 ├── components/             # Nav, Footer, Timetable, StopTimes, Faq, BusMap, Related, PageHead
-│   └── pages/              # Home, RoutePage, PatongPage, MapPage
+│   └── pages/              # Home, RoutePage, AirportPage, TripPage, TownPage, PatongPage, MapPage
 ├── layouts/Base.astro      # <head>: title, description, canonical, hreflang x8 + x-default, GA4
 └── pages/
-    ├── [...path].astro     # Generates every language × page (64 pages)
+    ├── [...path].astro     # Generates every language × page (13 pages × 8 = 104)
     ├── 404.astro
     ├── sitemap.xml.ts      # Sitemap with hreflang alternates
     └── llms.txt.ts         # /llms.txt for AI assistants, built from routes.json + en.json
 scripts/check-i18n.mjs      # Runs before every build; fails on key/placeholder/number drift
+scripts/indexnow.mjs        # After a deploy: pings Bing/Yandex/Naver with every sitemap URL (key file in public/)
 public/                     # favicons, robots.txt, site.webmanifest
 vercel.json                 # framework astro, cleanUrls, host redirects
 ```
 
 URLs: English at `/`, `/phuket-smart-bus`; other languages prefixed: `/th`, `/th/phuket-smart-bus`.
+
+Pages: home, 5 route pages, airport hub (`/phuket-airport-bus`), trip pages (`/patong-bus`, `/airport-to-kata-karon`, `/airport-to-rawai`, `/airport-to-kamala-surin`, `/airport-to-phuket-town`), bus map. Smart Bus trip pages read arrival times from the P1 `stopTimes` matrix via `TRIPS` in `lib/pages.ts`.
 
 ## Data rules (accuracy is the product)
 - Facts live only in `src/data/routes.json`. Copy pulls numbers in through `{placeholders}` filled by `lib/content.ts`, so a timetable change updates all 8 languages at once.
@@ -60,6 +63,7 @@ npm run dev          # Astro dev server
 npm run build        # i18n check + astro build → dist/
 npm run preview      # Serve dist/ locally
 npm run check:i18n   # Translation drift check only
+npm run indexnow     # After deploy to main: notify Bing/Yandex/Naver of all URLs
 ```
 
 ## Deployment

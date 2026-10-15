@@ -13,7 +13,7 @@
     "patong": "ป่าตอง",
     "language": "ภาษา",
     "home": "หน้าแรก",
-    "airport": "Airport bus"
+    "airport": "รถบัสสนามบิน"
   },
   "ui": {
     "route": "สาย",
@@ -73,7 +73,7 @@
       "boarding": "อาคารผู้โดยสารในประเทศ ทางออก 3 เลี้ยวซ้าย มองหาป้ายรถบัสสีฟ้าตรงข้ามคาเฟ่อเมซอน",
       "noteOut": "เกือบทั้งวันมีรถทุก 30 นาที รอบ 14:00, 15:00 และ 16:00 วิ่งเลยราไวย์ไปถึงแหลมพรหมเทพ",
       "noteIn": "มีรอบเช้าห้าเที่ยวที่เริ่มจากกะตะปาล์มแทนราไวย์ เวลา 05:20, 06:20, 07:45, 08:45 และ 09:45",
-      "liveGps": "See where the bus is right now in the ViaBus app."
+      "liveGps": "ดูว่ารถอยู่ตรงไหนแบบสดได้ในแอป ViaBus"
     },
     "P2": {
       "name": "รถบัสสนามบิน 8411",
@@ -129,8 +129,8 @@
     "tripsTitle": "เส้นทางยอดนิยม",
     "tripAirportPatong": "สนามบิน → ป่าตอง",
     "tripAirportKata": "สนามบิน → กะรน และกะตะ",
-    "tripAirportRawai": "Airport → Rawai",
-    "tripAirportKamala": "Airport → Kamala & Surin",
+    "tripAirportRawai": "สนามบิน → ราไวย์",
+    "tripAirportKamala": "สนามบิน → กมลา และสุรินทร์",
     "tripAirportTown": "สนามบิน → เมืองภูเก็ต",
     "tripTownPatong": "เมืองภูเก็ต ↔ ป่าตอง",
     "tripOldTown": "รถฟรีรอบเมืองเก่า",
@@ -372,135 +372,135 @@
       ]
     },
     "airport": {
-      "title": "Phuket Airport Bus 2026: Which Bus to Patong, Kata, Town",
-      "description": "All 3 buses from Phuket Airport compared: Smart Bus {p1fare}, airport bus 8411 to Phuket Town, Airport Express. Where to board, first and last buses.",
-      "h1": "Phuket Airport bus: which one to take",
-      "intro": "Three public buses leave Phuket Airport. Where you are going decides which one: the west-coast beaches, Phuket Town, or Patong, Karon and Kata on the express.",
-      "tableTitle": "The three airport buses",
-      "colBus": "Bus",
-      "colGoes": "Goes to",
-      "colFare": "Fare",
-      "colHours": "Leaves the airport",
-      "colBoard": "Where to board",
-      "lateTitle": "Landing late?",
-      "lateText": "The last Smart Bus leaves the airport at {p1last}, the last 8411 at {p2last} and the last Airport Express at {p3last}. After that there is no public bus; you will need a taxi or a ride-hailing app.",
-      "destTitle": "Where are you going?",
+      "title": "รถบัสสนามบินภูเก็ต 2026: ขึ้นสายไหนไปป่าตอง กะตะ ตัวเมือง",
+      "description": "เทียบรถบัสจากสนามบินภูเก็ตทั้ง 3 สาย: สมาร์ทบัส {p1fare} รถบัส 8411 เข้าเมือง และแอร์พอร์ตบัสเอ็กซ์เพรส จุดขึ้นรถ คันแรกและคันสุดท้าย",
+      "h1": "รถบัสสนามบินภูเก็ต: ขึ้นสายไหนดี",
+      "intro": "จากสนามบินภูเก็ตมีรถบัสสาธารณะสามสาย จะขึ้นสายไหนขึ้นกับว่าไปไหน: หาดฝั่งตะวันตก เมืองภูเก็ต หรือป่าตอง กะรน กะตะ ด้วยสายด่วน",
+      "tableTitle": "รถบัสสนามบินทั้งสามสาย",
+      "colBus": "สาย",
+      "colGoes": "ไปที่",
+      "colFare": "ค่าโดยสาร",
+      "colHours": "ออกจากสนามบิน",
+      "colBoard": "จุดขึ้นรถ",
+      "lateTitle": "เครื่องลงดึก?",
+      "lateText": "สมาร์ทบัสคันสุดท้ายออกจากสนามบิน {p1last} รถ 8411 คันสุดท้าย {p2last} (แต่หน้าคำถามของเขาเองบอก 21:30) และแอร์พอร์ตบัสเอ็กซ์เพรสคันสุดท้าย {p3last} หลังจากนั้นไม่มีรถเมล์แล้ว ต้องเรียกแท็กซี่หรือใช้แอปเรียกรถ",
+      "destTitle": "จะไปที่ไหน?",
       "faq": [
         {
-          "q": "Is there a bus from Phuket Airport?",
-          "a": "Yes, three: the Smart Bus to the west-coast beaches, the orange 8411 to Phuket Town, and the Airport Bus Express to Patong, Karon and Kata."
+          "q": "จากสนามบินภูเก็ตมีรถบัสไหม",
+          "a": "มีสามสาย: สมาร์ทบัสไปหาดฝั่งตะวันตก รถสีส้ม 8411 เข้าเมืองภูเก็ต และแอร์พอร์ตบัสเอ็กซ์เพรสไปป่าตอง กะรน กะตะ"
         },
         {
-          "q": "Which airport bus goes to Patong?",
-          "a": "The Smart Bus ({p1fare}, about {p1time}) and the Airport Bus Express. The 8411 does not."
+          "q": "รถบัสสนามบินสายไหนไปป่าตอง",
+          "a": "สมาร์ทบัส ({p1fare} ประมาณ {p1time}) กับแอร์พอร์ตบัสเอ็กซ์เพรส ส่วน 8411 ไม่ไป"
         },
         {
-          "q": "What time is the last bus from Phuket Airport?",
-          "a": "{p1last} for the Smart Bus. The 8411 and the Express stop earlier: {p2last} and {p3last}."
+          "q": "รถบัสคันสุดท้ายจากสนามบินภูเก็ตกี่โมง",
+          "a": "สมาร์ทบัส {p1last} ส่วน 8411 กับเอ็กซ์เพรสหมดเร็วกว่า: {p2last} และ {p3last}"
         },
         {
-          "q": "Where do the buses leave from at Phuket Airport?",
-          "a": "All three leave from the domestic terminal side. The Smart Bus and the Express board near exit 3. From international arrivals, walk over to the domestic side."
+          "q": "ขึ้นรถบัสที่สนามบินภูเก็ตตรงไหน",
+          "a": "ทั้งสามสายขึ้นฝั่งอาคารผู้โดยสารในประเทศ สมาร์ทบัสกับเอ็กซ์เพรสขึ้นใกล้ทางออก 3 ถ้าลงเครื่องที่อาคารระหว่างประเทศ ให้เดินมาฝั่งในประเทศ"
         }
       ]
     },
     "kataKaron": {
-      "title": "Phuket Airport to Kata & Karon by Bus: Times 2026",
-      "description": "Smart Bus from Phuket Airport to Karon and Kata: {p1fare}, about {karonTime} to Karon and {kataTime} to Kata. Every departure with arrival times.",
-      "h1": "Phuket Airport to Karon and Kata by bus",
-      "intro": "The Smart Bus runs from the airport to Karon Circle and Kata Night Plaza about every 30 minutes, for {p1fare}. It takes about {karonTime} to Karon and {kataTime} to Kata.",
-      "other": "The dark blue Airport Bus Express also goes to Karon and Kata, every hour. Its fare is not confirmed.",
+      "title": "สนามบินภูเก็ตไปกะตะ กะรน ด้วยรถบัส: เวลา 2026",
+      "description": "สมาร์ทบัสจากสนามบินภูเก็ตไปกะรนและกะตะ: {p1fare} ถึงกะรนประมาณ {karonTime} ถึงกะตะประมาณ {kataTime} ทุกเที่ยวพร้อมเวลาถึง",
+      "h1": "สนามบินภูเก็ตไปกะรนและกะตะด้วยรถบัส",
+      "intro": "สมาร์ทบัสวิ่งจากสนามบินไปวงเวียนกะรนและกะตะไนท์พลาซ่า ประมาณทุก 30 นาที ค่าโดยสาร {p1fare} ใช้เวลาถึงกะรนประมาณ {karonTime} และถึงกะตะประมาณ {kataTime}",
+      "other": "แอร์พอร์ตบัสเอ็กซ์เพรสสีน้ำเงินเข้มก็ไปกะรนและกะตะ ทุกชั่วโมง แต่ค่าโดยสารยังไม่ยืนยัน",
       "faq": [
         {
-          "q": "How much is the bus from Phuket Airport to Kata or Karon?",
-          "a": "{p1fare} on the Smart Bus, paid on board in cash, by QR or with a contactless card."
+          "q": "รถบัสจากสนามบินภูเก็ตไปกะตะหรือกะรนราคาเท่าไร",
+          "a": "สมาร์ทบัส {p1fare} จ่ายบนรถด้วยเงินสด สแกน QR หรือแตะบัตร"
         },
         {
-          "q": "How long does the bus take to Kata?",
-          "a": "About {kataTime} to Kata Night Plaza and {karonTime} to Karon Circle, by the operator's timetable. Traffic can add more."
+          "q": "นั่งรถบัสไปกะตะใช้เวลานานแค่ไหน",
+          "a": "ถึงกะตะไนท์พลาซ่าประมาณ {kataTime} และวงเวียนกะรนประมาณ {karonTime} ตามตารางของผู้ให้บริการ ถ้ารถติดจะนานกว่านี้"
         },
         {
-          "q": "What time is the last bus from the airport to Kata?",
-          "a": "The last Smart Bus leaves the airport at {p1last} and reaches Kata at about {lastArr}."
+          "q": "รถคันสุดท้ายจากสนามบินไปกะตะกี่โมง",
+          "a": "สมาร์ทบัสคันสุดท้ายออกจากสนามบิน {p1last} ถึงกะตะประมาณ {lastArr}"
         },
         {
-          "q": "What is the first bus from Kata to the airport?",
-          "a": "The first Smart Bus leaves {backStop} at {backFirst} and reaches the airport at {backFirstArr}."
+          "q": "รถคันแรกจากกะตะไปสนามบินกี่โมง",
+          "a": "สมาร์ทบัสคันแรกออกจาก{backStop} {backFirst} ถึงสนามบิน {backFirstArr}"
         }
       ]
     },
     "rawai": {
-      "title": "Phuket Airport to Rawai by Bus: Smart Bus Times 2026",
-      "description": "Smart Bus from Phuket Airport to Rawai Beach: {p1fare}, about {destTime}. Every departure with arrival times, the way back, and the Phromthep Cape runs.",
-      "h1": "Phuket Airport to Rawai by bus",
-      "intro": "Rawai is the last stop of the Smart Bus. It leaves the airport about every 30 minutes, costs {p1fare} and takes about {destTime} to Rawai Beach.",
-      "other": "The 14:00, 15:00 and 16:00 buses from the airport continue past Rawai to Phromthep Cape.",
+      "title": "สนามบินภูเก็ตไปราไวย์ด้วยรถบัส: เวลาสมาร์ทบัส 2026",
+      "description": "สมาร์ทบัสจากสนามบินภูเก็ตไปหาดราไวย์: {p1fare} ประมาณ {destTime} ทุกเที่ยวพร้อมเวลาถึง ขากลับ และรอบที่ไปแหลมพรหมเทพ",
+      "h1": "สนามบินภูเก็ตไปราไวย์ด้วยรถบัส",
+      "intro": "ราไวย์เป็นป้ายสุดท้ายของสมาร์ทบัส ออกจากสนามบินประมาณทุก 30 นาที ค่าโดยสาร {p1fare} ใช้เวลาถึงหาดราไวย์ประมาณ {destTime}",
+      "other": "รอบ 14:00, 15:00 และ 16:00 จากสนามบินวิ่งเลยราไวย์ไปถึงแหลมพรหมเทพ",
       "faq": [
         {
-          "q": "How much is the bus from Phuket Airport to Rawai?",
-          "a": "{p1fare} on the Smart Bus, paid on board in cash, by QR or with a contactless card."
+          "q": "รถบัสจากสนามบินภูเก็ตไปราไวย์ราคาเท่าไร",
+          "a": "สมาร์ทบัส {p1fare} จ่ายบนรถด้วยเงินสด สแกน QR หรือแตะบัตร"
         },
         {
-          "q": "How long does it take?",
-          "a": "About {destTime} from the airport to Rawai Beach, by the operator's timetable. Traffic can add more."
+          "q": "ใช้เวลานานแค่ไหน",
+          "a": "จากสนามบินถึงหาดราไวย์ประมาณ {destTime} ตามตารางของผู้ให้บริการ ถ้ารถติดจะนานกว่านี้"
         },
         {
-          "q": "What time is the last bus to Rawai?",
-          "a": "The last Smart Bus leaves the airport at {p1last} and reaches Rawai at about {lastArr}."
+          "q": "รถคันสุดท้ายไปราไวย์กี่โมง",
+          "a": "สมาร์ทบัสคันสุดท้ายออกจากสนามบิน {p1last} ถึงราไวย์ประมาณ {lastArr}"
         },
         {
-          "q": "What is the first bus from Rawai to the airport?",
-          "a": "The first Smart Bus leaves {backStop} at {backFirst} and reaches the airport at {backFirstArr}."
+          "q": "รถคันแรกจากราไวย์ไปสนามบินกี่โมง",
+          "a": "สมาร์ทบัสคันแรกออกจาก{backStop} {backFirst} ถึงสนามบิน {backFirstArr}"
         }
       ]
     },
     "kamalaSurin": {
-      "title": "Phuket Airport to Kamala & Surin by Bus: Times 2026",
-      "description": "Smart Bus from Phuket Airport to Surin Beach and Kamala: {p1fare}, about {surinTime} to Surin and {kamalaTime} to Kamala. All departures and the way back.",
-      "h1": "Phuket Airport to Surin and Kamala by bus",
-      "intro": "Surin and Kamala are the first beaches on the Smart Bus route. The bus takes about {surinTime} to Surin Beach and {kamalaTime} to Kamala, for {p1fare}.",
-      "other": "The Smart Bus carries on to Patong, Karon, Kata and Rawai, so the same bus serves the rest of the west coast.",
+      "title": "สนามบินภูเก็ตไปกมลา สุรินทร์ ด้วยรถบัส: เวลา 2026",
+      "description": "สมาร์ทบัสจากสนามบินภูเก็ตไปหาดสุรินทร์และกมลา: {p1fare} ถึงสุรินทร์ประมาณ {surinTime} ถึงกมลาประมาณ {kamalaTime} ทุกเที่ยวทั้งไปและกลับ",
+      "h1": "สนามบินภูเก็ตไปสุรินทร์และกมลาด้วยรถบัส",
+      "intro": "สุรินทร์กับกมลาเป็นหาดแรก ๆ บนเส้นทางสมาร์ทบัส ถึงหาดสุรินทร์ประมาณ {surinTime} และถึงกมลาประมาณ {kamalaTime} ค่าโดยสาร {p1fare}",
+      "other": "สมาร์ทบัสวิ่งต่อไปป่าตอง กะรน กะตะ และราไวย์ รถคันเดียวครอบคลุมฝั่งตะวันตกที่เหลือทั้งหมด",
       "faq": [
         {
-          "q": "How much is the bus from Phuket Airport to Kamala?",
-          "a": "{p1fare} on the Smart Bus, paid on board in cash, by QR or with a contactless card."
+          "q": "รถบัสจากสนามบินภูเก็ตไปกมลาราคาเท่าไร",
+          "a": "สมาร์ทบัส {p1fare} จ่ายบนรถด้วยเงินสด สแกน QR หรือแตะบัตร"
         },
         {
-          "q": "How long does it take?",
-          "a": "About {surinTime} to Surin Beach and {kamalaTime} to Kamala, by the operator's timetable."
+          "q": "ใช้เวลานานแค่ไหน",
+          "a": "ถึงหาดสุรินทร์ประมาณ {surinTime} และกมลาประมาณ {kamalaTime} ตามตารางของผู้ให้บริการ"
         },
         {
-          "q": "What time is the last bus to Kamala?",
-          "a": "The last Smart Bus leaves the airport at {p1last} and reaches Kamala at about {lastArr}."
+          "q": "รถคันสุดท้ายไปกมลากี่โมง",
+          "a": "สมาร์ทบัสคันสุดท้ายออกจากสนามบิน {p1last} ถึงกมลาประมาณ {lastArr}"
         },
         {
-          "q": "What is the first bus from Kamala to the airport?",
-          "a": "The first Smart Bus leaves {backStop} at {backFirst} and reaches the airport at {backFirstArr}."
+          "q": "รถคันแรกจากกมลาไปสนามบินกี่โมง",
+          "a": "สมาร์ทบัสคันแรกออกจาก{backStop} {backFirst} ถึงสนามบิน {backFirstArr}"
         }
       ]
     },
     "town": {
-      "title": "Phuket Airport to Phuket Town & Old Town by Bus 2026",
-      "description": "Phuket Airport to Phuket Town and the Old Town by bus: orange 8411 for {fare}, about {duration}, then the free Dragon Line. Times both ways.",
-      "h1": "Phuket Airport to Phuket Town and the Old Town",
-      "intro": "The orange 8411 is the only public bus from the airport to Phuket Town. It runs down the middle of the island to Bus Terminal 1 in about {duration}. From there, the free Dragon Line loops the Old Town.",
-      "other": "For Patong, change at Bus Terminal 1 to Smart Bus Route 2 ({p4fare}).",
+      "title": "สนามบินภูเก็ตเข้าเมือง และเมืองเก่า ด้วยรถบัส 2026",
+      "description": "จากสนามบินภูเก็ตเข้าเมืองและเมืองเก่าด้วยรถบัส: สาย 8411 สีส้ม {fare} ประมาณ {duration} แล้วต่อดราก้อนไลน์ฟรี เวลาทั้งไปและกลับ",
+      "h1": "สนามบินภูเก็ตเข้าเมืองและเมืองเก่า",
+      "intro": "รถสีส้ม 8411 เป็นรถเมล์สายเดียวจากสนามบินเข้าเมืองภูเก็ต วิ่งลงมาทางกลางเกาะถึง บขส.1 ประมาณ {duration} จากตรงนั้นมีดราก้อนไลน์ฟรีวนรอบเมืองเก่า",
+      "other": "ถ้าจะไปป่าตอง ให้ต่อสมาร์ทบัส สาย 2 ที่ บขส.1 ({p4fare})",
       "faq": [
         {
-          "q": "How much is the bus from Phuket Airport to Phuket Town?",
-          "a": "{max}฿ to Phuket Town on the 8411. Shorter rides cost less: {steps}."
+          "q": "รถบัสจากสนามบินภูเก็ตเข้าเมืองราคาเท่าไร",
+          "a": "รถ 8411 เข้าเมืองภูเก็ต {max} บาท ถ้าลงก่อนจะถูกกว่า: {steps}"
         },
         {
-          "q": "How do I get to the Old Town?",
-          "a": "Ride the 8411 to Bus Terminal 1. The Old Town is a short walk from there, and the free Dragon Line loops it every {every} minutes."
+          "q": "ไปเมืองเก่ายังไง",
+          "a": "นั่ง 8411 ไปลง บขส.1 จากตรงนั้นเดินไปเมืองเก่าได้ไม่ไกล และมีดราก้อนไลน์ฟรีวนรอบเมืองเก่าทุก {every} นาที"
         },
         {
-          "q": "What time are the first and last buses?",
-          "a": "From the airport: first {first}, last {last}. From Bus Terminal 1: first {inFirst}, last {inLast}."
+          "q": "รถคันแรกและคันสุดท้ายกี่โมง",
+          "a": "จากสนามบิน: คันแรก {first} คันสุดท้าย {last} จาก บขส.1: คันแรก {inFirst} คันสุดท้าย {inLast}"
         },
         {
-          "q": "Is there a later bus if I land at night?",
-          "a": "No. The Smart Bus runs later ({p1last}), but it goes to the west-coast beaches, not to town."
+          "q": "ถ้าเครื่องลงดึก มีรถรอบหลังกว่านี้ไหม",
+          "a": "ไม่มี สมาร์ทบัสวิ่งดึกกว่า ({p1last}) แต่ไปหาดฝั่งตะวันตก ไม่ได้เข้าเมือง"
         }
       ]
     }
@@ -510,9 +510,9 @@
     "text": "ไม่มีหน้านี้ ลองดูตารางเวลา:"
   },
   "trip": {
-    "outTitle": "From the airport",
-    "backTitle": "Back to the airport",
-    "otherTitle": "Other options",
-    "fromAirportCol": "Leaves airport"
+    "outTitle": "ออกจากสนามบิน",
+    "backTitle": "กลับไปสนามบิน",
+    "otherTitle": "ทางเลือกอื่น",
+    "fromAirportCol": "ออกจากสนามบิน"
   }
 }
