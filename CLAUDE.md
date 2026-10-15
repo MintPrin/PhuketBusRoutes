@@ -28,7 +28,8 @@ src/
 └── pages/
     ├── [...path].astro     # Generates every language × page (64 pages)
     ├── 404.astro
-    └── sitemap.xml.ts      # Sitemap with hreflang alternates
+    ├── sitemap.xml.ts      # Sitemap with hreflang alternates
+    └── llms.txt.ts         # /llms.txt for AI assistants, built from routes.json + en.json
 scripts/check-i18n.mjs      # Runs before every build; fails on key/placeholder/number drift
 public/                     # favicons, robots.txt, site.webmanifest
 vercel.json                 # framework astro, cleanUrls, host redirects
