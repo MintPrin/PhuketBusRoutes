@@ -13,7 +13,7 @@
     "patong": "Патонг",
     "language": "Язык",
     "home": "Главная",
-    "airport": "Airport bus"
+    "airport": "Автобус из аэропорта"
   },
   "ui": {
     "route": "Маршрут",
@@ -50,12 +50,12 @@
     "stopTimes": "Время на главных остановках",
     "stopTimesNote": "По расписанию перевозчика. В пробках дорога может занять больше времени.",
     "questions": "Вопросы",
-    "related": "Похожие страницы",
+    "related": "Смотрите также",
     "allRoutes": "Все маршруты",
     "tapStop": "Нажмите на остановку, чтобы открыть её в Google Maps.",
     "notPosted": "Расписание в этом направлении пока не опубликовано.",
     "childFree": "Дети до {age} лет ездят бесплатно.",
-    "disclaimer": "Независимый гид, не связан ни с одной автобусной компанией. Расписание меняется, перед поездкой проверьте страницу перевозчика.",
+    "disclaimer": "Независимый путеводитель: его не ведёт ни одна автобусная компания. Расписание меняется, перед поездкой проверьте страницу перевозчика.",
     "skip": "Перейти к содержанию"
   },
   "payment": {
@@ -70,17 +70,17 @@
       "name": "Phuket Smart Bus",
       "nickname": "пляжная линия",
       "summary": "Аэропорт → Сурин → Камала → Патонг → Карон → Ката → Равай",
-      "boarding": "Внутренний терминал, выход 3. Поверните налево и ищите синий знак автобуса напротив Café Amazon.",
+      "boarding": "Внутренний терминал, выход 3. Поверните налево и ищите синий автобусный указатель напротив Café Amazon.",
       "noteOut": "Большую часть дня каждые 30 минут. Рейсы в 14:00, 15:00 и 16:00 идут дальше Равая, до мыса Промтеп (Phromthep Cape).",
       "noteIn": "Пять ранних рейсов отправляются не от Равая, а от Kata Palm: 05:20, 06:20, 07:45, 08:45 и 09:45.",
-      "liveGps": "See where the bus is right now in the ViaBus app."
+      "liveGps": "Где автобус прямо сейчас, можно посмотреть в приложении ViaBus."
     },
     "P2": {
       "name": "Airport Bus 8411",
       "nickname": "городская линия",
       "summary": "Аэропорт → Памятник героиням → Central Phuket → Пхукет-таун → Автовокзал 1",
       "boarding": "Слева от выхода из внутреннего терминала. Если вы прилетели международным рейсом, пройдите к внутреннему терминалу.",
-      "noteOut": "Этот автобус не идёт в Патонг, Карон и Ката.",
+      "noteOut": "Этот автобус не ходит до Патонга, Карона и Каты.",
       "lastBusConflict": "В расписании перевозчика есть рейс из аэропорта в 22:30, но в его же FAQ сказано, что последний уходит в 21:30. Если прилетаете поздно, на рейс в 22:30 не рассчитывайте."
     },
     "P3": {
@@ -89,7 +89,7 @@
       "summary": "Аэропорт → Катху → Патонг → Карон → Ката",
       "boarding": "Стоянка автобусов аэропорта у выхода 3. Поверните налево, автобус ждёт у пандуса.",
       "fareUnconfirmed": "Нам не удалось подтвердить текущую цену. Источники 2025 года называют от 100฿ до 220฿. Уточните у персонала перед посадкой или напишите перевозчику в WhatsApp ({whatsapp}).",
-      "websiteDown": "Старый сайт перевозчика теперь перекидывает на рекламную страницу. Страница в Facebook по-прежнему активна (последний пост в октябре 2026)."
+      "websiteDown": "Старый сайт перевозчика теперь перенаправляет на рекламную страницу. Страница в Facebook по-прежнему активна (последний пост в октябре 2026)."
     },
     "P4": {
       "name": "Smart Bus Route 2",
@@ -104,11 +104,11 @@
       "nickname": "кольцо по Старому городу",
       "summary": "Бесплатное кольцо по Старому городу Пхукета от парковки PKCD",
       "boarding": "Отправляется с парковки PKCD (PKCD Parking) в Старом городе Пхукета. Сесть можно на любой обозначенной остановке кольца.",
-      "note": "Бесплатно, каждые 30 минут с 07:00 до 19:00, по схеме маршрута от перевозчика. Порядок остановок примерный."
+      "note": "Бесплатно, каждые 30 минут с 07:00 до 19:00, согласно схеме маршрута перевозчика. Порядок остановок примерный."
     }
   },
   "home": {
-    "title": "Автобусы Пхукета 2026: аэропорт, Патонг, расписание",
+    "title": "Автобусы на Пхукете 2026: расписание, аэропорт, Патонг",
     "description": "Все 5 автобусных маршрутов Пхукета: Smart Bus, автобус 8411 из аэропорта, Airport Express, Таун–Патонг и бесплатная Dragon Line. Расписание и цены.",
     "kicker": "Путеводитель по острову на автобусе",
     "h1a": "Пхукет",
@@ -121,7 +121,7 @@
     "statFare": "Цена Smart Bus",
     "todayLabel": "Сегодня на острове",
     "dailyDepartures": "Рейсов в день",
-    "dailyLine": "маленьких шансов успеть на следующий автобус.",
+    "dailyLine": "столько маленьких шансов успеть на следующий автобус.",
     "rosterKicker": "§ 01 · Маршруты",
     "rosterTitleA": "Пять автобусов,",
     "rosterTitleB": "один остров.",
@@ -129,8 +129,8 @@
     "tripsTitle": "Популярные поездки",
     "tripAirportPatong": "Аэропорт → Патонг",
     "tripAirportKata": "Аэропорт → Карон и Ката",
-    "tripAirportRawai": "Airport → Rawai",
-    "tripAirportKamala": "Airport → Kamala & Surin",
+    "tripAirportRawai": "Аэропорт → Равай",
+    "tripAirportKamala": "Аэропорт → Камала и Сурин",
     "tripAirportTown": "Аэропорт → Пхукет-таун",
     "tripTownPatong": "Пхукет-таун ↔ Патонг",
     "tripOldTown": "Бесплатный автобус по Старому городу",
@@ -150,7 +150,7 @@
     "bagCardText": "Обычные чемоданы едут бесплатно.",
     "aboutKicker": "§ 04 · О проекте",
     "aboutTitle": "О сайте",
-    "aboutQuote": "Независимый гид, не связан ни с одной автобусной компанией. Расписание и цены сверяются вручную с расписаниями и страницами перевозчиков в Facebook.",
+    "aboutQuote": "Независимый путеводитель: его не ведёт ни одна автобусная компания. Расписание и цены сверяются вручную с расписаниями и страницами перевозчиков в Facebook.",
     "sourcesText": "Расписания перевозчиков · Страницы перевозчиков в Facebook · Транспортные страницы аэропорта Пхукета"
   },
   "footer": {
@@ -176,8 +176,8 @@
     "P1": {
       "title": "Smart Bus Пхукет 2026: расписание, аэропорт, Патонг, Ката",
       "description": "Phuket Smart Bus (голубой): из аэропорта примерно каждые 30 мин, {fare} до любой остановки. Время в Патонге, Кароне, Кате и Равае, где садиться.",
-      "h1": "Phuket Smart Bus: из аэропорта в Патонг, Ката и Равай",
-      "intro": "Smart Bus это бело-голубой автобус на западном побережье. Он идёт из аэропорта Пхукета через Сурин, Камалу, Патонг, Карон и Ката до Равая. Проезд стоит {fare} до любой остановки, автобусы уходят из аэропорта примерно каждые 30 минут, с {first} до {last}.",
+      "h1": "Phuket Smart Bus: из аэропорта до Патонга, Каты и Равая",
+      "intro": "Smart Bus, бело-голубой автобус, ходит по западному побережью. Он идёт из аэропорта Пхукета через Сурин, Камалу, Патонг, Карон и Кату до Равая. Проезд до любой остановки стоит {fare}, автобусы уходят из аэропорта примерно каждые 30 минут, с {first} до {last}.",
       "areasTitle": "Где выходить",
       "faq": [
         {
@@ -198,7 +198,7 @@
         },
         {
           "q": "Какой из синих автобусов Smart Bus?",
-          "a": "Smart Bus бело-голубой. Тёмно-синий автобус это Airport Bus Express, другая компания с другой ценой."
+          "a": "Smart Bus бело-голубой. Тёмно-синий автобус называется Airport Bus Express: это другая компания с другой ценой."
         },
         {
           "q": "Есть ли проездной на день?",
@@ -231,10 +231,10 @@
       ]
     },
     "P3": {
-      "title": "Airport Bus Express Пхукет: в Патонг, Карон, Ката 2026",
-      "description": "Тёмно-синий Airport Bus Express из аэропорта Пхукета в Патонг, Карон и Ката: рейсы {first}–{last} и где садиться. Цена не подтверждена.",
-      "h1": "Airport Bus Express: из аэропорта Пхукета в Патонг, Карон и Ката",
-      "intro": "Тёмно-синий Airport Bus Express идёт из аэропорта через Катху в Патонг, Карон и Ката. Рейсы каждый час с {first} до {last}.",
+      "title": "Airport Bus Express Пхукет 2026: Патонг, Карон, Ката",
+      "description": "Тёмно-синий Airport Bus Express из аэропорта Пхукета до Патонга, Карона и Каты: рейсы {first}–{last} и где садиться. Цена не подтверждена.",
+      "h1": "Airport Bus Express: из аэропорта Пхукета до Патонга, Карона и Каты",
+      "intro": "Тёмно-синий Airport Bus Express идёт из аэропорта через Катху до Патонга, Карона и Каты. Рейсы каждый час с {first} до {last}.",
       "faq": [
         {
           "q": "Сколько стоит Airport Bus Express?",
@@ -250,12 +250,12 @@
         },
         {
           "q": "Это то же самое, что Smart Bus?",
-          "a": "Нет. Это другая компания с другой ценой и более тёмным синим автобусом. Smart Bus ({p1fare}) тоже ходит в Патонг, Карон и Ката, примерно каждые 30 минут."
+          "a": "Нет. Это другая компания с другой ценой и более тёмным синим автобусом. Smart Bus ({p1fare}) тоже ходит до Патонга, Карона и Каты, примерно каждые 30 минут."
         }
       ]
     },
     "P4": {
-      "title": "Автобус Пхукет-таун – Патонг (Smart Bus Route 2): 2026",
+      "title": "Автобус Пхукет-таун – Патонг (Route 2): расписание 2026",
       "description": "Smart Bus Route 2 между автовокзалом 1 Пхукета и Патонгом: {fare}, около {duration}, платформа 11. Расписание в обе стороны и проездные.",
       "h1": "Из Пхукет-тауна в Патонг на автобусе",
       "intro": "Smart Bus Route 2 связывает автовокзал 1 в городе с пляжем Патонг через Катху. Проезд стоит {fare}, до Патонга около {duration}.",
@@ -286,15 +286,15 @@
       "title": "Dragon Line: бесплатный автобус по Старому городу 2026",
       "description": "Dragon Line: бесплатный электробус по кольцу в Старом городе Пхукета, каждые {every} мин, {start}–{end}. Остановки, откуда стартует, пересадки.",
       "h1": "Dragon Line: бесплатный автобус по Старому городу",
-      "intro": "Dragon Line это бесплатный электрический шаттл, который ездит по кольцу вокруг Старого города Пхукета. Им управляет Phuket Smart Bus вместе с Phuket City Development (PKCD). Рейсы каждые {every} минут с {start} до {end}.",
+      "intro": "Dragon Line, бесплатный электрический шаттл, ездит по кольцу вокруг Старого города Пхукета. Её обслуживает Phuket Smart Bus вместе с Phuket City Development (PKCD). Рейсы каждые {every} минут с {start} до {end}.",
       "faq": [
         {
           "q": "Dragon Line правда бесплатная?",
           "a": "Да. Платить не нужно."
         },
         {
-          "q": "Какие часы работы?",
-          "a": "Каждые {every} минут с {start} до {end}, по схеме маршрута от перевозчика."
+          "q": "В какое время она ходит?",
+          "a": "Каждые {every} минут с {start} до {end}, согласно схеме маршрута перевозчика."
         },
         {
           "q": "Откуда она отправляется?",
@@ -308,7 +308,7 @@
     },
     "patong": {
       "title": "Автобус в Патонг 2026: из аэропорта и в Пхукет-таун",
-      "description": "Автобусы в Патонг и обратно: Smart Bus из аэропорта ({p1fare}, около {p1time}), Airport Express и автобус в Пхукет-таун за {p4fare}. Расписание.",
+      "description": "Патонг на автобусе: Smart Bus из аэропорта ({p1fare}, около {p1time}), Airport Express, автобус до Пхукет-тауна ({p4fare}). Расписание.",
       "h1": "Как добраться до Патонга и обратно на автобусе",
       "intro": "У Патонга два прямых автобусных сообщения: с аэропортом и с Пхукет-тауном. Здесь все варианты со временем из расписаний перевозчиков.",
       "airportToPatong": "Аэропорт → Патонг",
@@ -358,8 +358,8 @@
       "areaCentral": "ТЦ Central Phuket",
       "faq": [
         {
-          "q": "Есть ли автобус между Патонгом и Ката?",
-          "a": "Да. Smart Bus идёт из Патонга дальше в Карон и Ката за те же {p1fare}."
+          "q": "Есть ли автобус между Патонгом и Катой?",
+          "a": "Да. Smart Bus идёт из Патонга дальше до Карона и Каты за те же {p1fare}."
         },
         {
           "q": "Есть ли автобус из Патонга в Камалу?",
@@ -372,135 +372,135 @@
       ]
     },
     "airport": {
-      "title": "Phuket Airport Bus 2026: Which Bus to Patong, Kata, Town",
-      "description": "All 3 buses from Phuket Airport compared: Smart Bus {p1fare}, airport bus 8411 to Phuket Town, Airport Express. Where to board, first and last buses.",
-      "h1": "Phuket Airport bus: which one to take",
-      "intro": "Three public buses leave Phuket Airport. Where you are going decides which one: the west-coast beaches, Phuket Town, or Patong, Karon and Kata on the express.",
-      "tableTitle": "The three airport buses",
-      "colBus": "Bus",
-      "colGoes": "Goes to",
-      "colFare": "Fare",
-      "colHours": "Leaves the airport",
-      "colBoard": "Where to board",
-      "lateTitle": "Landing late?",
-      "lateText": "The last Smart Bus leaves the airport at {p1last}, the last 8411 at {p2last} and the last Airport Express at {p3last}. After that there is no public bus; you will need a taxi or a ride-hailing app.",
-      "destTitle": "Where are you going?",
+      "title": "Автобус из аэропорта Пхукета 2026: Патонг, Ката, город",
+      "description": "Все 3 автобуса из аэропорта Пхукета: Smart Bus ({p1fare}), автобус 8411 в Пхукет-таун, Airport Express. Где садиться, первый и последний рейс.",
+      "h1": "Автобус из аэропорта Пхукета: какой выбрать",
+      "intro": "Из аэропорта Пхукета ходят три общественных автобуса. Какой нужен, зависит от того, куда вы едете: на пляжи западного побережья, в Пхукет-таун или на экспрессе до Патонга, Карона и Каты.",
+      "tableTitle": "Три автобуса из аэропорта",
+      "colBus": "Автобус",
+      "colGoes": "Куда идёт",
+      "colFare": "Цена",
+      "colHours": "Отправления из аэропорта",
+      "colBoard": "Где садиться",
+      "lateTitle": "Прилетаете поздно?",
+      "lateText": "Последний Smart Bus уходит из аэропорта в {p1last}, последний 8411 в {p2last} (в его же FAQ указано 21:30), последний Airport Express в {p3last}. Позже общественных автобусов нет: понадобится такси или приложение для вызова такси.",
+      "destTitle": "Куда вы едете?",
       "faq": [
         {
-          "q": "Is there a bus from Phuket Airport?",
-          "a": "Yes, three: the Smart Bus to the west-coast beaches, the orange 8411 to Phuket Town, and the Airport Bus Express to Patong, Karon and Kata."
+          "q": "Есть ли автобус из аэропорта Пхукета?",
+          "a": "Да, три: Smart Bus до пляжей западного побережья, оранжевый 8411 до Пхукет-тауна и Airport Bus Express до Патонга, Карона и Каты."
         },
         {
-          "q": "Which airport bus goes to Patong?",
-          "a": "The Smart Bus ({p1fare}, about {p1time}) and the Airport Bus Express. The 8411 does not."
+          "q": "Какой автобус из аэропорта идёт в Патонг?",
+          "a": "Smart Bus ({p1fare}, около {p1time}) и Airport Bus Express. 8411 туда не идёт."
         },
         {
-          "q": "What time is the last bus from Phuket Airport?",
-          "a": "{p1last} for the Smart Bus. The 8411 and the Express stop earlier: {p2last} and {p3last}."
+          "q": "Во сколько последний автобус из аэропорта Пхукета?",
+          "a": "У Smart Bus в {p1last}. 8411 и Express заканчивают раньше: в {p2last} и {p3last}."
         },
         {
-          "q": "Where do the buses leave from at Phuket Airport?",
-          "a": "All three leave from the domestic terminal side. The Smart Bus and the Express board near exit 3. From international arrivals, walk over to the domestic side."
+          "q": "Откуда отправляются автобусы в аэропорту Пхукета?",
+          "a": "Все три отправляются со стороны внутреннего терминала. На Smart Bus и Express садятся у выхода 3. Если вы прилетели международным рейсом, пройдите к внутреннему терминалу."
         }
       ]
     },
     "kataKaron": {
-      "title": "Phuket Airport to Kata & Karon by Bus: Times 2026",
-      "description": "Smart Bus from Phuket Airport to Karon and Kata: {p1fare}, about {karonTime} to Karon and {kataTime} to Kata. Every departure with arrival times.",
-      "h1": "Phuket Airport to Karon and Kata by bus",
-      "intro": "The Smart Bus runs from the airport to Karon Circle and Kata Night Plaza about every 30 minutes, for {p1fare}. It takes about {karonTime} to Karon and {kataTime} to Kata.",
-      "other": "The dark blue Airport Bus Express also goes to Karon and Kata, every hour. Its fare is not confirmed.",
+      "title": "Автобус аэропорт Пхукет – Ката и Карон: расписание 2026",
+      "description": "Smart Bus из аэропорта Пхукета до Карона и Каты: {p1fare}, около {karonTime} до Карона и {kataTime} до Каты. Все рейсы со временем прибытия.",
+      "h1": "Из аэропорта Пхукета до Карона и Каты на автобусе",
+      "intro": "Smart Bus идёт из аэропорта до остановок Karon Circle и Kata Night Plaza примерно каждые 30 минут, проезд {p1fare}. До Карона около {karonTime}, до Каты около {kataTime}.",
+      "other": "Тёмно-синий Airport Bus Express тоже ходит до Карона и Каты, раз в час. Его цена не подтверждена.",
       "faq": [
         {
-          "q": "How much is the bus from Phuket Airport to Kata or Karon?",
-          "a": "{p1fare} on the Smart Bus, paid on board in cash, by QR or with a contactless card."
+          "q": "Сколько стоит автобус из аэропорта Пхукета до Каты или Карона?",
+          "a": "{p1fare} на Smart Bus, оплата в салоне наличными, по QR или бесконтактной картой."
         },
         {
-          "q": "How long does the bus take to Kata?",
-          "a": "About {kataTime} to Kata Night Plaza and {karonTime} to Karon Circle, by the operator's timetable. Traffic can add more."
+          "q": "Сколько ехать на автобусе до Каты?",
+          "a": "По расписанию перевозчика около {kataTime} до Kata Night Plaza и {karonTime} до Karon Circle. В пробках может выйти дольше."
         },
         {
-          "q": "What time is the last bus from the airport to Kata?",
-          "a": "The last Smart Bus leaves the airport at {p1last} and reaches Kata at about {lastArr}."
+          "q": "Во сколько последний автобус из аэропорта до Каты?",
+          "a": "Последний Smart Bus уходит из аэропорта в {p1last} и доезжает до Каты примерно в {lastArr}."
         },
         {
-          "q": "What is the first bus from Kata to the airport?",
-          "a": "The first Smart Bus leaves {backStop} at {backFirst} and reaches the airport at {backFirstArr}."
+          "q": "Во сколько первый автобус из Каты в аэропорт?",
+          "a": "Первый Smart Bus отправляется от остановки {backStop} в {backFirst} и приезжает в аэропорт в {backFirstArr}."
         }
       ]
     },
     "rawai": {
-      "title": "Phuket Airport to Rawai by Bus: Smart Bus Times 2026",
-      "description": "Smart Bus from Phuket Airport to Rawai Beach: {p1fare}, about {destTime}. Every departure with arrival times, the way back, and the Phromthep Cape runs.",
-      "h1": "Phuket Airport to Rawai by bus",
-      "intro": "Rawai is the last stop of the Smart Bus. It leaves the airport about every 30 minutes, costs {p1fare} and takes about {destTime} to Rawai Beach.",
-      "other": "The 14:00, 15:00 and 16:00 buses from the airport continue past Rawai to Phromthep Cape.",
+      "title": "Автобус аэропорт Пхукет – Равай: расписание Smart Bus 2026",
+      "description": "Smart Bus из аэропорта Пхукета до пляжа Равай: {p1fare}, около {destTime}. Все рейсы со временем прибытия, обратный путь и рейсы до мыса Промтеп.",
+      "h1": "Из аэропорта Пхукета до Равая на автобусе",
+      "intro": "Smart Bus заканчивает маршрут в Равае. Автобусы уходят из аэропорта примерно каждые 30 минут, проезд {p1fare}, до пляжа Равай около {destTime}.",
+      "other": "Рейсы из аэропорта в 14:00, 15:00 и 16:00 идут дальше Равая, до мыса Промтеп (Phromthep Cape).",
       "faq": [
         {
-          "q": "How much is the bus from Phuket Airport to Rawai?",
-          "a": "{p1fare} on the Smart Bus, paid on board in cash, by QR or with a contactless card."
+          "q": "Сколько стоит автобус из аэропорта Пхукета до Равая?",
+          "a": "{p1fare} на Smart Bus, оплата в салоне наличными, по QR или бесконтактной картой."
         },
         {
-          "q": "How long does it take?",
-          "a": "About {destTime} from the airport to Rawai Beach, by the operator's timetable. Traffic can add more."
+          "q": "Сколько ехать?",
+          "a": "По расписанию перевозчика около {destTime} от аэропорта до пляжа Равай. В пробках может выйти дольше."
         },
         {
-          "q": "What time is the last bus to Rawai?",
-          "a": "The last Smart Bus leaves the airport at {p1last} and reaches Rawai at about {lastArr}."
+          "q": "Во сколько последний автобус до Равая?",
+          "a": "Последний Smart Bus уходит из аэропорта в {p1last} и доезжает до Равая примерно в {lastArr}."
         },
         {
-          "q": "What is the first bus from Rawai to the airport?",
-          "a": "The first Smart Bus leaves {backStop} at {backFirst} and reaches the airport at {backFirstArr}."
+          "q": "Во сколько первый автобус из Равая в аэропорт?",
+          "a": "Первый Smart Bus отправляется от остановки {backStop} в {backFirst} и приезжает в аэропорт в {backFirstArr}."
         }
       ]
     },
     "kamalaSurin": {
-      "title": "Phuket Airport to Kamala & Surin by Bus: Times 2026",
-      "description": "Smart Bus from Phuket Airport to Surin Beach and Kamala: {p1fare}, about {surinTime} to Surin and {kamalaTime} to Kamala. All departures and the way back.",
-      "h1": "Phuket Airport to Surin and Kamala by bus",
-      "intro": "Surin and Kamala are the first beaches on the Smart Bus route. The bus takes about {surinTime} to Surin Beach and {kamalaTime} to Kamala, for {p1fare}.",
-      "other": "The Smart Bus carries on to Patong, Karon, Kata and Rawai, so the same bus serves the rest of the west coast.",
+      "title": "Автобус аэропорт Пхукет – Камала и Сурин: расписание 2026",
+      "description": "Smart Bus из аэропорта Пхукета до пляжа Сурин и Камалы: {p1fare}, около {surinTime} до Сурина и {kamalaTime} до Камалы. Все рейсы и обратный путь.",
+      "h1": "Из аэропорта Пхукета до Сурина и Камалы на автобусе",
+      "intro": "Сурин и Камала идут первыми среди пляжей на маршруте Smart Bus. До пляжа Сурин автобус едет около {surinTime}, до Камалы около {kamalaTime}, проезд {p1fare}.",
+      "other": "Дальше Smart Bus едет до Патонга, Карона, Каты и Равая, так что тот же автобус обслуживает и остальное западное побережье.",
       "faq": [
         {
-          "q": "How much is the bus from Phuket Airport to Kamala?",
-          "a": "{p1fare} on the Smart Bus, paid on board in cash, by QR or with a contactless card."
+          "q": "Сколько стоит автобус из аэропорта Пхукета до Камалы?",
+          "a": "{p1fare} на Smart Bus, оплата в салоне наличными, по QR или бесконтактной картой."
         },
         {
-          "q": "How long does it take?",
-          "a": "About {surinTime} to Surin Beach and {kamalaTime} to Kamala, by the operator's timetable."
+          "q": "Сколько ехать?",
+          "a": "По расписанию перевозчика около {surinTime} до пляжа Сурин и {kamalaTime} до Камалы."
         },
         {
-          "q": "What time is the last bus to Kamala?",
-          "a": "The last Smart Bus leaves the airport at {p1last} and reaches Kamala at about {lastArr}."
+          "q": "Во сколько последний автобус до Камалы?",
+          "a": "Последний Smart Bus уходит из аэропорта в {p1last} и доезжает до Камалы примерно в {lastArr}."
         },
         {
-          "q": "What is the first bus from Kamala to the airport?",
-          "a": "The first Smart Bus leaves {backStop} at {backFirst} and reaches the airport at {backFirstArr}."
+          "q": "Во сколько первый автобус из Камалы в аэропорт?",
+          "a": "Первый Smart Bus отправляется от остановки {backStop} в {backFirst} и приезжает в аэропорт в {backFirstArr}."
         }
       ]
     },
     "town": {
-      "title": "Phuket Airport to Phuket Town & Old Town by Bus 2026",
-      "description": "Phuket Airport to Phuket Town and the Old Town by bus: orange 8411 for {fare}, about {duration}, then the free Dragon Line. Times both ways.",
-      "h1": "Phuket Airport to Phuket Town and the Old Town",
-      "intro": "The orange 8411 is the only public bus from the airport to Phuket Town. It runs down the middle of the island to Bus Terminal 1 in about {duration}. From there, the free Dragon Line loops the Old Town.",
-      "other": "For Patong, change at Bus Terminal 1 to Smart Bus Route 2 ({p4fare}).",
+      "title": "Автобус аэропорт Пхукет – Пхукет-таун и Старый город 2026",
+      "description": "Из аэропорта Пхукета в Пхукет-таун и Старый город: оранжевый 8411 ({fare}, около {duration}), затем бесплатная Dragon Line. Расписание.",
+      "h1": "Из аэропорта Пхукета в Пхукет-таун и Старый город",
+      "intro": "Из аэропорта в Пхукет-таун ходит только один общественный автобус: оранжевый 8411. Он идёт через центр острова до автовокзала 1 примерно за {duration}. Оттуда по Старому городу ходит бесплатная Dragon Line.",
+      "other": "До Патонга пересядьте на автовокзале 1 на Smart Bus Route 2 ({p4fare}).",
       "faq": [
         {
-          "q": "How much is the bus from Phuket Airport to Phuket Town?",
-          "a": "{max}฿ to Phuket Town on the 8411. Shorter rides cost less: {steps}."
+          "q": "Сколько стоит автобус из аэропорта Пхукета в Пхукет-таун?",
+          "a": "{max}฿ до Пхукет-тауна на 8411. Короткие поездки дешевле: {steps}."
         },
         {
-          "q": "How do I get to the Old Town?",
-          "a": "Ride the 8411 to Bus Terminal 1. The Old Town is a short walk from there, and the free Dragon Line loops it every {every} minutes."
+          "q": "Как добраться до Старого города?",
+          "a": "Доезжайте на 8411 до автовокзала 1. Оттуда до Старого города недалеко пешком, а по нему каждые {every} минут ходит бесплатная Dragon Line."
         },
         {
-          "q": "What time are the first and last buses?",
-          "a": "From the airport: first {first}, last {last}. From Bus Terminal 1: first {inFirst}, last {inLast}."
+          "q": "Во сколько первый и последний автобус?",
+          "a": "Из аэропорта: первый в {first}, последний в {last}. От автовокзала 1: первый в {inFirst}, последний в {inLast}."
         },
         {
-          "q": "Is there a later bus if I land at night?",
-          "a": "No. The Smart Bus runs later ({p1last}), but it goes to the west-coast beaches, not to town."
+          "q": "Есть ли автобус попозже, если я прилетаю ночью?",
+          "a": "Нет. Smart Bus ходит дольше (последний рейс в {p1last}), но он идёт на пляжи западного побережья, а не в город."
         }
       ]
     }
@@ -510,9 +510,8 @@
     "text": "Такой страницы нет. Посмотрите расписания:"
   },
   "trip": {
-    "outTitle": "From the airport",
-    "backTitle": "Back to the airport",
-    "otherTitle": "Other options",
-    "fromAirportCol": "Leaves airport"
+    "outTitle": "Из аэропорта",
+    "backTitle": "Обратно в аэропорт",
+    "otherTitle": "Другие варианты"
   }
 }

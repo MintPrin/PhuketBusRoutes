@@ -13,7 +13,7 @@
     "patong": "芭东",
     "language": "语言",
     "home": "首页",
-    "airport": "Airport bus"
+    "airport": "机场巴士"
   },
   "ui": {
     "route": "路线",
@@ -70,46 +70,46 @@
       "name": "普吉 Smart Bus",
       "nickname": "海滩线",
       "summary": "机场 → 苏林 → 卡马拉 → 芭东 → 卡伦 → 卡塔 → 拉威",
-      "boarding": "国内航站楼 3 号出口。出来后左转，在 Café Amazon 咖啡店对面找蓝色巴士站牌。",
-      "noteOut": "白天大部分时段每 30 分钟一班。14:00、15:00 和 16:00 的班次过了拉威后会继续开到神仙半岛 (Phromthep Cape)。",
-      "noteIn": "早上有五班从 Kata Palm 发车，而不是拉威：05:20、06:20、07:45、08:45 和 09:45。",
-      "liveGps": "See where the bus is right now in the ViaBus app."
+      "boarding": "国内航站楼3号出口。出来后左转，在 Café Amazon 咖啡店对面找蓝色巴士站牌。",
+      "noteOut": "白天大部分时段每30分钟一班。14:00、15:00和16:00的班次过了拉威后会继续开到神仙半岛（Phromthep Cape）。",
+      "noteIn": "早上有五班从 Kata Palm 发车，而不是从拉威：05:20、06:20、07:45、08:45和09:45。",
+      "liveGps": "在 ViaBus 应用里可以实时查看巴士开到了哪里。"
     },
     "P2": {
-      "name": "8411 机场巴士",
+      "name": "8411机场巴士",
       "nickname": "市区线",
-      "summary": "机场 → 英雄纪念碑 → Central Phuket 尚泰购物中心 → 普吉镇 → 1号巴士总站",
+      "summary": "机场 → 女英雄纪念碑 → Central Phuket 尚泰购物中心 → 普吉镇 → 1号巴士总站",
       "boarding": "国内航站楼出口外的左侧。从国际到达出来的话，请走到国内航站楼那边。",
       "noteOut": "这趟车不去芭东、卡伦或卡塔。",
-      "lastBusConflict": "运营方时刻表上有一班 22:30 从机场出发的车，但它自己的常见问题里说末班车 21:30 开。如果你很晚落地，别指望 22:30 那班。"
+      "lastBusConflict": "运营方时刻表上有一班22:30从机场出发的车，但它自己的常见问题里说末班车21:30开。如果你很晚落地，别指望22:30那班。"
     },
     "P3": {
       "name": "Airport Bus Express 机场快线",
       "nickname": "快线",
       "summary": "机场 → 卡图 → 芭东 → 卡伦 → 卡塔",
-      "boarding": "3 号出口附近的机场巴士停车场。出来后左转，巴士停在坡道旁边。",
-      "fareUnconfirmed": "我们无法确认目前的票价。2025 年的资料从 100฿ 到 220฿ 都有。上车前请先问工作人员，或通过 WhatsApp 联系运营方（{whatsapp}）。",
-      "websiteDown": "运营方的旧网站现在会跳转到广告页面。它的 Facebook 主页仍在更新（最近一条发布于 2026 年十月）。"
+      "boarding": "3号出口附近的机场巴士停车场。出来后左转，巴士停在坡道旁边。",
+      "fareUnconfirmed": "我们无法确认目前的票价。2025年的资料从100฿到220฿都有。上车前请先问工作人员，或通过 WhatsApp 联系运营方（{whatsapp}）。",
+      "websiteDown": "运营方的旧网站现在会跳转到广告页面。它的 Facebook 主页仍在更新（最近一次发帖是2026年十月）。"
     },
     "P4": {
-      "name": "Smart Bus 2 号线",
+      "name": "Smart Bus 2号线",
       "nickname": "市区–芭东穿梭线",
       "summary": "1号巴士总站 → 曼谷医院 → 卡图 → 芭东",
-      "boarding": "普吉巴士总站 (Phuket Bus Terminal 1) 11 号站台。在芭东则是芭东海滩巴士站 (Patong Beach)。",
-      "noteOut": "到芭东约 60 分钟。",
-      "noteIn": "返回1号巴士总站约 70 分钟。另有每小时一班的接驳车往返1号和2号巴士总站（05:00–19:30）。"
+      "boarding": "普吉1号巴士总站（Phuket Bus Terminal）11号站台。在芭东则是芭东海滩巴士站（Patong Beach）。",
+      "noteOut": "到芭东约60分钟。",
+      "noteIn": "返回1号巴士总站约70分钟。另有每小时一班的接驳车往返1号和2号巴士总站（05:00–19:30）。"
     },
     "P5": {
       "name": "Dragon Line 龙线",
       "nickname": "老城环线",
       "summary": "从 PKCD 停车场出发的普吉老城免费环线",
-      "boarding": "从普吉老城的 PKCD 停车场 (PKCD Parking) 发车。环线上任何有标识的站点都可以上车。",
-      "note": "免费，07:00 至 19:00 每 30 分钟一班，以运营方的路线图为准。站点顺序仅供参考。"
+      "boarding": "从普吉老城的 PKCD 停车场（PKCD Parking）发车。环线上任何有标识的站点都可以上车。",
+      "note": "免费，07:00至19:00每30分钟一班，以运营方的路线图为准。站点顺序仅供参考。"
     }
   },
   "home": {
     "title": "普吉岛巴士路线时刻表2026：机场巴士、芭东、老城",
-    "description": "普吉岛全部 5 条巴士路线：Smart Bus、8411 机场巴士、机场快线、市区–芭东线和免费 Dragon Line。时刻表、站点、票价和上车地点。",
+    "description": "普吉岛全部5条巴士路线：Smart Bus、8411机场巴士、机场快线、市区–芭东线和免费 Dragon Line。时刻表、站点、票价和上车地点。",
     "kicker": "坐巴士玩转海岛的实地指南",
     "h1a": "普吉岛，",
     "h1b": "坐巴士游。",
@@ -129,8 +129,8 @@
     "tripsTitle": "热门行程",
     "tripAirportPatong": "机场 → 芭东",
     "tripAirportKata": "机场 → 卡伦和卡塔",
-    "tripAirportRawai": "Airport → Rawai",
-    "tripAirportKamala": "Airport → Kamala & Surin",
+    "tripAirportRawai": "机场 → 拉威",
+    "tripAirportKamala": "机场 → 卡马拉和苏林",
     "tripAirportTown": "机场 → 普吉镇",
     "tripTownPatong": "普吉镇 ↔ 芭东",
     "tripOldTown": "免费老城巴士",
@@ -160,7 +160,7 @@
     "notes": "须知",
     "note1": "现金或二维码 · 30–100฿ · Dragon Line 免费",
     "note2": "行李免费",
-    "note3": "请提前 5–10 分钟到站",
+    "note3": "请提前5–10分钟到站",
     "pages": "页面"
   },
   "areas": {
@@ -174,15 +174,15 @@
   },
   "pages": {
     "P1": {
-      "title": "普吉Smart Bus时刻表2026：机场至芭东、卡塔、拉威",
-      "description": "普吉 Smart Bus（浅蓝色）：机场约每 30 分钟一班，任意站{fare}。芭东、卡伦、卡塔、拉威到站时间及上车地点。",
+      "title": "普吉 Smart Bus 时刻表2026：机场至芭东、卡塔、拉威",
+      "description": "普吉 Smart Bus（浅蓝色）：机场约每30分钟一班，任意站{fare}。芭东、卡伦、卡塔、拉威到站时间及上车地点。",
       "h1": "普吉 Smart Bus：机场至芭东、卡塔和拉威",
-      "intro": "Smart Bus 是西海岸那辆浅蓝白相间的巴士。从普吉机场出发，经苏林、卡马拉、芭东、卡伦和卡塔，开到拉威。到任意站都是{fare}，大约每 30 分钟从机场发一班，{first}起至{last}。",
+      "intro": "Smart Bus 是西海岸那辆浅蓝白相间的巴士。从普吉机场出发，经苏林、卡马拉、芭东、卡伦和卡塔，开到拉威。到任意站都是{fare}，大约每30分钟从机场发一班，{first}起至{last}。",
       "areasTitle": "在哪里下车",
       "faq": [
         {
           "q": "普吉机场坐 Smart Bus 多少钱？",
-          "a": "到任意站都是{fare}。6 岁以下儿童免费。上车用现金、二维码或非接触式银行卡付款。"
+          "a": "到任意站都是{fare}。6岁以下儿童免费。上车用现金、二维码或非接触式银行卡付款。"
         },
         {
           "q": "普吉机场的 Smart Bus 站在哪里？",
@@ -208,21 +208,21 @@
     },
     "P2": {
       "title": "普吉机场巴士8411到普吉镇：时刻表与票价2026",
-      "description": "橙色 8411 机场巴士到普吉镇：{fare}，约{duration}。发车{first}–{last}，上车地点及如何去芭东。",
-      "h1": "8411 机场巴士：普吉机场至普吉镇",
-      "intro": "橙色的 8411 巴士从普吉机场出发，纵穿海岛中部，开到普吉镇和1号巴士总站。按距离收费（{fare}），全程约{duration}。",
+      "description": "橙色8411机场巴士到普吉镇：{fare}，约{duration}。发车{first}–{last}，上车地点及如何去芭东。",
+      "h1": "8411机场巴士：普吉机场至普吉镇",
+      "intro": "橙色的8411巴士从普吉机场出发，纵穿海岛中部，开到普吉镇和1号巴士总站。按距离收费（{fare}），全程约{duration}。",
       "faq": [
         {
           "q": "去普吉镇的机场巴士多少钱？",
           "a": "到普吉镇{max}฿。短途更便宜：{steps}。"
         },
         {
-          "q": "在普吉机场哪里坐 8411？",
+          "q": "在普吉机场哪里坐8411？",
           "a": "{boarding}"
         },
         {
-          "q": "8411 去芭东吗？",
-          "a": "不去。可在1号巴士总站换乘 Smart Bus 2 号线：{p4fare}，到芭东约{p4time}。或者从机场直接坐 Smart Bus，直达芭东。"
+          "q": "8411去芭东吗？",
+          "a": "不去。可在1号巴士总站换乘 Smart Bus 2号线：{p4fare}，到芭东约{p4time}。或者从机场直接坐 Smart Bus，直达芭东。"
         },
         {
           "q": "首班车和末班车是几点？",
@@ -231,7 +231,7 @@
       ]
     },
     "P3": {
-      "title": "普吉机场快线到芭东卡伦卡塔：时刻表2026",
+      "title": "普吉机场快线到芭东、卡伦、卡塔：时刻表2026",
       "description": "深蓝色 Airport Bus Express，普吉机场至芭东、卡伦和卡塔：发车{first}–{last}，上车地点。票价未确认。",
       "h1": "Airport Bus Express 机场快线：普吉机场至芭东、卡伦和卡塔",
       "intro": "深蓝色的 Airport Bus Express 从机场出发，经卡图开往芭东、卡伦和卡塔，{first}至{last}每小时一班。",
@@ -250,15 +250,15 @@
         },
         {
           "q": "它和 Smart Bus 是一样的吗？",
-          "a": "不是。它属于另一家公司，票价不同，车身是更深的蓝色。Smart Bus（{p1fare}）也去芭东、卡伦和卡塔，大约每 30 分钟一班。"
+          "a": "不是。它属于另一家公司，票价不同，车身是更深的蓝色。Smart Bus（{p1fare}）也去芭东、卡伦和卡塔，大约每30分钟一班。"
         }
       ]
     },
     "P4": {
       "title": "普吉镇到芭东巴士（Smart Bus 2号线）时刻表2026",
-      "description": "Smart Bus 2 号线往返普吉1号巴士总站和芭东：{fare}，约{duration}，11 号站台。双向完整时刻表及日票。",
+      "description": "Smart Bus 2号线往返普吉1号巴士总站和芭东：{fare}，约{duration}，11号站台。双向完整时刻表及日票。",
       "h1": "坐巴士从普吉镇到芭东",
-      "intro": "Smart Bus 2 号线经卡图连接普吉镇的1号巴士总站和芭东海滩。票价{fare}，到芭东约{duration}。",
+      "intro": "Smart Bus 2号线经卡图连接普吉镇的1号巴士总站和芭东海滩。票价{fare}，到芭东约{duration}。",
       "faq": [
         {
           "q": "普吉镇坐巴士到芭东多少钱？",
@@ -274,7 +274,7 @@
         },
         {
           "q": "它去机场吗？",
-          "a": "不去。从机场可以坐橙色 8411 巴士到1号巴士总站再换乘，或者直接坐 Smart Bus 到芭东。"
+          "a": "不去。从机场可以坐橙色8411巴士到1号巴士总站再换乘，或者直接坐 Smart Bus 到芭东。"
         },
         {
           "q": "有日票吗？",
@@ -302,7 +302,7 @@
         },
         {
           "q": "它去机场或海滩吗？",
-          "a": "不去，只在老城内绕行。去芭东请在1号巴士总站坐 Smart Bus 2 号线。"
+          "a": "不去，只在老城内绕行。去芭东请在1号巴士总站坐 Smart Bus 2号线。"
         }
       ]
     },
@@ -312,11 +312,11 @@
       "h1": "坐巴士往返芭东",
       "intro": "芭东有两条直达巴士线：一条到机场，一条到普吉镇。以下是所有选择，时间来自运营方的时刻表。",
       "airportToPatong": "机场 → 芭东",
-      "airportToPatongText": "Smart Bus 大约每 30 分钟从机场发一班，约{p1time}后到达芭东站（府电力局，Provincial Electricity Authority），票价{p1fare}。深蓝色的 Airport Bus Express 也去芭东，每小时一班。",
+      "airportToPatongText": "Smart Bus 大约每30分钟从机场发一班，约{p1time}后到达芭东站（省电力局，Provincial Electricity Authority），票价{p1fare}。深蓝色的 Airport Bus Express 机场快线也去芭东，每小时一班。",
       "patongToAirport": "芭东 → 机场",
-      "patongToAirportText": "在 Bangla 警察亭站 (Bangla Police Box) 坐 Smart Bus，到机场约{inTime}。",
+      "patongToAirportText": "在邦拉路警察亭站（Bangla Police Box）坐 Smart Bus，到机场约{inTime}。",
       "townPatong": "普吉镇 ↔ 芭东",
-      "townPatongText": "Smart Bus 2 号线往返1号巴士总站和芭东海滩，票价{p4fare}，约{p4time}。",
+      "townPatongText": "Smart Bus 2号线往返1号巴士总站和芭东海滩，票价{p4fare}，约{p4time}。",
       "tableAirportPatong": "Smart Bus：机场 → 芭东",
       "tablePatongAirport": "Smart Bus：芭东 → 机场",
       "faq": [
@@ -326,7 +326,7 @@
         },
         {
           "q": "在芭东哪里下车？",
-          "a": "从机场过来，Smart Bus 停在芭东的府电力局 (Provincial Electricity Authority)。回程请在 Bangla 警察亭站 (Bangla Police Box) 上车。"
+          "a": "从机场过来，Smart Bus 停在芭东的省电力局（Provincial Electricity Authority）。回程请在邦拉路警察亭站（Bangla Police Box）上车。"
         },
         {
           "q": "赶早班飞机能坐巴士去机场吗？",
@@ -334,13 +334,13 @@
         },
         {
           "q": "从芭东怎么去普吉老城？",
-          "a": "坐 Smart Bus 2 号线到1号巴士总站（{p4fare}）。老城离那里步行不远，免费的 Dragon Line 也绕老城运行。"
+          "a": "坐 Smart Bus 2号线到1号巴士总站（{p4fare}）。老城离那里步行不远，免费的 Dragon Line 也绕老城运行。"
         }
       ]
     },
     "map": {
       "title": "普吉岛巴士地图2026：全部5条路线与机场巴士",
-      "description": "普吉岛 5 条巴士路线简明地图：Smart Bus、8411 机场巴士、机场快线、市区–芭东线和免费 Dragon Line。看看哪趟车去哪里。",
+      "description": "普吉岛5条巴士路线简明地图：Smart Bus、8411机场巴士、机场快线、市区–芭东线和免费 Dragon Line。看看哪趟车去哪里。",
       "h1": "普吉岛巴士地图",
       "intro": "五条路线的简化地图。只显示站点顺序和线路交汇处，不是实际道路。选择一条路线查看完整时刻表。",
       "sea": "安达曼海",
@@ -367,140 +367,140 @@
         },
         {
           "q": "普吉岛的巴士晚上运行吗？",
-          "a": "最后一班 Smart Bus {p1last}从机场发车。其他路线在 19:00 到 22:30 之间收班。"
+          "a": "最后一班 Smart Bus {p1last}从机场发车。其他路线在19:00到22:30之间收班。"
         }
       ]
     },
     "airport": {
-      "title": "Phuket Airport Bus 2026: Which Bus to Patong, Kata, Town",
-      "description": "All 3 buses from Phuket Airport compared: Smart Bus {p1fare}, airport bus 8411 to Phuket Town, Airport Express. Where to board, first and last buses.",
-      "h1": "Phuket Airport bus: which one to take",
-      "intro": "Three public buses leave Phuket Airport. Where you are going decides which one: the west-coast beaches, Phuket Town, or Patong, Karon and Kata on the express.",
-      "tableTitle": "The three airport buses",
-      "colBus": "Bus",
-      "colGoes": "Goes to",
-      "colFare": "Fare",
-      "colHours": "Leaves the airport",
-      "colBoard": "Where to board",
-      "lateTitle": "Landing late?",
-      "lateText": "The last Smart Bus leaves the airport at {p1last}, the last 8411 at {p2last} and the last Airport Express at {p3last}. After that there is no public bus; you will need a taxi or a ride-hailing app.",
-      "destTitle": "Where are you going?",
+      "title": "普吉机场巴士2026：去芭东、卡塔、普吉镇坐哪趟",
+      "description": "普吉机场3趟巴士对比：Smart Bus {p1fare}、到普吉镇的8411机场巴士、机场快线。上车地点和首末班时间。",
+      "h1": "普吉机场巴士：该坐哪一趟",
+      "intro": "普吉机场有三趟公共巴士。坐哪趟取决于你要去哪里：西海岸海滩、普吉镇，或者坐快线去芭东、卡伦和卡塔。",
+      "tableTitle": "三趟机场巴士",
+      "colBus": "巴士",
+      "colGoes": "开往",
+      "colFare": "票价",
+      "colHours": "机场发车时间",
+      "colBoard": "上车地点",
+      "lateTitle": "落地很晚？",
+      "lateText": "最后一班 Smart Bus {p1last}从机场发车，8411末班{p2last}（它自己的常见问题里说是21:30），机场快线末班{p3last}。之后就没有公共巴士了，只能坐出租车或用打车软件。",
+      "destTitle": "你要去哪里？",
       "faq": [
         {
-          "q": "Is there a bus from Phuket Airport?",
-          "a": "Yes, three: the Smart Bus to the west-coast beaches, the orange 8411 to Phuket Town, and the Airport Bus Express to Patong, Karon and Kata."
+          "q": "普吉机场有巴士吗？",
+          "a": "有，三趟：Smart Bus 去西海岸海滩，橙色8411去普吉镇，Airport Bus Express 机场快线去芭东、卡伦和卡塔。"
         },
         {
-          "q": "Which airport bus goes to Patong?",
-          "a": "The Smart Bus ({p1fare}, about {p1time}) and the Airport Bus Express. The 8411 does not."
+          "q": "哪趟机场巴士去芭东？",
+          "a": "Smart Bus（{p1fare}，约{p1time}）和 Airport Bus Express 机场快线。8411不去芭东。"
         },
         {
-          "q": "What time is the last bus from Phuket Airport?",
-          "a": "{p1last} for the Smart Bus. The 8411 and the Express stop earlier: {p2last} and {p3last}."
+          "q": "普吉机场的末班巴士是几点？",
+          "a": "Smart Bus 是{p1last}。8411和机场快线收得更早，分别是{p2last}和{p3last}。"
         },
         {
-          "q": "Where do the buses leave from at Phuket Airport?",
-          "a": "All three leave from the domestic terminal side. The Smart Bus and the Express board near exit 3. From international arrivals, walk over to the domestic side."
+          "q": "普吉机场的巴士在哪里上车？",
+          "a": "三趟都在国内航站楼那一侧发车。Smart Bus 和机场快线在3号出口附近上车。从国际到达出来的话，请走到国内航站楼那边。"
         }
       ]
     },
     "kataKaron": {
-      "title": "Phuket Airport to Kata & Karon by Bus: Times 2026",
-      "description": "Smart Bus from Phuket Airport to Karon and Kata: {p1fare}, about {karonTime} to Karon and {kataTime} to Kata. Every departure with arrival times.",
-      "h1": "Phuket Airport to Karon and Kata by bus",
-      "intro": "The Smart Bus runs from the airport to Karon Circle and Kata Night Plaza about every 30 minutes, for {p1fare}. It takes about {karonTime} to Karon and {kataTime} to Kata.",
-      "other": "The dark blue Airport Bus Express also goes to Karon and Kata, every hour. Its fare is not confirmed.",
+      "title": "普吉机场到卡塔、卡伦巴士：时刻表2026",
+      "description": "普吉机场坐 Smart Bus 到卡伦和卡塔：{p1fare}，到卡伦约{karonTime}，到卡塔约{kataTime}。每班发车及到站时间。",
+      "h1": "坐巴士从普吉机场到卡伦和卡塔",
+      "intro": "Smart Bus 从机场开往卡伦环岛（Karon Circle）和卡塔夜市广场（Kata Night Plaza），大约每30分钟一班，票价{p1fare}。到卡伦约{karonTime}，到卡塔约{kataTime}。",
+      "other": "深蓝色的 Airport Bus Express 机场快线也去卡伦和卡塔，每小时一班。票价未确认。",
       "faq": [
         {
-          "q": "How much is the bus from Phuket Airport to Kata or Karon?",
-          "a": "{p1fare} on the Smart Bus, paid on board in cash, by QR or with a contactless card."
+          "q": "普吉机场坐巴士到卡塔或卡伦多少钱？",
+          "a": "坐 Smart Bus 是{p1fare}，上车用现金、二维码或非接触式银行卡付款。"
         },
         {
-          "q": "How long does the bus take to Kata?",
-          "a": "About {kataTime} to Kata Night Plaza and {karonTime} to Karon Circle, by the operator's timetable. Traffic can add more."
+          "q": "坐巴士到卡塔要多久？",
+          "a": "按运营方时刻表，到卡塔夜市广场（Kata Night Plaza）约{kataTime}，到卡伦环岛（Karon Circle）约{karonTime}。遇到堵车可能会更久。"
         },
         {
-          "q": "What time is the last bus from the airport to Kata?",
-          "a": "The last Smart Bus leaves the airport at {p1last} and reaches Kata at about {lastArr}."
+          "q": "机场到卡塔的末班车是几点？",
+          "a": "最后一班 Smart Bus {p1last}从机场发车，约{lastArr}到达卡塔。"
         },
         {
-          "q": "What is the first bus from Kata to the airport?",
-          "a": "The first Smart Bus leaves {backStop} at {backFirst} and reaches the airport at {backFirstArr}."
+          "q": "卡塔到机场的首班车是几点？",
+          "a": "首班 Smart Bus {backFirst}从{backStop}发车，{backFirstArr}到达机场。"
         }
       ]
     },
     "rawai": {
-      "title": "Phuket Airport to Rawai by Bus: Smart Bus Times 2026",
-      "description": "Smart Bus from Phuket Airport to Rawai Beach: {p1fare}, about {destTime}. Every departure with arrival times, the way back, and the Phromthep Cape runs.",
-      "h1": "Phuket Airport to Rawai by bus",
-      "intro": "Rawai is the last stop of the Smart Bus. It leaves the airport about every 30 minutes, costs {p1fare} and takes about {destTime} to Rawai Beach.",
-      "other": "The 14:00, 15:00 and 16:00 buses from the airport continue past Rawai to Phromthep Cape.",
+      "title": "普吉机场到拉威巴士：Smart Bus 时刻表2026",
+      "description": "普吉机场坐 Smart Bus 到拉威海滩：{p1fare}，约{destTime}。每班发车及到站时间、回程，以及开到神仙半岛的班次。",
+      "h1": "坐巴士从普吉机场到拉威",
+      "intro": "拉威是 Smart Bus 的终点站。巴士大约每30分钟从机场发一班，票价{p1fare}，到拉威海滩约{destTime}。",
+      "other": "14:00、15:00和16:00从机场出发的班次过了拉威后会继续开到神仙半岛（Phromthep Cape）。",
       "faq": [
         {
-          "q": "How much is the bus from Phuket Airport to Rawai?",
-          "a": "{p1fare} on the Smart Bus, paid on board in cash, by QR or with a contactless card."
+          "q": "普吉机场坐巴士到拉威多少钱？",
+          "a": "坐 Smart Bus 是{p1fare}，上车用现金、二维码或非接触式银行卡付款。"
         },
         {
-          "q": "How long does it take?",
-          "a": "About {destTime} from the airport to Rawai Beach, by the operator's timetable. Traffic can add more."
+          "q": "坐巴士到拉威要多久？",
+          "a": "按运营方时刻表，从机场到拉威海滩约{destTime}。遇到堵车可能会更久。"
         },
         {
-          "q": "What time is the last bus to Rawai?",
-          "a": "The last Smart Bus leaves the airport at {p1last} and reaches Rawai at about {lastArr}."
+          "q": "到拉威的末班车是几点？",
+          "a": "最后一班 Smart Bus {p1last}从机场发车，约{lastArr}到达拉威。"
         },
         {
-          "q": "What is the first bus from Rawai to the airport?",
-          "a": "The first Smart Bus leaves {backStop} at {backFirst} and reaches the airport at {backFirstArr}."
+          "q": "拉威到机场的首班车是几点？",
+          "a": "首班 Smart Bus {backFirst}从{backStop}发车，{backFirstArr}到达机场。"
         }
       ]
     },
     "kamalaSurin": {
-      "title": "Phuket Airport to Kamala & Surin by Bus: Times 2026",
-      "description": "Smart Bus from Phuket Airport to Surin Beach and Kamala: {p1fare}, about {surinTime} to Surin and {kamalaTime} to Kamala. All departures and the way back.",
-      "h1": "Phuket Airport to Surin and Kamala by bus",
-      "intro": "Surin and Kamala are the first beaches on the Smart Bus route. The bus takes about {surinTime} to Surin Beach and {kamalaTime} to Kamala, for {p1fare}.",
-      "other": "The Smart Bus carries on to Patong, Karon, Kata and Rawai, so the same bus serves the rest of the west coast.",
+      "title": "普吉机场到卡马拉、苏林巴士：时刻表2026",
+      "description": "普吉机场坐 Smart Bus 到苏林海滩和卡马拉：{p1fare}，到苏林约{surinTime}，到卡马拉约{kamalaTime}。全部班次及回程。",
+      "h1": "坐巴士从普吉机场到苏林和卡马拉",
+      "intro": "苏林和卡马拉是 Smart Bus 路线上最先到的海滩。到苏林海滩约{surinTime}，到卡马拉约{kamalaTime}，票价{p1fare}。",
+      "other": "Smart Bus 会继续开往芭东、卡伦、卡塔和拉威，同一趟车就能去西海岸其他地方。",
       "faq": [
         {
-          "q": "How much is the bus from Phuket Airport to Kamala?",
-          "a": "{p1fare} on the Smart Bus, paid on board in cash, by QR or with a contactless card."
+          "q": "普吉机场坐巴士到卡马拉多少钱？",
+          "a": "坐 Smart Bus 是{p1fare}，上车用现金、二维码或非接触式银行卡付款。"
         },
         {
-          "q": "How long does it take?",
-          "a": "About {surinTime} to Surin Beach and {kamalaTime} to Kamala, by the operator's timetable."
+          "q": "坐巴士到卡马拉要多久？",
+          "a": "按运营方时刻表，到苏林海滩约{surinTime}，到卡马拉约{kamalaTime}。"
         },
         {
-          "q": "What time is the last bus to Kamala?",
-          "a": "The last Smart Bus leaves the airport at {p1last} and reaches Kamala at about {lastArr}."
+          "q": "到卡马拉的末班车是几点？",
+          "a": "最后一班 Smart Bus {p1last}从机场发车，约{lastArr}到达卡马拉。"
         },
         {
-          "q": "What is the first bus from Kamala to the airport?",
-          "a": "The first Smart Bus leaves {backStop} at {backFirst} and reaches the airport at {backFirstArr}."
+          "q": "卡马拉到机场的首班车是几点？",
+          "a": "首班 Smart Bus {backFirst}从{backStop}发车，{backFirstArr}到达机场。"
         }
       ]
     },
     "town": {
-      "title": "Phuket Airport to Phuket Town & Old Town by Bus 2026",
-      "description": "Phuket Airport to Phuket Town and the Old Town by bus: orange 8411 for {fare}, about {duration}, then the free Dragon Line. Times both ways.",
-      "h1": "Phuket Airport to Phuket Town and the Old Town",
-      "intro": "The orange 8411 is the only public bus from the airport to Phuket Town. It runs down the middle of the island to Bus Terminal 1 in about {duration}. From there, the free Dragon Line loops the Old Town.",
-      "other": "For Patong, change at Bus Terminal 1 to Smart Bus Route 2 ({p4fare}).",
+      "title": "普吉机场坐巴士到普吉镇和老城2026",
+      "description": "普吉机场坐巴士到普吉镇和老城：橙色8411，{fare}，约{duration}，再换乘免费 Dragon Line。双向时间。",
+      "h1": "从普吉机场到普吉镇和老城",
+      "intro": "橙色8411是唯一一趟从机场到普吉镇的公共巴士。它纵穿海岛中部，约{duration}到达1号巴士总站。从那里可以坐免费的 Dragon Line 在老城绕行。",
+      "other": "去芭东的话，在1号巴士总站换乘 Smart Bus 2号线（{p4fare}）。",
       "faq": [
         {
-          "q": "How much is the bus from Phuket Airport to Phuket Town?",
-          "a": "{max}฿ to Phuket Town on the 8411. Shorter rides cost less: {steps}."
+          "q": "普吉机场坐巴士到普吉镇多少钱？",
+          "a": "坐8411到普吉镇{max}฿。短途更便宜：{steps}。"
         },
         {
-          "q": "How do I get to the Old Town?",
-          "a": "Ride the 8411 to Bus Terminal 1. The Old Town is a short walk from there, and the free Dragon Line loops it every {every} minutes."
+          "q": "怎么去普吉老城？",
+          "a": "坐8411到1号巴士总站。老城离那里步行不远，免费的 Dragon Line 每{every}分钟绕老城一圈。"
         },
         {
-          "q": "What time are the first and last buses?",
-          "a": "From the airport: first {first}, last {last}. From Bus Terminal 1: first {inFirst}, last {inLast}."
+          "q": "首班车和末班车是几点？",
+          "a": "从机场出发：首班{first}，末班{last}。从1号巴士总站出发：首班{inFirst}，末班{inLast}。"
         },
         {
-          "q": "Is there a later bus if I land at night?",
-          "a": "No. The Smart Bus runs later ({p1last}), but it goes to the west-coast beaches, not to town."
+          "q": "晚上落地还有更晚的巴士吗？",
+          "a": "没有。Smart Bus 收得更晚（{p1last}），但它去西海岸海滩，不去普吉镇。"
         }
       ]
     }
@@ -510,9 +510,8 @@
     "text": "这个页面不存在。看看时刻表吧："
   },
   "trip": {
-    "outTitle": "From the airport",
-    "backTitle": "Back to the airport",
-    "otherTitle": "Other options",
-    "fromAirportCol": "Leaves airport"
+    "outTitle": "从机场出发",
+    "backTitle": "返回机场",
+    "otherTitle": "其他选择"
   }
 }

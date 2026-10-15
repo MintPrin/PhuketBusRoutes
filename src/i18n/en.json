@@ -512,7 +512,6 @@
   "trip": {
     "outTitle": "From the airport",
     "backTitle": "Back to the airport",
-    "otherTitle": "Other options",
-    "fromAirportCol": "Leaves airport"
+    "otherTitle": "Other options"
   }
 }

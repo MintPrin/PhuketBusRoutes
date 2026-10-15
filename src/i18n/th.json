@@ -512,7 +512,6 @@
   "trip": {
     "outTitle": "ออกจากสนามบิน",
     "backTitle": "กลับไปสนามบิน",
-    "otherTitle": "ทางเลือกอื่น",
-    "fromAirportCol": "ออกจากสนามบิน"
+    "otherTitle": "ทางเลือกอื่น"
   }
 }
